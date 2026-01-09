@@ -7,6 +7,8 @@ import 'package:hamewari/pages/views/month.dart';
 import 'package:hamewari/pages/views/week.dart';
 import 'package:hamewari/pages/views/year.dart';
 import 'package:hamewari/theme/app_theme.dart';
+import 'package:vibration/vibration.dart';
+import 'package:vibration/vibration_presets.dart';
 
 enum CalendarView {
   year(YearView()),
@@ -77,6 +79,8 @@ class _CalendarPageState extends State<CalendarPage> {
       duration: const Duration(milliseconds: 350),
       curve: Curves.easeOutCubic,
     );
+
+    // Vibration.vibrate(preset: VibrationPreset.softPulse);
 
     persistViewChanged(newSelectedView);
   }
