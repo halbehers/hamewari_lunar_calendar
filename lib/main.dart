@@ -43,9 +43,57 @@ extension BuildContextExtension on BuildContext {
 final _router = GoRouter(
   routes: [
     GoRoute(path: '/', builder: (context, state) => CalendarPage()),
-    GoRoute(path: '/calendar', builder: (context, state) => CalendarPage()),
-    GoRoute(path: '/tasks', builder: (context, state) => TasksPage()),
-    GoRoute(path: '/settings', builder: (context, state) => SettingsPage()),
+    GoRoute(
+      path: '/calendar',
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: CalendarPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: CurveTween(
+                curve: Curves.easeInOutCirc,
+              ).animate(animation),
+              child: child,
+            );
+          },
+        );
+      },
+    ),
+    GoRoute(
+      path: '/tasks',
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: TasksPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: CurveTween(
+                curve: Curves.easeInOutCirc,
+              ).animate(animation),
+              child: child,
+            );
+          },
+        );
+      },
+    ),
+    GoRoute(
+      path: '/settings',
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: SettingsPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: CurveTween(
+                curve: Curves.easeInOutCirc,
+              ).animate(animation),
+              child: child,
+            );
+          },
+        );
+      },
+    ),
   ],
 );
 

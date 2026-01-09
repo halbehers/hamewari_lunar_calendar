@@ -33,6 +33,7 @@ class CalendarPage extends StatefulWidget {
 
 class _CalendarPageState extends State<CalendarPage> {
   CalendarView selectedView = CalendarView.year;
+  late CalendarView _previousView;
   final SettingsService _settingService = SettingsService();
 
   void persistViewChanged(CalendarView newSelectedView) {
@@ -45,18 +46,24 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   void initState() {
     super.initState();
+    _previousView = selectedView;
+
     _settingService.findByName(SettingsService.selectedCalendarViewId).then((
       setting,
     ) {
+      final restored =
+          CalendarView.fromName(setting?.value) ?? CalendarView.year;
+
       setState(() {
-        selectedView =
-            CalendarView.fromName(setting?.value) ?? CalendarView.year;
+        selectedView = restored;
+        _previousView = restored;
       });
     });
   }
 
   void onViewChanged(CalendarView newSelectedView) {
     setState(() {
+      _previousView = selectedView;
       selectedView = newSelectedView;
     });
     persistViewChanged(newSelectedView);
@@ -72,7 +79,28 @@ class _CalendarPageState extends State<CalendarPage> {
         selectedView: selectedView,
         onViewChanged: onViewChanged,
       ),
-      body: selectedView.widget,
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 300),
+        switchInCurve: Curves.easeOut,
+        switchOutCurve: Curves.easeIn,
+        transitionBuilder: (child, animation) {
+          final isForward = selectedView.index > _previousView.index;
+
+          final offsetAnimation = Tween<Offset>(
+            begin: Offset(isForward ? 1.0 : -1.0, 0.0),
+            end: Offset.zero,
+          ).animate(animation);
+
+          return FadeTransition(
+            opacity: animation,
+            child: SlideTransition(position: offsetAnimation, child: child),
+          );
+        },
+        child: KeyedSubtree(
+          key: ValueKey(selectedView),
+          child: selectedView.widget,
+        ),
+      ),
       floatingActionButton: MainPageSelector(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
