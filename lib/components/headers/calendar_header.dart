@@ -6,11 +6,11 @@ import 'package:hamewari/theme/app_theme.dart';
 class CalendarHeader extends StatelessWidget implements PreferredSizeWidget {
   const CalendarHeader({
     super.key,
-    this.selectedView = CalendarView.year,
+    this.selectedView,
     required this.onViewChanged,
   });
 
-  final CalendarView selectedView;
+  final CalendarView? selectedView;
   final void Function(CalendarView) onViewChanged;
 
   @override
@@ -28,7 +28,10 @@ class CalendarHeader extends StatelessWidget implements PreferredSizeWidget {
               horizontal: 32,
               vertical: 24,
             ),
-            child: CalendarViewSelector(onViewChanged: onViewChanged),
+            child: CalendarViewSelector(
+              onViewChanged: onViewChanged,
+              selectedView: selectedView,
+            ),
           ),
         ],
       ),

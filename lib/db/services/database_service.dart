@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -32,23 +33,43 @@ class DatabaseService {
     final String databaseDirectoryPath = await getDatabasesPath();
     final String path = join(databaseDirectoryPath, "hamewari.db");
 
-    return await openDatabase(path, version: 1, onCreate: _onCreate);
+    final Database database = await openDatabase(
+      path,
+      version: 1,
+      onCreate: _onCreate,
+      onUpgrade: _onUpgrade,
+    );
+
+    if (kDebugMode) {
+      print('Database initialized!');
+      print('Path to db: $databaseDirectoryPath');
+    }
+
+    return database;
   }
 
   Future _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE $_settingsTableName (
-        $_settingsIdColumnName INTEGER PRIMARY KEY
-        $_settingsNameColumnName TEXT NOT NULL
-        $_settingsValueColumnName TEXT NOT NULL
+        $_settingsIdColumnName INTEGER PRIMARY KEY,
+        $_settingsNameColumnName TEXT NOT NULL UNIQUE,
+        $_settingsValueColumnName TEXT NOT NULL,
         $_settingsValueTypeColumnName TEXT NOT NULL
       );
+      ''');
+    await db.execute('''
       CREATE TABLE $_eventsTableName (
-        $_eventsIdColumnName INTEGER PRIMARY KEY
-        $_eventsNameColumnName TEXT NOT NULL
-        $_eventsStartingAtColumnName DATETIME NOT NULL
+        $_eventsIdColumnName INTEGER PRIMARY KEY,
+        $_eventsNameColumnName TEXT NOT NULL,
+        $_eventsStartingAtColumnName DATETIME NOT NULL,
         $_eventsEndingAtColumnName DATETIME NOT NULL
       );
     ''');
+  }
+
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    // if (oldVersion < 2) {
+    //   await db.execute('ALTER TABLE tasks ADD COLUMN priority INTEGER DEFAULT 0');
+    // }
   }
 }

@@ -9,7 +9,12 @@ class Setting extends Model<Setting> {
 
   @override
   Map<String, Object?> getValuesMap() {
-    return {"id": id, "name": name, "value": value, "valueType": valueType};
+    return {
+      "id": id,
+      "name": name,
+      "value": value,
+      "value_type": valueType.name,
+    };
   }
 
   @override
