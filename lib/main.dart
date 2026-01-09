@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:hamewari/pages/calendar.dart';
 import 'package:hamewari/pages/settings.dart';
 import 'package:hamewari/pages/tasks.dart';
-import 'package:hamewari/pages/views/year.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/theme/theme_colors.dart';
 
