@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+
+@immutable
+class AppTheme extends ThemeExtension<AppTheme> {
+  const AppTheme({
+    required this.backgroundColor,
+    required this.secondaryBackgroundColor,
+    required this.textColor,
+    required this.iconColor,
+    required this.iconActiveColor,
+    required this.accentColor,
+    required this.accentBackgroundColor,
+    required this.shadowColor,
+    required this.borderColor,
+  });
+
+  final Color backgroundColor;
+  final Color secondaryBackgroundColor;
+  final Color textColor;
+  final Color iconColor;
+  final Color iconActiveColor;
+  final Color accentColor;
+  final Color accentBackgroundColor;
+  final Color shadowColor;
+  final Color borderColor;
+
+  @override
+  AppTheme copyWith({
+    Color? background,
+    Color? secondaryBackground,
+    Color? textColor,
+    Color? iconColor,
+    Color? iconActiveColor,
+    Color? accentColor,
+    Color? accentBackgroundColor,
+    Color? shadowColor,
+    Color? borderColor,
+  }) {
+    return AppTheme(
+      backgroundColor: background ?? this.backgroundColor,
+      secondaryBackgroundColor: secondaryBackground ?? this.secondaryBackgroundColor,
+      textColor: textColor ?? this.textColor,
+      iconColor: iconColor ?? this.iconColor,
+      iconActiveColor: iconActiveColor ?? this.iconActiveColor,
+      accentColor: accentColor ?? this.accentColor,
+      accentBackgroundColor: accentBackgroundColor ?? this.accentBackgroundColor,
+      shadowColor: shadowColor ?? this.shadowColor,
+      borderColor: borderColor ?? this.borderColor,
+    );
+  }
+
+  @override
+  AppTheme lerp(ThemeExtension<AppTheme>? other, double t) {
+    if (other is! AppTheme) {
+      return this;
+    }
+    return AppTheme(
+      backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t) ?? Colors.white,
+      secondaryBackgroundColor: Color.lerp(secondaryBackgroundColor, other.secondaryBackgroundColor, t) ?? Colors.white,
+      textColor: Color.lerp(textColor, other.textColor, t) ?? Colors.black,
+      iconColor: Color.lerp(iconColor, other.iconColor, t) ?? Colors.black,
+      iconActiveColor: Color.lerp(iconActiveColor, other.iconActiveColor, t) ?? Colors.black,
+      accentColor: Color.lerp(accentColor, other.accentColor, t) ?? Colors.black,
+      accentBackgroundColor: Color.lerp(accentBackgroundColor, other.accentBackgroundColor, t) ?? Colors.black,
+      shadowColor: Color.lerp(shadowColor, other.shadowColor, t) ?? Colors.black,
+      borderColor: Color.lerp(borderColor, other.borderColor, t) ?? Colors.black,
+    );
+  }
+}

@@ -1,0 +1,40 @@
+import 'package:hamewari/db/models/model.dart';
+
+enum SettingValueType { number, string, boolean }
+
+class Setting extends Model<Setting> {
+  String name = "";
+  String value = "";
+  SettingValueType valueType = SettingValueType.string;
+
+  @override
+  Map<String, Object?> getValuesMap() {
+    return {"id": id, "name": name, "value": value, "valueType": valueType};
+  }
+
+  @override
+  Setting fillFromValues(Map<String, Object?> values) {
+    if (values["id"] != null) {
+      id = values["id"] as int;
+    }
+    if (values["name"] != null) {
+      name = values["name"] as String;
+    }
+    if (values["value"] != null) {
+      value = values["value"] as String;
+    }
+    if (values["valueType"] != null) {
+      switch (values["valueType"]) {
+        case "string":
+          valueType = SettingValueType.string;
+        case "number":
+          valueType = SettingValueType.number;
+        case "boolean":
+          valueType = SettingValueType.boolean;
+        default:
+          valueType = SettingValueType.string;
+      }
+    }
+    return this;
+  }
+}
