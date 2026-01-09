@@ -29,7 +29,7 @@ class MainPageSelector extends StatelessWidget {
     return ButtonStack(
       onSelectionChanged: onSelectionChanged,
       size: ButtonStackSize.large,
-      defaultSelection: pageId,
+      selection: pageId,
       items: [
         ButtonStackItem(id: "calendar", iconPath: IconPath.calendar),
         ButtonStackItem(id: "tasks", iconPath: IconPath.rows),

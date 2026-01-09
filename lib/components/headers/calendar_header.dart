@@ -6,31 +6,31 @@ import 'package:hamewari/theme/app_theme.dart';
 class CalendarHeader extends StatelessWidget implements PreferredSizeWidget {
   const CalendarHeader({
     super.key,
-    this.selectedView,
+    required this.selectedView,
     required this.onViewChanged,
   });
 
-  final CalendarView? selectedView;
+  final CalendarView selectedView;
   final void Function(CalendarView) onViewChanged;
 
   @override
   Widget build(BuildContext context) {
-    AppTheme appTheme = Theme.of(context).extension<AppTheme>()!;
+    final appTheme = Theme.of(context).extension<AppTheme>()!;
 
     return AppBar(
       backgroundColor: appTheme.backgroundColor,
-      flexibleSpace: Container(),
+      flexibleSpace: const SizedBox.shrink(),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.symmetric(
+            padding: const EdgeInsetsDirectional.symmetric(
               horizontal: 32,
               vertical: 24,
             ),
             child: CalendarViewSelector(
-              onViewChanged: onViewChanged,
               selectedView: selectedView,
+              onViewChanged: onViewChanged,
             ),
           ),
         ],
@@ -40,5 +40,5 @@ class CalendarHeader extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size(400, 70);
+  Size get preferredSize => const Size(400, 70);
 }

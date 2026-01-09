@@ -13,31 +13,24 @@ class ButtonStackItem {
 
 enum ButtonStackSize { small, medium, large }
 
-class ButtonStack extends StatefulWidget {
+class ButtonStack extends StatelessWidget {
   const ButtonStack({
     super.key,
     required this.items,
     this.size = ButtonStackSize.medium,
     this.margin,
     required this.onSelectionChanged,
-    this.defaultSelection,
+    this.selection,
   });
 
   final List<ButtonStackItem> items;
   final ButtonStackSize size;
   final EdgeInsetsGeometry? margin;
   final void Function(String) onSelectionChanged;
-  final String? defaultSelection;
-
-  @override
-  State<ButtonStack> createState() => _ButtonStackState();
-}
-
-class _ButtonStackState extends State<ButtonStack> {
-  String? selection;
+  final String? selection;
 
   IconSize getIconSize() {
-    switch (widget.size) {
+    switch (size) {
       case ButtonStackSize.small:
         return IconSize.small;
       case ButtonStackSize.medium:
@@ -48,14 +41,7 @@ class _ButtonStackState extends State<ButtonStack> {
   }
 
   String getSelection() {
-    return selection ?? widget.defaultSelection ?? widget.items.first.id;
-  }
-
-  void onSelectionChanged(String id) {
-    setState(() {
-      selection = id;
-    });
-    widget.onSelectionChanged(id);
+    return selection ?? items.first.id;
   }
 
   @override
@@ -76,12 +62,12 @@ class _ButtonStackState extends State<ButtonStack> {
           ),
         ],
       ),
-      margin: widget.margin,
+      margin: margin,
       child: Padding(
         padding: EdgeInsetsGeometry.symmetric(vertical: 12, horizontal: 24),
         child: Wrap(
           spacing: 16,
-          children: widget.items
+          children: items
               .map(
                 (item) => GestureDetector(
                   onTap: () => onSelectionChanged(item.id),

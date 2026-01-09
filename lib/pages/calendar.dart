@@ -32,8 +32,8 @@ class CalendarPage extends StatefulWidget {
 }
 
 class _CalendarPageState extends State<CalendarPage> {
+  late final PageController _pageController;
   CalendarView selectedView = CalendarView.year;
-  late CalendarView _previousView;
   final SettingsService _settingService = SettingsService();
 
   void persistViewChanged(CalendarView newSelectedView) {
@@ -46,7 +46,7 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   void initState() {
     super.initState();
-    _previousView = selectedView;
+    _pageController = PageController(initialPage: selectedView.index);
 
     _settingService.findByName(SettingsService.selectedCalendarViewId).then((
       setting,
@@ -56,16 +56,28 @@ class _CalendarPageState extends State<CalendarPage> {
 
       setState(() {
         selectedView = restored;
-        _previousView = restored;
+        _pageController.jumpToPage(restored.index);
       });
     });
   }
 
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   void onViewChanged(CalendarView newSelectedView) {
     setState(() {
-      _previousView = selectedView;
       selectedView = newSelectedView;
     });
+
+    _pageController.animateToPage(
+      newSelectedView.index,
+      duration: const Duration(milliseconds: 350),
+      curve: Curves.easeOutCubic,
+    );
+
     persistViewChanged(newSelectedView);
   }
 
@@ -79,27 +91,25 @@ class _CalendarPageState extends State<CalendarPage> {
         selectedView: selectedView,
         onViewChanged: onViewChanged,
       ),
-      body: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 300),
-        switchInCurve: Curves.easeOut,
-        switchOutCurve: Curves.easeIn,
-        transitionBuilder: (child, animation) {
-          final isForward = selectedView.index > _previousView.index;
+      body: PageView(
+        controller: _pageController,
+        physics: Theme.of(context).platform == TargetPlatform.iOS
+            ? const BouncingScrollPhysics()
+            : const ClampingScrollPhysics(),
+        onPageChanged: (index) {
+          final newView = CalendarView.values[index];
+          setState(() {
+            selectedView = newView;
+          });
 
-          final offsetAnimation = Tween<Offset>(
-            begin: Offset(isForward ? 1.0 : -1.0, 0.0),
-            end: Offset.zero,
-          ).animate(animation);
-
-          return FadeTransition(
-            opacity: animation,
-            child: SlideTransition(position: offsetAnimation, child: child),
+          _settingService.setupByName(
+            SettingsService.selectedCalendarViewId,
+            newView.name,
           );
         },
-        child: KeyedSubtree(
-          key: ValueKey(selectedView),
-          child: selectedView.widget,
-        ),
+        children: CalendarView.values.map((view) {
+          return view.widget;
+        }).toList(),
       ),
       floatingActionButton: MainPageSelector(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

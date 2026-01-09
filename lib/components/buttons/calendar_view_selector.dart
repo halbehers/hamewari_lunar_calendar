@@ -25,7 +25,7 @@ class CalendarViewSelector extends StatelessWidget {
     return ButtonStack(
       onSelectionChanged: onSelectionChanged,
       size: ButtonStackSize.small,
-      defaultSelection: selectedView?.name,
+      selection: selectedView?.name,
       items: [
         ButtonStackItem(id: "year", iconPath: IconPath.largeGrid),
         ButtonStackItem(id: "month", iconPath: IconPath.grid),
