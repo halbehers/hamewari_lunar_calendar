@@ -31,7 +31,7 @@ class DatabaseService {
   Future<Database> _initDatabase() async {
     final String databaseDirectoryPath = await getDatabasesPath();
     final String path = join(databaseDirectoryPath, "hamewari.db");
-  
+
     return await openDatabase(path, version: 1, onCreate: _onCreate);
   }
 
@@ -51,4 +51,4 @@ class DatabaseService {
       );
     ''');
   }
-} 
+}

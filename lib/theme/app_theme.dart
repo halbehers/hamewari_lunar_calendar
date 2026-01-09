@@ -37,13 +37,14 @@ class AppTheme extends ThemeExtension<AppTheme> {
     Color? borderColor,
   }) {
     return AppTheme(
-      backgroundColor: background ?? this.backgroundColor,
-      secondaryBackgroundColor: secondaryBackground ?? this.secondaryBackgroundColor,
+      backgroundColor: background ?? backgroundColor,
+      secondaryBackgroundColor: secondaryBackground ?? secondaryBackgroundColor,
       textColor: textColor ?? this.textColor,
       iconColor: iconColor ?? this.iconColor,
       iconActiveColor: iconActiveColor ?? this.iconActiveColor,
       accentColor: accentColor ?? this.accentColor,
-      accentBackgroundColor: accentBackgroundColor ?? this.accentBackgroundColor,
+      accentBackgroundColor:
+          accentBackgroundColor ?? this.accentBackgroundColor,
       shadowColor: shadowColor ?? this.shadowColor,
       borderColor: borderColor ?? this.borderColor,
     );
@@ -55,15 +56,28 @@ class AppTheme extends ThemeExtension<AppTheme> {
       return this;
     }
     return AppTheme(
-      backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t) ?? Colors.white,
-      secondaryBackgroundColor: Color.lerp(secondaryBackgroundColor, other.secondaryBackgroundColor, t) ?? Colors.white,
+      backgroundColor:
+          Color.lerp(backgroundColor, other.backgroundColor, t) ?? Colors.white,
+      secondaryBackgroundColor:
+          Color.lerp(
+            secondaryBackgroundColor,
+            other.secondaryBackgroundColor,
+            t,
+          ) ??
+          Colors.white,
       textColor: Color.lerp(textColor, other.textColor, t) ?? Colors.black,
       iconColor: Color.lerp(iconColor, other.iconColor, t) ?? Colors.black,
-      iconActiveColor: Color.lerp(iconActiveColor, other.iconActiveColor, t) ?? Colors.black,
-      accentColor: Color.lerp(accentColor, other.accentColor, t) ?? Colors.black,
-      accentBackgroundColor: Color.lerp(accentBackgroundColor, other.accentBackgroundColor, t) ?? Colors.black,
-      shadowColor: Color.lerp(shadowColor, other.shadowColor, t) ?? Colors.black,
-      borderColor: Color.lerp(borderColor, other.borderColor, t) ?? Colors.black,
+      iconActiveColor:
+          Color.lerp(iconActiveColor, other.iconActiveColor, t) ?? Colors.black,
+      accentColor:
+          Color.lerp(accentColor, other.accentColor, t) ?? Colors.black,
+      accentBackgroundColor:
+          Color.lerp(accentBackgroundColor, other.accentBackgroundColor, t) ??
+          Colors.black,
+      shadowColor:
+          Color.lerp(shadowColor, other.shadowColor, t) ?? Colors.black,
+      borderColor:
+          Color.lerp(borderColor, other.borderColor, t) ?? Colors.black,
     );
   }
 }

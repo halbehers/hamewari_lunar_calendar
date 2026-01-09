@@ -5,7 +5,9 @@ import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/theme/icon_path.dart';
 
 enum IconSize {
-  small(18), medium(24), large(32);
+  small(18),
+  medium(24),
+  large(32);
 
   const IconSize(this.value);
 
@@ -33,7 +35,12 @@ class IconColorMapper extends ColorMapper {
 }
 
 class HIcon extends StatelessWidget {
-  const HIcon({super.key, required this.iconPath, this.isActive = false, this.size = IconSize.medium});
+  const HIcon({
+    super.key,
+    required this.iconPath,
+    this.isActive = false,
+    this.size = IconSize.medium,
+  });
 
   final IconPath iconPath;
   final bool isActive;

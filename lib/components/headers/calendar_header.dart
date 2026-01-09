@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/components/buttons/button_stack.dart';
 import 'package:hamewari/components/buttons/calendar_view_selector.dart';
 import 'package:hamewari/pages/calendar.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/theme/icon_path.dart';
 
 class CalendarHeader extends StatelessWidget implements PreferredSizeWidget {
   const CalendarHeader({
