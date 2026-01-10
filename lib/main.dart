@@ -20,6 +20,14 @@ AppTheme lightAppTheme = AppTheme(
   accentBackgroundColor: ThemeColors.yellow[300]!,
   shadowColor: ThemeColors.grey[200]!,
   borderColor: ThemeColors.grey[200]!,
+  startingWeekColor: ThemeColors.red[500]!,
+  startingWeekBackgroundColor: ThemeColors.red[300]!,
+  refinementWeekColor: ThemeColors.grey[400]!,
+  refinementWeekBackgroundColor: ThemeColors.grey[200]!,
+  transformationWeekColor: ThemeColors.blue[400]!,
+  transformationWeekBackgroundColor: ThemeColors.blue[200]!,
+  implementationWeekColor: ThemeColors.yellow[500]!,
+  implementationWeekBackgroundColor: ThemeColors.yellow[300]!,
 );
 
 AppTheme darkAppTheme = AppTheme(
@@ -32,6 +40,14 @@ AppTheme darkAppTheme = AppTheme(
   accentBackgroundColor: ThemeColors.yellow[500]!,
   shadowColor: ThemeColors.grey[400]!,
   borderColor: ThemeColors.grey[400]!,
+  startingWeekColor: ThemeColors.red[300]!,
+  startingWeekBackgroundColor: ThemeColors.red[500]!,
+  refinementWeekColor: ThemeColors.grey[200]!,
+  refinementWeekBackgroundColor: ThemeColors.grey[400]!,
+  transformationWeekColor: ThemeColors.blue[200]!,
+  transformationWeekBackgroundColor: ThemeColors.blue[400]!,
+  implementationWeekColor: ThemeColors.yellow[300]!,
+  implementationWeekBackgroundColor: ThemeColors.yellow[500]!,
 );
 
 extension BuildContextExtension on BuildContext {

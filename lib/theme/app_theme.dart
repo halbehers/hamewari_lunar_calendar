@@ -12,6 +12,14 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.accentBackgroundColor,
     required this.shadowColor,
     required this.borderColor,
+    required this.startingWeekColor,
+    required this.startingWeekBackgroundColor,
+    required this.refinementWeekColor,
+    required this.refinementWeekBackgroundColor,
+    required this.transformationWeekColor,
+    required this.transformationWeekBackgroundColor,
+    required this.implementationWeekColor,
+    required this.implementationWeekBackgroundColor,
   });
 
   final Color backgroundColor;
@@ -23,14 +31,22 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color accentBackgroundColor;
   final Color shadowColor;
   final Color borderColor;
+  final Color startingWeekColor;
+  final Color startingWeekBackgroundColor;
+  final Color refinementWeekColor;
+  final Color refinementWeekBackgroundColor;
+  final Color transformationWeekColor;
+  final Color transformationWeekBackgroundColor;
+  final Color implementationWeekColor;
+  final Color implementationWeekBackgroundColor;
 
-  TextStyle get h1 => TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.w700);
-  TextStyle get h2 => TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w700);
-  TextStyle get h3 => TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.w700);
+  TextStyle get h1 => TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.w800);
+  TextStyle get h2 => TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w800);
+  TextStyle get h3 => TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.w800);
   TextStyle get h4 => TextStyle(color: textColor, fontSize: 18, fontWeight: FontWeight.w500);
-  TextStyle get body => TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w300);
-  TextStyle get smallText => TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w300);
-  TextStyle get extraSmallText => TextStyle(color: textColor, fontSize: 10, fontWeight: FontWeight.w300);
+  TextStyle get body => TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w400);
+  TextStyle get smallText => TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w400);
+  TextStyle get extraSmallText => TextStyle(color: textColor, fontSize: 10, fontWeight: FontWeight.w400);
 
   @override
   AppTheme copyWith({
@@ -43,6 +59,14 @@ class AppTheme extends ThemeExtension<AppTheme> {
     Color? accentBackgroundColor,
     Color? shadowColor,
     Color? borderColor,
+    Color? startingWeekColor,
+    Color? startingWeekBackgroundColor,
+    Color? refinementWeekColor,
+    Color? refinementWeekBackgroundColor,
+    Color? transformationWeekColor,
+    Color? transformationWeekBackgroundColor,
+    Color? implementationWeekColor,
+    Color? implementationWeekBackgroundColor,
   }) {
     return AppTheme(
       backgroundColor: background ?? backgroundColor,
@@ -55,6 +79,14 @@ class AppTheme extends ThemeExtension<AppTheme> {
           accentBackgroundColor ?? this.accentBackgroundColor,
       shadowColor: shadowColor ?? this.shadowColor,
       borderColor: borderColor ?? this.borderColor,
+      startingWeekColor: startingWeekColor ?? this.startingWeekColor,
+      startingWeekBackgroundColor: startingWeekBackgroundColor ?? this.startingWeekBackgroundColor,
+      refinementWeekColor: refinementWeekColor ?? this.refinementWeekColor,
+      refinementWeekBackgroundColor: refinementWeekBackgroundColor ?? this.refinementWeekBackgroundColor,
+      transformationWeekColor: transformationWeekColor ?? this.transformationWeekColor,
+      transformationWeekBackgroundColor: transformationWeekBackgroundColor ?? this.transformationWeekBackgroundColor,
+      implementationWeekColor: implementationWeekColor ?? this.implementationWeekColor,
+      implementationWeekBackgroundColor: implementationWeekBackgroundColor ?? this.implementationWeekBackgroundColor,
     );
   }
 
@@ -86,6 +118,22 @@ class AppTheme extends ThemeExtension<AppTheme> {
           Color.lerp(shadowColor, other.shadowColor, t) ?? Colors.black,
       borderColor:
           Color.lerp(borderColor, other.borderColor, t) ?? Colors.black,
+      startingWeekColor:
+          Color.lerp(startingWeekColor, other.startingWeekColor, t) ?? Colors.black,
+      startingWeekBackgroundColor:
+          Color.lerp(startingWeekBackgroundColor, other.startingWeekBackgroundColor, t) ?? Colors.black,
+      refinementWeekColor:
+          Color.lerp(refinementWeekColor, other.refinementWeekColor, t) ?? Colors.black,
+      refinementWeekBackgroundColor:
+          Color.lerp(refinementWeekBackgroundColor, other.refinementWeekBackgroundColor, t) ?? Colors.black,
+      transformationWeekColor:
+          Color.lerp(transformationWeekColor, other.transformationWeekColor, t) ?? Colors.black,
+      transformationWeekBackgroundColor:
+          Color.lerp(transformationWeekBackgroundColor, other.transformationWeekBackgroundColor, t) ?? Colors.black,
+      implementationWeekColor:
+          Color.lerp(implementationWeekColor, other.implementationWeekColor, t) ?? Colors.black,
+      implementationWeekBackgroundColor:
+          Color.lerp(implementationWeekBackgroundColor, other.implementationWeekBackgroundColor, t) ?? Colors.black,
     );
   }
 }

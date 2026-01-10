@@ -7,15 +7,17 @@ class YearView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> months = MonthManager.instance.months
+        .map((month) => MonthCalendar(month: month))
+        .toList();
+
     return Padding(
       padding: EdgeInsetsGeometry.symmetric(horizontal: 32),
       child: GridView(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        children: MonthManager.instance.months
-            .map((month) => MonthCalendar(month: month))
-            .toList(),
+        children: months,
       ),
     );
   }

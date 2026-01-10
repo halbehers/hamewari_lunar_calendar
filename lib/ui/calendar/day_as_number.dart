@@ -12,12 +12,16 @@ class DayAsNumber extends StatelessWidget {
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
 
-    return SizedBox(
+    return Container(
       width: 20,
-      height: 24,
-      child: Center(
-        child: Text(day.toString(), style: appTheme.smallText,),
-      ),
+      height: 20,
+      decoration: isActive
+          ? BoxDecoration(
+              color: appTheme.accentBackgroundColor,
+              borderRadius: BorderRadius.all(Radius.circular(1000)),
+            )
+          : null,
+      child: Center(child: Text(day.toString(), style: appTheme.smallText)),
     );
   }
 }
