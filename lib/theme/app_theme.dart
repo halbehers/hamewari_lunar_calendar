@@ -24,6 +24,14 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color shadowColor;
   final Color borderColor;
 
+  TextStyle get h1 => TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.w700);
+  TextStyle get h2 => TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w700);
+  TextStyle get h3 => TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.w700);
+  TextStyle get h4 => TextStyle(color: textColor, fontSize: 18, fontWeight: FontWeight.w500);
+  TextStyle get body => TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w300);
+  TextStyle get smallText => TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w300);
+  TextStyle get extraSmallText => TextStyle(color: textColor, fontSize: 10, fontWeight: FontWeight.w300);
+
   @override
   AppTheme copyWith({
     Color? background,

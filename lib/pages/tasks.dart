@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/components/buttons/main_page_selector.dart';
+import 'package:hamewari/ui/buttons/main_page_selector.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 
