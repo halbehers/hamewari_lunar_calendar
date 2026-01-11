@@ -10,6 +10,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.iconActiveColor,
     required this.accentColor,
     required this.accentBackgroundColor,
+    required this.secondaryAccentColor,
+    required this.secondaryAccentBackgroundColor,
     required this.shadowColor,
     required this.borderColor,
     required this.startingWeekColor,
@@ -29,6 +31,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color iconActiveColor;
   final Color accentColor;
   final Color accentBackgroundColor;
+  final Color secondaryAccentColor;
+  final Color secondaryAccentBackgroundColor;
   final Color shadowColor;
   final Color borderColor;
   final Color startingWeekColor;
@@ -44,6 +48,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
   TextStyle get h2 => TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w800);
   TextStyle get h3 => TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.w800);
   TextStyle get h4 => TextStyle(color: textColor, fontSize: 18, fontWeight: FontWeight.w500);
+  TextStyle get h5 => TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w500);
   TextStyle get body => TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w400);
   TextStyle get smallText => TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w400);
   TextStyle get extraSmallText => TextStyle(color: textColor, fontSize: 10, fontWeight: FontWeight.w400);
@@ -57,6 +62,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
     Color? iconActiveColor,
     Color? accentColor,
     Color? accentBackgroundColor,
+    Color? secondaryAccentColor,
+    Color? secondaryAccentBackgroundColor,
     Color? shadowColor,
     Color? borderColor,
     Color? startingWeekColor,
@@ -77,6 +84,10 @@ class AppTheme extends ThemeExtension<AppTheme> {
       accentColor: accentColor ?? this.accentColor,
       accentBackgroundColor:
           accentBackgroundColor ?? this.accentBackgroundColor,
+      secondaryAccentColor:
+          secondaryAccentColor ?? this.secondaryAccentColor,
+      secondaryAccentBackgroundColor:
+          secondaryAccentBackgroundColor ?? this.secondaryAccentBackgroundColor,
       shadowColor: shadowColor ?? this.shadowColor,
       borderColor: borderColor ?? this.borderColor,
       startingWeekColor: startingWeekColor ?? this.startingWeekColor,
@@ -113,6 +124,12 @@ class AppTheme extends ThemeExtension<AppTheme> {
           Color.lerp(accentColor, other.accentColor, t) ?? Colors.black,
       accentBackgroundColor:
           Color.lerp(accentBackgroundColor, other.accentBackgroundColor, t) ??
+          Colors.black,
+      secondaryAccentColor:
+          Color.lerp(secondaryAccentColor, other.secondaryAccentColor, t) ??
+          Colors.black,
+      secondaryAccentBackgroundColor:
+          Color.lerp(secondaryAccentBackgroundColor, other.secondaryAccentBackgroundColor, t) ??
           Colors.black,
       shadowColor:
           Color.lerp(shadowColor, other.shadowColor, t) ?? Colors.black,
