@@ -44,14 +44,22 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color implementationWeekColor;
   final Color implementationWeekBackgroundColor;
 
-  TextStyle get h1 => TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.w800);
-  TextStyle get h2 => TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w800);
-  TextStyle get h3 => TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.w800);
-  TextStyle get h4 => TextStyle(color: textColor, fontSize: 18, fontWeight: FontWeight.w500);
-  TextStyle get h5 => TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w500);
-  TextStyle get body => TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w400);
-  TextStyle get smallText => TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w400);
-  TextStyle get extraSmallText => TextStyle(color: textColor, fontSize: 10, fontWeight: FontWeight.w400);
+  TextStyle get h1 =>
+      TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.w800);
+  TextStyle get h2 =>
+      TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w800);
+  TextStyle get h3 =>
+      TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.w800);
+  TextStyle get h4 =>
+      TextStyle(color: textColor, fontSize: 18, fontWeight: FontWeight.w500);
+  TextStyle get h5 =>
+      TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w500);
+  TextStyle get body =>
+      TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w400);
+  TextStyle get smallText =>
+      TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w400);
+  TextStyle get extraSmallText =>
+      TextStyle(color: textColor, fontSize: 10, fontWeight: FontWeight.w400);
 
   @override
   AppTheme copyWith({
@@ -84,20 +92,27 @@ class AppTheme extends ThemeExtension<AppTheme> {
       accentColor: accentColor ?? this.accentColor,
       accentBackgroundColor:
           accentBackgroundColor ?? this.accentBackgroundColor,
-      secondaryAccentColor:
-          secondaryAccentColor ?? this.secondaryAccentColor,
+      secondaryAccentColor: secondaryAccentColor ?? this.secondaryAccentColor,
       secondaryAccentBackgroundColor:
           secondaryAccentBackgroundColor ?? this.secondaryAccentBackgroundColor,
       shadowColor: shadowColor ?? this.shadowColor,
       borderColor: borderColor ?? this.borderColor,
       startingWeekColor: startingWeekColor ?? this.startingWeekColor,
-      startingWeekBackgroundColor: startingWeekBackgroundColor ?? this.startingWeekBackgroundColor,
+      startingWeekBackgroundColor:
+          startingWeekBackgroundColor ?? this.startingWeekBackgroundColor,
       refinementWeekColor: refinementWeekColor ?? this.refinementWeekColor,
-      refinementWeekBackgroundColor: refinementWeekBackgroundColor ?? this.refinementWeekBackgroundColor,
-      transformationWeekColor: transformationWeekColor ?? this.transformationWeekColor,
-      transformationWeekBackgroundColor: transformationWeekBackgroundColor ?? this.transformationWeekBackgroundColor,
-      implementationWeekColor: implementationWeekColor ?? this.implementationWeekColor,
-      implementationWeekBackgroundColor: implementationWeekBackgroundColor ?? this.implementationWeekBackgroundColor,
+      refinementWeekBackgroundColor:
+          refinementWeekBackgroundColor ?? this.refinementWeekBackgroundColor,
+      transformationWeekColor:
+          transformationWeekColor ?? this.transformationWeekColor,
+      transformationWeekBackgroundColor:
+          transformationWeekBackgroundColor ??
+          this.transformationWeekBackgroundColor,
+      implementationWeekColor:
+          implementationWeekColor ?? this.implementationWeekColor,
+      implementationWeekBackgroundColor:
+          implementationWeekBackgroundColor ??
+          this.implementationWeekBackgroundColor,
     );
   }
 
@@ -129,28 +144,64 @@ class AppTheme extends ThemeExtension<AppTheme> {
           Color.lerp(secondaryAccentColor, other.secondaryAccentColor, t) ??
           Colors.black,
       secondaryAccentBackgroundColor:
-          Color.lerp(secondaryAccentBackgroundColor, other.secondaryAccentBackgroundColor, t) ??
+          Color.lerp(
+            secondaryAccentBackgroundColor,
+            other.secondaryAccentBackgroundColor,
+            t,
+          ) ??
           Colors.black,
       shadowColor:
           Color.lerp(shadowColor, other.shadowColor, t) ?? Colors.black,
       borderColor:
           Color.lerp(borderColor, other.borderColor, t) ?? Colors.black,
       startingWeekColor:
-          Color.lerp(startingWeekColor, other.startingWeekColor, t) ?? Colors.black,
+          Color.lerp(startingWeekColor, other.startingWeekColor, t) ??
+          Colors.black,
       startingWeekBackgroundColor:
-          Color.lerp(startingWeekBackgroundColor, other.startingWeekBackgroundColor, t) ?? Colors.black,
+          Color.lerp(
+            startingWeekBackgroundColor,
+            other.startingWeekBackgroundColor,
+            t,
+          ) ??
+          Colors.black,
       refinementWeekColor:
-          Color.lerp(refinementWeekColor, other.refinementWeekColor, t) ?? Colors.black,
+          Color.lerp(refinementWeekColor, other.refinementWeekColor, t) ??
+          Colors.black,
       refinementWeekBackgroundColor:
-          Color.lerp(refinementWeekBackgroundColor, other.refinementWeekBackgroundColor, t) ?? Colors.black,
+          Color.lerp(
+            refinementWeekBackgroundColor,
+            other.refinementWeekBackgroundColor,
+            t,
+          ) ??
+          Colors.black,
       transformationWeekColor:
-          Color.lerp(transformationWeekColor, other.transformationWeekColor, t) ?? Colors.black,
+          Color.lerp(
+            transformationWeekColor,
+            other.transformationWeekColor,
+            t,
+          ) ??
+          Colors.black,
       transformationWeekBackgroundColor:
-          Color.lerp(transformationWeekBackgroundColor, other.transformationWeekBackgroundColor, t) ?? Colors.black,
+          Color.lerp(
+            transformationWeekBackgroundColor,
+            other.transformationWeekBackgroundColor,
+            t,
+          ) ??
+          Colors.black,
       implementationWeekColor:
-          Color.lerp(implementationWeekColor, other.implementationWeekColor, t) ?? Colors.black,
+          Color.lerp(
+            implementationWeekColor,
+            other.implementationWeekColor,
+            t,
+          ) ??
+          Colors.black,
       implementationWeekBackgroundColor:
-          Color.lerp(implementationWeekBackgroundColor, other.implementationWeekBackgroundColor, t) ?? Colors.black,
+          Color.lerp(
+            implementationWeekBackgroundColor,
+            other.implementationWeekBackgroundColor,
+            t,
+          ) ??
+          Colors.black,
     );
   }
 }

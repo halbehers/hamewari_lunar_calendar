@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:hamewari/calendar/calendar_manager.dart';
+import 'package:hamewari/db/models/event.dart';
+import 'package:hamewari/ui/calendar/month_calendar_day.dart';
+
+class MonthCalendarWeek extends StatelessWidget {
+  const MonthCalendarWeek({super.key, required this.week});
+
+  final Week week;
+
+  @override
+  Widget build(BuildContext context) {
+    // Event event1 = Event();
+    // event1.name = "Water plants";
+    // event1.startingAt = DateTime(2026, 2, 24, 9, 30);
+    // event1.endingAt = DateTime(2026, 2, 24, 10, 0);
+    // Event event2 = Event();
+    // event2.name = "Burn candle";
+    // event2.startingAt = DateTime(2026, 2, 24, 11, 0);
+    // event2.endingAt = DateTime(2026, 2, 24, 11, 30);
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children:
+          List.generate(
+                7,
+                (int index) => index + ((week.weekNumber - 1) * 7) + 1,
+              )
+              .map(
+                (dayNumber) =>
+                    MonthCalendarDay(day: dayNumber),
+              )
+              .toList(),
+    );
+  }
+}

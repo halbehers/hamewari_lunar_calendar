@@ -20,9 +20,7 @@ class YearView extends StatelessWidget {
           mainAxisExtent: 164,
         ),
         itemBuilder: (context, index) => Padding(
-          padding: EdgeInsetsGeometry.symmetric(
-            horizontal: 16.0,
-          ),
+          padding: EdgeInsetsGeometry.symmetric(horizontal: 16.0),
           child: months[index],
         ),
       ),

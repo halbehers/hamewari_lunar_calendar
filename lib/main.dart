@@ -34,7 +34,7 @@ AppTheme lightAppTheme = AppTheme(
 
 AppTheme darkAppTheme = AppTheme(
   backgroundColor: ThemeColors.grey[600]!,
-  secondaryBackgroundColor: ThemeColors.grey[500]!,
+  secondaryBackgroundColor: ThemeColors.grey[700]!,
   textColor: ThemeColors.white,
   iconColor: ThemeColors.grey[100]!,
   iconActiveColor: ThemeColors.turquoise[200]!,

@@ -18,11 +18,7 @@ class SmallMonthCalendar extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsetsGeometry.directional(bottom: 12),
-          child: Text(
-            month.name,
-            style: appTheme.h5,
-            textAlign: TextAlign.start,
-          ),
+          child: Text(month.name, style: appTheme.h5),
         ),
         SmallMonthCalendarWeek(week: Week.starting),
         SmallMonthCalendarWeek(week: Week.refinement),
