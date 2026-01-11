@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/calendar_manager.dart';
-import 'package:hamewari/db/models/event.dart';
 import 'package:hamewari/ui/calendar/month_calendar_day.dart';
 
 class MonthCalendarWeek extends StatelessWidget {
@@ -21,16 +20,10 @@ class MonthCalendarWeek extends StatelessWidget {
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children:
-          List.generate(
-                7,
-                (int index) => index + ((week.weekNumber - 1) * 7) + 1,
-              )
-              .map(
-                (dayNumber) =>
-                    MonthCalendarDay(day: dayNumber),
-              )
-              .toList(),
+      children: List.generate(
+        7,
+        (int index) => index + ((week.weekNumber - 1) * 7) + 1,
+      ).map((dayNumber) => MonthCalendarDay(day: dayNumber)).toList(),
     );
   }
 }
