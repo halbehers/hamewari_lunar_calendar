@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 
-class SmallMonthCalendarDay extends StatelessWidget {
-  const SmallMonthCalendarDay({
+class Day extends StatelessWidget {
+  const Day({
     super.key,
     required this.day,
     this.isActive = false,

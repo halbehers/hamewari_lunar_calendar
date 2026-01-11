@@ -3,11 +3,12 @@ import 'package:hamewari/calendar/calendar_manager.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/calendar/detailed_week_row.dart';
+import 'package:hamewari/ui/calendar/week_row.dart';
 
-class MonthCalendar extends StatelessWidget {
-  const MonthCalendar({super.key, required this.month});
+class WeekCalendar extends StatelessWidget {
+  const WeekCalendar({super.key, required this.week});
 
-  final Month month;
+  final Week week;
 
   Widget buildSeparator(AppTheme appTheme) {
     return Padding(
@@ -30,7 +31,7 @@ class MonthCalendar extends StatelessWidget {
           flex: 0,
           child: Padding(
             padding: EdgeInsetsGeometry.directional(bottom: 32),
-            child: Text(month.name, style: appTheme.h2),
+            child: WeekRow(week: week),
           ),
         ),
         Flexible(

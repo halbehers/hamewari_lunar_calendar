@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/calendar_manager.dart';
-import 'package:hamewari/ui/calendar/small_month_calendar.dart';
+import 'package:hamewari/ui/calendar/compact_month.dart';
 
 class YearView extends StatelessWidget {
   const YearView({super.key});
@@ -8,7 +8,7 @@ class YearView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> months = CalendarManager.instance.months
-        .map((month) => SmallMonthCalendar(month: month))
+        .map((month) => CompactMonth(month: month))
         .toList();
 
     return Padding(
