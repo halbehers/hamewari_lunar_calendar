@@ -22,6 +22,7 @@ class ThemeColors {
         400: Color(0xFF6C6C6C),
         500: Color(_greyPrimaryValue),
         600: Color(0xFF2C2C2C),
+        700: Color(0xFF1B1B1B),
       });
 
   static const int _grey100Value = 0xFFF6F4F7;
