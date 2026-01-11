@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/components/buttons/button_stack.dart';
+import 'package:hamewari/ui/buttons/button_stack.dart';
 import 'package:hamewari/pages/calendar.dart';
 import 'package:hamewari/theme/icon_path.dart';
 
@@ -24,7 +24,7 @@ class CalendarViewSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return ButtonStack(
       onSelectionChanged: onSelectionChanged,
-      size: ButtonStackSize.small,
+      size: ButtonStackSize.medium,
       selection: selectedView?.name,
       items: [
         ButtonStackItem(id: "year", iconPath: IconPath.largeGrid),

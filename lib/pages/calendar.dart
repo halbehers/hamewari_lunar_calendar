@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/components/buttons/main_page_selector.dart';
-import 'package:hamewari/components/headers/calendar_header.dart';
+import 'package:hamewari/ui/buttons/main_page_selector.dart';
+import 'package:hamewari/ui/headers/calendar_header.dart';
 import 'package:hamewari/db/services/settings_service.dart';
 import 'package:hamewari/main.dart';
-import 'package:hamewari/pages/views/month.dart';
-import 'package:hamewari/pages/views/week.dart';
-import 'package:hamewari/pages/views/year.dart';
+import 'package:hamewari/ui/calendar/views/month.dart';
+import 'package:hamewari/ui/calendar/views/week.dart';
+import 'package:hamewari/ui/calendar/views/year.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:vibration/vibration.dart';
 import 'package:vibration/vibration_presets.dart';
@@ -69,7 +69,7 @@ class _CalendarPageState extends State<CalendarPage> {
     super.dispose();
   }
 
-  void onViewChanged(CalendarView newSelectedView) {
+  void onViewChanged(CalendarView newSelectedView) async {
     setState(() {
       selectedView = newSelectedView;
     });
@@ -80,7 +80,9 @@ class _CalendarPageState extends State<CalendarPage> {
       curve: Curves.easeOutCubic,
     );
 
-    // Vibration.vibrate(preset: VibrationPreset.softPulse);
+    if (await Vibration.hasVibrator()) {
+      await Vibration.vibrate(preset: VibrationPreset.softPulse);
+    }
 
     persistViewChanged(newSelectedView);
   }

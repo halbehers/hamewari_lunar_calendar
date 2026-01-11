@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/components/buttons/calendar_view_selector.dart';
+import 'package:hamewari/ui/buttons/calendar_view_selector.dart';
 import 'package:hamewari/pages/calendar.dart';
 import 'package:hamewari/theme/app_theme.dart';
 

@@ -20,7 +20,7 @@ class ThemeColors {
         200: Color(0xFFD8D6D7),
         300: Color(0xFFAEAEAE),
         400: Color(0xFF6C6C6C),
-        500: Color(_bluePrimaryValue),
+        500: Color(_greyPrimaryValue),
         600: Color(0xFF2C2C2C),
       });
 
