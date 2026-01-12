@@ -55,6 +55,16 @@ enum Week {
   }
 }
 
+enum Day {
+  monday,
+  tuesday,
+  wednesday,
+  thursday,
+  friday,
+  saturday,
+  sunday;
+}
+
 class CalendarManager {
   CalendarManager._privateConstructor();
   static final CalendarManager instance = CalendarManager._privateConstructor();

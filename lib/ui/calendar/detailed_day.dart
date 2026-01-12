@@ -4,8 +4,8 @@ import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/calendar/event_card.dart';
 
-class MonthCalendarDay extends StatelessWidget {
-  const MonthCalendarDay({
+class DetailedDay extends StatelessWidget {
+  const DetailedDay({
     super.key,
     required this.day,
     this.isActive = false,

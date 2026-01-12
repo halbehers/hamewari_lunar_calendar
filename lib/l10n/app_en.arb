@@ -1,0 +1,26 @@
+{
+  "language": "English",
+  "@language": {
+    "description": "The current language"
+  },
+  "menuCaption_calendar": "Calendar",
+  "@menuCaption_calendar": {
+    "description": "Calendar menu caption"
+  },
+  "menuCaption_tasks": "Tasks",
+  "@menuCaption_tasks": {
+    "description": "Tasks menu caption"
+  },
+  "menuCaption_settings": "Settings",
+  "@menuCaption_settings": {
+    "description": "Settings menu caption"
+  },
+  "settings_title": "Settings",
+  "@settings_title": {
+    "description": "Settings page title"
+  },
+  "settings_display_menu_caption": "Display menu caption",
+  "@settings_display_menu_caption": {
+    "description": "Setting display menu caption"
+  }
+}

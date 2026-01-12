@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/calendar_manager.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/small_month_calendar_week.dart';
+import 'package:hamewari/ui/calendar/compact_week_row.dart';
 
-class SmallMonthCalendar extends StatelessWidget {
-  const SmallMonthCalendar({super.key, required this.month});
+class CompactMonth extends StatelessWidget {
+  const CompactMonth({super.key, required this.month});
 
   final Month month;
 
@@ -20,10 +20,10 @@ class SmallMonthCalendar extends StatelessWidget {
           padding: EdgeInsetsGeometry.directional(bottom: 12),
           child: Text(month.name, style: appTheme.h5),
         ),
-        SmallMonthCalendarWeek(week: Week.starting),
-        SmallMonthCalendarWeek(week: Week.refinement),
-        SmallMonthCalendarWeek(week: Week.transformation),
-        SmallMonthCalendarWeek(week: Week.implementation),
+        CompactWeekRow(week: Week.starting),
+        CompactWeekRow(week: Week.refinement),
+        CompactWeekRow(week: Week.transformation),
+        CompactWeekRow(week: Week.implementation),
       ],
     );
   }

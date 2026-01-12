@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hamewari/l10n/app_localizations.dart';
 import 'package:hamewari/pages/calendar.dart';
 import 'package:hamewari/pages/settings.dart';
 import 'package:hamewari/pages/tasks.dart';
+import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/theme/theme_colors.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +20,8 @@ AppTheme lightAppTheme = AppTheme(
   textColor: ThemeColors.grey[600]!,
   iconColor: ThemeColors.grey[500]!,
   iconActiveColor: ThemeColors.turquoise[500]!,
+  primaryColor: ThemeColors.blue[500]!,
+  secondaryColor: ThemeColors.turquoise[500]!,
   accentColor: ThemeColors.yellow[500]!,
   accentBackgroundColor: ThemeColors.yellow[300]!,
   secondaryAccentColor: ThemeColors.purple[500]!,
@@ -38,6 +44,8 @@ AppTheme darkAppTheme = AppTheme(
   textColor: ThemeColors.white,
   iconColor: ThemeColors.grey[100]!,
   iconActiveColor: ThemeColors.turquoise[200]!,
+  primaryColor: ThemeColors.blue[200]!,
+  secondaryColor: ThemeColors.turquoise[200]!,
   accentColor: ThemeColors.yellow[100]!,
   accentBackgroundColor: ThemeColors.yellow[500]!,
   secondaryAccentColor: ThemeColors.purple[300]!,
@@ -122,19 +130,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Hamewari Lunar Calendar',
-      themeMode: ThemeMode.system,
-      theme: ThemeData(
-        fontFamily: "Brandon",
-        extensions: <ThemeExtension<dynamic>>[lightAppTheme],
-      ),
-      darkTheme: ThemeData(
-        fontFamily: "Brandon",
-        extensions: <ThemeExtension<dynamic>>[darkAppTheme],
-      ),
-      routerConfig: _router,
-      debugShowMaterialGrid: false,
+    return ChangeNotifierProvider(
+      create: (context) => SettingsProvider(),
+      builder: (context, child) {
+        final SettingsProvider provider = Provider.of<SettingsProvider>(
+          context,
+        );
+
+        return MaterialApp.router(
+          title: 'Hamewari Lunar Calendar',
+          themeMode: ThemeMode.system,
+          locale: provider.locale,
+          theme: ThemeData(
+            fontFamily: "Brandon",
+            extensions: <ThemeExtension<dynamic>>[lightAppTheme],
+          ),
+          darkTheme: ThemeData(
+            fontFamily: "Brandon",
+            extensions: <ThemeExtension<dynamic>>[darkAppTheme],
+          ),
+          routerConfig: _router,
+          debugShowMaterialGrid: false,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+        );
+      },
     );
   }
 }

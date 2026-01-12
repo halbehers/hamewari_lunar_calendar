@@ -15,7 +15,9 @@ abstract class Repository<T extends Model<T>> {
   Future<T> findById(int id) async {
     Database db = await database;
 
-    return db.query(getTable(), where: "id = $id").then((result) {
+    return db.query(getTable(), where: "id = ?", whereArgs: [id]).then((
+      result,
+    ) {
       return result
           .map((dbEntity) => newEntity().fillFromValues(dbEntity))
           .single;
@@ -66,16 +68,11 @@ abstract class Repository<T extends Model<T>> {
   }
 
   Future<bool> exists(int id) async {
-    Database db = await database;
-    String table = getTable();
-
-    return db
-        .rawQuery('''
-          SELECT 1
-          FROM $table
-          WHERE id = $id;
-          ''')
-        .then((result) => result.isNotEmpty);
+    return findBy(
+      where: "id = ?",
+      whereArgs: [id],
+      limit: 1,
+    ).then((result) => result.isNotEmpty);
   }
 
   Future<int> create(T entity) async {
@@ -87,13 +84,18 @@ abstract class Repository<T extends Model<T>> {
   Future<int> update(T entity) async {
     Database db = await database;
 
-    return db.update(getTable(), entity.getValuesMap());
+    return db.update(
+      getTable(),
+      entity.getValuesMap(),
+      where: 'id = ?',
+      whereArgs: [entity.id],
+    );
   }
 
   Future<bool> delete(T entity) async {
     Database db = await database;
     int id = entity.id!;
 
-    return await db.delete(getTable(), where: "id = $id") == 0;
+    return await db.delete(getTable(), where: "id = ?", whereArgs: [id]) == 0;
   }
 }

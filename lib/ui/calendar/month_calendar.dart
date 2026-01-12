@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/calendar_manager.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/month_calendar_week.dart';
+import 'package:hamewari/ui/calendar/detailed_week_row.dart';
 
 class MonthCalendar extends StatelessWidget {
   const MonthCalendar({super.key, required this.month});
@@ -39,13 +39,13 @@ class MonthCalendar extends StatelessWidget {
             padding: EdgeInsetsGeometry.only(bottom: 90),
             child: Column(
               children: [
-                Flexible(child: MonthCalendarWeek(week: Week.starting)),
+                Flexible(child: DetailedWeekRow(week: Week.starting)),
                 buildSeparator(appTheme),
-                Flexible(child: MonthCalendarWeek(week: Week.refinement)),
+                Flexible(child: DetailedWeekRow(week: Week.refinement)),
                 buildSeparator(appTheme),
-                Flexible(child: MonthCalendarWeek(week: Week.transformation)),
+                Flexible(child: DetailedWeekRow(week: Week.transformation)),
                 buildSeparator(appTheme),
-                Flexible(child: MonthCalendarWeek(week: Week.implementation)),
+                Flexible(child: DetailedWeekRow(week: Week.implementation)),
               ],
             ),
           ),

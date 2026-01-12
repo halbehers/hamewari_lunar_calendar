@@ -7,12 +7,7 @@ class Event extends Model<Event> {
 
   @override
   Map<String, Object?> getValuesMap() {
-    return {
-      "id": id,
-      "name": name,
-      "starting_at": startingAt,
-      "ending_at": endingAt,
-    };
+    return {"name": name, "starting_at": startingAt, "ending_at": endingAt};
   }
 
   @override

@@ -5,10 +5,15 @@ import 'package:hamewari/theme/h_icon.dart';
 import 'package:hamewari/theme/icon_path.dart';
 
 class ButtonStackItem {
-  const ButtonStackItem({required this.id, required this.iconPath});
+  const ButtonStackItem({
+    required this.id,
+    required this.iconPath,
+    this.caption,
+  });
 
   final String id;
   final IconPath iconPath;
+  final String? caption;
 }
 
 enum ButtonStackSize { small, medium, large }
@@ -21,6 +26,7 @@ class ButtonStack extends StatelessWidget {
     this.margin,
     required this.onSelectionChanged,
     this.selection,
+    this.displayCaptions = false,
   });
 
   final List<ButtonStackItem> items;
@@ -28,6 +34,7 @@ class ButtonStack extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final void Function(String) onSelectionChanged;
   final String? selection;
+  final bool displayCaptions;
 
   IconSize getIconSize() {
     switch (size) {
@@ -66,15 +73,31 @@ class ButtonStack extends StatelessWidget {
       child: Padding(
         padding: EdgeInsetsGeometry.symmetric(vertical: 12, horizontal: 24),
         child: Wrap(
-          spacing: 16,
+          spacing: displayCaptions ? 24 : 16,
           children: items
               .map(
                 (item) => GestureDetector(
                   onTap: () => onSelectionChanged(item.id),
-                  child: HIcon(
-                    iconPath: item.iconPath,
-                    isActive: getSelection() == item.id,
-                    size: getIconSize(),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      HIcon(
+                        iconPath: item.iconPath,
+                        isActive: getSelection() == item.id,
+                        size: getIconSize(),
+                      ),
+                      ...(displayCaptions && item.caption != null
+                          ? [
+                              Padding(
+                                padding: EdgeInsetsGeometry.only(top: 4),
+                                child: Text(
+                                  item.caption!,
+                                  style: appTheme.smallText,
+                                ),
+                              ),
+                            ]
+                          : []),
+                    ],
                   ),
                 ),
               )

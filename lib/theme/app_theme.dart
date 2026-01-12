@@ -8,6 +8,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.textColor,
     required this.iconColor,
     required this.iconActiveColor,
+    required this.primaryColor,
+    required this.secondaryColor,
     required this.accentColor,
     required this.accentBackgroundColor,
     required this.secondaryAccentColor,
@@ -29,6 +31,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color textColor;
   final Color iconColor;
   final Color iconActiveColor;
+  final Color primaryColor;
+  final Color secondaryColor;
   final Color accentColor;
   final Color accentBackgroundColor;
   final Color secondaryAccentColor;
@@ -45,11 +49,11 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color implementationWeekBackgroundColor;
 
   TextStyle get h1 =>
-      TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.w800);
+      TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.w600);
   TextStyle get h2 =>
-      TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w800);
+      TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w600);
   TextStyle get h3 =>
-      TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.w800);
+      TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.w600);
   TextStyle get h4 =>
       TextStyle(color: textColor, fontSize: 18, fontWeight: FontWeight.w500);
   TextStyle get h5 =>
@@ -68,6 +72,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
     Color? textColor,
     Color? iconColor,
     Color? iconActiveColor,
+    Color? primaryColor,
+    Color? secondaryColor,
     Color? accentColor,
     Color? accentBackgroundColor,
     Color? secondaryAccentColor,
@@ -90,6 +96,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
       iconColor: iconColor ?? this.iconColor,
       iconActiveColor: iconActiveColor ?? this.iconActiveColor,
       accentColor: accentColor ?? this.accentColor,
+      primaryColor: primaryColor ?? this.primaryColor,
+      secondaryColor: secondaryColor ?? this.secondaryColor,
       accentBackgroundColor:
           accentBackgroundColor ?? this.accentBackgroundColor,
       secondaryAccentColor: secondaryAccentColor ?? this.secondaryAccentColor,
@@ -135,6 +143,10 @@ class AppTheme extends ThemeExtension<AppTheme> {
       iconColor: Color.lerp(iconColor, other.iconColor, t) ?? Colors.black,
       iconActiveColor:
           Color.lerp(iconActiveColor, other.iconActiveColor, t) ?? Colors.black,
+      primaryColor:
+          Color.lerp(primaryColor, other.primaryColor, t) ?? Colors.black,
+      secondaryColor:
+          Color.lerp(secondaryColor, other.secondaryColor, t) ?? Colors.black,
       accentColor:
           Color.lerp(accentColor, other.accentColor, t) ?? Colors.black,
       accentBackgroundColor:
