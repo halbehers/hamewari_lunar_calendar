@@ -2,17 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 
-class Day extends StatelessWidget {
-  const Day({
+class DayNumber extends StatelessWidget {
+  const DayNumber({
     super.key,
     required this.day,
     this.isActive = false,
+    this.isSelected = false,
     this.hasEvent = false,
+    this.size = 18,
+    this.textStyle,
   });
 
   final int day;
   final bool isActive;
+  final bool isSelected;
   final bool hasEvent;
+  final double size;
+  final TextStyle? textStyle;
 
   Widget buildDot(AppTheme appTheme) {
     return Container(
@@ -32,15 +38,19 @@ class Day extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          width: 18,
-          height: 18,
-          decoration: isActive
+          width: size,
+          height: size,
+          decoration: isActive || isSelected
               ? BoxDecoration(
-                  color: appTheme.accentBackgroundColor,
+                  color: isActive
+                      ? appTheme.accentBackgroundColor
+                      : appTheme.borderColor,
                   borderRadius: BorderRadius.all(Radius.circular(1000)),
                 )
               : null,
-          child: Center(child: Text(day.toString(), style: appTheme.smallText)),
+          child: Center(
+            child: Text(day.toString(), style: textStyle ?? appTheme.smallText),
+          ),
         ),
         ...(hasEvent
             ? [Positioned(bottom: 0, right: 8, child: buildDot(appTheme))]

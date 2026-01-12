@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/calendar_manager.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/day.dart';
+import 'package:hamewari/ui/calendar/day_number.dart';
 
 enum SeparatorPosition { start, end }
 
@@ -45,7 +45,7 @@ class CompactWeekRow extends StatelessWidget {
             ...List.generate(
               7,
               (int index) => index + ((week.weekNumber - 1) * 7) + 1,
-            ).map((dayNumber) => Day(day: dayNumber)),
+            ).map((dayNumber) => DayNumber(day: dayNumber)),
             buildSeparator(weekBackgroundColor, SeparatorPosition.end),
           ],
         ),
