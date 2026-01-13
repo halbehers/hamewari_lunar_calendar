@@ -4,7 +4,7 @@ enum SettingValueType { number, string, boolean }
 
 class Setting extends Model<Setting> {
   String name = "";
-  String value = "";
+  String? value;
   SettingValueType valueType = SettingValueType.string;
 
   @override
@@ -20,9 +20,7 @@ class Setting extends Model<Setting> {
     if (values["name"] != null) {
       name = values["name"] as String;
     }
-    if (values["value"] != null) {
-      value = values["value"] as String;
-    }
+    value = values["value"] == "null" ? null : values["value"] as String;
     if (values["valueType"] != null) {
       switch (values["valueType"]) {
         case "string":

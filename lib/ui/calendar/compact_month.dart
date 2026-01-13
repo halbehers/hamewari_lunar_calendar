@@ -17,13 +17,13 @@ class CompactMonth extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsetsGeometry.directional(bottom: 12),
+          padding: const EdgeInsetsGeometry.directional(bottom: 12),
           child: Text(month.name, style: appTheme.h5),
         ),
-        CompactWeekRow(week: Week.starting),
-        CompactWeekRow(week: Week.refinement),
-        CompactWeekRow(week: Week.transformation),
-        CompactWeekRow(week: Week.implementation),
+        const CompactWeekRow(week: Week.starting),
+        const CompactWeekRow(week: Week.refinement),
+        const CompactWeekRow(week: Week.transformation),
+        const CompactWeekRow(week: Week.implementation),
       ],
     );
   }

@@ -13,12 +13,12 @@ class EventCard extends StatelessWidget {
     AppTheme appTheme = context.appTheme;
 
     return Padding(
-      padding: EdgeInsetsGeometry.symmetric(vertical: 2),
+      padding: const EdgeInsetsGeometry.symmetric(vertical: 2),
       child: Container(
         width: 42,
         decoration: BoxDecoration(
           color: appTheme.implementationWeekColor,
-          borderRadius: BorderRadius.all(Radius.circular(4.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(4.0)),
         ),
         child: Padding(
           padding: const EdgeInsetsGeometry.symmetric(horizontal: 3),

@@ -7,7 +7,7 @@ class MonthView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return const Padding(
       padding: EdgeInsetsGeometry.symmetric(horizontal: 32.0),
       child: MonthCalendar(month: Month.electric),
     );

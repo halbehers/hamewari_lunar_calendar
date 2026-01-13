@@ -15,22 +15,26 @@ abstract class Repository<T extends Model<T>> {
   Future<T> findById(int id) async {
     Database db = await database;
 
-    return db.query(getTable(), where: "id = ?", whereArgs: [id]).then((
-      result,
-    ) {
-      return result
-          .map((dbEntity) => newEntity().fillFromValues(dbEntity))
-          .single;
+    return retryIfLocked(() async {
+      return await db.query(getTable(), where: "id = ?", whereArgs: [id]).then((
+        result,
+      ) {
+        return result
+            .map((dbEntity) => newEntity().fillFromValues(dbEntity))
+            .single;
+      });
     });
   }
 
   Future<List<T>> findAll() async {
     Database db = await database;
 
-    return db.query(getTable()).then((result) {
-      return result
-          .map((dbEntity) => newEntity().fillFromValues(dbEntity))
-          .toList();
+    return retryIfLocked(() async {
+      return await db.query(getTable()).then((result) {
+        return result
+            .map((dbEntity) => newEntity().fillFromValues(dbEntity))
+            .toList();
+      });
     });
   }
 
@@ -47,24 +51,26 @@ abstract class Repository<T extends Model<T>> {
   }) async {
     Database db = await database;
 
-    return db
-        .query(
-          getTable(),
-          distinct: distinct,
-          columns: columns,
-          where: where,
-          whereArgs: whereArgs,
-          groupBy: groupBy,
-          having: having,
-          orderBy: orderBy,
-          limit: limit,
-          offset: offset,
-        )
-        .then((result) {
-          return result
-              .map((dbEntity) => newEntity().fillFromValues(dbEntity))
-              .toList();
-        });
+    return retryIfLocked(() async {
+      return await db
+          .query(
+            getTable(),
+            distinct: distinct,
+            columns: columns,
+            where: where,
+            whereArgs: whereArgs,
+            groupBy: groupBy,
+            having: having,
+            orderBy: orderBy,
+            limit: limit,
+            offset: offset,
+          )
+          .then((result) {
+            return result
+                .map((dbEntity) => newEntity().fillFromValues(dbEntity))
+                .toList();
+          });
+    });
   }
 
   Future<bool> exists(int id) async {
@@ -78,24 +84,51 @@ abstract class Repository<T extends Model<T>> {
   Future<int> create(T entity) async {
     Database db = await database;
 
-    return db.insert(getTable(), entity.getValuesMap());
+    return retryIfLocked(() async {
+      return await db.insert(getTable(), entity.getValuesMap());
+    });
   }
 
   Future<int> update(T entity) async {
     Database db = await database;
 
-    return db.update(
-      getTable(),
-      entity.getValuesMap(),
-      where: 'id = ?',
-      whereArgs: [entity.id],
-    );
+    return retryIfLocked(() async {
+      return await db.update(
+        getTable(),
+        entity.getValuesMap(),
+        where: 'id = ?',
+        whereArgs: [entity.id],
+      );
+    });
   }
 
   Future<bool> delete(T entity) async {
     Database db = await database;
     int id = entity.id!;
 
-    return await db.delete(getTable(), where: "id = ?", whereArgs: [id]) == 0;
+    return retryIfLocked(() async {
+      return await db.delete(getTable(), where: "id = ?", whereArgs: [id]) == 0;
+    });
+  }
+
+  Future<R> retryIfLocked<R>(Future<R> Function() action) async {
+    const maxRetries = 3;
+    const delay = Duration(milliseconds: 50);
+
+    for (int attempt = 0; attempt < maxRetries; attempt++) {
+      try {
+        return await action();
+      } catch (e) {
+        if (e.toString().contains('database is locked') &&
+            attempt < maxRetries - 1) {
+          await Future.delayed(delay);
+          continue;
+        }
+        rethrow;
+      }
+    }
+
+    // Unreachable, but Dart requires a return
+    throw StateError('Unreachable');
   }
 }

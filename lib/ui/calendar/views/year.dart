@@ -12,15 +12,15 @@ class YearView extends StatelessWidget {
         .toList();
 
     return Padding(
-      padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
+      padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
       child: GridView.builder(
         itemCount: months.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisExtent: 164,
         ),
         itemBuilder: (context, index) => Padding(
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 16.0),
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 16.0),
           child: months[index],
         ),
       ),

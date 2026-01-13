@@ -69,13 +69,16 @@ class ButtonStack extends StatelessWidget {
             color: appTheme.shadowColor,
             blurRadius: 7,
             spreadRadius: -3,
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
           ),
         ],
       ),
       margin: margin,
       child: Padding(
-        padding: EdgeInsetsGeometry.symmetric(vertical: 12, horizontal: 24),
+        padding: const EdgeInsetsGeometry.symmetric(
+          vertical: 12,
+          horizontal: 24,
+        ),
         child: Wrap(
           spacing: displayCaptions ? 24 : 16,
           children: items
@@ -93,7 +96,7 @@ class ButtonStack extends StatelessWidget {
                       ...(displayCaptions && item.caption != null
                           ? [
                               Padding(
-                                padding: EdgeInsetsGeometry.only(top: 4),
+                                padding: const EdgeInsetsGeometry.only(top: 4),
                                 child: Text(
                                   item.caption!,
                                   style: getSelection() == item.id

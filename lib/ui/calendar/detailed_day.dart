@@ -31,7 +31,7 @@ class DetailedDay extends StatelessWidget {
       decoration: isActive
           ? BoxDecoration(
               color: appTheme.accentBackgroundColor,
-              borderRadius: BorderRadius.all(Radius.circular(1000)),
+              borderRadius: const BorderRadius.all(Radius.circular(1000)),
             )
           : null,
       child: Center(child: Text(day.toString(), style: appTheme.body)),
@@ -43,7 +43,7 @@ class DetailedDay extends StatelessWidget {
     AppTheme appTheme = context.appTheme;
 
     return Padding(
-      padding: EdgeInsetsGeometry.symmetric(horizontal: 2),
+      padding: const EdgeInsetsGeometry.symmetric(horizontal: 2),
       child: Column(
         children: [
           buildDayNumber(appTheme),

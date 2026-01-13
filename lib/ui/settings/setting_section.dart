@@ -17,7 +17,7 @@ class SettingSection extends StatelessWidget {
         ...(title != null
             ? [
                 Padding(
-                  padding: EdgeInsetsGeometry.only(bottom: 16),
+                  padding: const EdgeInsetsGeometry.only(bottom: 16),
                   child: Text(title!, style: appTheme.h4),
                 ),
               ]
@@ -32,9 +32,9 @@ class SettingSection extends StatelessWidget {
               ...items.indexed.map<Widget>(
                 (item) => Column(
                   children: [
-                    ...(item.$1 > 0 ? [SettingSectionSeparator()] : []),
+                    ...(item.$1 > 0 ? [const SettingSectionSeparator()] : []),
                     Container(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         vertical: 8.0,
                         horizontal: 24.0,
                       ),

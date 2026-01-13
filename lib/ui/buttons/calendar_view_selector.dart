@@ -27,9 +27,9 @@ class CalendarViewSelector extends StatelessWidget {
       size: ButtonStackSize.medium,
       selection: selectedView?.name,
       items: [
-        ButtonStackItem(id: "year", iconPath: IconPath.largeGrid),
-        ButtonStackItem(id: "month", iconPath: IconPath.grid),
-        ButtonStackItem(id: "week", iconPath: IconPath.columns),
+        const ButtonStackItem(id: "year", iconPath: IconPath.largeGrid),
+        const ButtonStackItem(id: "month", iconPath: IconPath.grid),
+        const ButtonStackItem(id: "week", iconPath: IconPath.columns),
       ],
     );
   }

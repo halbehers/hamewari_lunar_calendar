@@ -14,24 +14,27 @@ class LocaleSetting extends StatelessWidget {
     AppLocalizations t = AppLocalizations.of(context)!;
     SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
     Map<Locale, String> languageByLocale = {
-      Locale("en"): t.language_en,
-      Locale("fr"): t.language_fr,
-      Locale("es"): t.language_es,
+      const Locale("en"): t.language_en,
+      const Locale("fr"): t.language_fr,
+      const Locale("es"): t.language_es,
     };
 
-    return DropdownSetting<Locale>(
+    return DropdownSetting<SettingLocale>(
       label: label ?? t.settings_language,
-      initialValue: settingsProvider.locale,
-      onChanged: settingsProvider.setLocale,
-      notSelectedLabel: t.settings_language_system,
-      items: AppLocalizations.supportedLocales
-          .map(
-            (locale) => DropdownSettingItem(
-              label: languageByLocale[locale]!,
-              value: locale,
-            ),
-          )
-          .toList(),
+      initialValue: settingsProvider.settingLocale,
+      onChanged: settingsProvider.setSettingLocale,
+      items: [
+        DropdownSettingItem(
+          label: t.settings_language_system,
+          value: SettingLocale.empty(),
+        ),
+        ...AppLocalizations.supportedLocales.map(
+          (locale) => DropdownSettingItem(
+            label: languageByLocale[locale]!,
+            value: SettingLocale.of(locale),
+          ),
+        ),
+      ],
     );
   }
 }

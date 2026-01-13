@@ -23,33 +23,36 @@ class SettingsPage extends StatelessWidget {
       backgroundColor: appTheme.backgroundColor,
       appBar: AppBar(
         title: Padding(
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
+          padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
           child: Text(t.settings_title, style: appTheme.h1),
         ),
         backgroundColor: appTheme.backgroundColor,
         centerTitle: false,
       ),
       body: Container(
-        padding: EdgeInsetsDirectional.symmetric(horizontal: 32, vertical: 16),
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: 32,
+          vertical: 16,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SettingSection(
               title: t.settings_display,
               items: [
-                ThemeModeSetting(),
+                const ThemeModeSetting(),
                 BoolSetting(
                   label: t.settings_display_menu_caption,
                   initialValue: settingsProvider.displayMenuCaptions,
                   onChanged: settingsProvider.setDisplayMenuCaptions,
                 ),
-                LocaleSetting(),
+                const LocaleSetting(),
               ],
             ),
           ],
         ),
       ),
-      floatingActionButton: MainPageSelector(pageId: "settings"),
+      floatingActionButton: const MainPageSelector(pageId: "settings"),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

@@ -117,7 +117,7 @@ class _CalendarPageState extends State<CalendarPage> {
           return view.widget;
         }).toList(),
       ),
-      floatingActionButton: MainPageSelector(),
+      floatingActionButton: const MainPageSelector(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

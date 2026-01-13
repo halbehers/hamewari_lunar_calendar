@@ -11,7 +11,7 @@ class MonthCalendar extends StatelessWidget {
 
   Widget buildSeparator(AppTheme appTheme) {
     return Padding(
-      padding: EdgeInsetsGeometry.only(bottom: 8),
+      padding: const EdgeInsetsGeometry.only(bottom: 8),
       child: Container(
         height: 1,
         decoration: BoxDecoration(color: appTheme.borderColor),
@@ -29,23 +29,27 @@ class MonthCalendar extends StatelessWidget {
         Flexible(
           flex: 0,
           child: Padding(
-            padding: EdgeInsetsGeometry.directional(bottom: 32),
+            padding: const EdgeInsetsGeometry.directional(bottom: 32),
             child: Text(month.name, style: appTheme.h2),
           ),
         ),
         Flexible(
           flex: 1,
           child: Padding(
-            padding: EdgeInsetsGeometry.only(bottom: 90),
+            padding: const EdgeInsetsGeometry.only(bottom: 90),
             child: Column(
               children: [
-                Flexible(child: DetailedWeekRow(week: Week.starting)),
+                const Flexible(child: DetailedWeekRow(week: Week.starting)),
                 buildSeparator(appTheme),
-                Flexible(child: DetailedWeekRow(week: Week.refinement)),
+                const Flexible(child: DetailedWeekRow(week: Week.refinement)),
                 buildSeparator(appTheme),
-                Flexible(child: DetailedWeekRow(week: Week.transformation)),
+                const Flexible(
+                  child: DetailedWeekRow(week: Week.transformation),
+                ),
                 buildSeparator(appTheme),
-                Flexible(child: DetailedWeekRow(week: Week.implementation)),
+                const Flexible(
+                  child: DetailedWeekRow(week: Week.implementation),
+                ),
               ],
             ),
           ),

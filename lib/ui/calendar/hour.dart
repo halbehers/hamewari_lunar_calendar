@@ -18,7 +18,7 @@ class Hour extends StatelessWidget {
           Flexible(
             flex: 0,
             child: Container(
-              padding: EdgeInsets.only(right: 8),
+              padding: const EdgeInsets.only(right: 8),
               width: 50,
               child: Text(
                 '${(hour == 24 ? 0 : hour).toString().padLeft(2, '0')}:00',

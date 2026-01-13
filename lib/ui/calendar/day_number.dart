@@ -26,7 +26,7 @@ class DayNumber extends StatelessWidget {
       height: 2,
       decoration: BoxDecoration(
         color: appTheme.secondaryAccentColor,
-        borderRadius: BorderRadius.all(Radius.circular(1000)),
+        borderRadius: const BorderRadius.all(Radius.circular(1000)),
       ),
     );
   }
@@ -45,7 +45,7 @@ class DayNumber extends StatelessWidget {
                   color: isActive
                       ? appTheme.accentBackgroundColor
                       : appTheme.borderColor,
-                  borderRadius: BorderRadius.all(Radius.circular(1000)),
+                  borderRadius: const BorderRadius.all(Radius.circular(1000)),
                 )
               : null,
           child: Center(

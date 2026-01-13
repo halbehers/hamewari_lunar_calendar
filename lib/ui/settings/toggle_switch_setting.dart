@@ -38,7 +38,7 @@ class ToggleSwitchSetting<T extends Enum> extends StatelessWidget {
       children: [
         Text(label, style: appTheme.body),
         Padding(
-          padding: EdgeInsetsGeometry.only(top: 16.0, bottom: 8.0),
+          padding: const EdgeInsetsGeometry.only(top: 16.0, bottom: 8.0),
           child: Center(
             child: ToggleSwitch(
               initialLabelIndex: initialLabelIndex,

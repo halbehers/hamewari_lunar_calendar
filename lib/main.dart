@@ -79,13 +79,13 @@ extension BuildContextExtension on BuildContext {
 
 final _router = GoRouter(
   routes: [
-    GoRoute(path: '/', builder: (context, state) => CalendarPage()),
+    GoRoute(path: '/', builder: (context, state) => const CalendarPage()),
     GoRoute(
       path: '/calendar',
       pageBuilder: (context, state) {
         return CustomTransitionPage(
           key: state.pageKey,
-          child: CalendarPage(),
+          child: const CalendarPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity: CurveTween(
@@ -102,7 +102,7 @@ final _router = GoRouter(
       pageBuilder: (context, state) {
         return CustomTransitionPage(
           key: state.pageKey,
-          child: TasksPage(),
+          child: const TasksPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity: CurveTween(
@@ -119,7 +119,7 @@ final _router = GoRouter(
       pageBuilder: (context, state) {
         return CustomTransitionPage(
           key: state.pageKey,
-          child: SettingsPage(),
+          child: const SettingsPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity: CurveTween(
@@ -149,7 +149,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp.router(
           title: 'Hamewari Lunar Calendar',
           themeMode: provider.themeMode,
-          locale: provider.locale,
+          locale: provider.settingLocale.locale,
           theme: ThemeData(
             fontFamily: "Brandon",
             extensions: <ThemeExtension<dynamic>>[lightAppTheme],

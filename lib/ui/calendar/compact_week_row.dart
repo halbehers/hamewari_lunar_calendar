@@ -23,7 +23,7 @@ class CompactWeekRow extends StatelessWidget {
       height: 12,
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.all(Radius.circular(2)),
+        borderRadius: const BorderRadius.all(Radius.circular(2)),
       ),
     );
   }

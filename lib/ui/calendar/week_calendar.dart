@@ -13,7 +13,7 @@ class WeekCalendar extends StatelessWidget {
 
   Widget buildSeparator(AppTheme appTheme) {
     return Padding(
-      padding: EdgeInsetsGeometry.only(bottom: 8),
+      padding: const EdgeInsetsGeometry.only(bottom: 8),
       child: Container(
         height: 1,
         decoration: BoxDecoration(color: appTheme.borderColor),
@@ -31,14 +31,14 @@ class WeekCalendar extends StatelessWidget {
         Flexible(
           flex: 0,
           child: Padding(
-            padding: EdgeInsetsGeometry.directional(bottom: 16),
+            padding: const EdgeInsetsGeometry.directional(bottom: 16),
             child: WeekRow(week: week, selectedDay: selectedDay),
           ),
         ),
         Flexible(
           flex: 0,
           child: Padding(
-            padding: EdgeInsetsGeometry.directional(bottom: 16),
+            padding: const EdgeInsetsGeometry.directional(bottom: 16),
             child: Text(
               "Tuesday 9th",
               style: appTheme.h4,
@@ -51,7 +51,7 @@ class WeekCalendar extends StatelessWidget {
           child: ListView(
             children: [
               ...List.generate(25, (index) => Hour(hour: index)),
-              SizedBox.fromSize(size: Size.fromHeight(64)),
+              SizedBox.fromSize(size: const Size.fromHeight(64)),
             ],
           ),
         ),

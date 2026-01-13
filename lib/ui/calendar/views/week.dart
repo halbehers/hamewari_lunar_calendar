@@ -7,7 +7,7 @@ class WeekView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return const Padding(
       padding: EdgeInsetsGeometry.symmetric(horizontal: 24.0),
       child: WeekCalendar(week: Week.starting),
     );
