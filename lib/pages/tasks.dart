@@ -12,7 +12,7 @@ class TasksPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: appTheme.backgroundColor,
-      body: Center(child: Text("Tasks page")),
+      body: Center(child: Text("Tasks page", style: appTheme.body)),
       floatingActionButton: MainPageSelector(pageId: "tasks"),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );

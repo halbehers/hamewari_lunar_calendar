@@ -5,7 +5,9 @@ import 'package:hamewari/ui/settings/toggle_switch_setting.dart';
 import 'package:provider/provider.dart';
 
 class ThemeModeSetting extends StatelessWidget {
-  const ThemeModeSetting({super.key});
+  const ThemeModeSetting({super.key, this.label});
+
+  final String? label;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +21,15 @@ class ThemeModeSetting extends StatelessWidget {
     };
 
     return ToggleSwitchSetting(
-      label: t.settings_theme_mode,
+      label: label ?? t.settings_theme_mode,
       initialValue: settingsProvider.themeMode,
       onChanged: settingsProvider.setThemeMode,
       items: ThemeMode.values
           .map(
-            (mode) =>
-                ToggleSwitchItem(label: labelByThemeModes[mode]!, value: mode),
+            (mode) => ToggleSwitchSettingItem(
+              label: labelByThemeModes[mode]!,
+              value: mode,
+            ),
           )
           .toList(),
     );

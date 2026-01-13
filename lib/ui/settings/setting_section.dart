@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
 import 'package:hamewari/theme/app_theme.dart';
 
 class SettingSection extends StatelessWidget {

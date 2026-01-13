@@ -43,15 +43,16 @@ class SettingsProvider extends ChangeNotifier {
     }
   }
 
-  Locale _locale = Locale("en");
-  final Locale defaultLocale = Locale("en");
+  Locale? _locale = Locale("en");
 
-  Locale get locale => _locale;
+  Locale? get locale => _locale;
 
   void setLocale(Locale? locale, {bool persistChange = true}) {
-    if (!AppLocalizations.supportedLocales.contains(locale)) return;
+    if (locale == null || !AppLocalizations.supportedLocales.contains(locale)) {
+      _locale = null;
+    }
 
-    _locale = locale ?? defaultLocale;
+    _locale = locale;
     notifyListeners();
     if (persistChange) {
       service.setupByName(SettingsService.selectedLocaleId, locale.toString());

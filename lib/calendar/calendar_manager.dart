@@ -55,15 +55,7 @@ enum Week {
   }
 }
 
-enum Day {
-  monday,
-  tuesday,
-  wednesday,
-  thursday,
-  friday,
-  saturday,
-  sunday;
-}
+enum Day { monday, tuesday, wednesday, thursday, friday, saturday, sunday }
 
 class CalendarManager {
   CalendarManager._privateConstructor();

@@ -3,8 +3,8 @@ import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-class ToggleSwitchItem<T> {
-  const ToggleSwitchItem({required this.label, required this.value});
+class ToggleSwitchSettingItem<T> {
+  const ToggleSwitchSettingItem({required this.label, required this.value});
 
   final String label;
   final T value;
@@ -22,7 +22,7 @@ class ToggleSwitchSetting<T extends Enum> extends StatelessWidget {
   final String label;
   final T initialValue;
   final void Function(T value) onChanged;
-  final List<ToggleSwitchItem<T>> items;
+  final List<ToggleSwitchSettingItem<T>> items;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,6 @@ class ToggleSwitchSetting<T extends Enum> extends StatelessWidget {
               initialLabelIndex: initialLabelIndex,
               totalSwitches: items.length,
               customHeights: items.map((_) => 32.0).toList(),
-              // customWidths: items.map((_) => 56.0).toList(),
               cornerRadius: 16.0,
               activeBgColor: [appTheme.secondaryColor],
               activeFgColor: appTheme.invertedTextColor,

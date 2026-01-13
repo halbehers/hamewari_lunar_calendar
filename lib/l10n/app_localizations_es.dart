@@ -39,6 +39,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settings_language => 'Idioma';
 
   @override
+  String get settings_language_system => 'Sistema';
+
+  @override
   String get settings_theme_mode => 'Tema';
 
   @override

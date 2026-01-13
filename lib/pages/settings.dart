@@ -8,7 +8,6 @@ import 'package:hamewari/ui/settings/bool_setting.dart';
 import 'package:hamewari/ui/settings/locale_setting.dart';
 import 'package:hamewari/ui/settings/setting_section.dart';
 import 'package:hamewari/ui/settings/theme_mode_setting.dart';
-import 'package:hamewari/ui/settings/toggle_switch_setting.dart';
 import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -44,11 +43,7 @@ class SettingsPage extends StatelessWidget {
                   initialValue: settingsProvider.displayMenuCaptions,
                   onChanged: settingsProvider.setDisplayMenuCaptions,
                 ),
-                LocaleSetting(
-                  label: t.settings_language,
-                  initialValue: settingsProvider.locale,
-                  onChanged: settingsProvider.setLocale,
-                ),
+                LocaleSetting(),
               ],
             ),
           ],

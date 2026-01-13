@@ -160,6 +160,12 @@ abstract class AppLocalizations {
   /// **'Language'**
   String get settings_language;
 
+  /// Setting language system label
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get settings_language_system;
+
   /// Setting theme mode
   ///
   /// In en, this message translates to:
