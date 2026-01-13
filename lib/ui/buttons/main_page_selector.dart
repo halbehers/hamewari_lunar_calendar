@@ -37,6 +37,7 @@ class MainPageSelector extends StatelessWidget {
       size: ButtonStackSize.large,
       displayCaptions: settingsProvider.displayMenuCaptions,
       selection: pageId,
+      squared: settingsProvider.displayMenuCaptions,
       items: [
         ButtonStackItem(
           id: "calendar",

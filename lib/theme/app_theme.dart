@@ -4,12 +4,17 @@ import 'package:flutter/material.dart';
 class AppTheme extends ThemeExtension<AppTheme> {
   const AppTheme({
     required this.backgroundColor,
-    required this.secondaryBackgroundColor,
+    required this.highlightedBackgroundColor,
     required this.textColor,
+    required this.invertedTextColor,
+    required this.subduedTextColor,
+    required this.disabledTextColor,
     required this.iconColor,
     required this.iconActiveColor,
     required this.primaryColor,
+    required this.primaryBackgroundColor,
     required this.secondaryColor,
+    required this.secondaryBackgroundColor,
     required this.accentColor,
     required this.accentBackgroundColor,
     required this.secondaryAccentColor,
@@ -27,12 +32,17 @@ class AppTheme extends ThemeExtension<AppTheme> {
   });
 
   final Color backgroundColor;
-  final Color secondaryBackgroundColor;
+  final Color highlightedBackgroundColor;
   final Color textColor;
+  final Color invertedTextColor;
+  final Color subduedTextColor;
+  final Color disabledTextColor;
   final Color iconColor;
   final Color iconActiveColor;
   final Color primaryColor;
+  final Color primaryBackgroundColor;
   final Color secondaryColor;
+  final Color secondaryBackgroundColor;
   final Color accentColor;
   final Color accentBackgroundColor;
   final Color secondaryAccentColor;
@@ -54,26 +64,42 @@ class AppTheme extends ThemeExtension<AppTheme> {
       TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w600);
   TextStyle get h3 =>
       TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.w600);
-  TextStyle get h4 =>
-      TextStyle(color: textColor, fontSize: 18, fontWeight: FontWeight.w500);
-  TextStyle get h5 =>
-      TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w500);
+  TextStyle get h4 => TextStyle(
+    color: subduedTextColor,
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+  );
+  TextStyle get h5 => TextStyle(
+    color: subduedTextColor,
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
   TextStyle get body =>
       TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w400);
   TextStyle get smallText =>
       TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w400);
+  TextStyle get smallTextSecondary => TextStyle(
+    color: secondaryColor,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+  );
   TextStyle get extraSmallText =>
       TextStyle(color: textColor, fontSize: 10, fontWeight: FontWeight.w400);
 
   @override
   AppTheme copyWith({
     Color? background,
-    Color? secondaryBackground,
+    Color? highlightedBackgroundColor,
     Color? textColor,
+    Color? invertedTextColor,
+    Color? subduedTextColor,
+    Color? disabledTextColor,
     Color? iconColor,
     Color? iconActiveColor,
     Color? primaryColor,
+    Color? primaryBackgroundColor,
     Color? secondaryColor,
+    Color? secondaryBackgroundColor,
     Color? accentColor,
     Color? accentBackgroundColor,
     Color? secondaryAccentColor,
@@ -91,13 +117,21 @@ class AppTheme extends ThemeExtension<AppTheme> {
   }) {
     return AppTheme(
       backgroundColor: background ?? backgroundColor,
-      secondaryBackgroundColor: secondaryBackground ?? secondaryBackgroundColor,
+      highlightedBackgroundColor:
+          highlightedBackgroundColor ?? this.highlightedBackgroundColor,
       textColor: textColor ?? this.textColor,
+      invertedTextColor: invertedTextColor ?? this.invertedTextColor,
+      subduedTextColor: subduedTextColor ?? this.subduedTextColor,
+      disabledTextColor: disabledTextColor ?? this.disabledTextColor,
       iconColor: iconColor ?? this.iconColor,
       iconActiveColor: iconActiveColor ?? this.iconActiveColor,
       accentColor: accentColor ?? this.accentColor,
       primaryColor: primaryColor ?? this.primaryColor,
+      primaryBackgroundColor:
+          primaryBackgroundColor ?? this.primaryBackgroundColor,
       secondaryColor: secondaryColor ?? this.secondaryColor,
+      secondaryBackgroundColor:
+          secondaryBackgroundColor ?? this.secondaryBackgroundColor,
       accentBackgroundColor:
           accentBackgroundColor ?? this.accentBackgroundColor,
       secondaryAccentColor: secondaryAccentColor ?? this.secondaryAccentColor,
@@ -132,21 +166,40 @@ class AppTheme extends ThemeExtension<AppTheme> {
     return AppTheme(
       backgroundColor:
           Color.lerp(backgroundColor, other.backgroundColor, t) ?? Colors.white,
+      highlightedBackgroundColor:
+          Color.lerp(
+            highlightedBackgroundColor,
+            other.highlightedBackgroundColor,
+            t,
+          ) ??
+          Colors.white,
+      textColor: Color.lerp(textColor, other.textColor, t) ?? Colors.black,
+      invertedTextColor:
+          Color.lerp(invertedTextColor, other.invertedTextColor, t) ??
+          Colors.black,
+      subduedTextColor:
+          Color.lerp(subduedTextColor, other.subduedTextColor, t) ??
+          Colors.black,
+      disabledTextColor:
+          Color.lerp(disabledTextColor, other.disabledTextColor, t) ??
+          Colors.black,
+      iconColor: Color.lerp(iconColor, other.iconColor, t) ?? Colors.black,
+      iconActiveColor:
+          Color.lerp(iconActiveColor, other.iconActiveColor, t) ?? Colors.black,
+      primaryColor:
+          Color.lerp(primaryColor, other.primaryColor, t) ?? Colors.black,
+      primaryBackgroundColor:
+          Color.lerp(primaryBackgroundColor, other.primaryBackgroundColor, t) ??
+          Colors.black,
+      secondaryColor:
+          Color.lerp(secondaryColor, other.secondaryColor, t) ?? Colors.black,
       secondaryBackgroundColor:
           Color.lerp(
             secondaryBackgroundColor,
             other.secondaryBackgroundColor,
             t,
           ) ??
-          Colors.white,
-      textColor: Color.lerp(textColor, other.textColor, t) ?? Colors.black,
-      iconColor: Color.lerp(iconColor, other.iconColor, t) ?? Colors.black,
-      iconActiveColor:
-          Color.lerp(iconActiveColor, other.iconActiveColor, t) ?? Colors.black,
-      primaryColor:
-          Color.lerp(primaryColor, other.primaryColor, t) ?? Colors.black,
-      secondaryColor:
-          Color.lerp(secondaryColor, other.secondaryColor, t) ?? Colors.black,
+          Colors.black,
       accentColor:
           Color.lerp(accentColor, other.accentColor, t) ?? Colors.black,
       accentBackgroundColor:

@@ -1,8 +1,16 @@
 {
-  "language": "Français",
+  "language_en": "Anglais",
+  "language_fr": "Français",
+  "language_es": "Espagnol",
   "menuCaption_calendar": "Calendrier",
   "menuCaption_tasks": "Tâches",
   "menuCaption_settings": "Paramètres",
   "settings_title": "Paramètres",
-  "settings_display_menu_caption": "Afficher les labels du menu"
+  "settings_display": "Affichage",
+  "settings_display_menu_caption": "Afficher les labels du menu",
+  "settings_language": "Langue",
+  "settings_theme_mode": "Thème",
+  "theme_mode_dark": "Sombre",
+  "theme_mode_light": "Clair",
+  "theme_mode_system": "Système"
 }

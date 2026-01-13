@@ -1,6 +1,9 @@
 enum IconPath {
   add("assets/icons/add.svg"),
-  arrow("assets/icons/arrow.svg"),
+  arrowLeft("assets/icons/arrow_left.svg"),
+  arrowRight("assets/icons/arrow_right.svg"),
+  arrowTop("assets/icons/arrow_top.svg"),
+  arrowBottom("assets/icons/arrow_bottom.svg"),
   calendar("assets/icons/calendar.svg"),
   columns("assets/icons/columns.svg"),
   cross("assets/icons/cross.svg"),

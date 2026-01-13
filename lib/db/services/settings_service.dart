@@ -6,6 +6,8 @@ import 'package:hamewari/db/services/service.dart';
 class SettingsService extends Service<Setting> {
   static String selectedCalendarViewId = "selected-calendar-view";
   static String displayMenuCaptionsId = "display-menu-caption";
+  static String selectedThemeModeId = "selected-theme-mode";
+  static String selectedLocaleId = "selected-locale";
 
   @override
   Repository<Setting> newRepository() {

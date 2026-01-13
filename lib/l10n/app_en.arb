@@ -1,7 +1,15 @@
 {
-  "language": "English",
-  "@language": {
-    "description": "The current language"
+  "language_en": "English",
+  "@language_en": {
+    "description": "English language"
+  },
+  "language_fr": "French",
+  "@language_fr": {
+    "description": "French language"
+  },
+  "language_es": "Spanish",
+  "@language_es": {
+    "description": "Spanish language"
   },
   "menuCaption_calendar": "Calendar",
   "@menuCaption_calendar": {
@@ -19,8 +27,32 @@
   "@settings_title": {
     "description": "Settings page title"
   },
+  "settings_display": "Display",
+  "@settings_display": {
+    "description": "Setting display caption"
+  },
   "settings_display_menu_caption": "Display menu caption",
   "@settings_display_menu_caption": {
     "description": "Setting display menu caption"
+  },
+  "settings_language": "Language",
+  "@settings_language": {
+    "description": "Setting language"
+  },
+  "settings_theme_mode": "Theme Mode",
+  "@settings_theme_mode": {
+    "description": "Setting theme mode"
+  },
+  "theme_mode_dark": "Dark",
+  "@theme_mode_dark": {
+    "description": "Theme mode dark"
+  },
+  "theme_mode_light": "Light",
+  "@theme_mode_light": {
+    "description": "Theme mode light"
+  },
+  "theme_mode_system": "System",
+  "@theme_mode_system": {
+    "description": "Theme mode system"
   }
 }

@@ -100,11 +100,23 @@ abstract class AppLocalizations {
     Locale('fr'),
   ];
 
-  /// The current language
+  /// English language
   ///
   /// In en, this message translates to:
   /// **'English'**
-  String get language;
+  String get language_en;
+
+  /// French language
+  ///
+  /// In en, this message translates to:
+  /// **'French'**
+  String get language_fr;
+
+  /// Spanish language
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish'**
+  String get language_es;
 
   /// Calendar menu caption
   ///
@@ -130,11 +142,47 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get settings_title;
 
+  /// Setting display caption
+  ///
+  /// In en, this message translates to:
+  /// **'Display'**
+  String get settings_display;
+
   /// Setting display menu caption
   ///
   /// In en, this message translates to:
   /// **'Display menu caption'**
   String get settings_display_menu_caption;
+
+  /// Setting language
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get settings_language;
+
+  /// Setting theme mode
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Mode'**
+  String get settings_theme_mode;
+
+  /// Theme mode dark
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get theme_mode_dark;
+
+  /// Theme mode light
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get theme_mode_light;
+
+  /// Theme mode system
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get theme_mode_system;
 }
 
 class _AppLocalizationsDelegate

@@ -16,12 +16,17 @@ void main() {
 
 AppTheme lightAppTheme = AppTheme(
   backgroundColor: ThemeColors.grey[100]!,
-  secondaryBackgroundColor: ThemeColors.white,
+  highlightedBackgroundColor: ThemeColors.white,
   textColor: ThemeColors.grey[600]!,
+  invertedTextColor: ThemeColors.white,
+  subduedTextColor: ThemeColors.grey[400]!,
+  disabledTextColor: ThemeColors.grey[300]!,
   iconColor: ThemeColors.grey[500]!,
   iconActiveColor: ThemeColors.turquoise[500]!,
   primaryColor: ThemeColors.blue[500]!,
+  primaryBackgroundColor: ThemeColors.blue[200]!,
   secondaryColor: ThemeColors.turquoise[500]!,
+  secondaryBackgroundColor: ThemeColors.turquoise[200]!,
   accentColor: ThemeColors.yellow[500]!,
   accentBackgroundColor: ThemeColors.yellow[300]!,
   secondaryAccentColor: ThemeColors.purple[500]!,
@@ -39,13 +44,18 @@ AppTheme lightAppTheme = AppTheme(
 );
 
 AppTheme darkAppTheme = AppTheme(
-  backgroundColor: ThemeColors.grey[600]!,
-  secondaryBackgroundColor: ThemeColors.grey[700]!,
+  backgroundColor: ThemeColors.grey[700]!,
+  highlightedBackgroundColor: ThemeColors.grey[600]!,
   textColor: ThemeColors.white,
+  invertedTextColor: ThemeColors.grey[600]!,
+  subduedTextColor: ThemeColors.grey[200]!,
+  disabledTextColor: ThemeColors.grey[400]!,
   iconColor: ThemeColors.grey[100]!,
   iconActiveColor: ThemeColors.turquoise[200]!,
   primaryColor: ThemeColors.blue[200]!,
+  primaryBackgroundColor: ThemeColors.blue[500]!,
   secondaryColor: ThemeColors.turquoise[200]!,
+  secondaryBackgroundColor: ThemeColors.turquoise[500]!,
   accentColor: ThemeColors.yellow[100]!,
   accentBackgroundColor: ThemeColors.yellow[500]!,
   secondaryAccentColor: ThemeColors.purple[300]!,
@@ -139,7 +149,7 @@ class MyApp extends StatelessWidget {
 
         return MaterialApp.router(
           title: 'Hamewari Lunar Calendar',
-          themeMode: ThemeMode.system,
+          themeMode: provider.themeMode,
           locale: provider.locale,
           theme: ThemeData(
             fontFamily: "Brandon",
