@@ -78,6 +78,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
       TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w400);
   TextStyle get smallText =>
       TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w400);
+  TextStyle get boldSmallText =>
+      TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w700);
   TextStyle get smallTextSecondary => TextStyle(
     color: secondaryColor,
     fontSize: 12,
