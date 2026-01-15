@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/l10n/app_localizations.dart';
-import 'package:hamewari/providers/settings_provider.dart';
 
 extension MoonMonthKey on Month {
   String get l10nKey => name;

@@ -3,7 +3,6 @@ import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/calendar/day_number.dart';
-import 'package:intl/intl.dart';
 
 enum SeparatorPosition { start, end }
 
@@ -15,9 +14,6 @@ class WeekRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
-    print(
-      "format MMMMEEEEd: ${DateFormat.yMMMMEEEEd().format(DateTime.now())}",
-    );
     return Column(
       children: [
         Row(
