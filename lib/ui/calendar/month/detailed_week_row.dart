@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/ui/calendar/detailed_day.dart';
+import 'package:hamewari/ui/calendar/month/detailed_day.dart';
 
 class DetailedWeekRow extends StatelessWidget {
   const DetailedWeekRow({super.key, required this.month, required this.week});

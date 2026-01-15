@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/calendar_manager.dart';
 import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/ui/calendar/compact_month.dart';
+import 'package:hamewari/ui/calendar/year/compact_month.dart';
 
 class YearView extends StatefulWidget {
   const YearView({super.key});

@@ -3,9 +3,9 @@ import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/ui/buttons/main_page_selector.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
 import 'package:hamewari/main.dart';
-import 'package:hamewari/ui/calendar/views/month.dart';
-import 'package:hamewari/ui/calendar/views/week.dart';
-import 'package:hamewari/ui/calendar/views/year.dart';
+import 'package:hamewari/ui/calendar/month/month.dart';
+import 'package:hamewari/ui/calendar/week/week.dart';
+import 'package:hamewari/ui/calendar/year/year.dart';
 import 'package:provider/provider.dart';
 import 'package:vibration/vibration.dart';
 import 'package:vibration/vibration_presets.dart';
@@ -36,6 +36,7 @@ class CalendarPage extends StatefulWidget {
 class _CalendarPageState extends State<CalendarPage> {
   late final PageController _pageController;
   late CalendarView _selectedView;
+  bool _isProgrammaticPageChange = false;
 
   @override
   void initState() {
@@ -69,11 +70,18 @@ class _CalendarPageState extends State<CalendarPage> {
     });
 
     if (animate) {
-      _pageController.animateToPage(
-        newView.index,
-        duration: const Duration(milliseconds: 350),
-        curve: Curves.easeOutCubic,
-      );
+      _isProgrammaticPageChange = true;
+      _pageController
+          .animateToPage(
+            newView.index,
+            duration: const Duration(milliseconds: 350),
+            curve: Curves.easeOutCubic,
+          )
+          .then((_) {
+            if (mounted) {
+              _isProgrammaticPageChange = false;
+            }
+          });
     } else {
       _pageController.jumpToPage(newView.index);
     }
@@ -103,6 +111,8 @@ class _CalendarPageState extends State<CalendarPage> {
             ? const BouncingScrollPhysics()
             : const ClampingScrollPhysics(),
         onPageChanged: (index) {
+          if (_isProgrammaticPageChange) return;
+
           final view = CalendarView.values[index];
           _changeView(view, settingsProvider: settingsProvider, animate: false);
         },

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/ui/calendar/week_calendar.dart';
+import 'package:hamewari/ui/calendar/week/week_calendar.dart';
 
 class WeekView extends StatelessWidget {
   const WeekView({super.key});

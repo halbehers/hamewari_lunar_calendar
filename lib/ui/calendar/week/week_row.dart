@@ -7,9 +7,10 @@ import 'package:hamewari/ui/calendar/day_number.dart';
 enum SeparatorPosition { start, end }
 
 class WeekRow extends StatelessWidget {
-  const WeekRow({super.key, required this.date});
+  const WeekRow({super.key, required this.date, required this.changeDate});
 
   final MoonDate date;
+  final void Function(MoonDate date) changeDate;
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +24,12 @@ class WeekRow extends StatelessWidget {
               .map(
                 (day) => DayNumber(
                   day: day.dayNumber,
-                  size: 32,
+                  size: 36,
                   textStyle: appTheme.h3,
                   activeTextStyle: appTheme.invertedH3,
                   isSelected: date.isSameDayNumber(day.dayNumber),
                   isActive: MoonDate.isToday(day),
+                  onTap: () => changeDate(day),
                 ),
               )
               .toList(),

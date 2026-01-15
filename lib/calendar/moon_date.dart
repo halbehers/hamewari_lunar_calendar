@@ -207,4 +207,21 @@ class MoonDate implements Comparable<MoonDate> {
     final b = other.toDateTime().toUtc();
     return b.difference(a).inDays;
   }
+
+  MoonDate getDateFromWeekDayIndex(int index) {
+    return MoonDate(year, month, week, Day.values[index]);
+  }
+
+  MoonDate startOfWeek() {
+    return MoonDate(year, month, week, Day.values[0]);
+  }
+
+  MoonDate addWeeks(int delta) {
+    return MoonDate(
+      year,
+      month,
+      Week.values[(week.weekNumber + delta) % 3],
+      Day.values[0],
+    );
+  }
 }

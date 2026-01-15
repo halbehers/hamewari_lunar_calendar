@@ -3,7 +3,7 @@ import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/l10n/app_localizations.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/compact_week_row.dart';
+import 'package:hamewari/ui/calendar/year/compact_week_row.dart';
 
 class CompactMonth extends StatelessWidget {
   const CompactMonth({super.key, required this.month});

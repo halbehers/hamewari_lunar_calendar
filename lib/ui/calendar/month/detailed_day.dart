@@ -3,7 +3,7 @@ import 'package:hamewari/db/models/event.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/calendar/day_number.dart';
-import 'package:hamewari/ui/calendar/event_card.dart';
+import 'package:hamewari/ui/calendar/month/event_card.dart';
 
 class DetailedDay extends StatelessWidget {
   const DetailedDay({

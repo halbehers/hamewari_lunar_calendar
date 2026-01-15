@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
+import 'package:hamewari/ui/calendar/calendar_motion.dart';
 
 class DayNumber extends StatelessWidget {
   const DayNumber({
@@ -12,6 +14,7 @@ class DayNumber extends StatelessWidget {
     this.size = 20,
     this.textStyle,
     this.activeTextStyle,
+    this.onTap,
   });
 
   final int day;
@@ -21,6 +24,7 @@ class DayNumber extends StatelessWidget {
   final double size;
   final TextStyle? textStyle;
   final TextStyle? activeTextStyle;
+  final VoidCallback? onTap;
 
   Widget buildDot(AppTheme appTheme) {
     return Container(
@@ -37,30 +41,66 @@ class DayNumber extends StatelessWidget {
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
 
-    return Stack(
-      children: [
-        Container(
-          width: size,
-          height: size,
-          decoration: isActive || isSelected
-              ? BoxDecoration(
-                  color: isActive ? appTheme.accentColor : appTheme.borderColor,
-                  borderRadius: const BorderRadius.all(Radius.circular(1000)),
-                )
-              : null,
-          child: Center(
-            child: Text(
-              day.toString(),
-              style: (isActive
-                  ? activeTextStyle ?? appTheme.invertedBoldSmallText
-                  : textStyle ?? appTheme.smallText),
-            ),
+    final Color backgroundColor = isActive
+        ? appTheme.accentColor
+        : isSelected
+        ? appTheme.borderColor
+        : Colors.transparent;
+
+    final TextStyle resolvedTextStyle = isActive
+        ? (activeTextStyle ?? appTheme.invertedBoldSmallText)
+        : (textStyle ?? appTheme.smallText);
+
+    final scale = isActive
+        ? (isSelected ? 1.0 : 0.9)
+        : (isSelected ? 1.0 : 0.6);
+
+    return SizedBox(
+      width: size,
+      height: size,
+      child: Material(
+        color: Colors.transparent,
+        shape: const CircleBorder(),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: () {
+            HapticFeedback.selectionClick();
+            onTap?.call();
+          },
+          splashFactory: InkRipple.splashFactory,
+          splashColor: backgroundColor.withValues(alpha: 0.25),
+          highlightColor: backgroundColor.withValues(alpha: 0.1),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              AnimatedScale(
+                scale: scale,
+                duration: CalendarMotion.selectionDuration,
+                curve: CalendarMotion.selectionCurve,
+                child: AnimatedContainer(
+                  duration: CalendarMotion.selectionDuration,
+                  curve: CalendarMotion.selectionCurve,
+                  width: size,
+                  height: size,
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                    borderRadius: BorderRadius.circular(1000),
+                  ),
+                ),
+              ),
+              AnimatedDefaultTextStyle(
+                duration: CalendarMotion.selectionDuration,
+                curve: CalendarMotion.selectionCurve,
+                style: resolvedTextStyle,
+                child: Text(day.toString()),
+              ),
+
+              if (hasEvent)
+                Positioned(bottom: 0, right: 8, child: buildDot(appTheme)),
+            ],
           ),
         ),
-        ...(hasEvent
-            ? [Positioned(bottom: 0, right: 8, child: buildDot(appTheme))]
-            : []),
-      ],
+      ),
     );
   }
 }

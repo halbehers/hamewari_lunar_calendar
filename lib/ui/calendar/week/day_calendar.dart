@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/ui/calendar/hour.dart';
-import 'package:hamewari/ui/calendar/time_indicator.dart';
+import 'package:hamewari/ui/calendar/week/hour.dart';
+import 'package:hamewari/ui/calendar/week/time_indicator.dart';
 
 class DayCalendar extends StatefulWidget {
   const DayCalendar({super.key, required this.date});
