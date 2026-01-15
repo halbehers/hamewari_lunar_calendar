@@ -9,8 +9,9 @@ class DayNumber extends StatelessWidget {
     this.isActive = false,
     this.isSelected = false,
     this.hasEvent = false,
-    this.size = 18,
+    this.size = 20,
     this.textStyle,
+    this.activeTextStyle,
   });
 
   final int day;
@@ -19,6 +20,7 @@ class DayNumber extends StatelessWidget {
   final bool hasEvent;
   final double size;
   final TextStyle? textStyle;
+  final TextStyle? activeTextStyle;
 
   Widget buildDot(AppTheme appTheme) {
     return Container(
@@ -42,14 +44,17 @@ class DayNumber extends StatelessWidget {
           height: size,
           decoration: isActive || isSelected
               ? BoxDecoration(
-                  color: isActive
-                      ? appTheme.accentBackgroundColor
-                      : appTheme.borderColor,
+                  color: isActive ? appTheme.accentColor : appTheme.borderColor,
                   borderRadius: const BorderRadius.all(Radius.circular(1000)),
                 )
               : null,
           child: Center(
-            child: Text(day.toString(), style: textStyle ?? appTheme.smallText),
+            child: Text(
+              day.toString(),
+              style: (isActive
+                  ? activeTextStyle ?? appTheme.invertedBoldSmallText
+                  : textStyle ?? appTheme.smallText),
+            ),
           ),
         ),
         ...(hasEvent

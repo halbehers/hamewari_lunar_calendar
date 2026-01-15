@@ -64,6 +64,11 @@ class AppTheme extends ThemeExtension<AppTheme> {
       TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w600);
   TextStyle get h3 =>
       TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.w600);
+  TextStyle get invertedH3 => TextStyle(
+    color: invertedTextColor,
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+  );
   TextStyle get h4 => TextStyle(
     color: subduedTextColor,
     fontSize: 18,
@@ -74,12 +79,34 @@ class AppTheme extends ThemeExtension<AppTheme> {
     fontSize: 16,
     fontWeight: FontWeight.w500,
   );
+  TextStyle get accentH5 =>
+      TextStyle(color: accentColor, fontSize: 16, fontWeight: FontWeight.w500);
   TextStyle get body =>
       TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w400);
+  TextStyle get invertedBody => TextStyle(
+    color: invertedTextColor,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
+  TextStyle get invertedBoldBody => TextStyle(
+    color: invertedTextColor,
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+  );
   TextStyle get smallText =>
       TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w400);
+  TextStyle get invertedSmallText => TextStyle(
+    color: invertedTextColor,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+  );
   TextStyle get boldSmallText =>
       TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w700);
+  TextStyle get invertedBoldSmallText => TextStyle(
+    color: invertedTextColor,
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+  );
   TextStyle get smallTextSecondary => TextStyle(
     color: secondaryColor,
     fontSize: 12,

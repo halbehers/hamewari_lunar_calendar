@@ -26,7 +26,7 @@ AppTheme lightAppTheme = AppTheme(
   primaryBackgroundColor: ThemeColors.blue[200]!,
   secondaryColor: ThemeColors.turquoise[500]!,
   secondaryBackgroundColor: ThemeColors.turquoise[200]!,
-  accentColor: ThemeColors.yellow[500]!,
+  accentColor: ThemeColors.yellow[600]!,
   accentBackgroundColor: ThemeColors.yellow[300]!,
   secondaryAccentColor: ThemeColors.purple[500]!,
   secondaryAccentBackgroundColor: ThemeColors.purple[300]!,

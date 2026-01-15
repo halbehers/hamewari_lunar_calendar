@@ -1,4 +1,5 @@
 {
+  "@@locale": "es",
   "language_en": "Inglés",
   "language_fr": "Francés",
   "language_es": "Español",
@@ -13,5 +14,11 @@
   "settings_theme_mode": "Tema",
   "theme_mode_dark": "Oscuro",
   "theme_mode_light": "Claro",
-  "theme_mode_system": "Sistema"
+  "theme_mode_system": "Sistema",
+  "monthTitle": "{month, select, magnetic{Luna magnética} lunar{Luna lunar} electric{Luna eléctrica} selfExisting{Luna autoexistente} harmonic{Luna armónica} rhythmic{Luna rítmica} resonant{Luna resonante} galactic{Luna galáctica} solar{Luna solar} planetary{Luna planetaria} spectral{Luna espectral} crystal{Luna de cristal} cosmic{Luna cósmica} other{Luna no identificada}}",
+  "month": "{month, select, magnetic{magnética} lunar{lunar} electric{eléctrica} selfExisting{autoexistente} harmonic{armónica} rhythmic{rítmica} resonant{resonante} galactic{galáctica} solar{solar} planetary{planetaria} spectral{espectral} crystal{cristal} cosmic{cósmica} other{no identificada}}",
+  "weekTitle": "{week, select, starting{Semana inicial} refinement{Semana de refinamiento} transformation{Semana de la transformación} implementation{Semana de implementación} other{Semana no identificada}}",
+  "week": "{week, select, starting{inicial} refinement{refinamiento} transformation{transformación} implementation{implementación} other{no identificada}}",
+  "dayTitle": "{day, select, monday{Lunes} tuesday{Martes} wednesday{Miércoles} thursday{Jueves} friday{Viernes} saturday{Sábado} sunday{Domingo} other{Día no identificado}}",
+  "day": "{day, select, monday{lunes} tuesday{martes} wednesday{miércoles} thursday{jueves} friday{viernes} saturday{sábado} sunday{domingo} other{no identificado}}"
 }

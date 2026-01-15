@@ -21,7 +21,7 @@ class TimeIndicator extends StatelessWidget {
           child: Text(
             '${(now.hour).toString().padLeft(2, '0')}:${(now.minute).toString().padLeft(2, '0')}',
             textAlign: TextAlign.center,
-            style: appTheme.boldSmallText,
+            style: appTheme.invertedBoldSmallText,
           ),
         ),
         Expanded(child: Container(height: 2, color: appTheme.accentColor)),

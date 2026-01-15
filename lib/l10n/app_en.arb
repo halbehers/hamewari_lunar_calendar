@@ -1,4 +1,5 @@
 {
+  "@@locale": "en",
   "language_en": "English",
   "@language_en": {
     "description": "English language"
@@ -58,5 +59,59 @@
   "theme_mode_system": "System",
   "@theme_mode_system": {
     "description": "Theme mode system"
+  },
+  "monthTitle": "{month, select, magnetic{Magnetic Moon} lunar{Lunar Moon} electric{Electric Moon} selfExisting{Self-Existing Moon} harmonic{Harmonic Moon} rhythmic{Rhythmic Moon} resonant{Resonant Moon} galactic{Galactic Moon} solar{Solar Moon} planetary{Planetary Moon} spectral{Spectral Moon} crystal{Crystal Moon} cosmic{Cosmic Moon} other{Unidentified Moon}}",
+  "@monthTitle": {
+    "description": "Moon month titles by number",
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "month": "{month, select, magnetic{magnetic} lunar{lunar} electric{electric} selfExisting{self-existing} harmonic{harmonic} rhythmic{rhythmic} resonant{resonant} galactic{galactic} solar{solar} planetary{planetary} spectral{spectral} crystal{crystal} cosmic{cosmic} other{unidentified}}",
+  "@month": {
+    "description": "Moon months by number",
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "weekTitle": "{week, select, starting{Starting Week} refinement{Refinement Week} transformation{Transformation Week} implementation{Implementation Week} other{Unidentified Week}}",
+  "@weekTitle": {
+    "description": "Moon week titles by number",
+    "placeholders": {
+      "week": {
+        "type": "String"
+      }
+    }
+  },
+  "week": "{week, select, starting{starting} refinement{refinement} transformation{transformation} implementation{implementation} other{unidentified}}",
+  "@week": {
+    "description": "Moon weeks by number",
+    "placeholders": {
+      "week": {
+        "type": "String"
+      }
+    }
+  },
+  "dayTitle": "{day, select, monday{Monday} tuesday{Tuesday} wednesday{Wednesday} thursday{Thursday} friday{Friday} saturday{Saturday} sunday{Sunday} other{Unidentified Day}}",
+  "@dayTitle": {
+    "description": "Day titles by number",
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "day": "{day, select, monday{monday} tuesday{tuesday} wednesday{wednesday} thursday{thursday} friday{friday} saturday{saturday} sunday{sunday} other{unidentified}}",
+  "@day": {
+    "description": "Days by number",
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
   }
 }

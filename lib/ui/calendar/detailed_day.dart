@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/db/models/event.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
+import 'package:hamewari/ui/calendar/day_number.dart';
 import 'package:hamewari/ui/calendar/event_card.dart';
 
 class DetailedDay extends StatelessWidget {
@@ -46,7 +47,13 @@ class DetailedDay extends StatelessWidget {
       padding: const EdgeInsetsGeometry.symmetric(horizontal: 2),
       child: Column(
         children: [
-          buildDayNumber(appTheme),
+          DayNumber(
+            day: day,
+            isActive: isActive,
+            size: 32,
+            textStyle: appTheme.body,
+            activeTextStyle: appTheme.invertedBoldBody,
+          ),
           ...getEvents().map((event) {
             return EventCard(event: event);
           }),

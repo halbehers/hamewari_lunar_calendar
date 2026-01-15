@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/calendar_manager.dart';
+import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/ui/calendar/detailed_day.dart';
 
 class DetailedWeekRow extends StatelessWidget {
-  const DetailedWeekRow({super.key, required this.week});
+  const DetailedWeekRow({super.key, required this.month, required this.week});
 
+  final Month month;
   final Week week;
 
   @override
@@ -20,10 +21,25 @@ class DetailedWeekRow extends StatelessWidget {
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: List.generate(
-        7,
-        (int index) => index + ((week.weekNumber - 1) * 7) + 1,
-      ).map((dayNumber) => DetailedDay(day: dayNumber)).toList(),
+      children:
+          List.generate(
+                7,
+                (int index) => index + ((week.weekNumber - 1) * 7) + 1,
+              )
+              .map(
+                (dayNumber) => DetailedDay(
+                  day: dayNumber,
+                  isActive: MoonDate.isToday(
+                    MoonDate(
+                      MoonDate.currentYear,
+                      month,
+                      week,
+                      Day.values[(dayNumber - 1) % 7],
+                    ),
+                  ),
+                ),
+              )
+              .toList(),
     );
   }
 }

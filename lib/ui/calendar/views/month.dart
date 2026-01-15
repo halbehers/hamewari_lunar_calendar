@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/calendar_manager.dart';
+import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/ui/calendar/month_calendar.dart';
 
 class MonthView extends StatelessWidget {
@@ -7,9 +7,9 @@ class MonthView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsetsGeometry.symmetric(horizontal: 32.0),
-      child: MonthCalendar(month: Month.electric),
+    return Padding(
+      padding: const EdgeInsetsGeometry.symmetric(horizontal: 32.0),
+      child: MonthCalendar(month: MoonDate.currentMonth),
     );
   }
 }

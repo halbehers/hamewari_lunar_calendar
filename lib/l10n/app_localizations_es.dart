@@ -52,4 +52,100 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get theme_mode_system => 'Sistema';
+
+  @override
+  String monthTitle(String month) {
+    String _temp0 = intl.Intl.selectLogic(month, {
+      'magnetic': 'Luna magnética',
+      'lunar': 'Luna lunar',
+      'electric': 'Luna eléctrica',
+      'selfExisting': 'Luna autoexistente',
+      'harmonic': 'Luna armónica',
+      'rhythmic': 'Luna rítmica',
+      'resonant': 'Luna resonante',
+      'galactic': 'Luna galáctica',
+      'solar': 'Luna solar',
+      'planetary': 'Luna planetaria',
+      'spectral': 'Luna espectral',
+      'crystal': 'Luna de cristal',
+      'cosmic': 'Luna cósmica',
+      'other': 'Luna no identificada',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String month(String month) {
+    String _temp0 = intl.Intl.selectLogic(month, {
+      'magnetic': 'magnética',
+      'lunar': 'lunar',
+      'electric': 'eléctrica',
+      'selfExisting': 'autoexistente',
+      'harmonic': 'armónica',
+      'rhythmic': 'rítmica',
+      'resonant': 'resonante',
+      'galactic': 'galáctica',
+      'solar': 'solar',
+      'planetary': 'planetaria',
+      'spectral': 'espectral',
+      'crystal': 'cristal',
+      'cosmic': 'cósmica',
+      'other': 'no identificada',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String weekTitle(String week) {
+    String _temp0 = intl.Intl.selectLogic(week, {
+      'starting': 'Semana inicial',
+      'refinement': 'Semana de refinamiento',
+      'transformation': 'Semana de la transformación',
+      'implementation': 'Semana de implementación',
+      'other': 'Semana no identificada',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String week(String week) {
+    String _temp0 = intl.Intl.selectLogic(week, {
+      'starting': 'inicial',
+      'refinement': 'refinamiento',
+      'transformation': 'transformación',
+      'implementation': 'implementación',
+      'other': 'no identificada',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String dayTitle(String day) {
+    String _temp0 = intl.Intl.selectLogic(day, {
+      'monday': 'Lunes',
+      'tuesday': 'Martes',
+      'wednesday': 'Miércoles',
+      'thursday': 'Jueves',
+      'friday': 'Viernes',
+      'saturday': 'Sábado',
+      'sunday': 'Domingo',
+      'other': 'Día no identificado',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String day(String day) {
+    String _temp0 = intl.Intl.selectLogic(day, {
+      'monday': 'lunes',
+      'tuesday': 'martes',
+      'wednesday': 'miércoles',
+      'thursday': 'jueves',
+      'friday': 'viernes',
+      'saturday': 'sábado',
+      'sunday': 'domingo',
+      'other': 'no identificado',
+    });
+    return '$_temp0';
+  }
 }

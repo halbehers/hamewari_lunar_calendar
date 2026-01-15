@@ -1,20 +1,20 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/ui/calendar/hour.dart';
 import 'package:hamewari/ui/calendar/time_indicator.dart';
 
 class DayCalendar extends StatefulWidget {
-  const DayCalendar({super.key, this.day = 0});
+  const DayCalendar({super.key, required this.date});
 
-  final int day;
+  final MoonDate date;
 
   @override
   State<DayCalendar> createState() => _DayCalendarState();
 }
 
-class _DayCalendarState extends State<DayCalendar>
-    with AutomaticKeepAliveClientMixin {
+class _DayCalendarState extends State<DayCalendar> {
   late Timer _timer;
   late final ValueNotifier<DateTime> _now;
 
@@ -23,7 +23,7 @@ class _DayCalendarState extends State<DayCalendar>
   bool _didAutoScroll = false;
 
   double get _currentTimeOffset {
-    final now = _now.value; // ✅ THIS makes it reactive
+    final now = _now.value;
     final minutesSinceMidnight = now.hour * 60 + now.minute;
     return (minutesSinceMidnight / 60) * hourRowHeight;
   }
@@ -63,19 +63,16 @@ class _DayCalendarState extends State<DayCalendar>
   }
 
   double _initialScrollOffset() {
-    // if (widget.week.isToday) {
     final offset = 64.0;
-    final now = _now.value;
-    final seconds = now.hour * 3600 + now.minute * 60 + now.second;
-    return (seconds / 3600) * hourRowHeight - offset;
-    // }
 
-    // // Not today → scroll to 9:00 AM
-    // return 9 * hourRowHeight - offset;
+    if (MoonDate.isToday(widget.date)) {
+      final now = _now.value;
+      final seconds = now.hour * 3600 + now.minute * 60 + now.second;
+      return (seconds / 3600) * hourRowHeight - offset;
+    }
+
+    return 9 * hourRowHeight - offset;
   }
-
-  @override
-  bool get wantKeepAlive => true;
 
   Widget _buildHoursList() {
     return ListView(
@@ -113,12 +110,15 @@ class _DayCalendarState extends State<DayCalendar>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
+    final bool isActive = MoonDate.isToday(widget.date);
 
     return Expanded(
       child: Stack(
         clipBehavior: Clip.hardEdge,
-        children: [_buildHoursList(), _buildTimeIndicatorOverlay()],
+        children: [
+          _buildHoursList(),
+          if (isActive) _buildTimeIndicatorOverlay(),
+        ],
       ),
     );
   }

@@ -189,6 +189,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'System'**
   String get theme_mode_system;
+
+  /// Moon month titles by number
+  ///
+  /// In en, this message translates to:
+  /// **'{month, select, magnetic{Magnetic Moon} lunar{Lunar Moon} electric{Electric Moon} selfExisting{Self-Existing Moon} harmonic{Harmonic Moon} rhythmic{Rhythmic Moon} resonant{Resonant Moon} galactic{Galactic Moon} solar{Solar Moon} planetary{Planetary Moon} spectral{Spectral Moon} crystal{Crystal Moon} cosmic{Cosmic Moon} other{Unidentified Moon}}'**
+  String monthTitle(String month);
+
+  /// Moon months by number
+  ///
+  /// In en, this message translates to:
+  /// **'{month, select, magnetic{magnetic} lunar{lunar} electric{electric} selfExisting{self-existing} harmonic{harmonic} rhythmic{rhythmic} resonant{resonant} galactic{galactic} solar{solar} planetary{planetary} spectral{spectral} crystal{crystal} cosmic{cosmic} other{unidentified}}'**
+  String month(String month);
+
+  /// Moon week titles by number
+  ///
+  /// In en, this message translates to:
+  /// **'{week, select, starting{Starting Week} refinement{Refinement Week} transformation{Transformation Week} implementation{Implementation Week} other{Unidentified Week}}'**
+  String weekTitle(String week);
+
+  /// Moon weeks by number
+  ///
+  /// In en, this message translates to:
+  /// **'{week, select, starting{starting} refinement{refinement} transformation{transformation} implementation{implementation} other{unidentified}}'**
+  String week(String week);
+
+  /// Day titles by number
+  ///
+  /// In en, this message translates to:
+  /// **'{day, select, monday{Monday} tuesday{Tuesday} wednesday{Wednesday} thursday{Thursday} friday{Friday} saturday{Saturday} sunday{Sunday} other{Unidentified Day}}'**
+  String dayTitle(String day);
+
+  /// Days by number
+  ///
+  /// In en, this message translates to:
+  /// **'{day, select, monday{monday} tuesday{tuesday} wednesday{wednesday} thursday{thursday} friday{friday} saturday{saturday} sunday{sunday} other{unidentified}}'**
+  String day(String day);
 }
 
 class _AppLocalizationsDelegate

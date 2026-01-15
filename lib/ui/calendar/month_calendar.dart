@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/calendar_manager.dart';
+import 'package:hamewari/calendar/moon_date.dart';
+import 'package:hamewari/l10n/app_localizations.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/calendar/detailed_week_row.dart';
@@ -22,6 +23,7 @@ class MonthCalendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
+    AppLocalizations t = AppLocalizations.of(context)!;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +32,7 @@ class MonthCalendar extends StatelessWidget {
           flex: 0,
           child: Padding(
             padding: const EdgeInsetsGeometry.directional(bottom: 32),
-            child: Text(month.name, style: appTheme.h2),
+            child: Text(t.month(month.name), style: appTheme.h2),
           ),
         ),
         Flexible(
@@ -39,16 +41,26 @@ class MonthCalendar extends StatelessWidget {
             padding: const EdgeInsetsGeometry.only(bottom: 90),
             child: Column(
               children: [
-                const Flexible(child: DetailedWeekRow(week: Week.starting)),
-                buildSeparator(appTheme),
-                const Flexible(child: DetailedWeekRow(week: Week.refinement)),
-                buildSeparator(appTheme),
-                const Flexible(
-                  child: DetailedWeekRow(week: Week.transformation),
+                Flexible(
+                  child: DetailedWeekRow(month: month, week: Week.starting),
                 ),
                 buildSeparator(appTheme),
-                const Flexible(
-                  child: DetailedWeekRow(week: Week.implementation),
+                Flexible(
+                  child: DetailedWeekRow(month: month, week: Week.refinement),
+                ),
+                buildSeparator(appTheme),
+                Flexible(
+                  child: DetailedWeekRow(
+                    month: month,
+                    week: Week.transformation,
+                  ),
+                ),
+                buildSeparator(appTheme),
+                Flexible(
+                  child: DetailedWeekRow(
+                    month: month,
+                    week: Week.implementation,
+                  ),
                 ),
               ],
             ),
