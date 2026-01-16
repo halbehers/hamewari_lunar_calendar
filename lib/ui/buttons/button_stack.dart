@@ -4,37 +4,37 @@ import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/theme/h_icon.dart';
 import 'package:hamewari/theme/icon_path.dart';
 
-class ButtonStackItem {
+class ButtonStackItem<ID> {
   const ButtonStackItem({
     required this.id,
     required this.iconPath,
     this.caption,
   });
 
-  final String id;
+  final ID id;
   final IconPath iconPath;
   final String? caption;
 }
 
 enum ButtonStackSize { small, medium, large }
 
-class ButtonStack extends StatelessWidget {
+class ButtonStack<ID> extends StatelessWidget {
   const ButtonStack({
     super.key,
     required this.items,
     this.size = ButtonStackSize.medium,
     this.margin,
     required this.onSelectionChanged,
-    this.selection,
+    this.selectedId,
     this.displayCaptions = false,
     this.squared = false,
   });
 
-  final List<ButtonStackItem> items;
+  final List<ButtonStackItem<ID>> items;
   final ButtonStackSize size;
   final EdgeInsetsGeometry? margin;
-  final void Function(String) onSelectionChanged;
-  final String? selection;
+  final void Function(ID) onSelectionChanged;
+  final ID? selectedId;
   final bool displayCaptions;
   final bool squared;
 
@@ -49,8 +49,8 @@ class ButtonStack extends StatelessWidget {
     }
   }
 
-  String getSelection() {
-    return selection ?? items.first.id;
+  ID getSelectedId() {
+    return selectedId ?? items.first.id;
   }
 
   @override
@@ -90,7 +90,7 @@ class ButtonStack extends StatelessWidget {
                     children: [
                       HIcon(
                         iconPath: item.iconPath,
-                        isActive: getSelection() == item.id,
+                        isActive: getSelectedId() == item.id,
                         size: getIconSize(),
                       ),
                       ...(displayCaptions && item.caption != null
@@ -99,7 +99,7 @@ class ButtonStack extends StatelessWidget {
                                 padding: const EdgeInsetsGeometry.only(top: 4),
                                 child: Text(
                                   item.caption!,
-                                  style: getSelection() == item.id
+                                  style: getSelectedId() == item.id
                                       ? appTheme.smallTextSecondary
                                       : appTheme.smallText,
                                 ),

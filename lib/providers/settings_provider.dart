@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/db/models/setting.dart';
 import 'package:hamewari/db/services/settings_service.dart';
 import 'package:hamewari/l10n/app_localizations.dart';
-import 'package:hamewari/pages/calendar.dart';
 
 class SettingsProvider extends ChangeNotifier {
   SettingsProvider() {
@@ -14,12 +13,12 @@ class SettingsProvider extends ChangeNotifier {
   void initSettings() async {
     {
       Setting? setting = await service.findByName(
-        SettingsService.selectedCalendarViewId,
+        SettingsService.selectedCalendarViewIndexId,
       );
 
-      if (setting != null) {
-        setSelectedCalendarView(
-          CalendarView.fromName(setting.value)!,
+      if (setting != null && setting.valueType == SettingValueType.number) {
+        setSelectedCalendarViewIndex(
+          setting.value as int,
           persistChange: false,
         );
       }
@@ -61,20 +60,21 @@ class SettingsProvider extends ChangeNotifier {
     }
   }
 
-  CalendarView _selectedCalendarView = CalendarView.year;
+  int _selectedCalendarViewIndex = 0;
 
-  CalendarView get selectedCalendarView => _selectedCalendarView;
+  int get selectedCalendarViewIndex => _selectedCalendarViewIndex;
 
-  void setSelectedCalendarView(
-    CalendarView calendarView, {
+  void setSelectedCalendarViewIndex(
+    int calendarViewIndex, {
     bool persistChange = true,
   }) {
-    _selectedCalendarView = calendarView;
+    _selectedCalendarViewIndex = calendarViewIndex;
     notifyListeners();
     if (persistChange) {
-      service.setupByName(
-        SettingsService.selectedCalendarViewId,
-        calendarView.name,
+      service.setupByName<int>(
+        SettingsService.selectedCalendarViewIndexId,
+        calendarViewIndex,
+        valueType: SettingValueType.number,
       );
     }
   }

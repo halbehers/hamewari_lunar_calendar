@@ -23,31 +23,39 @@ class MoonDateFormat {
   final String formatPattern;
 
   static const String dayPattern = 'D';
-  static const String weekdayPattern = 'E';
-  static const String standaloneMonthPattern = 'LLLL';
+  static const String weekdayPattern = 'EEE';
+  static const String standaloneWeekdayPattern = 'EEEE';
+  static const String numWeekPattern = 'W';
+  static const String weekPattern = 'WWW';
+  static const String standaloneWeekPattern = 'WWWW';
   static const String numMonthPattern = 'M';
   static const String numMonthDayPattern = 'MD';
-  static const String numMonthWeekdayDayPattern = 'MED';
-  static const String monthPattern = 'MMMM';
+  static const String numMonthWeekdayDayPattern = 'MEEED';
+  static const String monthPattern = 'MMM';
+  static const String standaloneMonthPattern = 'MMMM';
   static const String monthDayPattern = 'MMMMD';
-  static const String monthWeekdayDayPattern = 'MMMMED';
+  static const String monthWeekdayDayPattern = 'MMMMEEED';
   static const String yearPattern = 'Y';
   static const String yearNumMonthPattern = 'YM';
   static const String yearNumMonthDayPattern = 'YMD';
-  static const String yearNumMonthWeekdayDayPattern = 'YMED';
+  static const String yearNumMonthWeekdayDayPattern = 'YMEEED';
   static const String yearMonthPattern = 'YMMMM';
   static const String yearMonthDayPattern = 'YMMMMD';
-  static const String yearMonthWeekdayDayPattern = 'YMMMMED';
+  static const String yearMonthWeekdayDayPattern = 'YMMMMEEED';
 
   static MoonDateFormat day() => MoonDateFormat(dayPattern);
   static MoonDateFormat weekday() => MoonDateFormat(weekdayPattern);
-  static MoonDateFormat standaloneMonth() =>
-      MoonDateFormat(standaloneMonthPattern);
+  static MoonDateFormat weekdayTitle() =>
+      MoonDateFormat(standaloneWeekdayPattern);
+  static MoonDateFormat numWeek() => MoonDateFormat(numWeekPattern);
+  static MoonDateFormat week() => MoonDateFormat(weekPattern);
+  static MoonDateFormat weekTitle() => MoonDateFormat(standaloneWeekPattern);
   static MoonDateFormat numMonth() => MoonDateFormat(numMonthPattern);
   static MoonDateFormat numMonthDay() => MoonDateFormat(numMonthDayPattern);
   static MoonDateFormat numMonthWeekdayDay() =>
       MoonDateFormat(numMonthWeekdayDayPattern);
   static MoonDateFormat month() => MoonDateFormat(monthPattern);
+  static MoonDateFormat monthTitle() => MoonDateFormat(standaloneMonthPattern);
   static MoonDateFormat monthDay() => MoonDateFormat(monthDayPattern);
   static MoonDateFormat monthWeekdayDay() =>
       MoonDateFormat(monthWeekdayDayPattern);
@@ -65,39 +73,47 @@ class MoonDateFormat {
   Map<String, String> formattedPatternsByPatternsUS = {
     dayPattern: dayPattern,
     weekdayPattern: weekdayPattern,
-    standaloneMonthPattern: standaloneMonthPattern,
+    standaloneWeekdayPattern: standaloneWeekdayPattern,
+    numWeekPattern: numWeekPattern,
+    weekPattern: weekPattern,
+    standaloneWeekPattern: standaloneWeekPattern,
     numMonthPattern: numMonthPattern,
     numMonthDayPattern: "M/D",
     numMonthWeekdayDayPattern: "E, M/D",
     monthPattern: monthPattern,
-    monthDayPattern: "MMMM D",
-    monthWeekdayDayPattern: "E, MMMM D",
+    standaloneMonthPattern: standaloneMonthPattern,
+    monthDayPattern: "MMM D",
+    monthWeekdayDayPattern: "E, MMM D",
     yearPattern: yearPattern,
     yearNumMonthPattern: "M/Y",
     yearNumMonthDayPattern: "M/D/Y",
     yearNumMonthWeekdayDayPattern: "E, M/D/Y",
-    yearMonthPattern: "MMMM Y",
-    yearMonthDayPattern: "MMMM D, Y",
-    yearMonthWeekdayDayPattern: "E, MMMM D, Y",
+    yearMonthPattern: "MMM Y",
+    yearMonthDayPattern: "MMM D, Y",
+    yearMonthWeekdayDayPattern: "E, MMM D, Y",
   };
 
   Map<String, String> formattedPatternsByPatternsEU = {
     dayPattern: dayPattern,
     weekdayPattern: weekdayPattern,
-    standaloneMonthPattern: standaloneMonthPattern,
+    standaloneWeekdayPattern: standaloneWeekdayPattern,
+    numWeekPattern: numWeekPattern,
+    weekPattern: weekPattern,
+    standaloneWeekPattern: standaloneWeekPattern,
     numMonthPattern: numMonthPattern,
     numMonthDayPattern: "D/M",
-    numMonthWeekdayDayPattern: "E, D/M",
+    numMonthWeekdayDayPattern: "EEE, D/M",
     monthPattern: monthPattern,
-    monthDayPattern: "D MMMM",
-    monthWeekdayDayPattern: "E D MMMM",
+    standaloneMonthPattern: standaloneMonthPattern,
+    monthDayPattern: "D MMM",
+    monthWeekdayDayPattern: "EEE D MMM",
     yearPattern: yearPattern,
     yearNumMonthPattern: "M/Y",
     yearNumMonthDayPattern: "D/M/Y",
-    yearNumMonthWeekdayDayPattern: "E, D/M/Y",
-    yearMonthPattern: "MMMM Y",
-    yearMonthDayPattern: "D MMMM y",
-    yearMonthWeekdayDayPattern: "E D MMMM Y",
+    yearNumMonthWeekdayDayPattern: "EEE, D/M/Y",
+    yearMonthPattern: "MMM Y",
+    yearMonthDayPattern: "D MMM y",
+    yearMonthWeekdayDayPattern: "EEE D MMM Y",
   };
 
   String _getFormattedPatternByLocale(String pattern, Locale locale) {
@@ -107,32 +123,81 @@ class MoonDateFormat {
     return formattedPatternsByPatternsEU[pattern] ?? pattern;
   }
 
+  List<String> _parse(String pattern, List<String> sortedKeys) {
+    final List<String> parts = [];
+    int index = 0;
+
+    while (index < pattern.length) {
+      String? matchedKey;
+
+      // Try to match the longest possible key at this position
+      for (final key in sortedKeys) {
+        if (pattern.startsWith(key, index)) {
+          matchedKey = key;
+          break;
+        }
+      }
+
+      if (matchedKey != null) {
+        // Found a formatting token
+        parts.add(matchedKey);
+        index += matchedKey.length;
+      } else {
+        // Collect raw text until we hit a formatting token
+        final buffer = StringBuffer();
+
+        while (index < pattern.length) {
+          bool startsWithToken = false;
+
+          for (final key in sortedKeys) {
+            if (pattern.startsWith(key, index)) {
+              startsWithToken = true;
+              break;
+            }
+          }
+
+          if (startsWithToken) break;
+
+          buffer.write(pattern[index]);
+          index++;
+        }
+
+        parts.add(buffer.toString());
+      }
+    }
+
+    return parts;
+  }
+
   String format(BuildContext context, MoonDate date, {Locale? locale}) {
     final t = AppLocalizations.of(context)!;
     Locale autoLocale = locale ?? Localizations.localeOf(context);
     final replacements = <String, String>{
       'Y': date.year.toString(),
-
       'M': (date.month.monthNumber).toString(),
-
-      'MMMM': t.month(date.month.l10nKey),
-
-      'W': t.week(date.week.l10nKey),
-
-      'E': t.day(date.day.l10nKey),
-
+      'MMM': t.month(date.month.l10nKey),
+      'MMMM': t.monthTitle(date.month.l10nKey),
+      'W': (date.week.weekNumber).toString(),
+      'WWW': t.week(date.week.l10nKey),
+      'WWWW': t.weekTitle(date.week.l10nKey),
+      'EEE': t.day(date.day.l10nKey),
+      'EEEE': t.dayTitle(date.day.l10nKey),
       'D': (date.dayNumber).toString(),
     };
-    String result = _getFormattedPatternByLocale(formatPattern, autoLocale);
-
+    String formattedPattern = _getFormattedPatternByLocale(
+      formatPattern,
+      autoLocale,
+    );
     final sortedKeys = replacements.keys.toList()
       ..sort((a, b) => b.length.compareTo(a.length));
 
-    for (final key in sortedKeys) {
-      result = result.replaceAll(key, replacements[key]!);
-    }
+    List<String> tokens = _parse(formattedPattern, sortedKeys);
 
-    return result;
+    return tokens.map((token) {
+      if (!sortedKeys.contains(token)) return token;
+
+      return token.replaceFirst(token, replacements[token]!);
+    }).join();
   }
 }
 

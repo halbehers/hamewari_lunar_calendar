@@ -8,10 +8,9 @@ import 'package:hamewari/ui/calendar/day_number.dart';
 enum SeparatorPosition { start, end }
 
 class CompactWeekRow extends StatelessWidget {
-  const CompactWeekRow({super.key, required this.month, required this.week});
+  const CompactWeekRow({super.key, required this.date});
 
-  final Month month;
-  final Week week;
+  final MoonDate date;
 
   Widget buildSeparator(Color color, SeparatorPosition position) {
     final double paddingOf = 4.0;
@@ -35,7 +34,7 @@ class CompactWeekRow extends StatelessWidget {
     AppTheme appTheme = context.appTheme;
 
     Color weekBackgroundColor = CalendarManager.instance
-        .getWeekByNumber(week.weekNumber)
+        .getWeekByNumber(date.week.weekNumber)
         .getWeekBackgroundColor(appTheme);
 
     return Column(
@@ -44,20 +43,10 @@ class CompactWeekRow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             buildSeparator(weekBackgroundColor, SeparatorPosition.start),
-            ...List.generate(
-              7,
-              (int index) => index + ((week.weekNumber - 1) * 7) + 1,
-            ).map(
-              (dayNumber) => DayNumber(
-                day: dayNumber,
-                isActive: MoonDate.isToday(
-                  MoonDate(
-                    MoonDate.currentYear,
-                    month,
-                    week,
-                    Day.values[(dayNumber - 1) % 7],
-                  ),
-                ),
+            ...date.getAllDatesFromWeek().map(
+              (day) => DayNumber(
+                day: day.dayNumber,
+                isActive: MoonDate.isToday(date.withDay(day.day)),
               ),
             ),
             buildSeparator(weekBackgroundColor, SeparatorPosition.end),

@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:hamewari/calendar/moon_date_formatting.dart';
 import 'package:hamewari/theme/app_theme.dart';
 
 enum Month {
@@ -106,6 +105,9 @@ class MoonDate implements Comparable<MoonDate> {
   String toString() =>
       '[MoonDate] year: $year, month: ${month.name} (${month.monthNumber}), week: ${week.name} (${week.weekNumber}), day: ${day.name} ($dayNumber)';
 
+  String prettyString(BuildContext context) =>
+      '[MoonDate] ${MoonDateFormat.yearNumMonthWeekdayDay().format(context, this)}';
+
   static DateTime _approximateNewMoonBefore(DateTime dt) {
     // A known reference new moon (e.g., 6 Jan 2000 at 18:14 UT)
     final ref = DateTime.utc(2000, 1, 6, 18, 14);
@@ -128,6 +130,7 @@ class MoonDate implements Comparable<MoonDate> {
   }
 
   static bool isToday(MoonDate date) => MoonDate.now() == date;
+  static bool isCurrentYear(int year) => MoonDate.now().year == year;
   static bool isCurrentMonth(Month month) => MoonDate.now().month == month;
   static bool isCurrentWeek(Week week) => MoonDate.now().week == week;
   static bool isCurrentDay(Day day) => MoonDate.now().day == day;
@@ -141,6 +144,13 @@ class MoonDate implements Comparable<MoonDate> {
     return List.generate(
       7,
       (int index) => MoonDate(year, month, week, Day.values[index]),
+    );
+  }
+
+  List<MoonDate> getAllStartOfMonthsFromYear() {
+    return List.generate(
+      13,
+      (int index) => MoonDate(year, Month.values[index]),
     );
   }
 
@@ -159,6 +169,18 @@ class MoonDate implements Comparable<MoonDate> {
 
   factory MoonDate.now() {
     return MoonDate.fromDateTime(DateTime.now());
+  }
+
+  factory MoonDate.startOfMonth() {
+    return MoonDate.now().startOfMonth();
+  }
+
+  factory MoonDate.startOfWeek() {
+    return MoonDate.now().startOfWeek();
+  }
+
+  factory MoonDate.startOfYear() {
+    return MoonDate.now().startOfYear();
   }
 
   factory MoonDate.fromDateTime(DateTime dt) {
@@ -212,8 +234,20 @@ class MoonDate implements Comparable<MoonDate> {
     return MoonDate(year, month, week, Day.values[index]);
   }
 
-  MoonDate startOfWeek() {
-    return MoonDate(year, month, week, Day.values[0]);
+  MoonDate getStartOfMonthDateFromMonthIndex(int index) {
+    return MoonDate(year, Month.values[index]);
+  }
+
+  MoonDate startOfWeek({Week? weekOverride}) {
+    return MoonDate(year, month, weekOverride ?? week);
+  }
+
+  MoonDate startOfMonth({Month? monthOverride}) {
+    return MoonDate(year, monthOverride ?? month);
+  }
+
+  MoonDate startOfYear({int? yearOverride}) {
+    return MoonDate(yearOverride ?? year);
   }
 
   MoonDate addWeeks(int delta) {
@@ -223,5 +257,9 @@ class MoonDate implements Comparable<MoonDate> {
       Week.values[(week.weekNumber + delta) % 3],
       Day.values[0],
     );
+  }
+
+  MoonDate withDay(Day day) {
+    return MoonDate(year, month, week, day);
   }
 }

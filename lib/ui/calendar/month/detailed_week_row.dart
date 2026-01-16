@@ -3,10 +3,9 @@ import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/ui/calendar/month/detailed_day.dart';
 
 class DetailedWeekRow extends StatelessWidget {
-  const DetailedWeekRow({super.key, required this.month, required this.week});
+  const DetailedWeekRow({super.key, required this.date});
 
-  final Month month;
-  final Week week;
+  final MoonDate date;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class DetailedWeekRow extends StatelessWidget {
       children:
           List.generate(
                 7,
-                (int index) => index + ((week.weekNumber - 1) * 7) + 1,
+                (int index) => index + ((date.week.weekNumber - 1) * 7) + 1,
               )
               .map(
                 (dayNumber) => DetailedDay(
@@ -32,8 +31,8 @@ class DetailedWeekRow extends StatelessWidget {
                   isActive: MoonDate.isToday(
                     MoonDate(
                       MoonDate.currentYear,
-                      month,
-                      week,
+                      date.month,
+                      date.week,
                       Day.values[(dayNumber - 1) % 7],
                     ),
                   ),

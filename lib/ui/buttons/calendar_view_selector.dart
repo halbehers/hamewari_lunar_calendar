@@ -1,36 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/ui/buttons/button_stack.dart';
-import 'package:hamewari/pages/calendar.dart';
-import 'package:hamewari/theme/icon_path.dart';
+import 'package:hamewari/ui/calendar/calendar_view.dart';
 
 class CalendarViewSelector extends StatelessWidget {
   const CalendarViewSelector({
     super.key,
-    required this.onViewChanged,
-    this.selectedView,
+    required this.onViewIndexChanged,
+    this.selectedViewIndex = 0,
   });
 
-  final void Function(CalendarView) onViewChanged;
-  final CalendarView? selectedView;
-
-  void onSelectionChanged(String id) {
-    CalendarView newSelectedView = CalendarView.values.firstWhere(
-      (view) => view.name == id,
-    );
-    onViewChanged(newSelectedView);
-  }
+  final void Function(int) onViewIndexChanged;
+  final int selectedViewIndex;
 
   @override
   Widget build(BuildContext context) {
     return ButtonStack(
-      onSelectionChanged: onSelectionChanged,
+      onSelectionChanged: onViewIndexChanged,
       size: ButtonStackSize.medium,
-      selection: selectedView?.name,
-      items: [
-        const ButtonStackItem(id: "year", iconPath: IconPath.largeGrid),
-        const ButtonStackItem(id: "month", iconPath: IconPath.grid),
-        const ButtonStackItem(id: "week", iconPath: IconPath.columns),
-      ],
+      selectedId: selectedViewIndex,
+      items: CalendarView.allAsButtonStackItems,
     );
   }
 }

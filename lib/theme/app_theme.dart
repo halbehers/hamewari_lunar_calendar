@@ -62,6 +62,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
       TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.w600);
   TextStyle get h2 =>
       TextStyle(color: textColor, fontSize: 24, fontWeight: FontWeight.w600);
+  TextStyle get accentH2 =>
+      TextStyle(color: accentColor, fontSize: 24, fontWeight: FontWeight.w600);
   TextStyle get h3 =>
       TextStyle(color: textColor, fontSize: 20, fontWeight: FontWeight.w600);
   TextStyle get invertedH3 => TextStyle(

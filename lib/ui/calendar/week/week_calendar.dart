@@ -7,6 +7,9 @@ import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
 import 'package:hamewari/ui/calendar/week/day_calendar.dart';
 import 'package:hamewari/ui/calendar/week/week_row.dart';
+import 'package:hamewari/ui/headers/calendar_header.dart';
+import 'package:vibration/vibration.dart';
+import 'package:vibration/vibration_presets.dart';
 
 class WeekCalendar extends StatefulWidget {
   const WeekCalendar({
@@ -14,11 +17,13 @@ class WeekCalendar extends StatefulWidget {
     required this.date,
     this.onNextWeek,
     this.onPreviousWeek,
+    this.setBackButton,
   });
 
   final MoonDate date;
   final VoidCallback? onNextWeek;
   final VoidCallback? onPreviousWeek;
+  final void Function(CalendarHeaderBackButton?)? setBackButton;
 
   @override
   State<WeekCalendar> createState() => _WeekCalendarState();
@@ -35,6 +40,12 @@ class _WeekCalendarState extends State<WeekCalendar> {
     _selectedDate = widget.date;
 
     _pageController = PageController(initialPage: _selectedDate.day.index);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+
+      setupBackButton();
+    });
   }
 
   @override
@@ -43,10 +54,24 @@ class _WeekCalendarState extends State<WeekCalendar> {
     super.dispose();
   }
 
+  void setupBackButton() {
+    widget.setBackButton?.call(
+      CalendarHeaderBackButton(
+        text: _selectedDate.format(
+          context,
+          pattern: MoonDateFormat.standaloneMonthPattern,
+        ),
+        onTap: () => {},
+      ),
+    );
+  }
+
   void _changeDate(MoonDate date, {bool animate = true}) async {
     setState(() {
       _selectedDate = date;
     });
+
+    setupBackButton();
 
     if (animate) {
       _isProgrammaticPageChange = true;
@@ -63,6 +88,10 @@ class _WeekCalendarState extends State<WeekCalendar> {
           });
     } else {
       _pageController.jumpToPage(date.day.index);
+    }
+
+    if (await Vibration.hasVibrator()) {
+      await Vibration.vibrate(preset: VibrationPreset.softPulse);
     }
   }
 

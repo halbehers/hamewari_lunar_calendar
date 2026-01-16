@@ -4,7 +4,7 @@ import 'package:hamewari/db/repositories/settings_repository.dart';
 import 'package:hamewari/db/services/service.dart';
 
 class SettingsService extends Service<Setting> {
-  static String selectedCalendarViewId = "selected-calendar-view";
+  static String selectedCalendarViewIndexId = "selected-calendar-view-index";
   static String displayMenuCaptionsId = "display-menu-caption";
   static String selectedThemeModeId = "selected-theme-mode";
   static String selectedLocaleId = "selected-locale";
@@ -14,9 +14,9 @@ class SettingsService extends Service<Setting> {
     return SettingsRepository();
   }
 
-  void setupByName(
+  void setupByName<T>(
     String name,
-    String value, {
+    T value, {
     SettingValueType? valueType,
   }) async {
     final List<Setting> existingSetting = await repository.findBy(
@@ -26,12 +26,12 @@ class SettingsService extends Service<Setting> {
     if (existingSetting.isEmpty) {
       final Setting newEntity = Setting();
       newEntity.name = name;
-      newEntity.value = value;
+      newEntity.value = value.toString();
       newEntity.valueType = valueType ?? SettingValueType.string;
       await create(newEntity);
     } else {
       final Setting entity = existingSetting.first;
-      entity.value = value;
+      entity.value = value.toString();
       entity.valueType = valueType ?? SettingValueType.string;
       await update(entity);
     }

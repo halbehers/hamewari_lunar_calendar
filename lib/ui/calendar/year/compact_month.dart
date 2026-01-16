@@ -6,15 +6,17 @@ import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/calendar/year/compact_week_row.dart';
 
 class CompactMonth extends StatelessWidget {
-  const CompactMonth({super.key, required this.month});
+  const CompactMonth({super.key, required this.date});
 
-  final Month month;
+  final MoonDate date;
 
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
     AppLocalizations t = AppLocalizations.of(context)!;
-    bool isCurrentMonth = MoonDate.isCurrentMonth(month);
+    bool isCurrentMonth =
+        MoonDate.isCurrentMonth(date.month) &&
+        MoonDate.isCurrentYear(date.year);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,14 +24,13 @@ class CompactMonth extends StatelessWidget {
         Padding(
           padding: const EdgeInsetsGeometry.directional(bottom: 12),
           child: Text(
-            t.monthTitle(month.name),
+            t.monthTitle(date.month.name),
             style: isCurrentMonth ? appTheme.accentH5 : appTheme.h5,
           ),
         ),
-        CompactWeekRow(month: month, week: Week.starting),
-        CompactWeekRow(month: month, week: Week.refinement),
-        CompactWeekRow(month: month, week: Week.transformation),
-        CompactWeekRow(month: month, week: Week.implementation),
+        ...Week.values.map(
+          (week) => CompactWeekRow(date: date.startOfWeek(weekOverride: week)),
+        ),
       ],
     );
   }

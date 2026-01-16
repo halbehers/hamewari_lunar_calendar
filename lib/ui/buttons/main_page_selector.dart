@@ -36,7 +36,7 @@ class MainPageSelector extends StatelessWidget {
       onSelectionChanged: onSelectionChanged,
       size: ButtonStackSize.large,
       displayCaptions: settingsProvider.displayMenuCaptions,
-      selection: pageId,
+      selectedId: pageId,
       squared: settingsProvider.displayMenuCaptions,
       items: [
         ButtonStackItem(
