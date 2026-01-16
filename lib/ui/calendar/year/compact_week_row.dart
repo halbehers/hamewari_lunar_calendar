@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/calendar_manager.dart';
 import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
@@ -33,9 +32,7 @@ class CompactWeekRow extends StatelessWidget {
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
 
-    Color weekBackgroundColor = CalendarManager.instance
-        .getWeekByNumber(date.week.weekNumber)
-        .getWeekBackgroundColor(appTheme);
+    Color weekBackgroundColor = date.week.getWeekBackgroundColor(appTheme);
 
     return Column(
       children: [
