@@ -23,7 +23,7 @@ class _CalendarPageState extends State<CalendarPage> {
   bool _isProgrammaticPageChange = false;
 
   late int? _selectedViewIndex;
-  final MoonDate _selectedDate = MoonDate.now();
+  MoonDate _selectedDate = MoonDate.now();
   CalendarHeaderBackButton? _backButton;
 
   @override
@@ -48,11 +48,16 @@ class _CalendarPageState extends State<CalendarPage> {
     super.dispose();
   }
 
-  Future<void> _changeView(int newViewIndex, {bool animate = true}) async {
+  Future<void> _changeView(
+    int newViewIndex,
+    MoonDate newDate, {
+    bool animate = true,
+  }) async {
     if (newViewIndex == _selectedViewIndex) return;
 
     setState(() {
       _selectedViewIndex = newViewIndex;
+      _selectedDate = newDate;
     });
 
     if (animate) {
@@ -103,7 +108,7 @@ class _CalendarPageState extends State<CalendarPage> {
       appBar: CalendarHeader(
         selectedViewIndex: _selectedViewIndex!,
         backButton: _backButton,
-        onViewIndexChanged: (index) => _changeView(index),
+        onViewIndexChanged: (index) => _changeView(index, _selectedDate),
       ),
       body: PageView(
         controller: _pageController,
@@ -113,11 +118,13 @@ class _CalendarPageState extends State<CalendarPage> {
         onPageChanged: (index) {
           if (_isProgrammaticPageChange) return;
 
-          _changeView(index, animate: false);
+          _changeView(index, _selectedDate, animate: false);
         },
         children: CalendarView.all(
           date: _selectedDate,
           setBackButton: setBackButton,
+          changeView: ({required int viewIndex, required MoonDate date}) =>
+              _changeView(viewIndex, date),
         ),
       ),
       floatingActionButton: const MainPageSelector(),

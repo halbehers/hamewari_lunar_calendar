@@ -4,9 +4,10 @@ import 'package:hamewari/ui/calendar/calendar_view.dart';
 import 'package:hamewari/ui/calendar/year/compact_month.dart';
 
 class YearGrid extends StatefulWidget implements CalendarView {
-  const YearGrid({super.key, required this.date});
+  const YearGrid({super.key, required this.date, this.changeView});
 
   final MoonDate date;
+  final Function({required int viewIndex, required MoonDate date})? changeView;
 
   @override
   State<YearGrid> createState() => _YearCalendarState();
@@ -57,7 +58,7 @@ class _YearCalendarState extends State<YearGrid> {
   Widget build(BuildContext context) {
     List<Widget> months = widget.date
         .getAllStartOfMonthsFromYear()
-        .map((date) => CompactMonth(date: date))
+        .map((date) => CompactMonth(date: date, changeView: widget.changeView))
         .toList();
 
     return GridView.builder(

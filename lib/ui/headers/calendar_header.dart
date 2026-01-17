@@ -52,41 +52,44 @@ class CalendarHeader extends StatelessWidget implements PreferredSizeWidget {
               : MainAxisAlignment.end,
           children: [
             if (displayBackButton)
-              Container(
-                decoration: displayBackButtonAsButton
-                    ? BoxDecoration(
-                        color: appTheme.highlightedBackgroundColor,
-                        borderRadius: BorderRadius.circular(1000.0),
-                        border: BoxBorder.all(color: appTheme.borderColor),
-                        boxShadow: [
-                          BoxShadow(
-                            color: appTheme.shadowColor,
-                            blurRadius: 7,
-                            spreadRadius: -3,
-                            offset: const Offset(0, 2),
+              GestureDetector(
+                onTap: backButton!.onTap,
+                child: Container(
+                  decoration: displayBackButtonAsButton
+                      ? BoxDecoration(
+                          color: appTheme.highlightedBackgroundColor,
+                          borderRadius: BorderRadius.circular(1000.0),
+                          border: BoxBorder.all(color: appTheme.borderColor),
+                          boxShadow: [
+                            BoxShadow(
+                              color: appTheme.shadowColor,
+                              blurRadius: 7,
+                              spreadRadius: -3,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        )
+                      : null,
+                  child: Padding(
+                    padding: const EdgeInsetsGeometry.symmetric(
+                      vertical: 8,
+                      horizontal: 16,
+                    ),
+                    child: Wrap(
+                      spacing: 8.0,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        if (displayBackButtonAsButton)
+                          const HIcon(
+                            iconPath: IconPath.arrowLeft,
+                            size: IconSize.small,
                           ),
-                        ],
-                      )
-                    : null,
-                child: Padding(
-                  padding: const EdgeInsetsGeometry.symmetric(
-                    vertical: 8,
-                    horizontal: 16,
-                  ),
-                  child: Wrap(
-                    spacing: 8.0,
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: [
-                      if (displayBackButtonAsButton)
-                        const HIcon(
-                          iconPath: IconPath.arrowLeft,
-                          size: IconSize.small,
+                        Text(
+                          backButton!.text,
+                          style: backButton!.style ?? appTheme.body,
                         ),
-                      Text(
-                        backButton!.text,
-                        style: backButton!.style ?? appTheme.body,
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

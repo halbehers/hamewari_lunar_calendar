@@ -11,10 +11,16 @@ import 'package:vibration/vibration.dart';
 import 'package:vibration/vibration_presets.dart';
 
 class YearCalendar extends StatefulWidget implements CalendarView {
-  const YearCalendar({super.key, required this.date, this.setBackButton});
+  const YearCalendar({
+    super.key,
+    required this.date,
+    this.setBackButton,
+    this.changeView,
+  });
 
   final MoonDate date;
   final void Function(CalendarHeaderBackButton?)? setBackButton;
+  final Function({required int viewIndex, required MoonDate date})? changeView;
 
   @override
   State<YearCalendar> createState() => _YearCalendarState();
@@ -102,7 +108,8 @@ class _YearCalendarState extends State<YearCalendar> {
         if (_isProgrammaticPageChange) return;
         _changeDate(MoonDate(index), animate: false);
       },
-      itemBuilder: (_, year) => YearGrid(date: MoonDate(year)),
+      itemBuilder: (_, year) =>
+          YearGrid(date: MoonDate(year), changeView: widget.changeView),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:hamewari/helpers/string_extension.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
+import 'package:hamewari/ui/calendar/calendar_view.dart';
 import 'package:hamewari/ui/calendar/week/day_calendar.dart';
 import 'package:hamewari/ui/calendar/week/week_row.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
@@ -18,12 +19,14 @@ class WeekCalendar extends StatefulWidget {
     this.onNextWeek,
     this.onPreviousWeek,
     this.setBackButton,
+    this.changeView,
   });
 
   final MoonDate date;
   final VoidCallback? onNextWeek;
   final VoidCallback? onPreviousWeek;
   final void Function(CalendarHeaderBackButton?)? setBackButton;
+  final Function({required int viewIndex, required MoonDate date})? changeView;
 
   @override
   State<WeekCalendar> createState() => _WeekCalendarState();
@@ -61,7 +64,10 @@ class _WeekCalendarState extends State<WeekCalendar> {
           context,
           pattern: MoonDateFormat.standaloneMonthPattern,
         ),
-        onTap: () => {},
+        onTap: () => widget.changeView?.call(
+          viewIndex: CalendarView.monthView,
+          date: _selectedDate,
+        ),
       ),
     );
   }
@@ -144,7 +150,8 @@ class _WeekCalendarState extends State<WeekCalendar> {
                         date
                             .format(
                               context,
-                              pattern: MoonDateFormat.monthWeekdayDayPattern,
+                              pattern:
+                                  MoonDateFormat.yearMonthWeekdayDayPattern,
                             )
                             .capitalize(),
                         style: appTheme.h4,

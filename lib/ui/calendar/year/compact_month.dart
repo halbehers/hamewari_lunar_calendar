@@ -3,12 +3,14 @@ import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/l10n/app_localizations.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
+import 'package:hamewari/ui/calendar/calendar_view.dart';
 import 'package:hamewari/ui/calendar/year/compact_week_row.dart';
 
 class CompactMonth extends StatelessWidget {
-  const CompactMonth({super.key, required this.date});
+  const CompactMonth({super.key, required this.date, this.changeView});
 
   final MoonDate date;
+  final Function({required int viewIndex, required MoonDate date})? changeView;
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +20,25 @@ class CompactMonth extends StatelessWidget {
         MoonDate.isCurrentMonth(date.month) &&
         MoonDate.isCurrentYear(date.year);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsetsGeometry.directional(bottom: 12),
-          child: Text(
-            t.monthTitle(date.month.name),
-            style: isCurrentMonth ? appTheme.accentH5 : appTheme.h5,
+    return GestureDetector(
+      onTap: () =>
+          changeView?.call(viewIndex: CalendarView.monthView, date: date),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsetsGeometry.directional(bottom: 12),
+            child: Text(
+              t.monthTitle(date.month.name),
+              style: isCurrentMonth ? appTheme.accentH5 : appTheme.h5,
+            ),
           ),
-        ),
-        ...Week.values.map(
-          (week) => CompactWeekRow(date: date.startOfWeek(weekOverride: week)),
-        ),
-      ],
+          ...Week.values.map(
+            (week) =>
+                CompactWeekRow(date: date.startOfWeek(weekOverride: week)),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -5,16 +5,23 @@ import 'package:hamewari/l10n/app_localizations.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
+import 'package:hamewari/ui/calendar/calendar_view.dart';
 import 'package:hamewari/ui/calendar/month/detailed_week_row.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
 import 'package:vibration/vibration.dart';
 import 'package:vibration/vibration_presets.dart';
 
 class MonthCalendar extends StatefulWidget {
-  const MonthCalendar({super.key, required this.date, this.setBackButton});
+  const MonthCalendar({
+    super.key,
+    required this.date,
+    this.setBackButton,
+    this.changeView,
+  });
 
   final MoonDate date;
   final void Function(CalendarHeaderBackButton?)? setBackButton;
+  final Function({required int viewIndex, required MoonDate date})? changeView;
 
   @override
   State<MonthCalendar> createState() => _MonthCalendarState();
@@ -52,7 +59,10 @@ class _MonthCalendarState extends State<MonthCalendar> {
           context,
           pattern: MoonDateFormat.yearPattern,
         ),
-        onTap: () => {},
+        onTap: () => widget.changeView?.call(
+          viewIndex: CalendarView.yearView,
+          date: _selectedDate,
+        ),
       ),
     );
   }
@@ -142,6 +152,7 @@ class _MonthCalendarState extends State<MonthCalendar> {
                         date: _selectedDate.startOfWeek(
                           weekOverride: Week.starting,
                         ),
+                        changeView: widget.changeView,
                       ),
                     ),
                     buildSeparator(appTheme),
@@ -150,6 +161,7 @@ class _MonthCalendarState extends State<MonthCalendar> {
                         date: _selectedDate.startOfWeek(
                           weekOverride: Week.refinement,
                         ),
+                        changeView: widget.changeView,
                       ),
                     ),
                     buildSeparator(appTheme),
@@ -158,6 +170,7 @@ class _MonthCalendarState extends State<MonthCalendar> {
                         date: _selectedDate.startOfWeek(
                           weekOverride: Week.transformation,
                         ),
+                        changeView: widget.changeView,
                       ),
                     ),
                     buildSeparator(appTheme),
@@ -166,6 +179,7 @@ class _MonthCalendarState extends State<MonthCalendar> {
                         date: _selectedDate.startOfWeek(
                           weekOverride: Week.implementation,
                         ),
+                        changeView: widget.changeView,
                       ),
                     ),
                   ],

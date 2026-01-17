@@ -6,16 +6,26 @@ import 'package:hamewari/ui/calendar/year/year_calendar.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
 
 class YearView extends StatelessWidget implements CalendarView {
-  const YearView({super.key, required this.date, this.setBackButton});
+  const YearView({
+    super.key,
+    required this.date,
+    this.setBackButton,
+    this.changeView,
+  });
 
   final MoonDate date;
   final void Function(CalendarHeaderBackButton?)? setBackButton;
+  final Function({required int viewIndex, required MoonDate date})? changeView;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsGeometry.symmetric(horizontal: 16.0),
-      child: YearCalendar(date: date, setBackButton: setBackButton),
+      child: YearCalendar(
+        date: date,
+        setBackButton: setBackButton,
+        changeView: changeView,
+      ),
     );
   }
 

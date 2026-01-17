@@ -18,31 +18,57 @@ enum _View {
 }
 
 abstract class CalendarView extends Widget {
+  static const int yearView = 0;
+  static const int monthView = 1;
+  static const int weekView = 2;
+
   factory CalendarView(
     int index, {
     required MoonDate date,
     void Function(CalendarHeaderBackButton?)? setBackButton,
+    void Function({required int viewIndex, required MoonDate date})? changeView,
   }) {
     switch (index) {
-      case 0:
-        return YearView(date: date, setBackButton: setBackButton);
-      case 1:
-        return MonthView(date: date, setBackButton: setBackButton);
-      case 2:
-        return WeekView(date: date, setBackButton: setBackButton);
+      case yearView:
+        return YearView(
+          date: date,
+          setBackButton: setBackButton,
+          changeView: changeView,
+        );
+      case monthView:
+        return MonthView(
+          date: date,
+          setBackButton: setBackButton,
+          changeView: changeView,
+        );
+      case weekView:
+        return WeekView(
+          date: date,
+          setBackButton: setBackButton,
+          changeView: changeView,
+        );
       default:
-        return YearView(date: date, setBackButton: setBackButton);
+        return YearView(
+          date: date,
+          setBackButton: setBackButton,
+          changeView: changeView,
+        );
     }
   }
 
   static List<CalendarView> all({
     required MoonDate date,
     void Function(CalendarHeaderBackButton?)? setBackButton,
+    void Function({required int viewIndex, required MoonDate date})? changeView,
   }) {
     return _View.values.indexed
         .map(
-          (view) =>
-              CalendarView(view.$1, date: date, setBackButton: setBackButton),
+          (view) => CalendarView(
+            view.$1,
+            date: date,
+            setBackButton: setBackButton,
+            changeView: changeView,
+          ),
         )
         .toList();
   }
