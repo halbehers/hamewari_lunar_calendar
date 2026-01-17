@@ -20,25 +20,27 @@ class CompactMonth extends StatelessWidget {
         MoonDate.isCurrentMonth(date.month) &&
         MoonDate.isCurrentYear(date.year);
 
-    return GestureDetector(
-      onTap: () =>
-          changeView?.call(viewIndex: CalendarView.monthView, date: date),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        GestureDetector(
+          onTap: () =>
+              changeView?.call(viewIndex: CalendarView.monthView, date: date),
+          child: Padding(
             padding: const EdgeInsetsGeometry.directional(bottom: 12),
             child: Text(
               t.monthTitle(date.month.name),
               style: isCurrentMonth ? appTheme.accentH5 : appTheme.h5,
             ),
           ),
-          ...Week.values.map(
-            (week) =>
-                CompactWeekRow(date: date.startOfWeek(weekOverride: week)),
+        ),
+        ...Week.values.map(
+          (week) => CompactWeekRow(
+            date: date.startOfWeek(weekOverride: week),
+            changeView: changeView,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

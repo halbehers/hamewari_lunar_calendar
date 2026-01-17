@@ -46,12 +46,7 @@ class _YearCalendarState extends State<YearGrid> {
   }
 
   double _initialScrollOffset() {
-    Month currentMonth = MoonDate.currentMonth;
-    if (widget.date.year == MoonDate.currentYear) {
-      return (currentMonth.monthNumber / 2) * 164;
-    }
-
-    return 0;
+    return ((widget.date.month.monthNumber / 2).round() - 1) * 164;
   }
 
   @override

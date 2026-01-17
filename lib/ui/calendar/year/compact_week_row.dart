@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
+import 'package:hamewari/ui/calendar/calendar_view.dart';
 import 'package:hamewari/ui/calendar/day_number.dart';
 
 enum SeparatorPosition { start, end }
 
 class CompactWeekRow extends StatelessWidget {
-  const CompactWeekRow({super.key, required this.date});
+  const CompactWeekRow({super.key, required this.date, this.changeView});
 
   final MoonDate date;
+  final Function({required int viewIndex, required MoonDate date})? changeView;
 
   Widget buildSeparator(Color color, SeparatorPosition position) {
     final double paddingOf = 4.0;
@@ -44,6 +46,10 @@ class CompactWeekRow extends StatelessWidget {
               (day) => DayNumber(
                 day: day.dayNumber,
                 isActive: MoonDate.isToday(date.withDay(day.day)),
+                onTap: () => changeView?.call(
+                  viewIndex: CalendarView.weekView,
+                  date: day,
+                ),
               ),
             ),
             buildSeparator(weekBackgroundColor, SeparatorPosition.end),

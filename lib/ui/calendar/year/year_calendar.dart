@@ -104,12 +104,16 @@ class _YearCalendarState extends State<YearCalendar> {
       physics: Theme.of(context).platform == TargetPlatform.iOS
           ? const BouncingScrollPhysics()
           : const ClampingScrollPhysics(),
-      onPageChanged: (index) {
+      onPageChanged: (year) {
         if (_isProgrammaticPageChange) return;
-        _changeDate(MoonDate(index), animate: false);
+        _changeDate(MoonDate(year), animate: false);
       },
-      itemBuilder: (_, year) =>
-          YearGrid(date: MoonDate(year), changeView: widget.changeView),
+      itemBuilder: (_, year) {
+        MoonDate date = year == _selectedDate.year
+            ? _selectedDate
+            : MoonDate(year);
+        return YearGrid(date: date, changeView: widget.changeView);
+      },
     );
   }
 }
