@@ -4,21 +4,24 @@ import 'package:hamewari/db/services/settings_service.dart';
 import 'package:hamewari/l10n/app_localizations.dart';
 
 class SettingsProvider extends ChangeNotifier {
-  SettingsProvider() {
-    initSettings();
-  }
-
   final SettingsService service = SettingsService();
 
-  void initSettings() async {
+  bool _initialized = false;
+  bool get initialized => _initialized;
+
+  SettingsProvider() {
+    _init();
+  }
+
+  void _init() async {
     {
       Setting? setting = await service.findByName(
         SettingsService.selectedCalendarViewIndexId,
       );
 
-      if (setting != null && setting.valueType == SettingValueType.number) {
+      if (setting != null) {
         setSelectedCalendarViewIndex(
-          setting.value as int,
+          int.parse(setting.value ?? "0"),
           persistChange: false,
         );
       }
@@ -58,6 +61,9 @@ class SettingsProvider extends ChangeNotifier {
         );
       }
     }
+
+    _initialized = true;
+    notifyListeners();
   }
 
   int _selectedCalendarViewIndex = 0;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/theme/icon_path.dart';
 import 'package:hamewari/ui/buttons/button_stack.dart';
 import 'package:hamewari/ui/calendar/month/month.dart';
@@ -19,25 +20,30 @@ enum _View {
 abstract class CalendarView extends Widget {
   factory CalendarView(
     int index, {
+    required MoonDate date,
     void Function(CalendarHeaderBackButton?)? setBackButton,
   }) {
     switch (index) {
       case 0:
-        return YearView(setBackButton: setBackButton);
+        return YearView(date: date, setBackButton: setBackButton);
       case 1:
-        return MonthView(setBackButton: setBackButton);
+        return MonthView(date: date, setBackButton: setBackButton);
       case 2:
-        return WeekView(setBackButton: setBackButton);
+        return WeekView(date: date, setBackButton: setBackButton);
       default:
-        return YearView(setBackButton: setBackButton);
+        return YearView(date: date, setBackButton: setBackButton);
     }
   }
 
   static List<CalendarView> all({
+    required MoonDate date,
     void Function(CalendarHeaderBackButton?)? setBackButton,
   }) {
     return _View.values.indexed
-        .map((view) => CalendarView(view.$1, setBackButton: setBackButton))
+        .map(
+          (view) =>
+              CalendarView(view.$1, date: date, setBackButton: setBackButton),
+        )
         .toList();
   }
 

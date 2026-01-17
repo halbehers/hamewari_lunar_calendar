@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/providers/settings_provider.dart';
+import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/buttons/main_page_selector.dart';
 import 'package:hamewari/ui/calendar/calendar_view.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
@@ -17,22 +19,27 @@ class CalendarPage extends StatefulWidget {
 
 class _CalendarPageState extends State<CalendarPage> {
   late final PageController _pageController;
-  late int _selectedViewIndex;
+  bool _controllerInitialized = false;
   bool _isProgrammaticPageChange = false;
+
+  late int? _selectedViewIndex;
+  final MoonDate _selectedDate = MoonDate.now();
   CalendarHeaderBackButton? _backButton;
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
 
-    final settingsProvider = Provider.of<SettingsProvider>(
-      context,
-      listen: false,
-    );
+    final settingsProvider = context.watch<SettingsProvider>();
+
+    if (!settingsProvider.initialized || _controllerInitialized) return;
 
     _selectedViewIndex = settingsProvider.selectedCalendarViewIndex;
+    _pageController = PageController(
+      initialPage: settingsProvider.selectedCalendarViewIndex,
+    );
 
-    _pageController = PageController(initialPage: _selectedViewIndex);
+    _controllerInitialized = true;
   }
 
   @override
@@ -41,11 +48,7 @@ class _CalendarPageState extends State<CalendarPage> {
     super.dispose();
   }
 
-  Future<void> _changeView(
-    int newViewIndex, {
-    required SettingsProvider settingsProvider,
-    bool animate = true,
-  }) async {
+  Future<void> _changeView(int newViewIndex, {bool animate = true}) async {
     if (newViewIndex == _selectedViewIndex) return;
 
     setState(() {
@@ -69,10 +72,12 @@ class _CalendarPageState extends State<CalendarPage> {
       _pageController.jumpToPage(newViewIndex);
     }
 
-    settingsProvider.setSelectedCalendarViewIndex(
-      newViewIndex,
-      persistChange: false,
+    final SettingsProvider settingsProvider = Provider.of<SettingsProvider>(
+      context,
+      listen: false,
     );
+
+    settingsProvider.setSelectedCalendarViewIndex(newViewIndex);
 
     if (await Vibration.hasVibrator()) {
       await Vibration.vibrate(preset: VibrationPreset.softPulse);
@@ -87,16 +92,18 @@ class _CalendarPageState extends State<CalendarPage> {
 
   @override
   Widget build(BuildContext context) {
-    final appTheme = context.appTheme;
-    final settingsProvider = context.watch<SettingsProvider>();
+    final AppTheme appTheme = context.appTheme;
+
+    if (!_controllerInitialized) {
+      return const SizedBox(); // Todo: add loader
+    }
 
     return Scaffold(
       backgroundColor: appTheme.backgroundColor,
       appBar: CalendarHeader(
-        selectedViewIndex: _selectedViewIndex,
+        selectedViewIndex: _selectedViewIndex!,
         backButton: _backButton,
-        onViewIndexChanged: (index) =>
-            _changeView(index, settingsProvider: settingsProvider),
+        onViewIndexChanged: (index) => _changeView(index),
       ),
       body: PageView(
         controller: _pageController,
@@ -106,13 +113,12 @@ class _CalendarPageState extends State<CalendarPage> {
         onPageChanged: (index) {
           if (_isProgrammaticPageChange) return;
 
-          _changeView(
-            index,
-            settingsProvider: settingsProvider,
-            animate: false,
-          );
+          _changeView(index, animate: false);
         },
-        children: CalendarView.all(setBackButton: setBackButton),
+        children: CalendarView.all(
+          date: _selectedDate,
+          setBackButton: setBackButton,
+        ),
       ),
       floatingActionButton: const MainPageSelector(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

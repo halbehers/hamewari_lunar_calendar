@@ -6,15 +6,16 @@ import 'package:hamewari/ui/calendar/week/week_calendar.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
 
 class WeekView extends StatelessWidget implements CalendarView {
-  const WeekView({super.key, this.setBackButton});
+  const WeekView({super.key, required this.date, this.setBackButton});
 
+  final MoonDate date;
   final void Function(CalendarHeaderBackButton?)? setBackButton;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsGeometry.symmetric(horizontal: 24.0),
-      child: WeekCalendar(date: MoonDate.now(), setBackButton: setBackButton),
+      child: WeekCalendar(date: date, setBackButton: setBackButton),
     );
   }
 

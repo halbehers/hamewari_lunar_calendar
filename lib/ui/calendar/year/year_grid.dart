@@ -61,7 +61,7 @@ class _YearCalendarState extends State<YearGrid> {
         .toList();
 
     return GridView.builder(
-      itemCount: months.length,
+      itemCount: months.length + 2,
       controller: _scrollController,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
@@ -69,7 +69,7 @@ class _YearCalendarState extends State<YearGrid> {
       ),
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsetsGeometry.symmetric(horizontal: 16.0),
-        child: months[index],
+        child: index < 13 ? months[index] : const SizedBox(height: 64),
       ),
     );
   }
