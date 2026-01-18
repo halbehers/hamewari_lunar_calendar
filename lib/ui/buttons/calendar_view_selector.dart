@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/ui/buttons/button_stack.dart';
-import 'package:hamewari/ui/calendar/calendar_view.dart';
+import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 
 class CalendarViewSelector extends StatelessWidget {
   const CalendarViewSelector({
@@ -18,7 +18,7 @@ class CalendarViewSelector extends StatelessWidget {
       onSelectionChanged: onViewIndexChanged,
       size: ButtonStackSize.medium,
       selectedId: selectedViewIndex,
-      items: CalendarView.allAsButtonStackItems,
+      items: CalendarViewFactory.allAsButtonStackItems,
     );
   }
 }

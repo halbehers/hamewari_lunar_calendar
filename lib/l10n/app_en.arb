@@ -12,17 +12,21 @@
   "@language_es": {
     "description": "Spanish language"
   },
-  "menuCaption_calendar": "Calendar",
-  "@menuCaption_calendar": {
+  "caption_calendar": "Calendar",
+  "@caption_calendar": {
     "description": "Calendar menu caption"
   },
-  "menuCaption_tasks": "Tasks",
-  "@menuCaption_tasks": {
+  "caption_tasks": "Tasks",
+  "@caption_tasks": {
     "description": "Tasks menu caption"
   },
-  "menuCaption_settings": "Settings",
-  "@menuCaption_settings": {
+  "caption_settings": "Settings",
+  "@caption_settings": {
     "description": "Settings menu caption"
+  },
+  "caption_today": "Today",
+  "@caption_today": {
+    "description": "Today menu caption"
   },
   "settings_title": "Settings",
   "@settings_title": {

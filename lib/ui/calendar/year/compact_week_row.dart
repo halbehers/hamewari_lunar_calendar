@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_view.dart';
+import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/day_number.dart';
+import 'package:provider/provider.dart';
 
 enum SeparatorPosition { start, end }
 
 class CompactWeekRow extends StatelessWidget {
-  const CompactWeekRow({super.key, required this.date, this.changeView});
+  const CompactWeekRow({super.key, required this.date});
 
   final MoonDate date;
-  final Function({required int viewIndex, required MoonDate date})? changeView;
 
   Widget buildSeparator(Color color, SeparatorPosition position) {
     final double paddingOf = 4.0;
@@ -33,7 +34,9 @@ class CompactWeekRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
-
+    final CalendarController calendar = Provider.of<CalendarController>(
+      context,
+    );
     Color weekBackgroundColor = date.week.getWeekBackgroundColor(appTheme);
 
     return Column(
@@ -45,9 +48,9 @@ class CompactWeekRow extends StatelessWidget {
             ...date.getAllDatesFromWeek().map(
               (day) => DayNumber(
                 day: day.dayNumber,
-                isActive: MoonDate.isToday(date.withDay(day.day)),
-                onTap: () => changeView?.call(
-                  viewIndex: CalendarView.weekView,
+                isActive: date.withDay(day.day).isToday,
+                onTap: () => calendar.changeView(
+                  viewIndex: CalendarViewFactory.weekViewIndex,
                   date: day,
                 ),
               ),

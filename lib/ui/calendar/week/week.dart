@@ -1,32 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/theme/icon_path.dart';
 import 'package:hamewari/ui/calendar/calendar_view.dart';
 import 'package:hamewari/ui/calendar/week/week_calendar.dart';
-import 'package:hamewari/ui/headers/calendar_header.dart';
 
-class WeekView extends StatelessWidget implements CalendarView {
-  const WeekView({
-    super.key,
-    required this.date,
-    this.setBackButton,
-    this.changeView,
-  });
-
-  final MoonDate date;
-  final void Function(CalendarHeaderBackButton?)? setBackButton;
-  final Function({required int viewIndex, required MoonDate date})? changeView;
+class WeekView extends CalendarView {
+  const WeekView({super.key, required super.date});
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsetsGeometry.symmetric(horizontal: 24.0),
-      child: WeekCalendar(
-        date: date,
-        setBackButton: setBackButton,
-        changeView: changeView,
-      ),
-    );
+  bool get displayTodayButton => !date.isToday;
+
+  @override
+  Widget buildView(BuildContext context) {
+    return WeekCalendar(date: date);
   }
 
   static const IconPath iconPath = IconPath.columns;

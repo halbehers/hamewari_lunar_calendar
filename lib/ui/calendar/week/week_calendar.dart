@@ -4,11 +4,13 @@ import 'package:hamewari/calendar/moon_date_formatting.dart';
 import 'package:hamewari/helpers/string_extension.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
+import 'package:hamewari/ui/calendar/calendar_context.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
-import 'package:hamewari/ui/calendar/calendar_view.dart';
+import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/week/day_calendar.dart';
 import 'package:hamewari/ui/calendar/week/week_row.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
+import 'package:provider/provider.dart';
 import 'package:vibration/vibration.dart';
 import 'package:vibration/vibration_presets.dart';
 
@@ -18,15 +20,11 @@ class WeekCalendar extends StatefulWidget {
     required this.date,
     this.onNextWeek,
     this.onPreviousWeek,
-    this.setBackButton,
-    this.changeView,
   });
 
   final MoonDate date;
   final VoidCallback? onNextWeek;
   final VoidCallback? onPreviousWeek;
-  final void Function(CalendarHeaderBackButton?)? setBackButton;
-  final Function({required int viewIndex, required MoonDate date})? changeView;
 
   @override
   State<WeekCalendar> createState() => _WeekCalendarState();
@@ -44,11 +42,14 @@ class _WeekCalendarState extends State<WeekCalendar> {
 
     _pageController = PageController(initialPage: _selectedDate.day.index);
 
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
+    _setupBackButton();
+  }
 
-      setupBackButton();
-    });
+  @override
+  void didUpdateWidget(covariant WeekCalendar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    _resetSelectedDate(widget.date);
   }
 
   @override
@@ -57,19 +58,42 @@ class _WeekCalendarState extends State<WeekCalendar> {
     super.dispose();
   }
 
-  void setupBackButton() {
-    widget.setBackButton?.call(
-      CalendarHeaderBackButton(
-        text: _selectedDate.format(
-          context,
-          pattern: MoonDateFormat.standaloneMonthPattern,
+  void _resetSelectedDate(MoonDate date) {
+    if (date == _selectedDate) return;
+
+    setState(() {
+      _selectedDate = date;
+    });
+
+    _isProgrammaticPageChange = true;
+    _pageController.jumpToPage(date.day.index);
+    _isProgrammaticPageChange = false;
+
+    _setupBackButton();
+  }
+
+  void _setupBackButton() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+
+      final CalendarController calendar = Provider.of<CalendarController>(
+        context,
+        listen: false,
+      );
+
+      calendar.setBackButton(
+        CalendarHeaderBackButton(
+          text: _selectedDate.format(
+            context,
+            pattern: MoonDateFormat.standaloneMonthPattern,
+          ),
+          onTap: () => calendar.changeView(
+            viewIndex: CalendarViewFactory.monthViewIndex,
+            date: _selectedDate,
+          ),
         ),
-        onTap: () => widget.changeView?.call(
-          viewIndex: CalendarView.monthView,
-          date: _selectedDate,
-        ),
-      ),
-    );
+      );
+    });
   }
 
   void _changeDate(MoonDate date, {bool animate = true}) async {
@@ -77,7 +101,18 @@ class _WeekCalendarState extends State<WeekCalendar> {
       _selectedDate = date;
     });
 
-    setupBackButton();
+    _setupBackButton();
+
+    final CalendarController calendar = Provider.of<CalendarController>(
+      context,
+      listen: false,
+    );
+
+    calendar.changeView(
+      viewIndex: CalendarViewFactory.weekViewIndex,
+      date: date,
+      animate: false,
+    );
 
     if (animate) {
       _isProgrammaticPageChange = true;

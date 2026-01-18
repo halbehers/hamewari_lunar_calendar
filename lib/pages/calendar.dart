@@ -3,7 +3,8 @@ import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/buttons/main_page_selector.dart';
-import 'package:hamewari/ui/calendar/calendar_view.dart';
+import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
 import 'package:hamewari/main.dart';
 import 'package:provider/provider.dart';
@@ -51,41 +52,45 @@ class _CalendarPageState extends State<CalendarPage> {
   Future<void> _changeView(
     int newViewIndex,
     MoonDate newDate, {
-    bool animate = true,
+    bool? animate,
   }) async {
-    if (newViewIndex == _selectedViewIndex) return;
+    final bool isSameView = newViewIndex == _selectedViewIndex;
+    final bool isSameDate = newDate == _selectedDate;
+
+    if (isSameView && isSameDate) return;
 
     setState(() {
-      _selectedViewIndex = newViewIndex;
-      _selectedDate = newDate;
+      if (!isSameView) _selectedViewIndex = newViewIndex;
+      if (!isSameDate) _selectedDate = newDate;
     });
 
-    if (animate) {
-      _isProgrammaticPageChange = true;
-      _pageController
-          .animateToPage(
-            newViewIndex,
-            duration: const Duration(milliseconds: 350),
-            curve: Curves.easeOutCubic,
-          )
-          .then((_) {
-            if (mounted) {
-              _isProgrammaticPageChange = false;
-            }
-          });
-    } else {
-      _pageController.jumpToPage(newViewIndex);
-    }
+    if (!isSameView) {
+      if (animate ?? true) {
+        _isProgrammaticPageChange = true;
+        _pageController
+            .animateToPage(
+              newViewIndex,
+              duration: const Duration(milliseconds: 350),
+              curve: Curves.easeOutCubic,
+            )
+            .then((_) {
+              if (mounted) {
+                _isProgrammaticPageChange = false;
+              }
+            });
+      } else {
+        _pageController.jumpToPage(newViewIndex);
+      }
+      final SettingsProvider settingsProvider = Provider.of<SettingsProvider>(
+        context,
+        listen: false,
+      );
 
-    final SettingsProvider settingsProvider = Provider.of<SettingsProvider>(
-      context,
-      listen: false,
-    );
+      settingsProvider.setSelectedCalendarViewIndex(newViewIndex);
 
-    settingsProvider.setSelectedCalendarViewIndex(newViewIndex);
-
-    if (await Vibration.hasVibrator()) {
-      await Vibration.vibrate(preset: VibrationPreset.softPulse);
+      if (await Vibration.hasVibrator()) {
+        await Vibration.vibrate(preset: VibrationPreset.softPulse);
+      }
     }
   }
 
@@ -120,12 +125,22 @@ class _CalendarPageState extends State<CalendarPage> {
 
           _changeView(index, _selectedDate, animate: false);
         },
-        children: CalendarView.all(
-          date: _selectedDate,
-          setBackButton: setBackButton,
-          changeView: ({required int viewIndex, required MoonDate date}) =>
-              _changeView(viewIndex, date),
-        ),
+        children: CalendarViewFactory.all(date: _selectedDate)
+            .map(
+              (view) => Provider<CalendarController>(
+                create: (_) => CalendarController(
+                  changeView:
+                      ({
+                        required int viewIndex,
+                        required MoonDate date,
+                        bool? animate,
+                      }) => _changeView(viewIndex, date, animate: animate),
+                  setBackButton: setBackButton,
+                ),
+                child: view,
+              ),
+            )
+            .toList(),
       ),
       floatingActionButton: const MainPageSelector(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

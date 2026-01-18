@@ -5,6 +5,7 @@ enum IconPath {
   arrowTop("assets/icons/arrow_top.svg"),
   arrowBottom("assets/icons/arrow_bottom.svg"),
   calendar("assets/icons/calendar.svg"),
+  today("assets/icons/today.svg"),
   columns("assets/icons/columns.svg"),
   cross("assets/icons/cross.svg"),
   gear("assets/icons/gear.svg"),

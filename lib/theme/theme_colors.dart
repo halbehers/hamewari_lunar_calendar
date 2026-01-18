@@ -29,6 +29,8 @@ class ThemeColors {
   static const int _greyPrimaryValue = 0xFF4A4446;
   static const Color background = Color(_grey100Value);
   static const Color white = Color(0xFFFFFCFC);
+  static const Color pureWhite = Color(0xFFFFFFFF);
+  static const Color pureBlack = Color(0xFF000000);
 
   static const MaterialColor turquoise =
       MaterialColor(_turquoisePrimaryValue, <int, Color>{

@@ -29,6 +29,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.transformationWeekBackgroundColor,
     required this.implementationWeekColor,
     required this.implementationWeekBackgroundColor,
+    required this.pureHighlightColor,
   });
 
   final Color backgroundColor;
@@ -57,6 +58,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color transformationWeekBackgroundColor;
   final Color implementationWeekColor;
   final Color implementationWeekBackgroundColor;
+  final Color pureHighlightColor;
 
   TextStyle get h1 =>
       TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.w600);
@@ -145,6 +147,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
     Color? transformationWeekBackgroundColor,
     Color? implementationWeekColor,
     Color? implementationWeekBackgroundColor,
+    Color? pureHighlightColor,
   }) {
     return AppTheme(
       backgroundColor: background ?? backgroundColor,
@@ -186,6 +189,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
       implementationWeekBackgroundColor:
           implementationWeekBackgroundColor ??
           this.implementationWeekBackgroundColor,
+      pureHighlightColor: pureHighlightColor ?? this.pureHighlightColor,
     );
   }
 
@@ -297,6 +301,9 @@ class AppTheme extends ThemeExtension<AppTheme> {
             other.implementationWeekBackgroundColor,
             t,
           ) ??
+          Colors.black,
+      pureHighlightColor:
+          Color.lerp(pureHighlightColor, other.pureHighlightColor, t) ??
           Colors.black,
     );
   }

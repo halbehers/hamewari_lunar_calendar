@@ -34,25 +34,24 @@ class MainPageSelector extends StatelessWidget {
 
     return ButtonStack(
       onSelectionChanged: onSelectionChanged,
-      size: ButtonStackSize.large,
+      size: ButtonStackSize.medium,
       displayCaptions: settingsProvider.displayMenuCaptions,
       selectedId: pageId,
-      squared: settingsProvider.displayMenuCaptions,
       items: [
         ButtonStackItem(
           id: "calendar",
           iconPath: IconPath.calendar,
-          caption: t.menuCaption_calendar,
+          caption: t.caption_calendar,
         ),
         ButtonStackItem(
           id: "tasks",
           iconPath: IconPath.rows,
-          caption: t.menuCaption_tasks,
+          caption: t.caption_tasks,
         ),
         ButtonStackItem(
           id: "settings",
           iconPath: IconPath.gear,
-          caption: t.menuCaption_settings,
+          caption: t.caption_settings,
         ),
       ],
     );

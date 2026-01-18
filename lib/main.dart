@@ -40,6 +40,7 @@ AppTheme lightAppTheme = AppTheme(
   transformationWeekBackgroundColor: ThemeColors.blue[200]!,
   implementationWeekColor: ThemeColors.yellow[500]!,
   implementationWeekBackgroundColor: ThemeColors.yellow[300]!,
+  pureHighlightColor: ThemeColors.pureWhite,
 );
 
 AppTheme darkAppTheme = AppTheme(
@@ -69,6 +70,7 @@ AppTheme darkAppTheme = AppTheme(
   transformationWeekBackgroundColor: ThemeColors.blue[400]!,
   implementationWeekColor: ThemeColors.yellow[300]!,
   implementationWeekBackgroundColor: ThemeColors.yellow[500]!,
+  pureHighlightColor: ThemeColors.pureBlack,
 );
 
 extension BuildContextExtension on BuildContext {

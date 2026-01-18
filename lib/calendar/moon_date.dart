@@ -129,7 +129,7 @@ class MoonDate implements Comparable<MoonDate> {
         : before;
   }
 
-  static bool isToday(MoonDate date) => MoonDate.now() == date;
+  bool get isToday => MoonDate.now() == this;
   static bool isCurrentYear(int year) => MoonDate.now().year == year;
   static bool isCurrentMonth(Month month) => MoonDate.now().month == month;
   static bool isCurrentWeek(Week week) => MoonDate.now().week == week;

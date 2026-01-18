@@ -18,13 +18,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language_es => 'Spanish';
 
   @override
-  String get menuCaption_calendar => 'Calendar';
+  String get caption_calendar => 'Calendar';
 
   @override
-  String get menuCaption_tasks => 'Tasks';
+  String get caption_tasks => 'Tasks';
 
   @override
-  String get menuCaption_settings => 'Settings';
+  String get caption_settings => 'Settings';
+
+  @override
+  String get caption_today => 'Today';
 
   @override
   String get settings_title => 'Settings';

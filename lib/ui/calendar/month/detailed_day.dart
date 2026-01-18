@@ -3,9 +3,11 @@ import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/db/models/event.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_view.dart';
+import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/day_number.dart';
 import 'package:hamewari/ui/calendar/month/event_card.dart';
+import 'package:provider/provider.dart';
 
 class DetailedDay extends StatelessWidget {
   const DetailedDay({
@@ -13,13 +15,11 @@ class DetailedDay extends StatelessWidget {
     required this.date,
     this.isActive = false,
     this.events,
-    this.changeView,
   });
 
   final MoonDate date;
   final bool isActive;
   final List<Event>? events;
-  final Function({required int viewIndex, required MoonDate date})? changeView;
 
   List<Event> getEvents() {
     if (events == null) return List.empty();
@@ -32,6 +32,9 @@ class DetailedDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
+    final CalendarController calendar = Provider.of<CalendarController>(
+      context,
+    );
 
     return Padding(
       padding: const EdgeInsetsGeometry.symmetric(horizontal: 2),
@@ -43,8 +46,10 @@ class DetailedDay extends StatelessWidget {
             size: 32,
             textStyle: appTheme.body,
             activeTextStyle: appTheme.invertedBoldBody,
-            onTap: () =>
-                changeView?.call(viewIndex: CalendarView.weekView, date: date),
+            onTap: () => calendar.changeView(
+              viewIndex: CalendarViewFactory.weekViewIndex,
+              date: date,
+            ),
           ),
           ...getEvents().map((event) {
             return EventCard(event: event);

@@ -3,10 +3,9 @@ import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/ui/calendar/month/detailed_day.dart';
 
 class DetailedWeekRow extends StatelessWidget {
-  const DetailedWeekRow({super.key, required this.date, this.changeView});
+  const DetailedWeekRow({super.key, required this.date});
 
   final MoonDate date;
-  final Function({required int viewIndex, required MoonDate date})? changeView;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +22,7 @@ class DetailedWeekRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: date
           .getAllDatesFromWeek()
-          .map(
-            (day) => DetailedDay(
-              date: day,
-              isActive: MoonDate.isToday(day),
-              changeView: changeView,
-            ),
-          )
+          .map((day) => DetailedDay(date: day, isActive: day.isToday))
           .toList(),
     );
   }

@@ -1,32 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/theme/icon_path.dart';
-import 'package:hamewari/ui/calendar/month/month_calendar.dart';
 import 'package:hamewari/ui/calendar/calendar_view.dart';
-import 'package:hamewari/ui/headers/calendar_header.dart';
+import 'package:hamewari/ui/calendar/month/month_calendar.dart';
 
-class MonthView extends StatelessWidget implements CalendarView {
-  const MonthView({
-    super.key,
-    required this.date,
-    this.setBackButton,
-    this.changeView,
-  });
-
-  final MoonDate date;
-  final void Function(CalendarHeaderBackButton?)? setBackButton;
-  final Function({required int viewIndex, required MoonDate date})? changeView;
+class MonthView extends CalendarView {
+  const MonthView({super.key, required super.date});
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsetsGeometry.symmetric(horizontal: 32.0),
-      child: MonthCalendar(
-        date: date,
-        setBackButton: setBackButton,
-        changeView: changeView,
-      ),
-    );
+  Widget buildView(BuildContext context) {
+    return MonthCalendar(date: date);
   }
 
   static const IconPath iconPath = IconPath.grid;

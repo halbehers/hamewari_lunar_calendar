@@ -28,7 +28,7 @@ class WeekRow extends StatelessWidget {
                   textStyle: appTheme.h3,
                   activeTextStyle: appTheme.invertedH3,
                   isSelected: date.isSameDayNumber(day.dayNumber),
-                  isActive: MoonDate.isToday(day),
+                  isActive: day.isToday,
                   onTap: () => changeDate(day),
                 ),
               )

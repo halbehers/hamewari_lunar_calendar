@@ -27,7 +27,6 @@ class ButtonStack<ID> extends StatelessWidget {
     required this.onSelectionChanged,
     this.selectedId,
     this.displayCaptions = false,
-    this.squared = false,
   });
 
   final List<ButtonStackItem<ID>> items;
@@ -36,7 +35,6 @@ class ButtonStack<ID> extends StatelessWidget {
   final void Function(ID) onSelectionChanged;
   final ID? selectedId;
   final bool displayCaptions;
-  final bool squared;
 
   IconSize getIconSize() {
     switch (size) {
@@ -61,7 +59,7 @@ class ButtonStack<ID> extends StatelessWidget {
       decoration: BoxDecoration(
         color: appTheme.highlightedBackgroundColor,
         borderRadius: BorderRadius.all(
-          Radius.circular(squared ? 24.0 : 1000.0),
+          Radius.circular(displayCaptions ? 24.0 : 1000.0),
         ),
         border: BoxBorder.all(color: appTheme.borderColor),
         boxShadow: [

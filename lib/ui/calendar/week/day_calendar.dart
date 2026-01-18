@@ -65,7 +65,7 @@ class _DayCalendarState extends State<DayCalendar> {
   double _initialScrollOffset() {
     final offset = 64.0;
 
-    if (MoonDate.isToday(widget.date)) {
+    if (widget.date.isToday) {
       final now = _now.value;
       final seconds = now.hour * 3600 + now.minute * 60 + now.second;
       return (seconds / 3600) * hourRowHeight - offset;
@@ -110,7 +110,7 @@ class _DayCalendarState extends State<DayCalendar> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isActive = MoonDate.isToday(widget.date);
+    final bool isActive = widget.date.isToday;
 
     return Expanded(
       child: Stack(

@@ -122,19 +122,25 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Calendar'**
-  String get menuCaption_calendar;
+  String get caption_calendar;
 
   /// Tasks menu caption
   ///
   /// In en, this message translates to:
   /// **'Tasks'**
-  String get menuCaption_tasks;
+  String get caption_tasks;
 
   /// Settings menu caption
   ///
   /// In en, this message translates to:
   /// **'Settings'**
-  String get menuCaption_settings;
+  String get caption_settings;
+
+  /// Today menu caption
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get caption_today;
 
   /// Settings page title
   ///
