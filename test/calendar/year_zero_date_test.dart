@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hamewari/calendar/year_zero_date.dart';
+import 'package:hamewari/calendar/year_zero/year_zero_date.dart';
 
 void main() {
   group('YearZeroDate', () {

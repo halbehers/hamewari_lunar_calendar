@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hamewari/calendar/gregorian_date.dart';
+import 'package:hamewari/calendar/gregorian/gregorian_date.dart';
 
 import '../helpers/date_contract_tests.dart';
 

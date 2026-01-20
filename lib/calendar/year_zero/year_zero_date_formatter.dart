@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/date_formatter.dart';
-import 'package:hamewari/calendar/year_zero_date.dart';
+import 'package:hamewari/calendar/year_zero/year_zero_date.dart';
 import 'package:hamewari/l10n/app_localizations.dart';
 
 class YearZeroDateFormatter extends DateFormatter<YearZeroDate> {
