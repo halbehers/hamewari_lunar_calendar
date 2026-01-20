@@ -20,9 +20,6 @@ class CompactMonth extends StatelessWidget {
     final CalendarController calendar = Provider.of<CalendarController>(
       context,
     );
-    bool isCurrentMonth =
-        MoonDate.isCurrentMonth(date.month) &&
-        MoonDate.isCurrentYear(date.year);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,13 +32,16 @@ class CompactMonth extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsetsGeometry.directional(bottom: 12),
             child: Text(
-              t.monthTitle(date.month.name),
-              style: isCurrentMonth ? appTheme.accentH5 : appTheme.h5,
+              t.moon_month_title(date.month.monthNumber.toString()),
+              style: MoonDate.isCurrentMonth(date.month)
+                  ? appTheme.accentH5
+                  : appTheme.h5,
             ),
           ),
         ),
         ...Week.values.map(
-          (week) => CompactWeekRow(date: date.startOfWeek(weekOverride: week)),
+          (week) =>
+              CompactWeekRow(startOfWeek: date.startOfWeek(weekOverride: week)),
         ),
       ],
     );

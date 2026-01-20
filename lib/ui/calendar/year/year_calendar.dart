@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/calendar/moon_date_formatting.dart';
+import 'package:hamewari/calendar/moon_date_format.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/calendar/calendar_context.dart';

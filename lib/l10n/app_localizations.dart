@@ -199,38 +199,62 @@ abstract class AppLocalizations {
   /// Moon month titles by number
   ///
   /// In en, this message translates to:
-  /// **'{month, select, magnetic{Magnetic Moon} lunar{Lunar Moon} electric{Electric Moon} selfExisting{Self-Existing Moon} harmonic{Harmonic Moon} rhythmic{Rhythmic Moon} resonant{Resonant Moon} galactic{Galactic Moon} solar{Solar Moon} planetary{Planetary Moon} spectral{Spectral Moon} crystal{Crystal Moon} cosmic{Cosmic Moon} other{Unidentified Moon}}'**
-  String monthTitle(String month);
+  /// **'{month, select, 1 {Magnetic Moon} 2 {Lunar Moon} 3 {Electric Moon} 4 {Self-Existing Moon} 5 {Harmonic Moon} 6 {Rhythmic Moon} 7 {Resonant Moon} 8 {Galactic Moon} 9 {Solar Moon} 10 {Planetary Moon} 11 {Spectral Moon} 12 {Crystal Moon} 13 {Cosmic Moon} other {Unidentified Moon}}'**
+  String moon_month_title(String month);
 
   /// Moon months by number
   ///
   /// In en, this message translates to:
-  /// **'{month, select, magnetic{magnetic} lunar{lunar} electric{electric} selfExisting{self-existing} harmonic{harmonic} rhythmic{rhythmic} resonant{resonant} galactic{galactic} solar{solar} planetary{planetary} spectral{spectral} crystal{crystal} cosmic{cosmic} other{unidentified}}'**
-  String month(String month);
+  /// **'{month, select, 1 {magnetic} 2 {lunar} 3 {electric} 4 {self-existing} 5 {harmonic} 6 {rhythmic} 7 {resonant} 8 {galactic} 9 {solar} 10 {planetary} 11 {spectral} 12 {crystal} 13 {cosmic} other {unidentified}}'**
+  String moon_month(String month);
 
   /// Moon week titles by number
   ///
   /// In en, this message translates to:
-  /// **'{week, select, starting{Starting Week} refinement{Refinement Week} transformation{Transformation Week} implementation{Implementation Week} other{Unidentified Week}}'**
-  String weekTitle(String week);
+  /// **'{week, select, 1 {Starting Week} 2 {Refinement Week} 3 {Transformation Week} 4 {Implementation Week} other {Unidentified Week}}'**
+  String moon_week_title(String week);
 
   /// Moon weeks by number
   ///
   /// In en, this message translates to:
-  /// **'{week, select, starting{starting} refinement{refinement} transformation{transformation} implementation{implementation} other{unidentified}}'**
-  String week(String week);
+  /// **'{week, select, 1 {starting} 2 {refinement} 3 {transformation} 4 {implementation} other {unidentified}}'**
+  String moon_week(String week);
 
-  /// Day titles by number
+  /// Moon day titles by number
   ///
   /// In en, this message translates to:
-  /// **'{day, select, monday{Monday} tuesday{Tuesday} wednesday{Wednesday} thursday{Thursday} friday{Friday} saturday{Saturday} sunday{Sunday} other{Unidentified Day}}'**
-  String dayTitle(String day);
+  /// **'{day, select, 1 {Monday} 2 {Tuesday} 3 {Wednesday} 4 {Thursday} 5 {Friday} 6 {Saturday} 7 {Sunday} other {Unidentified Day}}'**
+  String moon_day_title(String day);
 
-  /// Days by number
+  /// Moon days by number
   ///
   /// In en, this message translates to:
-  /// **'{day, select, monday{monday} tuesday{tuesday} wednesday{wednesday} thursday{thursday} friday{friday} saturday{saturday} sunday{sunday} other{unidentified}}'**
-  String day(String day);
+  /// **'{day, select, 1 {monday} 2 {tuesday} 3 {wednesday} 4 {thursday} 5 {friday} 6 {saturday} 7 {sunday} other {unidentified}}'**
+  String moon_day(String day);
+
+  /// Gregorian month titles by number
+  ///
+  /// In en, this message translates to:
+  /// **'{month, select, 1 {January} 2 {February} 3 {March} 4 {April} 5 {May} 6 {June} 7 {July} 8 {August} 9 {September} 10 {October} 11 {November} 12 {December} other {Unidentified Month}}'**
+  String gregorian_month_title(String month);
+
+  /// Gregorian months by number
+  ///
+  /// In en, this message translates to:
+  /// **'{month, select, 1 {january} 2 {february} 3 {march} 4 {april} 5 {may} 6 {june} 7 {july} 8 {august} 9 {september} 10 {october} 11 {november} 12 {december} other {unidentified}}'**
+  String gregorian_month(String month);
+
+  /// Gregorian day titles by number
+  ///
+  /// In en, this message translates to:
+  /// **'{day, select, 1 {Monday} 2 {Tuesday} 3 {Wednesday} 4 {Thursday} 5 {Friday} 6 {Saturday} 7 {Sunday} other {Unidentified Day}}'**
+  String gregorian_day_title(String day);
+
+  /// Gregorian days by number
+  ///
+  /// In en, this message translates to:
+  /// **'{day, select, 1 {monday} 2 {tuesday} 3 {wednesday} 4 {thursday} 5 {friday} 6 {saturday} 7 {sunday} other {unidentified}}'**
+  String gregorian_day(String day);
 }
 
 class _AppLocalizationsDelegate

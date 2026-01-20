@@ -10,9 +10,9 @@ import 'package:provider/provider.dart';
 enum SeparatorPosition { start, end }
 
 class CompactWeekRow extends StatelessWidget {
-  const CompactWeekRow({super.key, required this.date});
+  const CompactWeekRow({super.key, required this.startOfWeek});
 
-  final MoonDate date;
+  final MoonDate startOfWeek;
 
   Widget buildSeparator(Color color, SeparatorPosition position) {
     final double paddingOf = 4.0;
@@ -37,7 +37,9 @@ class CompactWeekRow extends StatelessWidget {
     final CalendarController calendar = Provider.of<CalendarController>(
       context,
     );
-    Color weekBackgroundColor = date.week.getWeekBackgroundColor(appTheme);
+    Color weekBackgroundColor = startOfWeek.week.getWeekBackgroundColor(
+      appTheme,
+    );
 
     return Column(
       children: [
@@ -45,10 +47,10 @@ class CompactWeekRow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             buildSeparator(weekBackgroundColor, SeparatorPosition.start),
-            ...date.getAllDatesFromWeek().map(
+            ...startOfWeek.getAllDatesFromWeek().map(
               (day) => DayNumber(
                 day: day.dayNumber,
-                isActive: date.withDay(day.day).isToday,
+                isActive: day.isToday,
                 onTap: () => calendar.changeView(
                   viewIndex: CalendarViewFactory.weekViewIndex,
                   date: day,

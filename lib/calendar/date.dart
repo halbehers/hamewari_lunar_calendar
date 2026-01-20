@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:hamewari/calendar/date_formatter.dart';
+
 abstract class Date<T extends Date<T>> implements Comparable<T> {
   int year = 1971;
   int month = 1;
@@ -21,12 +24,39 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   T get now;
 
   int get weekday;
+  int get weekNumber {
+    final firstOfYear = startOfYear();
+    final firstWeekday = firstOfYear.weekday; // 1 = Monday, 7 = Sunday
+
+    // Number of days from the first week of the year to this date
+    final daysSinceWeekStart = daysUntil(this) + (firstWeekday - 1);
+
+    return (daysSinceWeekStart / numberOfDaysInWeek).floor() + 1;
+  }
+
+  int get weekIndexInMonth {
+    final firstOfMonth = startOfMonth();
+    final firstWeekday = firstOfMonth.weekday; // 1 = Monday, 7 = Sunday
+
+    // Compute days offset from the first week
+    final daysSinceWeekStart = (day - 1) + (firstWeekday - 1);
+
+    return (daysSinceWeekStart / numberOfDaysInWeek).floor() + 1;
+  }
 
   int get numberOfMonths;
+  int get numberOfDaysInWeek;
+  int get numberOfHoursInDay;
+  int get numberOfMinutesInHour;
 
   bool isLeapYear(int year);
 
   int numberOfDaysInMonth(int year, int month);
+  int numberOfWeeksInMonth(int year, int month) {
+    final numberOfDays = numberOfDaysInMonth(year, month);
+
+    return (numberOfDays / numberOfDaysInWeek).ceil();
+  }
 
   DateTime toDateTime() {
     return DateTime(year, month, day, hour, minute);
@@ -36,54 +66,61 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
     return newInstance(year);
   }
 
+  T endOfYear() {
+    return newInstance(
+      year,
+      numberOfMonths,
+      numberOfDaysInMonth(year, numberOfMonths),
+    );
+  }
+
   T startOfMonth() {
     return newInstance(year, month);
   }
 
-  T startOfWeek() {
-    final int delta = weekday - 1;
+  T endOfMonth() {
+    return newInstance(year, month, numberOfDaysInMonth(year, month));
+  }
 
-    return subtractDays(delta);
+  T startOfWeek({bool containedInMonth = false}) {
+    final int delta =
+        weekday - 1; // days to move back to the first day of the week
+
+    if (!containedInMonth) {
+      return subtractDays(delta);
+    }
+
+    // If we want to stay within the month
+    final daysToMonthStart = startOfMonth().daysUntil(this);
+    return subtractDays(delta.clamp(0, daysToMonthStart));
+  }
+
+  T endOfWeek({bool containedInMonth = false}) {
+    final int delta = 7 - weekday;
+
+    if (!containedInMonth) {
+      return addDays(delta);
+    }
+
+    final daysToMonthEnd = daysUntil(endOfMonth());
+    return addDays(delta.clamp(0, daysToMonthEnd));
   }
 
   T startOfDay() {
     return newInstance(year, month, day);
   }
 
+  T endOfDay() {
+    return newInstance(year, month, day, numberOfHoursInDay);
+  }
+
   T startOfHour() {
     return newInstance(year, month, day, hour);
   }
 
-  @override
-  int compareTo(T other) {
-    final yearCompare = year.compareTo(other.year);
-    if (yearCompare != 0) return yearCompare;
-    final monthCompare = month.compareTo(other.month);
-    if (monthCompare != 0) return monthCompare;
-    final dayCompare = day.compareTo(other.day);
-    if (dayCompare != 0) return dayCompare;
-    final hourCompare = hour.compareTo(other.hour);
-    if (hourCompare != 0) return hourCompare;
-
-    return minute.compareTo(other.minute);
+  T endOfHour() {
+    return newInstance(year, month, day, hour, numberOfMinutesInHour);
   }
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is T &&
-          year == other.year &&
-          month == other.month &&
-          day == other.day &&
-          hour == other.hour &&
-          minute == other.minute;
-
-  @override
-  int get hashCode => Object.hash(year, month, day, hour, minute);
-
-  @override
-  String toString() =>
-      '[Date] $day/$month/$year ${hour.toString().padLeft(2)}:${minute.toString().padLeft(2)}';
 
   bool get isCurrentYear => isSameYear(now);
   bool get isCurrentMonth => isSameMonth(now);
@@ -97,36 +134,32 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   }
 
   bool isSameMonth(T other) {
-    return year == other.year && month == other.month;
+    return startOfMonth() == other.startOfMonth();
   }
 
-  bool isSameWeek(T other) {
-    // TODO
-    return year == other.year && month == other.month;
+  bool isSameWeek(T other, {bool containedInMonth = false}) {
+    return startOfWeek(containedInMonth: containedInMonth) ==
+        other.startOfWeek(containedInMonth: containedInMonth);
   }
 
   bool isSameDay(T other) {
-    return year == other.year && month == other.month && day == other.day;
+    return startOfDay() == other.startOfDay();
   }
 
   bool isSameHour(T other) {
-    return year == other.year &&
-        month == other.month &&
-        day == other.day &&
-        hour == other.hour;
+    return startOfHour() == other.startOfHour();
   }
 
   bool isSameMinute(T other) {
-    return year == other.year &&
-        month == other.month &&
-        day == other.day &&
-        hour == other.hour &&
-        minute == other.minute;
+    return startOfHour() == other.startOfHour() && minute == other.minute;
   }
 
-  List<T> getAllDatesFromWeek() {
-    // TODO
-    return List.generate(7, (int index) => newInstance(year, month, index + 1));
+  List<T> getAllDatesFromWeek({bool containedInMonth = false}) {
+    final start = startOfWeek(containedInMonth: containedInMonth);
+    final end = endOfWeek(containedInMonth: containedInMonth);
+
+    final int totalDays = start.daysUntil(end) + 1;
+    return List.generate(totalDays, (i) => start.addDays(i));
   }
 
   List<T> getAllStartOfMonthsFromYear() {
@@ -165,19 +198,132 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   }
 
   T addMonths(int delta) {
-    return newInstance(year, (month + delta) % 12, day, hour, minute);
+    int y = year;
+    int m = month + delta;
+    int d = day;
+
+    while (m > numberOfMonths) {
+      m -= numberOfMonths;
+      y++;
+    }
+
+    final daysInNewMonth = numberOfDaysInMonth(y, m);
+    if (d > daysInNewMonth) {
+      d = daysInNewMonth;
+    }
+
+    return newInstance(y, m, d, hour, minute);
   }
 
   T addWeeks(int delta) {
-    return newInstance(year, month, (day + delta * 7) % 31, hour, minute);
+    int remaining = delta;
+    T result = this as T;
+
+    while (remaining > 0) {
+      result = result.addDays(numberOfDaysInWeek);
+      remaining--;
+    }
+
+    return result;
   }
 
-  T addDays(int delta) {
-    return newInstance(year, month, (day + delta) % 7, hour, minute);
+  T addDays(int days) {
+    int y = year;
+    int m = month;
+    int d = day + days;
+
+    while (d > numberOfDaysInMonth(y, m)) {
+      d -= numberOfDaysInMonth(y, m);
+      m++;
+      if (m > numberOfMonths) {
+        m = 1;
+        y++;
+      }
+    }
+
+    return newInstance(y, m, d);
   }
 
   T addHours(int delta) {
-    return newInstance(year, month, day, (hour + delta) % 24, minute);
+    int y = year;
+    int m = month;
+    int d = day;
+    int h = hour;
+    int min = minute;
+
+    int remaining = delta;
+
+    while (remaining > 0) {
+      if (h < numberOfHoursInDay - 1) {
+        h++;
+      } else {
+        h = 0;
+        // move to next day
+        final nextDay = newInstance(y, m, d).addDays(1);
+        y = nextDay.year;
+        m = nextDay.month;
+        d = nextDay.day;
+      }
+      remaining--;
+    }
+
+    return newInstance(y, m, d, h, min);
+  }
+
+  T addMinutes(int delta) {
+    int y = year;
+    int m = month;
+    int d = day;
+    int h = hour;
+    int min = minute;
+
+    int remaining = delta;
+
+    while (remaining > 0) {
+      if (min < numberOfMinutesInHour - 1) {
+        min++;
+      } else {
+        min = 0;
+
+        // advance hour
+        if (h < numberOfHoursInDay - 1) {
+          h++;
+        } else {
+          h = 0;
+
+          // advance day
+          final nextDay = newInstance(y, m, d).addDays(1);
+          y = nextDay.year;
+          m = nextDay.month;
+          d = nextDay.day;
+        }
+      }
+      remaining--;
+    }
+
+    return newInstance(y, m, d, h, min);
+  }
+
+  T subtractMonths(int delta) {
+    int y = year;
+    int m = month - delta;
+    int d = day;
+
+    while (m < 1) {
+      m += numberOfMonths;
+      y--;
+    }
+
+    final daysInNewMonth = numberOfDaysInMonth(y, m);
+    if (d > daysInNewMonth) {
+      d = daysInNewMonth;
+    }
+
+    return newInstance(y, m, d, hour, minute);
+  }
+
+  T subtractWeeks(int delta) {
+    return subtractDays(delta * numberOfDaysInWeek);
   }
 
   T subtractDays(int days) {
@@ -193,7 +339,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       } else {
         m--;
         if (m == 0) {
-          m = 12;
+          m = numberOfMonths;
           y--;
         }
         d = numberOfDaysInMonth(y, m);
@@ -204,8 +350,64 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
     return newInstance(y, m, d);
   }
 
-  T addMinutes(int delta) {
-    return newInstance(year, month, day, hour, (minute + delta) % 60);
+  T subtractHours(int delta) {
+    int y = year;
+    int m = month;
+    int d = day;
+    int h = hour;
+    int min = minute;
+
+    int remaining = delta;
+
+    while (remaining > 0) {
+      if (h > 0) {
+        h--;
+      } else {
+        h = numberOfHoursInDay - 1;
+        // move to previous day
+        final prevDay = newInstance(y, m, d).subtractDays(1);
+        y = prevDay.year;
+        m = prevDay.month;
+        d = prevDay.day;
+      }
+      remaining--;
+    }
+
+    return newInstance(y, m, d, h, min);
+  }
+
+  T subtractMinutes(int delta) {
+    int y = year;
+    int m = month;
+    int d = day;
+    int h = hour;
+    int min = minute;
+
+    int remaining = delta;
+
+    while (remaining > 0) {
+      if (min > 0) {
+        min--;
+      } else {
+        min = 59;
+
+        // rollback hour
+        if (h > 0) {
+          h--;
+        } else {
+          h = numberOfHoursInDay - 1;
+
+          // rollback day
+          final prevDay = newInstance(y, m, d).subtractDays(1);
+          y = prevDay.year;
+          m = prevDay.month;
+          d = prevDay.day;
+        }
+      }
+      remaining--;
+    }
+
+    return newInstance(y, m, d, h, min);
   }
 
   int daysUntil(Date other) {
@@ -217,4 +419,45 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   static bool isDayActive(Date date) {
     return date.isCurrentMonth && date.isCurrentWeek && date.isToday;
   }
+
+  DateFormatter<T> newFormatter(String pattern);
+
+  String format(
+    BuildContext context, {
+    String pattern = DateFormatter.yearNumMonthDayPattern,
+    DateFormatter<T>? format,
+  }) {
+    return (format ?? newFormatter(pattern)).format(context, this as T);
+  }
+
+  @override
+  int compareTo(T other) {
+    final yearCompare = year.compareTo(other.year);
+    if (yearCompare != 0) return yearCompare;
+    final monthCompare = month.compareTo(other.month);
+    if (monthCompare != 0) return monthCompare;
+    final dayCompare = day.compareTo(other.day);
+    if (dayCompare != 0) return dayCompare;
+    final hourCompare = hour.compareTo(other.hour);
+    if (hourCompare != 0) return hourCompare;
+
+    return minute.compareTo(other.minute);
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is T &&
+          year == other.year &&
+          month == other.month &&
+          day == other.day &&
+          hour == other.hour &&
+          minute == other.minute;
+
+  @override
+  int get hashCode => Object.hash(year, month, day, hour, minute);
+
+  @override
+  String toString() =>
+      '[${T.toString()}] $day/$month/$year ${hour.toString().padLeft(2, "0")}:${minute.toString().padLeft(2, "0")}';
 }

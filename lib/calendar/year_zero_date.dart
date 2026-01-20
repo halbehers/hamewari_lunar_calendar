@@ -1,4 +1,5 @@
 import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/calendar/year_zero_date_format.dart';
 
 class YearZeroDate extends Date<YearZeroDate> {
   YearZeroDate(super.year, [super.month, super.day, super.hour, super.minute]) {
@@ -35,11 +36,27 @@ class YearZeroDate extends Date<YearZeroDate> {
     return YearZeroDate(year, month, day, hour, minute);
   }
 
-  @override
-  YearZeroDate get now {
+  factory YearZeroDate.now() {
     final now = DateTime.now().toUtc();
     return fromGregorian(now);
   }
+
+  @override
+  YearZeroDate get now {
+    return YearZeroDate.now();
+  }
+
+  @override
+  int get numberOfMonths => 13;
+
+  @override
+  int get numberOfDaysInWeek => 7;
+
+  @override
+  int get numberOfHoursInDay => 24;
+
+  @override
+  int get numberOfMinutesInHour => 60;
 
   // --------------------------------------------------
   // Calendar rules
@@ -61,70 +78,6 @@ class YearZeroDate extends Date<YearZeroDate> {
   @override
   int get weekday {
     return ((day - 1) % 7) + 1;
-  }
-
-  // --------------------------------------------------
-  // Overrides with semantic meaning
-  // --------------------------------------------------
-
-  @override
-  YearZeroDate startOfWeek() {
-    final int delta = weekday - 1;
-    return subtractDays(delta);
-  }
-
-  @override
-  YearZeroDate startOfMonth() {
-    return newInstance(year, month, 1);
-  }
-
-  @override
-  YearZeroDate startOfYear() {
-    return newInstance(year, 1, 1);
-  }
-
-  // --------------------------------------------------
-  // Date arithmetic (corrected vs base class)
-  // --------------------------------------------------
-
-  @override
-  YearZeroDate addDays(int delta) {
-    int y = year;
-    int m = month;
-    int d = day + delta;
-
-    while (d > 28) {
-      d -= 28;
-      m++;
-      if (m > 13) {
-        m = 1;
-        y++;
-      }
-    }
-
-    while (d < 1) {
-      m--;
-      if (m < 1) {
-        m = 13;
-        y--;
-      }
-      d += 28;
-    }
-
-    return newInstance(y, m, d, hour, minute);
-  }
-
-  @override
-  YearZeroDate addMonths(int delta) {
-    int total = (month - 1) + delta;
-    int y = year + total ~/ 13;
-    int m = (total % 13) + 1;
-    return newInstance(y, m, day, hour, minute);
-  }
-
-  @override
-  YearZeroDate addWeeks(int delta) {
-    return addDays(delta * 7);
   }
 
   // --------------------------------------------------
@@ -161,5 +114,7 @@ class YearZeroDate extends Date<YearZeroDate> {
   }
 
   @override
-  int get numberOfMonths => 13;
+  YearZeroDateFormat newFormatter(String pattern) {
+    return YearZeroDateFormat(pattern);
+  }
 }

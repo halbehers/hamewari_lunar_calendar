@@ -1,4 +1,5 @@
 import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/calendar/date_formatter.dart';
 import 'package:sweph/sweph.dart';
 
 class AstrologicalMoonDate extends Date<AstrologicalMoonDate> {
@@ -46,6 +47,20 @@ class AstrologicalMoonDate extends Date<AstrologicalMoonDate> {
   @override
   AstrologicalMoonDate get now =>
       AstrologicalMoonDate.fromUtc(DateTime.now().toUtc());
+
+  @override
+  int get numberOfMonths => 13;
+
+  @override
+  int get numberOfDaysInWeek => 7;
+
+  // TODO
+  @override
+  int get numberOfHoursInDay => 24;
+
+  // TODO
+  @override
+  int get numberOfMinutesInHour => 60;
 
   // --------------------------------------------------
   // Astronomical helpers
@@ -162,5 +177,7 @@ class AstrologicalMoonDate extends Date<AstrologicalMoonDate> {
   }
 
   @override
-  int get numberOfMonths => 13;
+  DateFormatter<AstrologicalMoonDate> newFormatter(String pattern) {
+    throw UnimplementedError();
+  }
 }

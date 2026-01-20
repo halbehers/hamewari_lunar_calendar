@@ -175,13 +175,13 @@ class MoonDateFormat {
     final replacements = <String, String>{
       'Y': date.year.toString(),
       'M': (date.month.monthNumber).toString(),
-      'MMM': t.month(date.month.l10nKey),
-      'MMMM': t.monthTitle(date.month.l10nKey),
+      'MMM': t.moon_month(date.month.monthNumber.toString()),
+      'MMMM': t.moon_month_title(date.month.monthNumber.toString()),
       'W': (date.week.weekNumber).toString(),
-      'WWW': t.week(date.week.l10nKey),
-      'WWWW': t.weekTitle(date.week.l10nKey),
-      'EEE': t.day(date.day.l10nKey),
-      'EEEE': t.dayTitle(date.day.l10nKey),
+      'WWW': t.moon_week(date.week.weekNumber.toString()),
+      'WWWW': t.moon_week_title(date.week.weekNumber.toString()),
+      'EEE': t.moon_day(date.day.dayNumber.toString()),
+      'EEEE': t.moon_day_title(date.day.dayNumber.toString()),
       'D': (date.dayNumber).toString(),
     };
     String formattedPattern = _getFormattedPatternByLocale(

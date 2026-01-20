@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/calendar/moon_date_formatting.dart';
+import 'package:hamewari/calendar/moon_date_format.dart';
 import 'package:hamewari/l10n/app_localizations.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
@@ -131,7 +131,9 @@ class _MonthCalendarState extends State<MonthCalendar> {
               child: Padding(
                 padding: const EdgeInsetsGeometry.directional(bottom: 32),
                 child: Text(
-                  t.monthTitle(_selectedDate.month.name),
+                  t.moon_month_title(
+                    _selectedDate.month.monthNumber.toString(),
+                  ),
                   style:
                       (_selectedDate.year == MoonDate.currentYear &&
                           _selectedDate.month == MoonDate.currentMonth)
