@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:hamewari/calendar/date.dart';
-import 'package:hamewari/calendar/year_zero_date_format.dart';
+import 'package:hamewari/calendar/year_zero_date_formatter.dart';
 
 class YearZeroDate extends Date<YearZeroDate> {
   YearZeroDate(super.year, [super.month, super.day, super.hour, super.minute]) {
@@ -91,7 +91,7 @@ class YearZeroDate extends Date<YearZeroDate> {
   }
 
   @override
-  YearZeroDateFormat newFormatter(String pattern, Locale? locale) {
-    return YearZeroDateFormat(pattern, locale);
+  YearZeroDateFormatter newFormatter(String pattern, Locale? locale) {
+    return YearZeroDateFormatter(pattern, locale);
   }
 }
