@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hamewari/helpers/string_extension.dart';
+import 'package:intl/intl.dart';
 import 'package:hamewari/calendar/date.dart';
 
 abstract class DateFormatter<T extends Date<T>> {
-  DateFormatter(String formatPattern)
-    : this._internal(formatPattern: formatPattern);
+  DateFormatter(String formatPattern, [Locale? locale])
+    : this._internal(formatPattern: formatPattern, locale: locale);
 
-  DateFormatter._internal({this.formatPattern = "yMd"});
+  DateFormatter._internal({this.locale, this.formatPattern = "yMd"});
 
+  final Locale? locale;
   final String formatPattern;
 
   static const String dayPattern = 'D';
@@ -28,24 +31,35 @@ abstract class DateFormatter<T extends Date<T>> {
   static const String yearMonthDayPattern = 'YMMMMD';
   static const String yearMonthWeekdayDayPattern = 'YMMMMEEED';
 
-  DateFormatter.day() : this(dayPattern);
-  DateFormatter.weekday() : this(weekdayPattern);
-  DateFormatter.weekdayTitle() : this(standaloneWeekdayPattern);
-  DateFormatter.numWeek() : this(numWeekPattern);
-  DateFormatter.numMonth() : this(numMonthPattern);
-  DateFormatter.numMonthDay() : this(numMonthDayPattern);
-  DateFormatter.numMonthWeekdayDay() : this(numMonthWeekdayDayPattern);
-  DateFormatter.month() : this(monthPattern);
-  DateFormatter.monthTitle() : this(standaloneMonthPattern);
-  DateFormatter.monthDay() : this(monthDayPattern);
-  DateFormatter.monthWeekdayDay() : this(monthWeekdayDayPattern);
-  DateFormatter.year() : this(yearPattern);
-  DateFormatter.yearNumMonth() : this(yearNumMonthPattern);
-  DateFormatter.yearNumMonthDay() : this(yearNumMonthDayPattern);
-  DateFormatter.yearNumMonthWeekdayDay() : this(yearNumMonthWeekdayDayPattern);
-  DateFormatter.yearMonth() : this(yearMonthPattern);
-  DateFormatter.yearMonthDay() : this(yearMonthDayPattern);
-  DateFormatter.yearMonthWeekdayDay() : this(yearMonthWeekdayDayPattern);
+  DateFormatter.day(Locale? locale) : this(dayPattern, locale);
+  DateFormatter.weekday(Locale? locale) : this(weekdayPattern, locale);
+  DateFormatter.weekdayTitle(Locale? locale)
+    : this(standaloneWeekdayPattern, locale);
+  DateFormatter.numWeek(Locale? locale) : this(numWeekPattern, locale);
+  DateFormatter.numMonth(Locale? locale) : this(numMonthPattern, locale);
+  DateFormatter.numMonthDay(Locale? locale) : this(numMonthDayPattern, locale);
+  DateFormatter.numMonthWeekdayDay(Locale? locale)
+    : this(numMonthWeekdayDayPattern, locale);
+  DateFormatter.month(Locale? locale) : this(monthPattern, locale);
+  DateFormatter.monthTitle(Locale? locale)
+    : this(standaloneMonthPattern, locale);
+  DateFormatter.monthDay(Locale? locale) : this(monthDayPattern, locale);
+  DateFormatter.monthWeekdayDay(Locale? locale)
+    : this(monthWeekdayDayPattern, locale);
+  DateFormatter.year(Locale? locale) : this(yearPattern, locale);
+  DateFormatter.yearNumMonth(Locale? locale)
+    : this(yearNumMonthPattern, locale);
+  DateFormatter.yearNumMonthDay(Locale? locale)
+    : this(yearNumMonthDayPattern, locale);
+  DateFormatter.yearNumMonthWeekdayDay(Locale? locale)
+    : this(yearNumMonthWeekdayDayPattern, locale);
+  DateFormatter.yearMonth(Locale? locale) : this(yearMonthPattern, locale);
+  DateFormatter.yearMonthDay(Locale? locale)
+    : this(yearMonthDayPattern, locale);
+  DateFormatter.yearMonthWeekdayDay(Locale? locale)
+    : this(yearMonthWeekdayDayPattern, locale);
+
+  Locale get _effectiveLocale => locale ?? Intl.getCurrentLocale().asLocale;
 
   Map<String, String> formattedPatternsByPatternsUS = {
     dayPattern: dayPattern,
@@ -142,26 +156,26 @@ abstract class DateFormatter<T extends Date<T>> {
     return parts;
   }
 
-  String translateMonth(BuildContext context, int month);
-  String translateMonthTitle(BuildContext context, int month);
-  String translateWeekday(BuildContext context, int weekday);
-  String translateWeekdayTitle(BuildContext context, int month);
+  String translateMonth(Locale locale, int month);
+  String translateMonthTitle(Locale locale, int month);
+  String translateWeekday(Locale locale, int weekday);
+  String translateWeekdayTitle(Locale locale, int month);
 
-  String format(BuildContext context, T date, {Locale? locale}) {
-    Locale autoLocale = locale ?? Localizations.localeOf(context);
+  String format(T date, {Locale? locale}) {
+    Locale effectiveLocale = locale ?? _effectiveLocale;
     final replacements = <String, String>{
       'Y': date.year.toString(),
       'M': (date.month).toString(),
-      'MMM': translateMonth(context, date.month),
-      'MMMM': translateMonthTitle(context, date.month),
+      'MMM': translateMonth(effectiveLocale, date.month),
+      'MMMM': translateMonthTitle(effectiveLocale, date.month),
       'W': date.weekIndexInMonth.toString(),
-      'EEE': translateWeekday(context, date.weekday),
-      'EEEE': translateWeekdayTitle(context, date.weekday),
+      'EEE': translateWeekday(effectiveLocale, date.weekday),
+      'EEEE': translateWeekdayTitle(effectiveLocale, date.weekday),
       'D': (date.day).toString(),
     };
     String formattedPattern = _getFormattedPatternByLocale(
       formatPattern,
-      autoLocale,
+      effectiveLocale,
     );
     final sortedKeys = replacements.keys.toList()
       ..sort((a, b) => b.length.compareTo(a.length));

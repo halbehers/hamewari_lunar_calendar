@@ -420,14 +420,14 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
     return date.isCurrentMonth && date.isCurrentWeek && date.isToday;
   }
 
-  DateFormatter<T> newFormatter(String pattern);
+  DateFormatter<T> newFormatter(String pattern, Locale? locale);
 
-  String format(
-    BuildContext context, {
+  String format({
     String pattern = DateFormatter.yearNumMonthDayPattern,
     DateFormatter<T>? format,
+    Locale? locale,
   }) {
-    return (format ?? newFormatter(pattern)).format(context, this as T);
+    return (format ?? newFormatter(pattern, locale)).format(this as T);
   }
 
   @override

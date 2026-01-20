@@ -1,9 +1,10 @@
+import 'dart:ui';
+
 import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/calendar/date_formatter.dart';
 import 'package:sweph/sweph.dart';
 
 class AstrologicalMoonDate extends Date<AstrologicalMoonDate> {
-  /// Anchor instant (UTC)
   final DateTime utc;
 
   AstrologicalMoonDate._internal(
@@ -26,10 +27,6 @@ class AstrologicalMoonDate extends Date<AstrologicalMoonDate> {
       u.minute,
     );
   }
-
-  // --------------------------------------------------
-  // Date<T> requirements
-  // --------------------------------------------------
 
   @override
   AstrologicalMoonDate newInstance(
@@ -62,10 +59,6 @@ class AstrologicalMoonDate extends Date<AstrologicalMoonDate> {
   @override
   int get numberOfMinutesInHour => 60;
 
-  // --------------------------------------------------
-  // Astronomical helpers
-  // --------------------------------------------------
-
   double get _julianDay {
     return Sweph.swe_julday(
       utc.year,
@@ -94,10 +87,6 @@ class AstrologicalMoonDate extends Date<AstrologicalMoonDate> {
     return (diff + 360) % 360;
   }
 
-  // --------------------------------------------------
-  // Astrological DAY (tidal lunar day)
-  // --------------------------------------------------
-
   /// Lunar day index since last lunar transit
   ///
   /// One lunar day ≈ 24h 50m
@@ -121,10 +110,6 @@ class AstrologicalMoonDate extends Date<AstrologicalMoonDate> {
       utc.subtract(Duration(minutes: offset)),
     );
   }
-
-  // --------------------------------------------------
-  // Astrological MONTH (lunation)
-  // --------------------------------------------------
 
   @override
   AstrologicalMoonDate startOfMonth() {
@@ -156,16 +141,8 @@ class AstrologicalMoonDate extends Date<AstrologicalMoonDate> {
     }
   }
 
-  // --------------------------------------------------
-  // Week (civil)
-  // --------------------------------------------------
-
   @override
   int get weekday => utc.weekday;
-
-  // --------------------------------------------------
-  // Required overrides (compatibility)
-  // --------------------------------------------------
 
   @override
   bool isLeapYear(int year) => false;
@@ -177,7 +154,10 @@ class AstrologicalMoonDate extends Date<AstrologicalMoonDate> {
   }
 
   @override
-  DateFormatter<AstrologicalMoonDate> newFormatter(String pattern) {
+  DateFormatter<AstrologicalMoonDate> newFormatter(
+    String pattern,
+    Locale? locale,
+  ) {
     throw UnimplementedError();
   }
 }

@@ -189,6 +189,13 @@ class _WeekCalendarState extends State<WeekCalendar> {
                                   MoonDateFormat.yearMonthWeekdayDayPattern,
                             )
                             .capitalize(),
+                        // YearZeroDate.now()
+                        //     .format(
+                        //       pattern:
+                        //           MoonDateFormat.yearMonthWeekdayDayPattern,
+                        //       locale: Localizations.localeOf(context),
+                        //     )
+                        //     .capitalize(),
                         style: appTheme.h4,
                         textAlign: TextAlign.center,
                       ),

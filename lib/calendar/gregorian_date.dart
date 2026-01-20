@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/calendar/gregorian_date_format.dart';
 
@@ -81,7 +83,7 @@ class GregorianDate extends Date<GregorianDate> {
   }
 
   @override
-  GregorianDateFormat newFormatter(String pattern) {
-    return GregorianDateFormat(pattern);
+  GregorianDateFormat newFormatter(String pattern, Locale? locale) {
+    return GregorianDateFormat(pattern, locale);
   }
 }

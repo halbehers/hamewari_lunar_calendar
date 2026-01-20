@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/calendar/year_zero_date_format.dart';
 
@@ -20,10 +22,6 @@ class YearZeroDate extends Date<YearZeroDate> {
       throw ArgumentError('Minute must be 0-59');
     }
   }
-
-  // --------------------------------------------------
-  // Date<T> required overrides
-  // --------------------------------------------------
 
   @override
   YearZeroDate newInstance(
@@ -58,31 +56,14 @@ class YearZeroDate extends Date<YearZeroDate> {
   @override
   int get numberOfMinutesInHour => 60;
 
-  // --------------------------------------------------
-  // Calendar rules
-  // --------------------------------------------------
+  @override
+  bool isLeapYear(int year) => year % 4 == 0;
 
   @override
-  bool isLeapYear(int year) {
-    // Leap Zero Day every 4 years
-    return year % 4 == 0;
-  }
+  int numberOfDaysInMonth(int year, int month) => 28;
 
   @override
-  int numberOfDaysInMonth(int year, int month) {
-    return 28;
-  }
-
-  /// Every month starts on weekday 1
-  /// weekday: 1..7
-  @override
-  int get weekday {
-    return ((day - 1) % 7) + 1;
-  }
-
-  // --------------------------------------------------
-  // Zero Day logic (outside Date<T>)
-  // --------------------------------------------------
+  int get weekday => ((day - 1) % 7) + 1;
 
   bool get isZeroDay => false;
 
@@ -94,10 +75,6 @@ class YearZeroDate extends Date<YearZeroDate> {
   static bool isLeapZeroDayForYear(int year) {
     return year % 4 == 0;
   }
-
-  // --------------------------------------------------
-  // Conversion from Gregorian (anchoring)
-  // --------------------------------------------------
 
   static YearZeroDate fromGregorian(DateTime dt) {
     final yearZero = dt.year - 2028;
@@ -114,7 +91,7 @@ class YearZeroDate extends Date<YearZeroDate> {
   }
 
   @override
-  YearZeroDateFormat newFormatter(String pattern) {
-    return YearZeroDateFormat(pattern);
+  YearZeroDateFormat newFormatter(String pattern, Locale? locale) {
+    return YearZeroDateFormat(pattern, locale);
   }
 }
