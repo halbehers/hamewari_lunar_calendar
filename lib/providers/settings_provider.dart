@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hamewari/calendar/date_factory.dart';
 import 'package:hamewari/db/models/setting.dart';
 import 'package:hamewari/db/services/settings_service.dart';
 import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class SettingsProvider extends ChangeNotifier {
   final SettingsService service = SettingsService();
@@ -12,6 +14,9 @@ class SettingsProvider extends ChangeNotifier {
   SettingsProvider() {
     _init();
   }
+
+  static SettingsProvider of(BuildContext context, {bool listen = true}) =>
+      Provider.of<SettingsProvider>(context, listen: listen);
 
   void _init() async {
     {
@@ -57,6 +62,18 @@ class SettingsProvider extends ChangeNotifier {
       if (setting != null) {
         setThemeMode(
           ThemeMode.values.singleWhere((mode) => mode.name == setting.value),
+          persistChange: false,
+        );
+      }
+    }
+    {
+      Setting? setting = await service.findByName(
+        SettingsService.selectedCalendarId,
+      );
+
+      if (setting != null) {
+        setCalendar(
+          DateType.values.singleWhere((mode) => mode.name == setting.value),
           persistChange: false,
         );
       }
@@ -133,6 +150,18 @@ class SettingsProvider extends ChangeNotifier {
     notifyListeners();
     if (persistChange) {
       service.setupByName(SettingsService.selectedThemeModeId, themeMode.name);
+    }
+  }
+
+  DateType _calendar = DateType.gregorian;
+
+  DateType get calendar => _calendar;
+
+  void setCalendar(DateType calendar, {bool persistChange = true}) {
+    _calendar = calendar;
+    notifyListeners();
+    if (persistChange) {
+      service.setupByName(SettingsService.selectedCalendarId, calendar.name);
     }
   }
 }

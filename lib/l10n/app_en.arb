@@ -1,5 +1,13 @@
 {
   "@@locale": "en",
+  "app_name": "Hamewari Calendar",
+  "@app_name": {
+    "description": "Name of the app"
+  },
+  "app_loading": "Loading the app...",
+  "@app_loading": {
+    "description": "App loading text"
+  },
   "language_en": "English",
   "@language_en": {
     "description": "English language"
@@ -63,6 +71,23 @@
   "theme_mode_system": "System",
   "@theme_mode_system": {
     "description": "Theme mode system"
+  },
+  "settings_calendar": "Calendar",
+  "@settings_calendar": {
+    "description": "Setting calendar caption"
+  },
+  "settings_calendar_type": "Type",
+  "@settings_calendar_type": {
+    "description": "Setting calendar type"
+  },
+  "settings_calendar_types": "{dateType, select, gregorian {Gregorian Calendar} yearZero {Year Zero Calendar} other {Undefined Calendar}}",
+  "@settings_calendar_types": {
+    "description": "Calendar types by name",
+    "placeholders": {
+      "dateType": {
+        "type": "String"
+      }
+    }
   },
   "moon_month_title": "{month, select, 1 {Magnetic Moon} 2 {Lunar Moon} 3 {Electric Moon} 4 {Self-Existing Moon} 5 {Harmonic Moon} 6 {Rhythmic Moon} 7 {Resonant Moon} 8 {Galactic Moon} 9 {Solar Moon} 10 {Planetary Moon} 11 {Spectral Moon} 12 {Crystal Moon} 13 {Cosmic Moon} other {Unidentified Moon}}",
   "@moon_month_title": {

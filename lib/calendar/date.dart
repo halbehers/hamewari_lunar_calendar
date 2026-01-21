@@ -49,6 +49,8 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   int get numberOfHoursInDay;
   int get numberOfMinutesInHour;
 
+  bool get hasMoonPhaseBasedWeeks => false;
+
   bool isLeapYear(int year);
 
   int numberOfDaysInMonth(int year, int month);
@@ -169,6 +171,29 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
     );
   }
 
+  List<T> getAllStartOfWeeksFromMonth() {
+    final List<T> result = [];
+
+    final T monthStart = startOfMonth();
+
+    final int deltaToFirstWeekdayOfMonth = monthStart.weekday - 1;
+    T effectiveWeekStart = monthStart.subtractDays(deltaToFirstWeekdayOfMonth);
+
+    if (effectiveWeekStart.month != month || effectiveWeekStart.year != year) {
+      result.add(monthStart);
+    }
+
+    T current = effectiveWeekStart;
+
+    while (isSameMonth(current) || withMonth(month - 1).isSameMonth(current)) {
+      if (isSameMonth(current)) result.add(current);
+
+      current = current.addDays(numberOfDaysInWeek);
+    }
+
+    return result;
+  }
+
   T getDateFromWeekDayIndex(int index) {
     return newInstance(year, month, index + 1);
   }
@@ -182,18 +207,43 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   }
 
   T withMonth(int month) {
-    return newInstance(year, month, day, hour, minute);
+    int m = month;
+    int y = year;
+    int d = day;
+    if (m < 1) {
+      m = numberOfMonths + m;
+      y--;
+    }
+    if (m > numberOfMonths) {
+      m = 1 + m % numberOfMonths;
+      y++;
+    }
+    if (d > numberOfDaysInMonth(y, m)) {
+      d = numberOfDaysInMonth(y, m);
+    }
+    return newInstance(y, m, d, hour, minute);
   }
 
   T withDay(int day) {
+    final daysInMonth = numberOfDaysInMonth(year, month);
+    if (day < 1) {
+      day = daysInMonth;
+    }
+    if (day > daysInMonth) day = 1;
     return newInstance(year, month, day, hour, minute);
   }
 
   T withHour(int hour) {
+    final hoursInDay = numberOfHoursInDay;
+    if (hour < 0) hour = hoursInDay;
+    if (hour > hoursInDay) hour = 0;
     return newInstance(year, month, day, hour, minute);
   }
 
   T withMinute(int minute) {
+    final minutesInHour = numberOfMinutesInHour;
+    if (minute < 0) minute = minutesInHour;
+    if (minute > minutesInHour) minute = 0;
     return newInstance(year, month, day, hour, minute);
   }
 

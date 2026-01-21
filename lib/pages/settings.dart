@@ -3,21 +3,20 @@ import 'package:hamewari/l10n/app_localizations.dart';
 import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/ui/buttons/main_page_selector.dart';
 import 'package:hamewari/main.dart';
-import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/settings/bool_setting.dart';
+import 'package:hamewari/ui/settings/calendar_type_setting.dart';
 import 'package:hamewari/ui/settings/locale_setting.dart';
 import 'package:hamewari/ui/settings/setting_section.dart';
 import 'package:hamewari/ui/settings/theme_mode_setting.dart';
-import 'package:provider/provider.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    AppTheme appTheme = context.appTheme;
-    AppLocalizations t = AppLocalizations.of(context)!;
-    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
+    final appTheme = context.appTheme;
+    final t = AppLocalizations.of(context)!;
+    final settingsProvider = SettingsProvider.of(context);
 
     return Scaffold(
       backgroundColor: appTheme.backgroundColor,
@@ -48,6 +47,10 @@ class SettingsPage extends StatelessWidget {
                 ),
                 const LocaleSetting(),
               ],
+            ),
+            SettingSection(
+              title: t.settings_calendar,
+              items: [const CalendarTypeSetting()],
             ),
           ],
         ),

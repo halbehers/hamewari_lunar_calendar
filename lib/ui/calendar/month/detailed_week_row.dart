@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
+import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/ui/calendar/day_number.dart';
 import 'package:hamewari/ui/calendar/month/detailed_day.dart';
 
 class DetailedWeekRow extends StatelessWidget {
   const DetailedWeekRow({super.key, required this.date});
 
-  final MoonDate date;
+  final Date<dynamic> date;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,15 @@ class DetailedWeekRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: date
           .getAllDatesFromWeek()
-          .map((day) => DetailedDay(date: day, isActive: day.isToday))
+          .map(
+            (day) => DetailedDay(
+              date: day,
+              isActive: day.isToday,
+              visibility: day.isSameMonth(date)
+                  ? DayVisibility.visible
+                  : DayVisibility.hidden,
+            ),
+          )
           .toList(),
     );
   }

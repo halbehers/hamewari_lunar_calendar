@@ -4,6 +4,8 @@ import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
 
+enum DayVisibility { hidden, visible }
+
 class DayNumber extends StatelessWidget {
   const DayNumber({
     super.key,
@@ -15,6 +17,7 @@ class DayNumber extends StatelessWidget {
     this.textStyle,
     this.activeTextStyle,
     this.onTap,
+    this.visibility = DayVisibility.visible,
   });
 
   final int day;
@@ -25,6 +28,7 @@ class DayNumber extends StatelessWidget {
   final TextStyle? textStyle;
   final TextStyle? activeTextStyle;
   final VoidCallback? onTap;
+  final DayVisibility visibility;
 
   Widget buildDot(AppTheme appTheme) {
     return Container(
@@ -54,6 +58,10 @@ class DayNumber extends StatelessWidget {
     final scale = isActive
         ? (isSelected ? 1.0 : 0.9)
         : (isSelected ? 1.0 : 0.6);
+
+    if (visibility == DayVisibility.hidden) {
+      return SizedBox.fromSize(size: Size.square(size));
+    }
 
     return SizedBox(
       width: size,

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
+import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/calendar/date_factory.dart';
 import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/buttons/main_page_selector.dart';
-import 'package:hamewari/ui/calendar/calendar_provider.dart';
+import 'package:hamewari/providers/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
 import 'package:hamewari/main.dart';
+import 'package:hamewari/ui/loading_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:vibration/vibration.dart';
 import 'package:vibration/vibration_presets.dart';
@@ -24,7 +26,7 @@ class _CalendarPageState extends State<CalendarPage> {
   bool _isProgrammaticPageChange = false;
 
   late int? _selectedViewIndex;
-  MoonDate _selectedDate = MoonDate.now();
+  late Date<dynamic> _selectedDate;
   CalendarHeaderBackButton? _backButton;
 
   @override
@@ -36,6 +38,9 @@ class _CalendarPageState extends State<CalendarPage> {
     if (!settingsProvider.initialized || _controllerInitialized) return;
 
     _selectedViewIndex = settingsProvider.selectedCalendarViewIndex;
+
+    _selectedDate = DateFactory.buildNow(settingsProvider.calendar);
+
     _pageController = PageController(
       initialPage: settingsProvider.selectedCalendarViewIndex,
     );
@@ -51,7 +56,7 @@ class _CalendarPageState extends State<CalendarPage> {
 
   Future<void> _changeView(
     int newViewIndex,
-    MoonDate? newDate, {
+    Date<dynamic>? newDate, {
     bool? animate,
   }) async {
     final bool isSameView = newViewIndex == _selectedViewIndex;
@@ -105,7 +110,7 @@ class _CalendarPageState extends State<CalendarPage> {
     final AppTheme appTheme = context.appTheme;
 
     if (!_controllerInitialized) {
-      return const SizedBox(); // Todo: add loader
+      return const LoadingScreen();
     }
 
     return Scaffold(
@@ -130,9 +135,12 @@ class _CalendarPageState extends State<CalendarPage> {
               (view) => CalendarProvider.create(
                 child: view,
                 selectView:
-                    ({required int viewIndex, MoonDate? date, bool? animate}) =>
-                        _changeView(viewIndex, date, animate: animate),
-                selectDate: ({required MoonDate date}) =>
+                    ({
+                      required int viewIndex,
+                      Date<dynamic>? date,
+                      bool? animate,
+                    }) => _changeView(viewIndex, date, animate: animate),
+                selectDate: ({required Date<dynamic> date}) =>
                     _changeView(_selectedViewIndex ?? 0, date),
                 updateBackButton: setBackButton,
               ),

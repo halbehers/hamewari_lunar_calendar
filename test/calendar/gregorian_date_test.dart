@@ -161,6 +161,56 @@ void main() {
     });
   });
 
+  group('getAllStartOfWeeksFromMonth()', () {
+    test('returns all correct start of weeks for january 2026', () {
+      final date = GregorianDate(2026, 1, 21);
+      final startOfWeeks = date.getAllStartOfWeeksFromMonth();
+
+      expect(startOfWeeks.length, 5);
+      expect(startOfWeeks[0], GregorianDate(2026, 1, 1));
+      expect(startOfWeeks[1], GregorianDate(2026, 1, 5));
+      expect(startOfWeeks[2], GregorianDate(2026, 1, 12));
+      expect(startOfWeeks[3], GregorianDate(2026, 1, 19));
+      expect(startOfWeeks[4], GregorianDate(2026, 1, 26));
+    });
+
+    test('returns all correct start of weeks for may 2026', () {
+      final date = GregorianDate(2026, 5, 21);
+      final startOfWeeks = date.getAllStartOfWeeksFromMonth();
+
+      expect(startOfWeeks.length, 5);
+      expect(startOfWeeks[0], GregorianDate(2026, 5, 1));
+      expect(startOfWeeks[1], GregorianDate(2026, 5, 4));
+      expect(startOfWeeks[2], GregorianDate(2026, 5, 11));
+      expect(startOfWeeks[3], GregorianDate(2026, 5, 18));
+      expect(startOfWeeks[4], GregorianDate(2026, 5, 25));
+    });
+
+    test('returns all correct start of weeks for june 2026', () {
+      final date = GregorianDate(2026, 6, 21);
+      final startOfWeeks = date.getAllStartOfWeeksFromMonth();
+
+      expect(startOfWeeks.length, 5);
+      expect(startOfWeeks[0], GregorianDate(2026, 6, 1));
+      expect(startOfWeeks[1], GregorianDate(2026, 6, 8));
+      expect(startOfWeeks[2], GregorianDate(2026, 6, 15));
+      expect(startOfWeeks[3], GregorianDate(2026, 6, 22));
+      expect(startOfWeeks[4], GregorianDate(2026, 6, 29));
+    });
+
+    test('returns all correct start of weeks for december 2026', () {
+      final date = GregorianDate(2026, 12, 21);
+      final startOfWeeks = date.getAllStartOfWeeksFromMonth();
+
+      expect(startOfWeeks.length, 5);
+      expect(startOfWeeks[0], GregorianDate(2026, 12, 1));
+      expect(startOfWeeks[1], GregorianDate(2026, 12, 7));
+      expect(startOfWeeks[2], GregorianDate(2026, 12, 14));
+      expect(startOfWeeks[3], GregorianDate(2026, 12, 21));
+      expect(startOfWeeks[4], GregorianDate(2026, 12, 28));
+    });
+  });
+
   group('Arithmetic helpers', () {
     group('addDays()', () {
       test('advances the date correctly within a month', () {

@@ -8,6 +8,7 @@ class SettingsService extends Service<Setting> {
   static String displayMenuCaptionsId = "display-menu-caption";
   static String selectedThemeModeId = "selected-theme-mode";
   static String selectedLocaleId = "selected-locale";
+  static String selectedCalendarId = "selected-calendar";
 
   @override
   Repository<Setting> newRepository() {

@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
+import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/ui/calendar/week/hour.dart';
 import 'package:hamewari/ui/calendar/week/time_indicator.dart';
 
 class DayCalendar extends StatefulWidget {
   const DayCalendar({super.key, required this.date});
 
-  final MoonDate date;
+  final Date<dynamic> date;
 
   @override
   State<DayCalendar> createState() => _DayCalendarState();

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
+import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
 import 'package:provider/provider.dart';
 
 typedef SelectViewCallback =
-    void Function({required int viewIndex, MoonDate? date, bool? animate});
+    void Function({required int viewIndex, Date<dynamic>? date, bool? animate});
 
-typedef SelectDateCallback = void Function({required MoonDate date});
+typedef SelectDateCallback = void Function({required Date<dynamic> date});
 
 typedef UpdateBackButtonCallback = void Function(CalendarHeaderBackButton?);
 

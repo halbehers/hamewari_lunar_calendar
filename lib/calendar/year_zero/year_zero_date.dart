@@ -57,6 +57,9 @@ class YearZeroDate extends Date<YearZeroDate> {
   int get numberOfMinutesInHour => 60;
 
   @override
+  bool get hasMoonPhaseBasedWeeks => true;
+
+  @override
   bool isLeapYear(int year) => year % 4 == 0;
 
   @override

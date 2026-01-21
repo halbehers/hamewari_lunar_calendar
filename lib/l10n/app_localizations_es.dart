@@ -9,6 +9,12 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
+  String get app_name => 'Hamewari Calendario';
+
+  @override
+  String get app_loading => 'Cargando la aplicación...';
+
+  @override
   String get language_en => 'Inglés';
 
   @override
@@ -55,6 +61,22 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get theme_mode_system => 'Sistema';
+
+  @override
+  String get settings_calendar => 'Calendario';
+
+  @override
+  String get settings_calendar_type => 'Tipo';
+
+  @override
+  String settings_calendar_types(String dateType) {
+    String _temp0 = intl.Intl.selectLogic(dateType, {
+      'gregorian': 'Calendario gregoriano',
+      'yearZero': 'Calendario Year Zero',
+      'other': 'Calendario no identificado',
+    });
+    return '$_temp0';
+  }
 
   @override
   String moon_month_title(String month) {

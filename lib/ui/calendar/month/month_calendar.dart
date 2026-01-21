@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/calendar/moon_date_format.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/calendar/date_formatter.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_provider.dart';
+import 'package:hamewari/providers/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/month/detailed_week_row.dart';
@@ -15,7 +14,7 @@ import 'package:vibration/vibration_presets.dart';
 class MonthCalendar extends StatefulWidget {
   const MonthCalendar({super.key, required this.date});
 
-  final MoonDate date;
+  final Date<dynamic> date;
 
   @override
   State<MonthCalendar> createState() => _MonthCalendarState();
@@ -23,7 +22,7 @@ class MonthCalendar extends StatefulWidget {
 
 class _MonthCalendarState extends State<MonthCalendar> {
   late final PageController _pageController;
-  late MoonDate _selectedDate;
+  late Date<dynamic> _selectedDate;
   bool _isProgrammaticPageChange = false;
 
   @override
@@ -31,7 +30,7 @@ class _MonthCalendarState extends State<MonthCalendar> {
     super.initState();
     _selectedDate = widget.date;
 
-    _pageController = PageController(initialPage: _selectedDate.month.index);
+    _pageController = PageController(initialPage: _selectedDate.month - 1);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
@@ -51,8 +50,8 @@ class _MonthCalendarState extends State<MonthCalendar> {
     calendarProvider.updateBackButton(
       CalendarHeaderBackButton(
         text: _selectedDate.format(
-          context,
-          pattern: MoonDateFormat.yearPattern,
+          locale: Localizations.localeOf(context),
+          pattern: DateFormatter.yearPattern,
         ),
         onTap: () => calendarProvider.selectView(
           viewIndex: CalendarViewFactory.yearViewIndex,
@@ -61,7 +60,7 @@ class _MonthCalendarState extends State<MonthCalendar> {
     );
   }
 
-  void _changeDate(MoonDate date, {bool animate = true}) async {
+  void _changeDate(Date<dynamic> date, {bool animate = true}) async {
     setState(() {
       _selectedDate = date;
     });
@@ -72,7 +71,7 @@ class _MonthCalendarState extends State<MonthCalendar> {
       _isProgrammaticPageChange = true;
       _pageController
           .animateToPage(
-            date.month.index,
+            date.month - 1,
             duration: CalendarMotion.pageDuration,
             curve: CalendarMotion.pageCurve,
           )
@@ -82,7 +81,7 @@ class _MonthCalendarState extends State<MonthCalendar> {
             }
           });
     } else {
-      _pageController.jumpToPage(date.month.index);
+      _pageController.jumpToPage(date.month - 1);
     }
 
     if (await Vibration.hasVibrator()) {
@@ -103,8 +102,6 @@ class _MonthCalendarState extends State<MonthCalendar> {
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
-    AppLocalizations t = AppLocalizations.of(context)!;
-
     return PageView(
       controller: _pageController,
       physics: Theme.of(context).platform == TargetPlatform.iOS
@@ -126,12 +123,11 @@ class _MonthCalendarState extends State<MonthCalendar> {
               child: Padding(
                 padding: const EdgeInsetsGeometry.directional(bottom: 32),
                 child: Text(
-                  t.moon_month_title(
-                    _selectedDate.month.monthNumber.toString(),
+                  _selectedDate.format(
+                    pattern: DateFormatter.standaloneMonthPattern,
+                    locale: Localizations.localeOf(context),
                   ),
-                  style:
-                      (_selectedDate.year == MoonDate.currentYear &&
-                          _selectedDate.month == MoonDate.currentMonth)
+                  style: (_selectedDate.isCurrentMonth)
                       ? appTheme.accentH2
                       : appTheme.h2,
                 ),
@@ -142,39 +138,12 @@ class _MonthCalendarState extends State<MonthCalendar> {
               child: Padding(
                 padding: const EdgeInsetsGeometry.only(bottom: 90),
                 child: Column(
-                  children: [
-                    Flexible(
-                      child: DetailedWeekRow(
-                        date: _selectedDate.startOfWeek(
-                          weekOverride: Week.starting,
-                        ),
-                      ),
-                    ),
-                    buildSeparator(appTheme),
-                    Flexible(
-                      child: DetailedWeekRow(
-                        date: _selectedDate.startOfWeek(
-                          weekOverride: Week.refinement,
-                        ),
-                      ),
-                    ),
-                    buildSeparator(appTheme),
-                    Flexible(
-                      child: DetailedWeekRow(
-                        date: _selectedDate.startOfWeek(
-                          weekOverride: Week.transformation,
-                        ),
-                      ),
-                    ),
-                    buildSeparator(appTheme),
-                    Flexible(
-                      child: DetailedWeekRow(
-                        date: _selectedDate.startOfWeek(
-                          weekOverride: Week.implementation,
-                        ),
-                      ),
-                    ),
-                  ],
+                  // TODO: add separators (buildSeparator(appTheme))
+                  children: _selectedDate.getAllStartOfWeeksFromMonth().map((
+                    startOfWeek,
+                  ) {
+                    return Flexible(child: DetailedWeekRow(date: startOfWeek));
+                  }).toList(),
                 ),
               ),
             ),

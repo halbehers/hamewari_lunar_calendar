@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/calendar/date_formatter.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_provider.dart';
+import 'package:hamewari/providers/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/year/compact_week_row.dart';
 
 class CompactMonth extends StatelessWidget {
   const CompactMonth({super.key, required this.date});
 
-  final MoonDate date;
+  final Date<dynamic> date;
 
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
-    AppLocalizations t = AppLocalizations.of(context)!;
     final calendarProvider = CalendarProvider.of(context);
 
     return Column(
@@ -29,16 +28,16 @@ class CompactMonth extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsetsGeometry.directional(bottom: 12),
             child: Text(
-              t.moon_month_title(date.month.monthNumber.toString()),
-              style: MoonDate.isCurrentMonth(date.month)
-                  ? appTheme.accentH5
-                  : appTheme.h5,
+              date.format(
+                pattern: DateFormatter.standaloneMonthPattern,
+                locale: Localizations.localeOf(context),
+              ),
+              style: date.isCurrentMonth ? appTheme.accentH5 : appTheme.h5,
             ),
           ),
         ),
-        ...Week.values.map(
-          (week) =>
-              CompactWeekRow(startOfWeek: date.startOfWeek(weekOverride: week)),
+        ...date.getAllStartOfWeeksFromMonth().map(
+          (startOfWeek) => CompactWeekRow(startOfWeek: startOfWeek),
         ),
       ],
     );

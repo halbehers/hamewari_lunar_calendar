@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
+import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/ui/calendar/year/compact_month.dart';
 
 class YearGrid extends StatefulWidget {
   const YearGrid({super.key, required this.date});
 
-  final MoonDate date;
+  final Date<dynamic> date;
 
   @override
   State<YearGrid> createState() => _YearCalendarState();
@@ -44,7 +44,7 @@ class _YearCalendarState extends State<YearGrid> {
   }
 
   double _initialScrollOffset() {
-    return ((widget.date.month.monthNumber / 2).round() - 1) * 164;
+    return ((widget.date.month / 2).round() - 1) * 164;
   }
 
   @override
@@ -63,7 +63,9 @@ class _YearCalendarState extends State<YearGrid> {
       ),
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsetsGeometry.symmetric(horizontal: 16.0),
-        child: index < 13 ? months[index] : const SizedBox(height: 64),
+        child: index < months.length
+            ? months[index]
+            : const SizedBox(height: 64),
       ),
     );
   }

@@ -100,6 +100,18 @@ abstract class AppLocalizations {
     Locale('fr'),
   ];
 
+  /// Name of the app
+  ///
+  /// In en, this message translates to:
+  /// **'Hamewari Calendar'**
+  String get app_name;
+
+  /// App loading text
+  ///
+  /// In en, this message translates to:
+  /// **'Loading the app...'**
+  String get app_loading;
+
   /// English language
   ///
   /// In en, this message translates to:
@@ -195,6 +207,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'System'**
   String get theme_mode_system;
+
+  /// Setting calendar caption
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar'**
+  String get settings_calendar;
+
+  /// Setting calendar type
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get settings_calendar_type;
+
+  /// Calendar types by name
+  ///
+  /// In en, this message translates to:
+  /// **'{dateType, select, gregorian {Gregorian Calendar} yearZero {Year Zero Calendar} other {Undefined Calendar}}'**
+  String settings_calendar_types(String dateType);
 
   /// Moon month titles by number
   ///

@@ -1,5 +1,7 @@
 {
   "@@locale": "es",
+  "app_name": "Hamewari Calendario",
+  "app_loading": "Cargando la aplicación...",
   "language_en": "Inglés",
   "language_fr": "Francés",
   "language_es": "Español",
@@ -16,6 +18,9 @@
   "theme_mode_dark": "Oscuro",
   "theme_mode_light": "Claro",
   "theme_mode_system": "Sistema",
+  "settings_calendar": "Calendario",
+  "settings_calendar_type": "Tipo",
+  "settings_calendar_types": "{dateType, select, gregorian {Calendario gregoriano} yearZero {Calendario Year Zero} other {Calendario no identificado}}",
   "moon_month_title": "{month, select, 1 {Luna magnética} 2 {Luna lunar} 3 {Luna eléctrica} 4 {Luna autoexistente} 5 {Luna armónica} 6 {Luna rítmica} 7 {Luna resonante} 8 {Luna galáctica} 9 {Luna solar} 10 {Luna planetaria} 11 {Luna espectral} 12 {Luna de cristal} 13 {Luna cósmica} other{Luna no identificada}}",
   "moon_month": "{month, select, 1 {magnética} 2 {lunar} 3 {eléctrica} 4 {autoexistente} 5 {armónica} 6 {rítmica} 7 {resonante} 8 {galáctica} 9 {solar} 10 {planetaria} 11 {espectral} 12 {cristal} 13 {cósmica} other {no identificada}}",
   "moon_week_title": "{week, select, 1 {Semana inicial} 2 {Semana de refinamiento} 3 {Semana de la transformación} 4 {Semana de implementación} other {Semana no identificada}}",

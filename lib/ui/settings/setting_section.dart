@@ -17,7 +17,7 @@ class SettingSection extends StatelessWidget {
         ...(title != null
             ? [
                 Padding(
-                  padding: const EdgeInsetsGeometry.only(bottom: 16),
+                  padding: const EdgeInsetsGeometry.symmetric(vertical: 16),
                   child: Text(title!, style: appTheme.h4),
                 ),
               ]

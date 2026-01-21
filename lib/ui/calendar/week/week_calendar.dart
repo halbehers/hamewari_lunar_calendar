@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/calendar/moon_date_format.dart';
-import 'package:hamewari/helpers/string_extension.dart';
+import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/calendar/date_formatter.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_provider.dart';
+import 'package:hamewari/helpers/string_extension.dart';
+import 'package:hamewari/providers/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/week/day_calendar.dart';
@@ -21,7 +21,7 @@ class WeekCalendar extends StatefulWidget {
     this.onPreviousWeek,
   });
 
-  final MoonDate date;
+  final Date<dynamic> date;
   final VoidCallback? onNextWeek;
   final VoidCallback? onPreviousWeek;
 
@@ -31,7 +31,7 @@ class WeekCalendar extends StatefulWidget {
 
 class _WeekCalendarState extends State<WeekCalendar> {
   late final PageController _pageController;
-  late MoonDate _selectedDate;
+  late Date<dynamic> _selectedDate;
   bool _isProgrammaticPageChange = false;
 
   @override
@@ -39,7 +39,7 @@ class _WeekCalendarState extends State<WeekCalendar> {
     super.initState();
     _selectedDate = widget.date;
 
-    _pageController = PageController(initialPage: _selectedDate.day.index);
+    _pageController = PageController(initialPage: _selectedDate.weekday - 1);
 
     _setupBackButton();
   }
@@ -57,7 +57,7 @@ class _WeekCalendarState extends State<WeekCalendar> {
     super.dispose();
   }
 
-  void _resetSelectedDate(MoonDate date) {
+  void _resetSelectedDate(Date<dynamic> date) {
     if (date == _selectedDate) return;
 
     setState(() {
@@ -65,7 +65,7 @@ class _WeekCalendarState extends State<WeekCalendar> {
     });
 
     _isProgrammaticPageChange = true;
-    _pageController.jumpToPage(date.day.index);
+    _pageController.jumpToPage(date.weekday - 1);
     _isProgrammaticPageChange = false;
 
     _setupBackButton();
@@ -80,8 +80,8 @@ class _WeekCalendarState extends State<WeekCalendar> {
       calendarProvider.updateBackButton(
         CalendarHeaderBackButton(
           text: _selectedDate.format(
-            context,
-            pattern: MoonDateFormat.standaloneMonthPattern,
+            locale: Localizations.localeOf(context),
+            pattern: DateFormatter.standaloneMonthPattern,
           ),
           onTap: () => calendarProvider.selectView(
             viewIndex: CalendarViewFactory.monthViewIndex,
@@ -91,7 +91,7 @@ class _WeekCalendarState extends State<WeekCalendar> {
     });
   }
 
-  void _changeDate(MoonDate date, {bool animate = true}) async {
+  void _changeDate(Date<dynamic> date, {bool animate = true}) async {
     setState(() {
       _selectedDate = date;
     });
@@ -106,7 +106,7 @@ class _WeekCalendarState extends State<WeekCalendar> {
       _isProgrammaticPageChange = true;
       _pageController
           .animateToPage(
-            date.day.index,
+            date.weekday - 1,
             duration: CalendarMotion.pageDuration,
             curve: CalendarMotion.pageCurve,
           )
@@ -116,7 +116,7 @@ class _WeekCalendarState extends State<WeekCalendar> {
             }
           });
     } else {
-      _pageController.jumpToPage(date.day.index);
+      _pageController.jumpToPage(date.weekday - 1);
     }
 
     if (await Vibration.hasVibrator()) {
@@ -147,16 +147,6 @@ class _WeekCalendarState extends State<WeekCalendar> {
             onPageChanged: (index) {
               if (_isProgrammaticPageChange) return;
 
-              if (index == 0 && _selectedDate.day.index == 0) {
-                widget.onPreviousWeek?.call();
-                return;
-              }
-
-              if (index == 6 && _selectedDate.day.index == 6) {
-                widget.onNextWeek?.call();
-                return;
-              }
-
               _changeDate(
                 _selectedDate.getDateFromWeekDayIndex(index),
                 animate: false,
@@ -170,20 +160,13 @@ class _WeekCalendarState extends State<WeekCalendar> {
                     child: Padding(
                       padding: const EdgeInsetsGeometry.directional(bottom: 16),
                       child: Text(
-                        date
-                            .format(
-                              context,
-                              pattern:
-                                  MoonDateFormat.yearMonthWeekdayDayPattern,
-                            )
+                        (date.format(
+                                  locale: Localizations.localeOf(context),
+                                  pattern:
+                                      DateFormatter.yearMonthWeekdayDayPattern,
+                                )
+                                as String)
                             .capitalize(),
-                        // YearZeroDate.now()
-                        //     .format(
-                        //       pattern:
-                        //           MoonDateFormat.yearMonthWeekdayDayPattern,
-                        //       locale: Localizations.localeOf(context),
-                        //     )
-                        //     .capitalize(),
                         style: appTheme.h4,
                         textAlign: TextAlign.center,
                       ),

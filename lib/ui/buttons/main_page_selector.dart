@@ -5,7 +5,6 @@ import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/ui/buttons/button_stack.dart';
 import 'package:hamewari/pages/calendar.dart';
 import 'package:hamewari/theme/icon_path.dart';
-import 'package:provider/provider.dart';
 
 enum Page {
   calendar(CalendarPage()),
@@ -24,8 +23,8 @@ class MainPageSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppLocalizations t = AppLocalizations.of(context)!;
-    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
+    final AppLocalizations t = AppLocalizations.of(context)!;
+    final settingsProvider = SettingsProvider.of(context);
 
     void onSelectionChanged(String id) {
       Page newSelectedPage = Page.values.firstWhere((view) => view.name == id);
