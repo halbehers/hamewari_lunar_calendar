@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
+import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/calendar/date_factory.dart';
+import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/theme/icon_path.dart';
 import 'package:hamewari/ui/buttons/today_button.dart';
-import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/providers/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
-import 'package:provider/provider.dart';
 
 abstract class CalendarView extends StatelessWidget
     implements CalendarViewFactory {
   const CalendarView({super.key, required this.date});
 
-  final MoonDate date;
+  final Date<dynamic> date;
 
   Widget buildView(BuildContext context);
 
@@ -22,9 +23,8 @@ abstract class CalendarView extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final CalendarController calendar = Provider.of<CalendarController>(
-      context,
-    );
+    final calendarProvider = CalendarProvider.of(context);
+    final settingsProvider = SettingsProvider.of(context);
 
     return Stack(
       children: [
@@ -34,9 +34,9 @@ abstract class CalendarView extends StatelessWidget
             bottom: 101,
             right: 32,
             child: TodayButton(
-              onTap: () => calendar.changeView(
+              onTap: () => calendarProvider.selectView(
                 viewIndex: CalendarViewFactory.weekViewIndex,
-                date: MoonDate.now(),
+                date: DateFactory.buildNow(settingsProvider.calendar),
               ),
             ),
           ),

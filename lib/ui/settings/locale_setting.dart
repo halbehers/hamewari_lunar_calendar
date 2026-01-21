@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/l10n/app_localizations.dart';
 import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/ui/settings/dropdown_setting.dart';
-import 'package:provider/provider.dart';
 
 class LocaleSetting extends StatelessWidget {
   const LocaleSetting({super.key, this.label});
@@ -11,9 +10,9 @@ class LocaleSetting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppLocalizations t = AppLocalizations.of(context)!;
-    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
-    Map<Locale, String> languageByLocale = {
+    final AppLocalizations t = AppLocalizations.of(context)!;
+    final settingsProvider = SettingsProvider.of(context);
+    final Map<Locale, String> languageByLocale = {
       const Locale("en"): t.language_en,
       const Locale("fr"): t.language_fr,
       const Locale("es"): t.language_es,

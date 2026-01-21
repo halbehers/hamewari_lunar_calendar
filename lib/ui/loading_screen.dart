@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/main.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+
+class LoadingScreen extends StatelessWidget {
+  const LoadingScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final appTheme = context.appTheme;
+    final t = AppLocalizations.of(context)!;
+
+    return Scaffold(
+      backgroundColor: appTheme.backgroundColor,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(t.app_name, style: appTheme.h1),
+            LoadingAnimationWidget.beat(
+              color: appTheme.disabledTextColor,
+              size: 64,
+            ),
+            Text(t.app_loading, style: appTheme.body),
+          ],
+        ),
+      ),
+    );
+  }
+}

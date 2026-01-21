@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
+import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/theme/icon_path.dart';
 import 'package:hamewari/ui/buttons/button_stack.dart';
 import 'package:hamewari/ui/calendar/month/month.dart';
@@ -21,7 +21,7 @@ abstract class CalendarViewFactory extends Widget {
   static const int monthViewIndex = 1;
   static const int weekViewIndex = 2;
 
-  factory CalendarViewFactory(int index, {required MoonDate date}) {
+  factory CalendarViewFactory(int index, {required Date<dynamic> date}) {
     switch (index) {
       case yearViewIndex:
         return YearView(date: date);
@@ -34,7 +34,7 @@ abstract class CalendarViewFactory extends Widget {
     }
   }
 
-  static List<CalendarViewFactory> all({required MoonDate date, changeView}) {
+  static List<CalendarViewFactory> all({required Date<dynamic> date}) {
     return _View.values.indexed
         .map((view) => CalendarViewFactory(view.$1, date: date))
         .toList();

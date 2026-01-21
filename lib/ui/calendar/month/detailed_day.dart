@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
+import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/db/models/event.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/providers/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/day_number.dart';
 import 'package:hamewari/ui/calendar/month/event_card.dart';
-import 'package:provider/provider.dart';
+
+const double _dayNumberSize = 32.0;
 
 class DetailedDay extends StatelessWidget {
   const DetailedDay({
@@ -15,11 +16,13 @@ class DetailedDay extends StatelessWidget {
     required this.date,
     this.isActive = false,
     this.events,
+    this.visibility = DayVisibility.visible,
   });
 
-  final MoonDate date;
+  final Date<dynamic> date;
   final bool isActive;
   final List<Event>? events;
+  final DayVisibility visibility;
 
   List<Event> getEvents() {
     if (events == null) return List.empty();
@@ -32,30 +35,30 @@ class DetailedDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
-    final CalendarController calendar = Provider.of<CalendarController>(
-      context,
-    );
+    final calendarProvider = CalendarProvider.of(context);
 
     return Padding(
       padding: const EdgeInsetsGeometry.symmetric(horizontal: 2),
-      child: Column(
-        children: [
-          DayNumber(
-            day: date.dayNumber,
-            isActive: isActive,
-            size: 32,
-            textStyle: appTheme.body,
-            activeTextStyle: appTheme.invertedBoldBody,
-            onTap: () => calendar.changeView(
-              viewIndex: CalendarViewFactory.weekViewIndex,
-              date: date,
+      child: visibility == DayVisibility.hidden
+          ? SizedBox.fromSize(size: const Size.square(_dayNumberSize))
+          : Column(
+              children: [
+                DayNumber(
+                  day: date.day,
+                  isActive: isActive,
+                  size: _dayNumberSize,
+                  textStyle: appTheme.body,
+                  activeTextStyle: appTheme.invertedBoldBody,
+                  onTap: () => calendarProvider.selectView(
+                    viewIndex: CalendarViewFactory.weekViewIndex,
+                    date: date,
+                  ),
+                ),
+                ...getEvents().map((event) {
+                  return EventCard(event: event);
+                }),
+              ],
             ),
-          ),
-          ...getEvents().map((event) {
-            return EventCard(event: event);
-          }),
-        ],
-      ),
     );
   }
 }

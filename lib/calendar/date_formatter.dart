@@ -1,33 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/helpers/string_extension.dart';
+import 'package:intl/intl.dart';
+import 'package:hamewari/calendar/date.dart';
 
-extension MoonMonthKey on Month {
-  String get l10nKey => name;
-}
+abstract class DateFormatter<T extends Date<T>> {
+  DateFormatter(String formatPattern, [Locale? locale])
+    : this._internal(formatPattern: formatPattern, locale: locale);
 
-extension MoonWeekKey on Week {
-  String get l10nKey => name;
-}
+  DateFormatter._internal({this.locale, this.formatPattern = "yMd"});
 
-extension MoonDayKey on Day {
-  String get l10nKey => name;
-}
-
-class MoonDateFormat {
-  MoonDateFormat(String formatPattern)
-    : this._internal(formatPattern: formatPattern);
-
-  MoonDateFormat._internal({this.formatPattern = "yMd"});
-
+  final Locale? locale;
   final String formatPattern;
 
   static const String dayPattern = 'D';
   static const String weekdayPattern = 'EEE';
   static const String standaloneWeekdayPattern = 'EEEE';
   static const String numWeekPattern = 'W';
-  static const String weekPattern = 'WWW';
-  static const String standaloneWeekPattern = 'WWWW';
   static const String numMonthPattern = 'M';
   static const String numMonthDayPattern = 'MD';
   static const String numMonthWeekdayDayPattern = 'MEEED';
@@ -43,54 +31,55 @@ class MoonDateFormat {
   static const String yearMonthDayPattern = 'YMMMMD';
   static const String yearMonthWeekdayDayPattern = 'YMMMMEEED';
 
-  static MoonDateFormat day() => MoonDateFormat(dayPattern);
-  static MoonDateFormat weekday() => MoonDateFormat(weekdayPattern);
-  static MoonDateFormat weekdayTitle() =>
-      MoonDateFormat(standaloneWeekdayPattern);
-  static MoonDateFormat numWeek() => MoonDateFormat(numWeekPattern);
-  static MoonDateFormat week() => MoonDateFormat(weekPattern);
-  static MoonDateFormat weekTitle() => MoonDateFormat(standaloneWeekPattern);
-  static MoonDateFormat numMonth() => MoonDateFormat(numMonthPattern);
-  static MoonDateFormat numMonthDay() => MoonDateFormat(numMonthDayPattern);
-  static MoonDateFormat numMonthWeekdayDay() =>
-      MoonDateFormat(numMonthWeekdayDayPattern);
-  static MoonDateFormat month() => MoonDateFormat(monthPattern);
-  static MoonDateFormat monthTitle() => MoonDateFormat(standaloneMonthPattern);
-  static MoonDateFormat monthDay() => MoonDateFormat(monthDayPattern);
-  static MoonDateFormat monthWeekdayDay() =>
-      MoonDateFormat(monthWeekdayDayPattern);
-  static MoonDateFormat year() => MoonDateFormat(yearPattern);
-  static MoonDateFormat yearNumMonth() => MoonDateFormat(yearNumMonthPattern);
-  static MoonDateFormat yearNumMonthDay() =>
-      MoonDateFormat(yearNumMonthDayPattern);
-  static MoonDateFormat yearNumMonthWeekdayDay() =>
-      MoonDateFormat(yearNumMonthWeekdayDayPattern);
-  static MoonDateFormat yearMonth() => MoonDateFormat(yearMonthPattern);
-  static MoonDateFormat yearMonthDay() => MoonDateFormat(yearMonthDayPattern);
-  static MoonDateFormat yearMonthWeekdayDay() =>
-      MoonDateFormat(yearMonthWeekdayDayPattern);
+  DateFormatter.day(Locale? locale) : this(dayPattern, locale);
+  DateFormatter.weekday(Locale? locale) : this(weekdayPattern, locale);
+  DateFormatter.weekdayTitle(Locale? locale)
+    : this(standaloneWeekdayPattern, locale);
+  DateFormatter.numWeek(Locale? locale) : this(numWeekPattern, locale);
+  DateFormatter.numMonth(Locale? locale) : this(numMonthPattern, locale);
+  DateFormatter.numMonthDay(Locale? locale) : this(numMonthDayPattern, locale);
+  DateFormatter.numMonthWeekdayDay(Locale? locale)
+    : this(numMonthWeekdayDayPattern, locale);
+  DateFormatter.month(Locale? locale) : this(monthPattern, locale);
+  DateFormatter.monthTitle(Locale? locale)
+    : this(standaloneMonthPattern, locale);
+  DateFormatter.monthDay(Locale? locale) : this(monthDayPattern, locale);
+  DateFormatter.monthWeekdayDay(Locale? locale)
+    : this(monthWeekdayDayPattern, locale);
+  DateFormatter.year(Locale? locale) : this(yearPattern, locale);
+  DateFormatter.yearNumMonth(Locale? locale)
+    : this(yearNumMonthPattern, locale);
+  DateFormatter.yearNumMonthDay(Locale? locale)
+    : this(yearNumMonthDayPattern, locale);
+  DateFormatter.yearNumMonthWeekdayDay(Locale? locale)
+    : this(yearNumMonthWeekdayDayPattern, locale);
+  DateFormatter.yearMonth(Locale? locale) : this(yearMonthPattern, locale);
+  DateFormatter.yearMonthDay(Locale? locale)
+    : this(yearMonthDayPattern, locale);
+  DateFormatter.yearMonthWeekdayDay(Locale? locale)
+    : this(yearMonthWeekdayDayPattern, locale);
+
+  Locale get _effectiveLocale => locale ?? Intl.getCurrentLocale().asLocale;
 
   Map<String, String> formattedPatternsByPatternsUS = {
     dayPattern: dayPattern,
     weekdayPattern: weekdayPattern,
     standaloneWeekdayPattern: standaloneWeekdayPattern,
     numWeekPattern: numWeekPattern,
-    weekPattern: weekPattern,
-    standaloneWeekPattern: standaloneWeekPattern,
     numMonthPattern: numMonthPattern,
     numMonthDayPattern: "M/D",
-    numMonthWeekdayDayPattern: "E, M/D",
+    numMonthWeekdayDayPattern: "EEE, M/D",
     monthPattern: monthPattern,
     standaloneMonthPattern: standaloneMonthPattern,
     monthDayPattern: "MMM D",
-    monthWeekdayDayPattern: "E, MMM D",
+    monthWeekdayDayPattern: "EEE, MMM D",
     yearPattern: yearPattern,
     yearNumMonthPattern: "M/Y",
     yearNumMonthDayPattern: "M/D/Y",
-    yearNumMonthWeekdayDayPattern: "E, M/D/Y",
+    yearNumMonthWeekdayDayPattern: "EEE, M/D/Y",
     yearMonthPattern: "MMM Y",
     yearMonthDayPattern: "MMM D, Y",
-    yearMonthWeekdayDayPattern: "E, MMM D, Y",
+    yearMonthWeekdayDayPattern: "EEE, MMM D, Y",
   };
 
   Map<String, String> formattedPatternsByPatternsEU = {
@@ -98,8 +87,6 @@ class MoonDateFormat {
     weekdayPattern: weekdayPattern,
     standaloneWeekdayPattern: standaloneWeekdayPattern,
     numWeekPattern: numWeekPattern,
-    weekPattern: weekPattern,
-    standaloneWeekPattern: standaloneWeekPattern,
     numMonthPattern: numMonthPattern,
     numMonthDayPattern: "D/M",
     numMonthWeekdayDayPattern: "EEE, D/M",
@@ -169,24 +156,26 @@ class MoonDateFormat {
     return parts;
   }
 
-  String format(BuildContext context, MoonDate date, {Locale? locale}) {
-    final t = AppLocalizations.of(context)!;
-    Locale autoLocale = locale ?? Localizations.localeOf(context);
+  String translateMonth(Locale locale, int month);
+  String translateMonthTitle(Locale locale, int month);
+  String translateWeekday(Locale locale, int weekday);
+  String translateWeekdayTitle(Locale locale, int month);
+
+  String format(T date, {Locale? locale}) {
+    Locale effectiveLocale = locale ?? _effectiveLocale;
     final replacements = <String, String>{
       'Y': date.year.toString(),
-      'M': (date.month.monthNumber).toString(),
-      'MMM': t.month(date.month.l10nKey),
-      'MMMM': t.monthTitle(date.month.l10nKey),
-      'W': (date.week.weekNumber).toString(),
-      'WWW': t.week(date.week.l10nKey),
-      'WWWW': t.weekTitle(date.week.l10nKey),
-      'EEE': t.day(date.day.l10nKey),
-      'EEEE': t.dayTitle(date.day.l10nKey),
-      'D': (date.dayNumber).toString(),
+      'M': (date.month).toString(),
+      'MMM': translateMonth(effectiveLocale, date.month),
+      'MMMM': translateMonthTitle(effectiveLocale, date.month),
+      'W': date.weekIndexInMonth.toString(),
+      'EEE': translateWeekday(effectiveLocale, date.weekday),
+      'EEEE': translateWeekdayTitle(effectiveLocale, date.weekday),
+      'D': (date.day).toString(),
     };
     String formattedPattern = _getFormattedPatternByLocale(
       formatPattern,
-      autoLocale,
+      effectiveLocale,
     );
     final sortedKeys = replacements.keys.toList()
       ..sort((a, b) => b.length.compareTo(a.length));
@@ -198,15 +187,5 @@ class MoonDateFormat {
 
       return token.replaceFirst(token, replacements[token]!);
     }).join();
-  }
-}
-
-extension MoonDateFormatting on MoonDate {
-  String format(
-    BuildContext context, {
-    String pattern = MoonDateFormat.yearNumMonthDayPattern,
-    MoonDateFormat? format,
-  }) {
-    return (format ?? MoonDateFormat(pattern)).format(context, this);
   }
 }

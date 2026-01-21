@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/calendar/gregorian/gregorian_date_formatter.dart';
 
 class GregorianDate extends Date<GregorianDate> {
   GregorianDate(
@@ -33,17 +36,19 @@ class GregorianDate extends Date<GregorianDate> {
 
   @override
   int get weekday {
+    int m = month;
+    int y = year;
+
     // Shift Jan/Feb to months 13/14 of previous year
-    if (month < 3) {
-      month += 12;
-      year -= 1;
+    if (m < 3) {
+      m += 12;
+      y -= 1;
     }
 
-    final int k = year % 100;
-    final int j = year ~/ 100;
+    final int k = y % 100;
+    final int j = y ~/ 100;
 
-    final int h =
-        (day + (13 * (month + 1)) ~/ 5 + k + k ~/ 4 + j ~/ 4 + 5 * j) % 7;
+    final int h = (day + (13 * (m + 1)) ~/ 5 + k + k ~/ 4 + j ~/ 4 + 5 * j) % 7;
 
     // Zeller: 0=Saturday, 1=Sunday, 2=Monday, ...
     // Convert to: 1=Monday, ..., 7=Sunday
@@ -52,6 +57,15 @@ class GregorianDate extends Date<GregorianDate> {
 
   @override
   int get numberOfMonths => 12;
+
+  @override
+  int get numberOfDaysInWeek => 7;
+
+  @override
+  int get numberOfHoursInDay => 24;
+
+  @override
+  int get numberOfMinutesInHour => 60;
 
   @override
   bool isLeapYear(int year) {
@@ -66,5 +80,10 @@ class GregorianDate extends Date<GregorianDate> {
       return 29;
     }
     return days[month - 1];
+  }
+
+  @override
+  GregorianDateFormatter newFormatter(String pattern, Locale? locale) {
+    return GregorianDateFormatter(pattern, locale);
   }
 }

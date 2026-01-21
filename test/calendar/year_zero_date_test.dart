@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hamewari/calendar/zero_date.dart';
+import 'package:hamewari/calendar/year_zero/year_zero_date.dart';
 
 void main() {
   group('YearZeroDate', () {
@@ -139,6 +139,156 @@ void main() {
 
       test('equality is structural', () {
         expect(YearZeroDate(1, 3, 10), YearZeroDate(1, 3, 10));
+      });
+    });
+  });
+
+  group('Arithmetic helpers', () {
+    group('addDays()', () {
+      test('advances the date correctly within a month', () {
+        final base = YearZeroDate(2, 5, 10);
+        final result = base.addDays(5);
+        expect(result.day, 15);
+        expect(result.month, 5);
+        expect(result.year, 2);
+      });
+
+      test('rolls over to next month', () {
+        final base = YearZeroDate(2, 5, 28);
+        final result = base.addDays(3);
+        expect(result.day, 3);
+        expect(result.month, 6);
+        expect(result.year, 2);
+      });
+
+      test('rolls over to next year', () {
+        final base = YearZeroDate(2, 13, 28);
+        final result = base.addDays(1);
+        expect(result.day, 1);
+        expect(result.month, 1);
+        expect(result.year, 3);
+      });
+    });
+
+    group('subtractDays()', () {
+      test('moves date backward within a month', () {
+        final base = YearZeroDate(2, 5, 10);
+        final result = base.subtractDays(5);
+        expect(result.day, 5);
+        expect(result.month, 5);
+        expect(result.year, 2);
+      });
+
+      test('rolls back to previous month', () {
+        final base = YearZeroDate(2, 5, 3);
+        final result = base.subtractDays(5);
+        expect(result.day, 26);
+        expect(result.month, 4);
+        expect(result.year, 2);
+      });
+
+      test('rolls back to previous year', () {
+        final base = YearZeroDate(2, 1, 1);
+        final result = base.subtractDays(1);
+        expect(result.day, 28);
+        expect(result.month, 13);
+        expect(result.year, 1);
+      });
+    });
+
+    group('addWeeks()', () {
+      test('advances by multiples of 7 days', () {
+        final base = YearZeroDate(2, 5, 10);
+        final result = base.addWeeks(2);
+        expect(result.day, 24);
+        expect(result.month, 5);
+        expect(result.year, 2);
+      });
+    });
+
+    group('subtractWeeks()', () {
+      test('rolls back to previous month', () {
+        final base = YearZeroDate(2, 5, 10);
+        final result = base.subtractWeeks(2);
+        expect(result.day, 24);
+        expect(result.month, 4);
+        expect(result.year, 2);
+      });
+    });
+
+    group('addMonths()', () {
+      test('rolls over within year', () {
+        final base = YearZeroDate(2, 5, 10);
+        final result = base.addMonths(3);
+        expect(result.month, 8);
+        expect(result.day, 10);
+        expect(result.year, 2);
+      });
+
+      test('rolls over to next year', () {
+        final base = YearZeroDate(2, 11, 10);
+        final result = base.addMonths(3);
+        expect(result.month, 1);
+        expect(result.day, 10);
+        expect(result.year, 3);
+      });
+    });
+
+    group('subtractMonths()', () {
+      test('rolls back within year', () {
+        final base = YearZeroDate(2, 5, 10);
+        final result = base.subtractMonths(3);
+        expect(result.month, 2);
+        expect(result.day, 10);
+        expect(result.year, 2);
+      });
+
+      test('rolls back to previous year', () {
+        final base = YearZeroDate(2, 2, 10);
+        final result = base.subtractMonths(3);
+        expect(result.month, 12);
+        expect(result.day, 10);
+        expect(result.year, 1);
+      });
+    });
+
+    group('addHours()', () {
+      test('increments day when hour exceeds 23', () {
+        final base = YearZeroDate(2, 5, 10, 20);
+        final result = base.addHours(5);
+        expect(result.hour, 1);
+        expect(result.day, 11);
+        expect(result.month, 5);
+      });
+    });
+
+    group('subtractHours()', () {
+      test('decrements day when hour goes below 0', () {
+        final base = YearZeroDate(2, 5, 10, 2);
+        final result = base.subtractHours(5);
+        expect(result.hour, 21);
+        expect(result.day, 9);
+        expect(result.month, 5);
+      });
+    });
+
+    group('addMinutes()', () {
+      test('increments hour and day when minutes exceed 59', () {
+        final base = YearZeroDate(2, 5, 10, 22, 50);
+        final result = base.addMinutes(15);
+        expect(result.hour, 23);
+        expect(result.minute, 5);
+        expect(result.day, 10);
+      });
+    });
+
+    group('subtractMinutes()', () {
+      test('decrements hour and day when minutes go below 0', () {
+        final base = YearZeroDate(2, 5, 10, 0, 10);
+        final result = base.subtractMinutes(20);
+        expect(result.hour, 23);
+        expect(result.minute, 50);
+        expect(result.day, 9);
       });
     });
   });

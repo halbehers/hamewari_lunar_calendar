@@ -9,6 +9,12 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
+  String get app_name => 'Hamewari Calendrier';
+
+  @override
+  String get app_loading => 'Chargement de l\'application...';
+
+  @override
   String get language_en => 'Anglais';
 
   @override
@@ -57,96 +63,182 @@ class AppLocalizationsFr extends AppLocalizations {
   String get theme_mode_system => 'Système';
 
   @override
-  String monthTitle(String month) {
+  String get settings_calendar => 'Calendrier';
+
+  @override
+  String get settings_calendar_type => 'Type';
+
+  @override
+  String settings_calendar_types(String dateType) {
+    String _temp0 = intl.Intl.selectLogic(dateType, {
+      'gregorian': 'Calendrier grégorien',
+      'yearZero': 'Calendrier Year Zero',
+      'other': 'Calendrier non identifié',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String moon_month_title(String month) {
     String _temp0 = intl.Intl.selectLogic(month, {
-      'magnetic': 'Lune magnétique',
-      'lunar': 'Lune lunaire',
-      'electric': 'Lune électrique',
-      'selfExisting': 'Lune auto-existante',
-      'harmonic': 'Lune harmonique',
-      'rhythmic': 'Lune rythmique',
-      'resonant': 'Lune résonnante',
-      'galactic': 'Lune galactique',
-      'solar': 'Lune solaire',
-      'planetary': 'Lune planétaire',
-      'spectral': 'Lune spectrale',
-      'crystal': 'Lune de cristal',
-      'cosmic': 'Lune cosmique',
+      '1': 'Lune magnétique',
+      '2': 'Lune lunaire',
+      '3': 'Lune électrique',
+      '4': 'Lune auto-existante',
+      '5': 'Lune harmonique',
+      '6': 'Lune rythmique',
+      '7': 'Lune résonnante',
+      '8': 'Lune galactique',
+      '9': 'Lune solaire',
+      '10': 'Lune planétaire',
+      '11': 'Lune spectrale',
+      '12': 'Lune de cristal',
+      '13': 'Lune cosmique',
       'other': 'Lune non identifiée',
     });
     return '$_temp0';
   }
 
   @override
-  String month(String month) {
+  String moon_month(String month) {
     String _temp0 = intl.Intl.selectLogic(month, {
-      'magnetic': 'magnétique',
-      'lunar': 'lunaire',
-      'electric': 'électrique',
-      'selfExisting': 'auto-existante',
-      'harmonic': 'harmonique',
-      'rhythmic': 'rythmique',
-      'resonant': 'résonnante',
-      'galactic': 'galactique',
-      'solar': 'solaire',
-      'planetary': 'planétaire',
-      'spectral': 'spectrale',
-      'crystal': 'cristal',
-      'cosmic': 'cosmique',
+      '1': 'magnétique',
+      '2': 'lunaire',
+      '3': 'électrique',
+      '4': 'auto-existante',
+      '5': 'harmonique',
+      '6': 'rythmique',
+      '7': 'résonnante',
+      '8': 'galactique',
+      '9': 'solaire',
+      '10': 'planétaire',
+      '11': 'spectrale',
+      '12': 'cristal',
+      '13': 'cosmique',
       'other': 'non identifiée',
     });
     return '$_temp0';
   }
 
   @override
-  String weekTitle(String week) {
+  String moon_week_title(String week) {
     String _temp0 = intl.Intl.selectLogic(week, {
-      'starting': 'Semaine de démarrage',
-      'refinement': 'Semaine de raffinement',
-      'transformation': 'Semaine de transformation',
-      'implementation': 'Semaine de mise en œuvre',
+      '1': 'Semaine de démarrage',
+      '2': 'Semaine de raffinement',
+      '3': 'Semaine de transformation',
+      '4': 'Semaine de mise en œuvre',
       'other': 'Semaine non identifiée',
     });
     return '$_temp0';
   }
 
   @override
-  String week(String week) {
+  String moon_week(String week) {
     String _temp0 = intl.Intl.selectLogic(week, {
-      'starting': 'démarrage',
-      'refinement': 'raffinement',
-      'transformation': 'transformation',
-      'implementation': 'mise en œuvre',
+      '1': 'démarrage',
+      '2': 'raffinement',
+      '3': 'transformation',
+      '4': 'mise en œuvre',
       'other': 'non identifiée',
     });
     return '$_temp0';
   }
 
   @override
-  String dayTitle(String day) {
+  String moon_day_title(String day) {
     String _temp0 = intl.Intl.selectLogic(day, {
-      'monday': 'Lundi',
-      'tuesday': 'Mardi',
-      'wednesday': 'Mercredi',
-      'thursday': 'Jeudi',
-      'friday': 'Vendredi',
-      'saturday': 'Samedi',
-      'sunday': 'Dimanche',
+      '1': 'Lundi',
+      '2': 'Mardi',
+      '3': 'Mercredi',
+      '4': 'Jeudi',
+      '5': 'Vendredi',
+      '6': 'Samedi',
+      '7': 'Dimanche',
       'other': 'Jour non identifié',
     });
     return '$_temp0';
   }
 
   @override
-  String day(String day) {
+  String moon_day(String day) {
     String _temp0 = intl.Intl.selectLogic(day, {
-      'monday': 'lundi',
-      'tuesday': 'mardi',
-      'wednesday': 'mercredi',
-      'thursday': 'jeudi',
-      'friday': 'vendredi',
-      'saturday': 'samedi',
-      'sunday': 'dimanche',
+      '1': 'lundi',
+      '2': 'mardi',
+      '3': 'mercredi',
+      '4': 'jeudi',
+      '5': 'vendredi',
+      '6': 'samedi',
+      '7': 'dimanche',
+      'other': 'non identifié',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String gregorian_month_title(String month) {
+    String _temp0 = intl.Intl.selectLogic(month, {
+      '1': 'Janvier',
+      '2': 'Février',
+      '3': 'Mars',
+      '4': 'Avril',
+      '5': 'Mai',
+      '6': 'Juin',
+      '7': 'Juillet',
+      '8': 'Août',
+      '9': 'Septembre',
+      '10': 'Octobre',
+      '11': 'Novembre',
+      '12': 'Décembre',
+      'other': 'Mois non identifié',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String gregorian_month(String month) {
+    String _temp0 = intl.Intl.selectLogic(month, {
+      '1': 'janvier',
+      '2': 'février',
+      '3': 'mars',
+      '4': 'avril',
+      '5': 'mai',
+      '6': 'juin',
+      '7': 'juillet',
+      '8': 'août',
+      '9': 'septembre',
+      '10': 'octobre',
+      '11': 'novembre',
+      '12': 'décembre',
+      'other': 'non identifié',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String gregorian_day_title(String day) {
+    String _temp0 = intl.Intl.selectLogic(day, {
+      '1': 'Lundi',
+      '2': 'Mardi',
+      '3': 'Mercredi',
+      '4': 'Jeudi',
+      '5': 'Vendredi',
+      '6': 'Samedi',
+      '7': 'Dimanche',
+      'other': 'Jour non identifié',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String gregorian_day(String day) {
+    String _temp0 = intl.Intl.selectLogic(day, {
+      '1': 'lundi',
+      '2': 'mardi',
+      '3': 'mercredi',
+      '4': 'jeudi',
+      '5': 'vendredi',
+      '6': 'samedi',
+      '7': 'dimanche',
       'other': 'non identifié',
     });
     return '$_temp0';

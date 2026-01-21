@@ -1,47 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/calendar/date_formatter.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/providers/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/year/compact_week_row.dart';
-import 'package:provider/provider.dart';
 
 class CompactMonth extends StatelessWidget {
   const CompactMonth({super.key, required this.date});
 
-  final MoonDate date;
+  final Date<dynamic> date;
 
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
-    AppLocalizations t = AppLocalizations.of(context)!;
-    final CalendarController calendar = Provider.of<CalendarController>(
-      context,
-    );
-    bool isCurrentMonth =
-        MoonDate.isCurrentMonth(date.month) &&
-        MoonDate.isCurrentYear(date.year);
+    final calendarProvider = CalendarProvider.of(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
-          onTap: () => calendar.changeView(
+          onTap: () => calendarProvider.selectView(
             viewIndex: CalendarViewFactory.monthViewIndex,
             date: date,
           ),
           child: Padding(
             padding: const EdgeInsetsGeometry.directional(bottom: 12),
             child: Text(
-              t.monthTitle(date.month.name),
-              style: isCurrentMonth ? appTheme.accentH5 : appTheme.h5,
+              date.format(
+                pattern: DateFormatter.standaloneMonthPattern,
+                locale: Localizations.localeOf(context),
+              ),
+              style: date.isCurrentMonth ? appTheme.accentH5 : appTheme.h5,
             ),
           ),
         ),
-        ...Week.values.map(
-          (week) => CompactWeekRow(date: date.startOfWeek(weekOverride: week)),
+        ...date.getAllStartOfWeeksFromMonth().map(
+          (startOfWeek) => CompactWeekRow(startOfWeek: startOfWeek),
         ),
       ],
     );

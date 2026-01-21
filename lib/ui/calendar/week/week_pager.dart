@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
+import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
 import 'package:hamewari/ui/calendar/week/week_calendar.dart';
 
@@ -7,7 +7,7 @@ import 'package:hamewari/ui/calendar/week/week_calendar.dart';
 class WeekPager extends StatefulWidget {
   const WeekPager({super.key, required this.initialDate});
 
-  final MoonDate initialDate;
+  final Date<dynamic> initialDate;
 
   @override
   State<WeekPager> createState() => _WeekPagerState();
@@ -15,7 +15,7 @@ class WeekPager extends StatefulWidget {
 
 class _WeekPagerState extends State<WeekPager> {
   late final PageController _weekController;
-  late MoonDate _weekStart;
+  late Date<dynamic> _weekStart;
 
   @override
   void initState() {

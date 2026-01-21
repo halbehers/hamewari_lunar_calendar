@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/calendar/moon_date.dart';
-import 'package:hamewari/calendar/moon_date_formatting.dart';
+import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/calendar/date_factory.dart';
+import 'package:hamewari/calendar/date_formatter.dart';
 import 'package:hamewari/main.dart';
+import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/providers/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
 import 'package:hamewari/ui/calendar/year/year_grid.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
-import 'package:provider/provider.dart';
 import 'package:vibration/vibration.dart';
 import 'package:vibration/vibration_presets.dart';
 
 class YearCalendar extends StatefulWidget {
   const YearCalendar({super.key, required this.date});
 
-  final MoonDate date;
+  final Date<dynamic> date;
 
   @override
   State<YearCalendar> createState() => _YearCalendarState();
@@ -22,7 +23,7 @@ class YearCalendar extends StatefulWidget {
 
 class _YearCalendarState extends State<YearCalendar> {
   late final PageController _pageController;
-  late MoonDate _selectedDate;
+  late Date<dynamic> _selectedDate;
   bool _isProgrammaticPageChange = false;
 
   @override
@@ -48,25 +49,20 @@ class _YearCalendarState extends State<YearCalendar> {
 
   void setupBackButton() {
     AppTheme appTheme = context.appTheme;
-    final CalendarController calendar = Provider.of<CalendarController>(
-      context,
-      listen: false,
-    );
+    final calendarProvider = CalendarProvider.of(context, listen: false);
 
-    calendar.setBackButton(
+    calendarProvider.updateBackButton(
       CalendarHeaderBackButton(
         text: _selectedDate.format(
-          context,
-          pattern: MoonDateFormat.yearPattern,
+          locale: Localizations.localeOf(context),
+          pattern: DateFormatter.yearPattern,
         ),
-        style: _selectedDate.year == MoonDate.currentYear
-            ? appTheme.accentH2
-            : appTheme.h2,
+        style: _selectedDate.isCurrentYear ? appTheme.accentH2 : appTheme.h2,
       ),
     );
   }
 
-  void _changeDate(MoonDate date, {bool animate = true}) async {
+  void _changeDate(Date<dynamic> date, {bool animate = true}) async {
     setState(() {
       _selectedDate = date;
     });
@@ -97,6 +93,8 @@ class _YearCalendarState extends State<YearCalendar> {
 
   @override
   Widget build(BuildContext context) {
+    final settingsProvider = SettingsProvider.of(context);
+
     return PageView.builder(
       controller: _pageController,
       physics: Theme.of(context).platform == TargetPlatform.iOS
@@ -104,12 +102,15 @@ class _YearCalendarState extends State<YearCalendar> {
           : const ClampingScrollPhysics(),
       onPageChanged: (year) {
         if (_isProgrammaticPageChange) return;
-        _changeDate(MoonDate(year), animate: false);
+        _changeDate(
+          DateFactory.build(settingsProvider.calendar, year),
+          animate: false,
+        );
       },
       itemBuilder: (_, year) {
-        MoonDate date = year == _selectedDate.year
+        Date<dynamic> date = year == _selectedDate.year
             ? _selectedDate
-            : MoonDate(year);
+            : DateFactory.build(settingsProvider.calendar, year);
         return YearGrid(date: date);
       },
     );

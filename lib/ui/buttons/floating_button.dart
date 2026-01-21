@@ -32,7 +32,7 @@ class FloatingButton extends StatelessWidget {
     return GlossyContainer(
       opacity: 0.2,
       color: appTheme.pureHighlightColor,
-      borderRadius: BorderRadius.circular(squared ? 24.0 : 1000.0),
+      borderRadius: BorderRadius.circular(squared ? 8.0 : 1000.0),
       border: BoxBorder.all(color: appTheme.borderColor),
       child: GestureDetector(
         onTap: onTap,
