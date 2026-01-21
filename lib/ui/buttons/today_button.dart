@@ -19,6 +19,7 @@ class TodayButton extends StatelessWidget {
       iconSize: IconSize.small,
       displayCaptions: true,
       onTap: onTap,
+      squared: true,
     );
   }
 }

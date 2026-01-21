@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/ui/calendar/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/day_number.dart';
-import 'package:provider/provider.dart';
 
 enum SeparatorPosition { start, end }
 
@@ -34,9 +33,7 @@ class CompactWeekRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
-    final CalendarController calendar = Provider.of<CalendarController>(
-      context,
-    );
+    final calendarProvider = CalendarProvider.of(context);
     Color weekBackgroundColor = startOfWeek.week.getWeekBackgroundColor(
       appTheme,
     );
@@ -51,7 +48,7 @@ class CompactWeekRow extends StatelessWidget {
               (day) => DayNumber(
                 day: day.dayNumber,
                 isActive: day.isToday,
-                onTap: () => calendar.selectView(
+                onTap: () => calendarProvider.selectView(
                   viewIndex: CalendarViewFactory.weekViewIndex,
                   date: day,
                 ),

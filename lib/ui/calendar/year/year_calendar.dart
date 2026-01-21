@@ -3,11 +3,10 @@ import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/calendar/moon_date_format.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/ui/calendar/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
 import 'package:hamewari/ui/calendar/year/year_grid.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
-import 'package:provider/provider.dart';
 import 'package:vibration/vibration.dart';
 import 'package:vibration/vibration_presets.dart';
 
@@ -48,12 +47,9 @@ class _YearCalendarState extends State<YearCalendar> {
 
   void setupBackButton() {
     AppTheme appTheme = context.appTheme;
-    final CalendarController calendar = Provider.of<CalendarController>(
-      context,
-      listen: false,
-    );
+    final calendarProvider = CalendarProvider.of(context, listen: false);
 
-    calendar.setBackButton(
+    calendarProvider.updateBackButton(
       CalendarHeaderBackButton(
         text: _selectedDate.format(
           context,

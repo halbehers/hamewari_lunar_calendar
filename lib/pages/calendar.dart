@@ -3,7 +3,7 @@ import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/buttons/main_page_selector.dart';
-import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/ui/calendar/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
 import 'package:hamewari/main.dart';
@@ -127,19 +127,14 @@ class _CalendarPageState extends State<CalendarPage> {
         },
         children: CalendarViewFactory.all(date: _selectedDate)
             .map(
-              (view) => Provider<CalendarController>(
-                create: (_) => CalendarController(
-                  selectView:
-                      ({
-                        required int viewIndex,
-                        MoonDate? date,
-                        bool? animate,
-                      }) => _changeView(viewIndex, date, animate: animate),
-                  selectDate: ({required MoonDate date}) =>
-                      _changeView(_selectedViewIndex ?? 0, date),
-                  setBackButton: setBackButton,
-                ),
+              (view) => CalendarProvider.create(
                 child: view,
+                selectView:
+                    ({required int viewIndex, MoonDate? date, bool? animate}) =>
+                        _changeView(viewIndex, date, animate: animate),
+                selectDate: ({required MoonDate date}) =>
+                    _changeView(_selectedViewIndex ?? 0, date),
+                updateBackButton: setBackButton,
               ),
             )
             .toList(),

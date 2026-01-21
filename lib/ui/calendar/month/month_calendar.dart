@@ -4,12 +4,11 @@ import 'package:hamewari/calendar/moon_date_format.dart';
 import 'package:hamewari/l10n/app_localizations.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/ui/calendar/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/month/detailed_week_row.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
-import 'package:provider/provider.dart';
 import 'package:vibration/vibration.dart';
 import 'package:vibration/vibration_presets.dart';
 
@@ -48,18 +47,16 @@ class _MonthCalendarState extends State<MonthCalendar> {
   }
 
   void setupBackButton() {
-    final CalendarController calendar = Provider.of<CalendarController>(
-      context,
-      listen: false,
-    );
-    calendar.setBackButton(
+    final calendarProvider = CalendarProvider.of(context, listen: false);
+    calendarProvider.updateBackButton(
       CalendarHeaderBackButton(
         text: _selectedDate.format(
           context,
           pattern: MoonDateFormat.yearPattern,
         ),
-        onTap: () =>
-            calendar.selectView(viewIndex: CalendarViewFactory.yearViewIndex),
+        onTap: () => calendarProvider.selectView(
+          viewIndex: CalendarViewFactory.yearViewIndex,
+        ),
       ),
     );
   }

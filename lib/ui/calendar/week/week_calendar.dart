@@ -4,13 +4,12 @@ import 'package:hamewari/calendar/moon_date_format.dart';
 import 'package:hamewari/helpers/string_extension.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/ui/calendar/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/week/day_calendar.dart';
 import 'package:hamewari/ui/calendar/week/week_row.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
-import 'package:provider/provider.dart';
 import 'package:vibration/vibration.dart';
 import 'package:vibration/vibration_presets.dart';
 
@@ -76,18 +75,15 @@ class _WeekCalendarState extends State<WeekCalendar> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
 
-      final CalendarController calendar = Provider.of<CalendarController>(
-        context,
-        listen: false,
-      );
+      final calendarProvider = CalendarProvider.of(context, listen: false);
 
-      calendar.setBackButton(
+      calendarProvider.updateBackButton(
         CalendarHeaderBackButton(
           text: _selectedDate.format(
             context,
             pattern: MoonDateFormat.standaloneMonthPattern,
           ),
-          onTap: () => calendar.selectView(
+          onTap: () => calendarProvider.selectView(
             viewIndex: CalendarViewFactory.monthViewIndex,
           ),
         ),
@@ -102,12 +98,9 @@ class _WeekCalendarState extends State<WeekCalendar> {
 
     _setupBackButton();
 
-    final CalendarController calendar = Provider.of<CalendarController>(
-      context,
-      listen: false,
-    );
+    final calendarProvider = CalendarProvider.of(context, listen: false);
 
-    calendar.selectDate(date: date);
+    calendarProvider.selectDate(date: date);
 
     if (animate) {
       _isProgrammaticPageChange = true;

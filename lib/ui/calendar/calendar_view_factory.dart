@@ -34,7 +34,7 @@ abstract class CalendarViewFactory extends Widget {
     }
   }
 
-  static List<CalendarViewFactory> all({required MoonDate date, changeView}) {
+  static List<CalendarViewFactory> all({required MoonDate date}) {
     return _View.values.indexed
         .map((view) => CalendarViewFactory(view.$1, date: date))
         .toList();

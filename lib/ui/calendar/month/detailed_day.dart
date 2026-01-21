@@ -3,11 +3,10 @@ import 'package:hamewari/calendar/moon_date.dart';
 import 'package:hamewari/db/models/event.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
-import 'package:hamewari/ui/calendar/calendar_context.dart';
+import 'package:hamewari/ui/calendar/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
 import 'package:hamewari/ui/calendar/day_number.dart';
 import 'package:hamewari/ui/calendar/month/event_card.dart';
-import 'package:provider/provider.dart';
 
 class DetailedDay extends StatelessWidget {
   const DetailedDay({
@@ -32,9 +31,7 @@ class DetailedDay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
-    final CalendarController calendar = Provider.of<CalendarController>(
-      context,
-    );
+    final calendarProvider = CalendarProvider.of(context);
 
     return Padding(
       padding: const EdgeInsetsGeometry.symmetric(horizontal: 2),
@@ -46,7 +43,7 @@ class DetailedDay extends StatelessWidget {
             size: 32,
             textStyle: appTheme.body,
             activeTextStyle: appTheme.invertedBoldBody,
-            onTap: () => calendar.selectView(
+            onTap: () => calendarProvider.selectView(
               viewIndex: CalendarViewFactory.weekViewIndex,
               date: date,
             ),
