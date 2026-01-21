@@ -25,7 +25,7 @@ class CompactMonth extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
-          onTap: () => calendar.changeView(
+          onTap: () => calendar.selectView(
             viewIndex: CalendarViewFactory.monthViewIndex,
             date: date,
           ),

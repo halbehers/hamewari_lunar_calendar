@@ -46,7 +46,7 @@ class DetailedDay extends StatelessWidget {
             size: 32,
             textStyle: appTheme.body,
             activeTextStyle: appTheme.invertedBoldBody,
-            onTap: () => calendar.changeView(
+            onTap: () => calendar.selectView(
               viewIndex: CalendarViewFactory.weekViewIndex,
               date: date,
             ),

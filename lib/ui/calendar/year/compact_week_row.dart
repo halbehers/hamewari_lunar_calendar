@@ -51,7 +51,7 @@ class CompactWeekRow extends StatelessWidget {
               (day) => DayNumber(
                 day: day.dayNumber,
                 isActive: day.isToday,
-                onTap: () => calendar.changeView(
+                onTap: () => calendar.selectView(
                   viewIndex: CalendarViewFactory.weekViewIndex,
                   date: day,
                 ),

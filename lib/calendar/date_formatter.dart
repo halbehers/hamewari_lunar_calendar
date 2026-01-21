@@ -68,18 +68,18 @@ abstract class DateFormatter<T extends Date<T>> {
     numWeekPattern: numWeekPattern,
     numMonthPattern: numMonthPattern,
     numMonthDayPattern: "M/D",
-    numMonthWeekdayDayPattern: "E, M/D",
+    numMonthWeekdayDayPattern: "EEE, M/D",
     monthPattern: monthPattern,
     standaloneMonthPattern: standaloneMonthPattern,
     monthDayPattern: "MMM D",
-    monthWeekdayDayPattern: "E, MMM D",
+    monthWeekdayDayPattern: "EEE, MMM D",
     yearPattern: yearPattern,
     yearNumMonthPattern: "M/Y",
     yearNumMonthDayPattern: "M/D/Y",
-    yearNumMonthWeekdayDayPattern: "E, M/D/Y",
+    yearNumMonthWeekdayDayPattern: "EEE, M/D/Y",
     yearMonthPattern: "MMM Y",
     yearMonthDayPattern: "MMM D, Y",
-    yearMonthWeekdayDayPattern: "E, MMM D, Y",
+    yearMonthWeekdayDayPattern: "EEE, MMM D, Y",
   };
 
   Map<String, String> formattedPatternsByPatternsEU = {

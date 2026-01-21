@@ -87,9 +87,8 @@ class _WeekCalendarState extends State<WeekCalendar> {
             context,
             pattern: MoonDateFormat.standaloneMonthPattern,
           ),
-          onTap: () => calendar.changeView(
+          onTap: () => calendar.selectView(
             viewIndex: CalendarViewFactory.monthViewIndex,
-            date: _selectedDate,
           ),
         ),
       );
@@ -108,11 +107,7 @@ class _WeekCalendarState extends State<WeekCalendar> {
       listen: false,
     );
 
-    calendar.changeView(
-      viewIndex: CalendarViewFactory.weekViewIndex,
-      date: date,
-      animate: false,
-    );
+    calendar.selectDate(date: date);
 
     if (animate) {
       _isProgrammaticPageChange = true;

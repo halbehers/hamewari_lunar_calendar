@@ -51,11 +51,11 @@ class _CalendarPageState extends State<CalendarPage> {
 
   Future<void> _changeView(
     int newViewIndex,
-    MoonDate newDate, {
+    MoonDate? newDate, {
     bool? animate,
   }) async {
     final bool isSameView = newViewIndex == _selectedViewIndex;
-    final bool isSameDate = newDate == _selectedDate;
+    final bool isSameDate = newDate == null || newDate == _selectedDate;
 
     if (isSameView && isSameDate) return;
 
@@ -129,12 +129,14 @@ class _CalendarPageState extends State<CalendarPage> {
             .map(
               (view) => Provider<CalendarController>(
                 create: (_) => CalendarController(
-                  changeView:
+                  selectView:
                       ({
                         required int viewIndex,
-                        required MoonDate date,
+                        MoonDate? date,
                         bool? animate,
                       }) => _changeView(viewIndex, date, animate: animate),
+                  selectDate: ({required MoonDate date}) =>
+                      _changeView(_selectedViewIndex ?? 0, date),
                   setBackButton: setBackButton,
                 ),
                 child: view,

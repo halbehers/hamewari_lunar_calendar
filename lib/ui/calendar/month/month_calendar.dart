@@ -58,10 +58,8 @@ class _MonthCalendarState extends State<MonthCalendar> {
           context,
           pattern: MoonDateFormat.yearPattern,
         ),
-        onTap: () => calendar.changeView(
-          viewIndex: CalendarViewFactory.yearViewIndex,
-          date: _selectedDate,
-        ),
+        onTap: () =>
+            calendar.selectView(viewIndex: CalendarViewFactory.yearViewIndex),
       ),
     );
   }
