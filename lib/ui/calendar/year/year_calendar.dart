@@ -12,6 +12,8 @@ import 'package:hamewari/ui/headers/calendar_header.dart';
 import 'package:vibration/vibration.dart';
 import 'package:vibration/vibration_presets.dart';
 
+const int pageOffset = 3000;
+
 class YearCalendar extends StatefulWidget {
   const YearCalendar({super.key, required this.date});
 
@@ -32,7 +34,9 @@ class _YearCalendarState extends State<YearCalendar> {
 
     _selectedDate = widget.date;
 
-    _pageController = PageController(initialPage: _selectedDate.year);
+    _pageController = PageController(
+      initialPage: getPageNumber(_selectedDate.year),
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
@@ -62,6 +66,14 @@ class _YearCalendarState extends State<YearCalendar> {
     );
   }
 
+  int getPageNumber(int year) {
+    return pageOffset + year;
+  }
+
+  int getYear(int pageNumber) {
+    return pageNumber - pageOffset;
+  }
+
   void _changeDate(Date<dynamic> date, {bool animate = true}) async {
     setState(() {
       _selectedDate = date;
@@ -73,7 +85,7 @@ class _YearCalendarState extends State<YearCalendar> {
       _isProgrammaticPageChange = true;
       _pageController
           .animateToPage(
-            date.year,
+            getPageNumber(date.year),
             duration: CalendarMotion.pageDuration,
             curve: CalendarMotion.pageCurve,
           )
@@ -83,7 +95,7 @@ class _YearCalendarState extends State<YearCalendar> {
             }
           });
     } else {
-      _pageController.jumpToPage(date.year);
+      _pageController.jumpToPage(getPageNumber(date.year));
     }
 
     if (await Vibration.hasVibrator()) {
@@ -100,14 +112,15 @@ class _YearCalendarState extends State<YearCalendar> {
       physics: Theme.of(context).platform == TargetPlatform.iOS
           ? const BouncingScrollPhysics()
           : const ClampingScrollPhysics(),
-      onPageChanged: (year) {
+      onPageChanged: (pageNumber) {
         if (_isProgrammaticPageChange) return;
         _changeDate(
-          DateFactory.build(settingsProvider.calendar, year),
+          DateFactory.build(settingsProvider.calendar, getYear(pageNumber)),
           animate: false,
         );
       },
-      itemBuilder: (_, year) {
+      itemBuilder: (_, pageNumber) {
+        final year = getYear(pageNumber);
         Date<dynamic> date = year == _selectedDate.year
             ? _selectedDate
             : DateFactory.build(settingsProvider.calendar, year);
