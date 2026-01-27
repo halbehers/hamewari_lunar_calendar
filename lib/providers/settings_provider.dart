@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/date_factory.dart';
 import 'package:hamewari/db/models/setting.dart';
 import 'package:hamewari/db/services/settings_service.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/l10n/general/general_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:timezone/data/latest.dart';
 import 'package:timezone/timezone.dart';
@@ -22,6 +22,18 @@ class SettingsProvider extends ChangeNotifier {
 
   void _init() async {
     initializeTimeZones();
+
+    // List<String> tokens = [];
+
+    // for (final tz in SettingTimezone.all) {
+    //   tokens.add(
+    //     '${tz.location!.name.toLowerCase().replaceAll('/', '_').toCamelCase()} {${tz.location!.name.replaceAll('/', ' / ').replaceAll('_', ' ')}}',
+    //   );
+    // }
+
+    // print(
+    //   '\"{timezone, select, ${tokens.join(" ")}} other {Unknown timezone} }\"',
+    // );
 
     {
       Setting? setting = await service.findByName(
@@ -164,7 +176,7 @@ class SettingsProvider extends ChangeNotifier {
 
   void setSettingLocale(SettingLocale locale, {bool persistChange = true}) {
     if (locale.isEmpty() ||
-        !AppLocalizations.supportedLocales.contains(locale.locale)) {
+        !GeneralLocalizations.supportedLocales.contains(locale.locale)) {
       _settingLocale = SettingLocale.empty;
     }
 
@@ -330,7 +342,10 @@ class SettingsProvider extends ChangeNotifier {
     _timezone = timezone;
     notifyListeners();
     if (persistChange) {
-      service.setupByName(SettingsService.selectedTimezoneId, _timezone);
+      service.setupByName(
+        SettingsService.selectedTimezoneId,
+        _timezone.name.toString(),
+      );
     }
   }
 
@@ -418,10 +433,8 @@ class SettingTimezone {
     return location != null;
   }
 
-  String get name {
-    if (isEmpty()) throw ArgumentError.notNull('location');
-
-    return location!.name;
+  String? get name {
+    return location?.name;
   }
 
   String getNameOrElse(String defaultValue) {

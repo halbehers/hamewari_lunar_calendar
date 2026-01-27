@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/date.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/l10n/calendar/calendar_localizations.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/ui/calendar/year/compact_month.dart';
 
@@ -52,7 +52,7 @@ class _YearCalendarState extends State<YearGrid> {
   @override
   Widget build(BuildContext context) {
     final appTheme = context.appTheme;
-    final t = AppLocalizations.of(context)!;
+    final t = CalendarLocalizations.of(context)!;
     List<Widget> months = widget.date
         .getAllStartOfMonthsFromYear()
         .map((date) => CompactMonth(date: date))

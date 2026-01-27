@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/l10n/settings/settings_localizations.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/theme/h_icon.dart';
@@ -127,7 +127,7 @@ class _SearchableListPageState<T> extends State<_SearchableListPage<T>> {
   @override
   Widget build(BuildContext context) {
     final appTheme = context.appTheme;
-    final t = AppLocalizations.of(context)!;
+    final t = SettingsLocalizations.of(context)!;
 
     return Scaffold(
       backgroundColor: appTheme.backgroundColor,
@@ -168,12 +168,14 @@ class _SearchableListPageState<T> extends State<_SearchableListPage<T>> {
               ),
               child: TextField(
                 textAlignVertical: TextAlignVertical.center,
+                autofocus: true,
                 decoration: InputDecoration(
-                  prefix: const Padding(
-                    padding: EdgeInsets.only(right: 16.0),
+                  icon: Padding(
+                    padding: const EdgeInsets.only(left: 24.0),
                     child: HIcon(
                       iconPath: IconPath.search,
                       size: IconSize.small,
+                      color: appTheme.subduedTextColor,
                     ),
                   ),
                   border: OutlineInputBorder(
@@ -206,6 +208,12 @@ class _SearchableListPageState<T> extends State<_SearchableListPage<T>> {
                         isSelected: isSelected,
                         item: item,
                         isFirst: index == 0,
+                        onChanged: (T value) {
+                          setState(() {
+                            _selectedValue = value;
+                          });
+                          widget.onChanged(value);
+                        },
                       );
                     },
                     itemCount: _results.length,
@@ -222,50 +230,57 @@ class _SearchableListSettingItemRow<T> extends StatelessWidget {
     super.key,
     required this.isSelected,
     required this.item,
+    required this.onChanged,
     this.isFirst = false,
   });
 
   final bool isSelected;
   final SearchableListSettingItem<T> item;
+  final void Function(T value) onChanged;
   final bool isFirst;
 
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
 
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32.0),
-      decoration: BoxDecoration(
-        color: isSelected ? appTheme.secondaryColor : null,
-        border: !isFirst
-            ? BoxBorder.fromLTRB(top: BorderSide(color: appTheme.borderColor))
-            : null,
-      ),
-      child: Row(
-        children: [
-          Flexible(
-            flex: 0,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: HIcon(
-                iconPath: isSelected ? IconPath.check : IconPath.empty,
-                color: appTheme.invertedTextColor,
+    return GestureDetector(
+      onTap: () {
+        onChanged(item.value);
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32.0),
+        decoration: BoxDecoration(
+          color: isSelected ? appTheme.secondaryColor : null,
+          border: !isFirst
+              ? BoxBorder.fromLTRB(top: BorderSide(color: appTheme.borderColor))
+              : null,
+        ),
+        child: Row(
+          children: [
+            Flexible(
+              flex: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: HIcon(
+                  iconPath: isSelected ? IconPath.check : IconPath.empty,
+                  color: appTheme.invertedTextColor,
+                ),
               ),
             ),
-          ),
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 8.0,
-                horizontal: 16.0,
-              ),
-              child: Text(
-                item.label,
-                style: isSelected ? appTheme.invertedBody : appTheme.body,
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 8.0,
+                  horizontal: 16.0,
+                ),
+                child: Text(
+                  item.label,
+                  style: isSelected ? appTheme.invertedBody : appTheme.body,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

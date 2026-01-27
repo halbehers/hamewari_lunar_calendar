@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/l10n/calendar/calendar_localizations.dart';
 import 'package:hamewari/theme/h_icon.dart';
 import 'package:hamewari/theme/icon_path.dart';
 import 'package:hamewari/ui/buttons/floating_button.dart';
@@ -12,7 +12,7 @@ class TodayButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppLocalizations t = AppLocalizations.of(context)!;
+    final t = CalendarLocalizations.of(context)!;
     return FloatingButton(
       iconPath: IconPath.today,
       caption: t.caption_today,

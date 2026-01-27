@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/l10n/calendar/calendar_localizations.dart';
+import 'package:hamewari/l10n/general/general_localizations.dart';
+import 'package:hamewari/l10n/settings/settings_localizations.dart';
+import 'package:hamewari/l10n/tasks/tasks_localizations.dart';
 import 'package:hamewari/pages/calendar.dart';
 import 'package:hamewari/pages/settings.dart';
 import 'package:hamewari/pages/tasks.dart';
@@ -166,8 +169,18 @@ class MyApp extends StatelessWidget {
           ),
           routerConfig: _router,
           debugShowMaterialGrid: false,
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
+          localizationsDelegates: [
+            ...GeneralLocalizations.localizationsDelegates,
+            ...CalendarLocalizations.localizationsDelegates,
+            ...TasksLocalizations.localizationsDelegates,
+            ...SettingsLocalizations.localizationsDelegates,
+          ],
+          supportedLocales: [
+            ...GeneralLocalizations.supportedLocales,
+            ...CalendarLocalizations.supportedLocales,
+            ...TasksLocalizations.supportedLocales,
+            ...SettingsLocalizations.supportedLocales,
+          ],
         );
       },
     );

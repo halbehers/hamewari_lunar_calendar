@@ -1,0 +1,7 @@
+{
+  "@@locale": "en",
+  "menu_caption": "Tasks",
+  "@menu_caption": {
+    "description": "Tasks menu caption"
+  }
+}

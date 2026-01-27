@@ -1,0 +1,113 @@
+{
+  "@@locale": "en",
+  "menu_caption": "Settings",
+  "@menu_caption": {
+    "description": "Settings menu caption"
+  },
+  "settings_title": "Settings",
+  "@settings_title": {
+    "description": "Settings page title"
+  },
+  "settings_display": "Display",
+  "@settings_display": {
+    "description": "Setting display caption"
+  },
+  "settings_display_menu_caption": "Display menu caption",
+  "@settings_display_menu_caption": {
+    "description": "Setting display menu caption"
+  },
+  "settings_language": "Language",
+  "@settings_language": {
+    "description": "Setting language"
+  },
+  "settings_language_system": "System",
+  "@settings_language_system": {
+    "description": "Setting language system label"
+  },
+  "settings_theme_mode": "Theme Mode",
+  "@settings_theme_mode": {
+    "description": "Setting theme mode"
+  },
+  "theme_mode_dark": "Dark",
+  "@theme_mode_dark": {
+    "description": "Theme mode dark"
+  },
+  "theme_mode_light": "Light",
+  "@theme_mode_light": {
+    "description": "Theme mode light"
+  },
+  "theme_mode_system": "System",
+  "@theme_mode_system": {
+    "description": "Theme mode system"
+  },
+  "settings_calendar": "Calendar",
+  "@settings_calendar": {
+    "description": "Setting calendar caption"
+  },
+  "settings_calendar_type": "Type",
+  "@settings_calendar_type": {
+    "description": "Setting calendar type"
+  },
+  "settings_calendar_types": "{dateType, select, gregorian {Gregorian Calendar} yearZero {Year Zero Calendar} hamewari {Hamewari Calendar} other {Undefined Calendar}}",
+  "@settings_calendar_types": {
+    "description": "Calendar types by name",
+    "placeholders": {
+      "dateType": {
+        "type": "String"
+      }
+    }
+  },
+  "settings_effects": "Effects",
+  "@settings_effects": {
+    "description": "Setting effect caption"
+  },
+  "settings_haptics_enabled": "Haptics enabled",
+  "@settings_haptics_enabled": {
+    "description": "Setting enabled haptics"
+  },
+  "settings_timezone": "Timezone",
+  "@settings_timezone": {
+    "description": "Setting timezone"
+  },
+  "settings_timezone_system": "System",
+  "@settings_timezone_system": {
+    "description": "Setting timezone system label"
+  },
+  "settings_timezone_hint": "Search for a timezone",
+  "@settings_timezone_hint": {
+    "description": "Setting timezone hint"
+  },
+  "settings_timezone_no_results": "No timezone has been found",
+  "@settings_timezone_no_results": {
+    "description": "Setting timezone no result"
+  },
+  "settings_default_event_duration": "Default event duration",
+  "@settings_default_event_duration": {
+    "description": "Setting default event duration"
+  },
+  "settings_default_event_durations": "{duration, select, fifteenMinutes {15 minutes} twentyMinutes {20 minutes} thirtyMinutes {30 minutes} fortyFiveMinutes {45 minutes} oneHour {60 minutes} ninetyMinutes {90 minutes} twoHours{120 minutes} other {Unknown duration} }",
+  "@settings_default_event_durations": {
+    "description": "Default event durations by name",
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "settings_reset_button": "Reset settings",
+  "@settings_reset_button": {
+    "description": "Setting reset button"
+  },
+  "settings_reset_button_confirm_content": "Are you sure to reset all settings?",
+  "@settings_reset_button_confirm_content": {
+    "description": "Setting reset confirm content"
+  },
+  "settings_reset_button_confirm_action": "Reset settings",
+  "@settings_reset_button_confirm_action": {
+    "description": "Setting reset confirm action"
+  },
+  "settings_reset_button_confirm_cancel": "Cancel",
+  "@settings_reset_button_confirm_cancel": {
+    "description": "Setting reset confirm cancel"
+  }
+}

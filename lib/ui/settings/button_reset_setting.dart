@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/l10n/settings/settings_localizations.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/theme/app_theme.dart';
@@ -13,7 +13,7 @@ class ButtonResetSetting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
-    final t = AppLocalizations.of(context)!;
+    final t = SettingsLocalizations.of(context)!;
     final settingsProvider = SettingsProvider.of(context);
 
     return ButtonSetting(

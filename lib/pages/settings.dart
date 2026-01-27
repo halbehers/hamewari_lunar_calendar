@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/l10n/settings/settings_localizations.dart';
 import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/ui/buttons/main_page_selector.dart';
 import 'package:hamewari/main.dart';
@@ -18,7 +18,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appTheme = context.appTheme;
-    final t = AppLocalizations.of(context)!;
+    final t = SettingsLocalizations.of(context)!;
     final settingsProvider = SettingsProvider.of(context);
 
     return Scaffold(
