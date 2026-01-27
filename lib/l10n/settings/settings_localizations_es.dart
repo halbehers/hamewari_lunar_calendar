@@ -12,22 +12,22 @@ class SettingsLocalizationsEs extends SettingsLocalizations {
   String get menu_caption => 'Configuración';
 
   @override
-  String get settings_title => 'Configuración';
+  String get title => 'Configuración';
 
   @override
-  String get settings_display => 'Pantalla';
+  String get display => 'Pantalla';
 
   @override
-  String get settings_display_menu_caption => 'Mostrar las etiquetas del menú';
+  String get display_menu_caption => 'Mostrar las etiquetas del menú';
 
   @override
-  String get settings_language => 'Idioma';
+  String get language => 'Idioma';
 
   @override
-  String get settings_language_system => 'Sistema';
+  String get language_system => 'Sistema';
 
   @override
-  String get settings_theme_mode => 'Tema';
+  String get theme_mode => 'Tema';
 
   @override
   String get theme_mode_dark => 'Oscuro';
@@ -39,13 +39,13 @@ class SettingsLocalizationsEs extends SettingsLocalizations {
   String get theme_mode_system => 'Sistema';
 
   @override
-  String get settings_calendar => 'Calendario';
+  String get calendar => 'Calendario';
 
   @override
-  String get settings_calendar_type => 'Tipo';
+  String get calendar_type => 'Tipo';
 
   @override
-  String settings_calendar_types(String dateType) {
+  String calendar_types(String dateType) {
     String _temp0 = intl.Intl.selectLogic(dateType, {
       'gregorian': 'Calendario gregoriano',
       'yearZero': 'Calendario Year Zero',
@@ -56,30 +56,28 @@ class SettingsLocalizationsEs extends SettingsLocalizations {
   }
 
   @override
-  String get settings_effects => 'Efectos';
+  String get effects => 'Efectos';
 
   @override
-  String get settings_haptics_enabled => 'Haptics habilitado';
+  String get haptics_enabled => 'Haptics habilitado';
 
   @override
-  String get settings_timezone => 'Zona horaria';
+  String get timezone => 'Zona horaria';
 
   @override
-  String get settings_timezone_system => 'Sistema';
+  String get timezone_system => 'Sistema';
 
   @override
-  String get settings_timezone_hint => 'Buscar una zona horaria';
+  String get timezone_hint => 'Buscar una zona horaria';
 
   @override
-  String get settings_timezone_no_results =>
-      'No se ha encontrado ninguna zona horaria';
+  String get timezone_no_results => 'No se ha encontrado ninguna zona horaria';
 
   @override
-  String get settings_default_event_duration =>
-      'Duración predeterminada de eventos';
+  String get default_event_duration => 'Duración predeterminada de eventos';
 
   @override
-  String settings_default_event_durations(String duration) {
+  String default_event_durations(String duration) {
     String _temp0 = intl.Intl.selectLogic(duration, {
       'fifteenMinutes': '15 minutos',
       'twentyMinutes': '20 minutos',
@@ -94,16 +92,15 @@ class SettingsLocalizationsEs extends SettingsLocalizations {
   }
 
   @override
-  String get settings_reset_button => 'Restablecer configuración';
+  String get reset_button => 'Restablecer configuración';
 
   @override
-  String get settings_reset_button_confirm_content =>
+  String get reset_button_confirm_content =>
       '¿Está seguro de que desea restablecer todos los ajustes?';
 
   @override
-  String get settings_reset_button_confirm_action =>
-      'Restablecer configuración';
+  String get reset_button_confirm_action => 'Restablecer configuración';
 
   @override
-  String get settings_reset_button_confirm_cancel => 'Cancelar';
+  String get reset_button_confirm_cancel => 'Cancelar';
 }

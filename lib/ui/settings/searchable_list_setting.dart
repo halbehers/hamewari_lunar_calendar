@@ -182,7 +182,7 @@ class _SearchableListPageState<T> extends State<_SearchableListPage<T>> {
                     borderRadius: BorderRadius.circular(8.0),
                     borderSide: BorderSide.none,
                   ),
-                  hintText: t.settings_timezone_hint,
+                  hintText: t.timezone_hint,
                   hintStyle: appTheme.subduedBody,
                 ),
                 style: appTheme.body,
@@ -195,7 +195,7 @@ class _SearchableListPageState<T> extends State<_SearchableListPage<T>> {
                 ? Padding(
                     padding: const EdgeInsets.all(32.0),
                     child: Text(
-                      t.settings_timezone_no_results,
+                      t.timezone_no_results,
                       style: appTheme.subduedBody,
                     ),
                   )

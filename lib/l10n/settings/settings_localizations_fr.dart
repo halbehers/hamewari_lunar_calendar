@@ -12,22 +12,22 @@ class SettingsLocalizationsFr extends SettingsLocalizations {
   String get menu_caption => 'Paramètres';
 
   @override
-  String get settings_title => 'Paramètres';
+  String get title => 'Paramètres';
 
   @override
-  String get settings_display => 'Affichage';
+  String get display => 'Affichage';
 
   @override
-  String get settings_display_menu_caption => 'Afficher les labels du menu';
+  String get display_menu_caption => 'Afficher les labels du menu';
 
   @override
-  String get settings_language => 'Langue';
+  String get language => 'Langue';
 
   @override
-  String get settings_language_system => 'Système';
+  String get language_system => 'Système';
 
   @override
-  String get settings_theme_mode => 'Thème';
+  String get theme_mode => 'Thème';
 
   @override
   String get theme_mode_dark => 'Sombre';
@@ -39,13 +39,13 @@ class SettingsLocalizationsFr extends SettingsLocalizations {
   String get theme_mode_system => 'Système';
 
   @override
-  String get settings_calendar => 'Calendrier';
+  String get calendar => 'Calendrier';
 
   @override
-  String get settings_calendar_type => 'Type';
+  String get calendar_type => 'Type';
 
   @override
-  String settings_calendar_types(String dateType) {
+  String calendar_types(String dateType) {
     String _temp0 = intl.Intl.selectLogic(dateType, {
       'gregorian': 'Calendrier grégorien',
       'yearZero': 'Calendrier Year Zero',
@@ -56,30 +56,28 @@ class SettingsLocalizationsFr extends SettingsLocalizations {
   }
 
   @override
-  String get settings_effects => 'Effets';
+  String get effects => 'Effets';
 
   @override
-  String get settings_haptics_enabled => 'Haptiques activée';
+  String get haptics_enabled => 'Haptiques activée';
 
   @override
-  String get settings_timezone => 'Fuseau horaire';
+  String get timezone => 'Fuseau horaire';
 
   @override
-  String get settings_timezone_system => 'Système';
+  String get timezone_system => 'Système';
 
   @override
-  String get settings_timezone_hint => 'Rechercher un fuseau horaire';
+  String get timezone_hint => 'Rechercher un fuseau horaire';
 
   @override
-  String get settings_timezone_no_results =>
-      'Aucun fuseau horaire n\'a été trouvé.';
+  String get timezone_no_results => 'Aucun fuseau horaire n\'a été trouvé.';
 
   @override
-  String get settings_default_event_duration =>
-      'Durée par défaut des événements';
+  String get default_event_duration => 'Durée par défaut des événements';
 
   @override
-  String settings_default_event_durations(String duration) {
+  String default_event_durations(String duration) {
     String _temp0 = intl.Intl.selectLogic(duration, {
       'fifteenMinutes': '15 minutes',
       'twentyMinutes': '20 minutes',
@@ -94,16 +92,15 @@ class SettingsLocalizationsFr extends SettingsLocalizations {
   }
 
   @override
-  String get settings_reset_button => 'Réinitialiser les paramètres';
+  String get reset_button => 'Réinitialiser les paramètres';
 
   @override
-  String get settings_reset_button_confirm_content =>
+  String get reset_button_confirm_content =>
       'Êtes-vous sûr de vouloir réinitialiser tous les paramètres ?';
 
   @override
-  String get settings_reset_button_confirm_action =>
-      'Réinitialiser les paramètres';
+  String get reset_button_confirm_action => 'Réinitialiser les paramètres';
 
   @override
-  String get settings_reset_button_confirm_cancel => 'Annuler';
+  String get reset_button_confirm_cancel => 'Annuler';
 }

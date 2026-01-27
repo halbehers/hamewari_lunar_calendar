@@ -26,7 +26,7 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         title: Padding(
           padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
-          child: Text(t.settings_title, style: appTheme.h1),
+          child: Text(t.title, style: appTheme.h1),
         ),
         backgroundColor: appTheme.backgroundColor,
         surfaceTintColor: Colors.transparent,
@@ -40,11 +40,11 @@ class SettingsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SettingSection(
-              title: t.settings_display,
+              title: t.display,
               items: [
                 const ThemeModeSetting(),
                 BoolSetting(
-                  label: t.settings_display_menu_caption,
+                  label: t.display_menu_caption,
                   initialValue: settingsProvider.displayMenuCaptions,
                   onChanged: settingsProvider.setDisplayMenuCaptions,
                 ),
@@ -52,7 +52,7 @@ class SettingsPage extends StatelessWidget {
               ],
             ),
             SettingSection(
-              title: t.settings_calendar,
+              title: t.calendar,
               items: [
                 const CalendarTypeSetting(),
                 const TimezoneSetting(),
@@ -60,10 +60,10 @@ class SettingsPage extends StatelessWidget {
               ],
             ),
             SettingSection(
-              title: t.settings_effects,
+              title: t.effects,
               items: [
                 BoolSetting(
-                  label: t.settings_haptics_enabled,
+                  label: t.haptics_enabled,
                   initialValue: settingsProvider.hapticEnabled,
                   onChanged: settingsProvider.setHapticEnabled,
                 ),

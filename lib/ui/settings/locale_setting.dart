@@ -21,12 +21,12 @@ class LocaleSetting extends StatelessWidget {
     };
 
     return DropdownSetting<SettingLocale>(
-      label: label ?? t.settings_language,
+      label: label ?? t.language,
       initialValue: settingsProvider.settingLocale,
       onChanged: settingsProvider.setSettingLocale,
       items: [
         DropdownSettingItem(
-          label: t.settings_language_system,
+          label: t.language_system,
           value: SettingLocale.empty,
         ),
         ...GeneralLocalizations.supportedLocales.map(

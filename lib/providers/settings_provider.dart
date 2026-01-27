@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hamewari/calendar/date_factory.dart';
 import 'package:hamewari/db/models/setting.dart';
 import 'package:hamewari/db/services/settings_service.dart';
@@ -22,18 +25,6 @@ class SettingsProvider extends ChangeNotifier {
 
   void _init() async {
     initializeTimeZones();
-
-    // List<String> tokens = [];
-
-    // for (final tz in SettingTimezone.all) {
-    //   tokens.add(
-    //     '${tz.location!.name.toLowerCase().replaceAll('/', '_').toCamelCase()} {${tz.location!.name.replaceAll('/', ' / ').replaceAll('_', ' ')}}',
-    //   );
-    // }
-
-    // print(
-    //   '\"{timezone, select, ${tokens.join(" ")}} other {Unknown timezone} }\"',
-    // );
 
     {
       Setting? setting = await service.findByName(
@@ -437,6 +428,17 @@ class SettingTimezone {
     return location?.name;
   }
 
+  String get l10nKey {
+    if (isEmpty()) return "system";
+
+    return name!
+        .toLowerCase()
+        .replaceAll('/', '_')
+        .replaceAll('+', '_plus_')
+        .replaceAll('gmt-', 'gmt_minus_')
+        .replaceAll('-', '_');
+  }
+
   String getNameOrElse(String defaultValue) {
     if (isEmpty()) return defaultValue;
 
@@ -488,6 +490,23 @@ class SettingTimezone {
     if (location == null) return '[SettingTimezone] empty';
     return '[SettingTimezone] ${location!.name}';
   }
+}
+
+class Timezones {
+  bool initialized = false;
+  late Map<String, String> _translations;
+
+  Future<void> load(BuildContext context) async {
+    final locale = Localizations.localeOf(context).toString();
+    final jsonString = await rootBundle.loadString(
+      'lib/l10n/timezones/timezones_$locale.arb',
+    );
+    final Map<String, dynamic> data = json.decode(jsonString);
+    _translations = data.map((key, value) => MapEntry(key, value.toString()));
+    initialized = true;
+  }
+
+  String operator [](String key) => _translations[key] ?? key;
 }
 
 enum DefaultEventDuration {

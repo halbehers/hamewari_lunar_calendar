@@ -20,7 +20,7 @@ class ThemeModeSetting extends StatelessWidget {
     };
 
     return ToggleSwitchSetting(
-      label: label ?? t.settings_theme_mode,
+      label: label ?? t.theme_mode,
       initialValue: settingsProvider.themeMode,
       onChanged: settingsProvider.setThemeMode,
       items: ThemeMode.values

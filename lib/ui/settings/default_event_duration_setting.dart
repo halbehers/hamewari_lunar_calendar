@@ -14,13 +14,13 @@ class DefaultEventDurationSetting extends StatelessWidget {
     final settingsProvider = SettingsProvider.of(context);
 
     return DropdownSetting<DefaultEventDuration>(
-      label: label ?? t.settings_default_event_duration,
+      label: label ?? t.default_event_duration,
       initialValue: settingsProvider.defaultEventDuration,
       onChanged: settingsProvider.setDefaultEventDuration,
       items: DefaultEventDuration.values
           .map(
             (type) => DropdownSettingItem(
-              label: t.settings_default_event_durations(type.name),
+              label: t.default_event_durations(type.name),
               value: type,
             ),
           )

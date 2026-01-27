@@ -15,13 +15,13 @@ class CalendarTypeSetting extends StatelessWidget {
     final settingsProvider = SettingsProvider.of(context);
 
     return DropdownSetting<DateType>(
-      label: label ?? t.settings_calendar_type,
+      label: label ?? t.calendar_type,
       initialValue: settingsProvider.calendar,
       onChanged: settingsProvider.setCalendar,
       items: DateType.values
           .map(
             (type) => DropdownSettingItem(
-              label: t.settings_calendar_types(type.name),
+              label: t.calendar_types(type.name),
               value: type,
             ),
           )

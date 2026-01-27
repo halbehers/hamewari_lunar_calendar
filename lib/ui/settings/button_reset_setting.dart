@@ -17,14 +17,14 @@ class ButtonResetSetting extends StatelessWidget {
     final settingsProvider = SettingsProvider.of(context);
 
     return ButtonSetting(
-      label: label ?? t.settings_reset_button,
+      label: label ?? t.reset_button,
       backgroundColor: appTheme.dangerBackgroundColor,
       textStyle: appTheme.dangerBody,
       onTap: () => settingsProvider.resetSettings(),
       withConfirm: ButtonSettingConfirm(
-        content: t.settings_reset_button_confirm_content,
-        confirmText: t.settings_reset_button_confirm_action,
-        cancelText: t.settings_reset_button_confirm_cancel,
+        content: t.reset_button_confirm_content,
+        confirmText: t.reset_button_confirm_action,
+        cancelText: t.reset_button_confirm_cancel,
       ),
     );
   }

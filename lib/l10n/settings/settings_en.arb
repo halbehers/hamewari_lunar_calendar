@@ -4,28 +4,28 @@
   "@menu_caption": {
     "description": "Settings menu caption"
   },
-  "settings_title": "Settings",
-  "@settings_title": {
+  "title": "Settings",
+  "@title": {
     "description": "Settings page title"
   },
-  "settings_display": "Display",
-  "@settings_display": {
+  "display": "Display",
+  "@display": {
     "description": "Setting display caption"
   },
-  "settings_display_menu_caption": "Display menu caption",
-  "@settings_display_menu_caption": {
+  "display_menu_caption": "Display menu caption",
+  "@display_menu_caption": {
     "description": "Setting display menu caption"
   },
-  "settings_language": "Language",
-  "@settings_language": {
+  "language": "Language",
+  "@language": {
     "description": "Setting language"
   },
-  "settings_language_system": "System",
-  "@settings_language_system": {
+  "language_system": "System",
+  "@language_system": {
     "description": "Setting language system label"
   },
-  "settings_theme_mode": "Theme Mode",
-  "@settings_theme_mode": {
+  "theme_mode": "Theme Mode",
+  "@theme_mode": {
     "description": "Setting theme mode"
   },
   "theme_mode_dark": "Dark",
@@ -40,16 +40,16 @@
   "@theme_mode_system": {
     "description": "Theme mode system"
   },
-  "settings_calendar": "Calendar",
-  "@settings_calendar": {
+  "calendar": "Calendar",
+  "@calendar": {
     "description": "Setting calendar caption"
   },
-  "settings_calendar_type": "Type",
-  "@settings_calendar_type": {
+  "calendar_type": "Type",
+  "@calendar_type": {
     "description": "Setting calendar type"
   },
-  "settings_calendar_types": "{dateType, select, gregorian {Gregorian Calendar} yearZero {Year Zero Calendar} hamewari {Hamewari Calendar} other {Undefined Calendar}}",
-  "@settings_calendar_types": {
+  "calendar_types": "{dateType, select, gregorian {Gregorian Calendar} yearZero {Year Zero Calendar} hamewari {Hamewari Calendar} other {Undefined Calendar}}",
+  "@calendar_types": {
     "description": "Calendar types by name",
     "placeholders": {
       "dateType": {
@@ -57,36 +57,36 @@
       }
     }
   },
-  "settings_effects": "Effects",
-  "@settings_effects": {
+  "effects": "Effects",
+  "@effects": {
     "description": "Setting effect caption"
   },
-  "settings_haptics_enabled": "Haptics enabled",
-  "@settings_haptics_enabled": {
+  "haptics_enabled": "Haptics enabled",
+  "@haptics_enabled": {
     "description": "Setting enabled haptics"
   },
-  "settings_timezone": "Timezone",
-  "@settings_timezone": {
+  "timezone": "Timezone",
+  "@timezone": {
     "description": "Setting timezone"
   },
-  "settings_timezone_system": "System",
-  "@settings_timezone_system": {
+  "timezone_system": "System",
+  "@timezone_system": {
     "description": "Setting timezone system label"
   },
-  "settings_timezone_hint": "Search for a timezone",
-  "@settings_timezone_hint": {
+  "timezone_hint": "Search for a timezone",
+  "@timezone_hint": {
     "description": "Setting timezone hint"
   },
-  "settings_timezone_no_results": "No timezone has been found",
-  "@settings_timezone_no_results": {
+  "timezone_no_results": "No timezone has been found",
+  "@timezone_no_results": {
     "description": "Setting timezone no result"
   },
-  "settings_default_event_duration": "Default event duration",
-  "@settings_default_event_duration": {
+  "default_event_duration": "Default event duration",
+  "@default_event_duration": {
     "description": "Setting default event duration"
   },
-  "settings_default_event_durations": "{duration, select, fifteenMinutes {15 minutes} twentyMinutes {20 minutes} thirtyMinutes {30 minutes} fortyFiveMinutes {45 minutes} oneHour {60 minutes} ninetyMinutes {90 minutes} twoHours{120 minutes} other {Unknown duration} }",
-  "@settings_default_event_durations": {
+  "default_event_durations": "{duration, select, fifteenMinutes {15 minutes} twentyMinutes {20 minutes} thirtyMinutes {30 minutes} fortyFiveMinutes {45 minutes} oneHour {60 minutes} ninetyMinutes {90 minutes} twoHours{120 minutes} other {Unknown duration} }",
+  "@default_event_durations": {
     "description": "Default event durations by name",
     "placeholders": {
       "duration": {
@@ -94,20 +94,20 @@
       }
     }
   },
-  "settings_reset_button": "Reset settings",
-  "@settings_reset_button": {
+  "reset_button": "Reset settings",
+  "@reset_button": {
     "description": "Setting reset button"
   },
-  "settings_reset_button_confirm_content": "Are you sure to reset all settings?",
-  "@settings_reset_button_confirm_content": {
+  "reset_button_confirm_content": "Are you sure to reset all settings?",
+  "@reset_button_confirm_content": {
     "description": "Setting reset confirm content"
   },
-  "settings_reset_button_confirm_action": "Reset settings",
-  "@settings_reset_button_confirm_action": {
+  "reset_button_confirm_action": "Reset settings",
+  "@reset_button_confirm_action": {
     "description": "Setting reset confirm action"
   },
-  "settings_reset_button_confirm_cancel": "Cancel",
-  "@settings_reset_button_confirm_cancel": {
+  "reset_button_confirm_cancel": "Cancel",
+  "@reset_button_confirm_cancel": {
     "description": "Setting reset confirm cancel"
   }
 }

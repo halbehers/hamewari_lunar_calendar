@@ -63,15 +63,20 @@ import 'settings_localizations_fr.dart';
 /// be consistent with the languages listed in the SettingsLocalizations.supportedLocales
 /// property.
 abstract class SettingsLocalizations {
-  SettingsLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  SettingsLocalizations(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
   static SettingsLocalizations? of(BuildContext context) {
-    return Localizations.of<SettingsLocalizations>(context, SettingsLocalizations);
+    return Localizations.of<SettingsLocalizations>(
+      context,
+      SettingsLocalizations,
+    );
   }
 
-  static const LocalizationsDelegate<SettingsLocalizations> delegate = _SettingsLocalizationsDelegate();
+  static const LocalizationsDelegate<SettingsLocalizations> delegate =
+      _SettingsLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -83,18 +88,19 @@ abstract class SettingsLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
     Locale('es'),
-    Locale('fr')
+    Locale('fr'),
   ];
 
   /// Settings menu caption
@@ -107,37 +113,37 @@ abstract class SettingsLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Settings'**
-  String get settings_title;
+  String get title;
 
   /// Setting display caption
   ///
   /// In en, this message translates to:
   /// **'Display'**
-  String get settings_display;
+  String get display;
 
   /// Setting display menu caption
   ///
   /// In en, this message translates to:
   /// **'Display menu caption'**
-  String get settings_display_menu_caption;
+  String get display_menu_caption;
 
   /// Setting language
   ///
   /// In en, this message translates to:
   /// **'Language'**
-  String get settings_language;
+  String get language;
 
   /// Setting language system label
   ///
   /// In en, this message translates to:
   /// **'System'**
-  String get settings_language_system;
+  String get language_system;
 
   /// Setting theme mode
   ///
   /// In en, this message translates to:
   /// **'Theme Mode'**
-  String get settings_theme_mode;
+  String get theme_mode;
 
   /// Theme mode dark
   ///
@@ -161,122 +167,127 @@ abstract class SettingsLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Calendar'**
-  String get settings_calendar;
+  String get calendar;
 
   /// Setting calendar type
   ///
   /// In en, this message translates to:
   /// **'Type'**
-  String get settings_calendar_type;
+  String get calendar_type;
 
   /// Calendar types by name
   ///
   /// In en, this message translates to:
   /// **'{dateType, select, gregorian {Gregorian Calendar} yearZero {Year Zero Calendar} hamewari {Hamewari Calendar} other {Undefined Calendar}}'**
-  String settings_calendar_types(String dateType);
+  String calendar_types(String dateType);
 
   /// Setting effect caption
   ///
   /// In en, this message translates to:
   /// **'Effects'**
-  String get settings_effects;
+  String get effects;
 
   /// Setting enabled haptics
   ///
   /// In en, this message translates to:
   /// **'Haptics enabled'**
-  String get settings_haptics_enabled;
+  String get haptics_enabled;
 
   /// Setting timezone
   ///
   /// In en, this message translates to:
   /// **'Timezone'**
-  String get settings_timezone;
+  String get timezone;
 
   /// Setting timezone system label
   ///
   /// In en, this message translates to:
   /// **'System'**
-  String get settings_timezone_system;
+  String get timezone_system;
 
   /// Setting timezone hint
   ///
   /// In en, this message translates to:
   /// **'Search for a timezone'**
-  String get settings_timezone_hint;
+  String get timezone_hint;
 
   /// Setting timezone no result
   ///
   /// In en, this message translates to:
   /// **'No timezone has been found'**
-  String get settings_timezone_no_results;
+  String get timezone_no_results;
 
   /// Setting default event duration
   ///
   /// In en, this message translates to:
   /// **'Default event duration'**
-  String get settings_default_event_duration;
+  String get default_event_duration;
 
   /// Default event durations by name
   ///
   /// In en, this message translates to:
   /// **'{duration, select, fifteenMinutes {15 minutes} twentyMinutes {20 minutes} thirtyMinutes {30 minutes} fortyFiveMinutes {45 minutes} oneHour {60 minutes} ninetyMinutes {90 minutes} twoHours{120 minutes} other {Unknown duration} }'**
-  String settings_default_event_durations(String duration);
+  String default_event_durations(String duration);
 
   /// Setting reset button
   ///
   /// In en, this message translates to:
   /// **'Reset settings'**
-  String get settings_reset_button;
+  String get reset_button;
 
   /// Setting reset confirm content
   ///
   /// In en, this message translates to:
   /// **'Are you sure to reset all settings?'**
-  String get settings_reset_button_confirm_content;
+  String get reset_button_confirm_content;
 
   /// Setting reset confirm action
   ///
   /// In en, this message translates to:
   /// **'Reset settings'**
-  String get settings_reset_button_confirm_action;
+  String get reset_button_confirm_action;
 
   /// Setting reset confirm cancel
   ///
   /// In en, this message translates to:
   /// **'Cancel'**
-  String get settings_reset_button_confirm_cancel;
+  String get reset_button_confirm_cancel;
 }
 
-class _SettingsLocalizationsDelegate extends LocalizationsDelegate<SettingsLocalizations> {
+class _SettingsLocalizationsDelegate
+    extends LocalizationsDelegate<SettingsLocalizations> {
   const _SettingsLocalizationsDelegate();
 
   @override
   Future<SettingsLocalizations> load(Locale locale) {
-    return SynchronousFuture<SettingsLocalizations>(lookupSettingsLocalizations(locale));
+    return SynchronousFuture<SettingsLocalizations>(
+      lookupSettingsLocalizations(locale),
+    );
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'es', 'fr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'es', 'fr'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_SettingsLocalizationsDelegate old) => false;
 }
 
 SettingsLocalizations lookupSettingsLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return SettingsLocalizationsEn();
-    case 'es': return SettingsLocalizationsEs();
-    case 'fr': return SettingsLocalizationsFr();
+    case 'en':
+      return SettingsLocalizationsEn();
+    case 'es':
+      return SettingsLocalizationsEs();
+    case 'fr':
+      return SettingsLocalizationsFr();
   }
 
   throw FlutterError(
     'SettingsLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
+    'that was used.',
   );
 }
