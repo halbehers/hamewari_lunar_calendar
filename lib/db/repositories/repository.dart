@@ -103,8 +103,13 @@ abstract class Repository<T extends Model<T>> {
   }
 
   Future<bool> delete(T entity) async {
-    Database db = await database;
     int id = entity.id!;
+
+    return await deleteById(id);
+  }
+
+  Future<bool> deleteById(int id) async {
+    Database db = await database;
 
     return retryIfLocked(() async {
       return await db.delete(getTable(), where: "id = ?", whereArgs: [id]) == 0;

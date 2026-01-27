@@ -43,6 +43,7 @@ dependencies:
   logger: ^2.6.2
   sweph: ^3.2.1+2.10.3
   loading_animation_widget: ^1.3.0
+  timezone: ^0.11.0
   flutter_localizations:
     sdk: flutter
 

@@ -80,7 +80,7 @@
   "@settings_calendar_type": {
     "description": "Setting calendar type"
   },
-  "settings_calendar_types": "{dateType, select, gregorian {Gregorian Calendar} yearZero {Year Zero Calendar} other {Undefined Calendar}}",
+  "settings_calendar_types": "{dateType, select, gregorian {Gregorian Calendar} yearZero {Year Zero Calendar} hamewari {Hamewari Calendar} other {Undefined Calendar}}",
   "@settings_calendar_types": {
     "description": "Calendar types by name",
     "placeholders": {
@@ -88,6 +88,63 @@
         "type": "String"
       }
     }
+  },
+  "settings_effects": "Effects",
+  "@settings_effects": {
+    "description": "Setting effect caption"
+  },
+  "settings_haptics_enabled": "Haptics enabled",
+  "@settings_haptics_enabled": {
+    "description": "Setting enabled haptics"
+  },
+  "settings_timezone": "Timezone",
+  "@settings_timezone": {
+    "description": "Setting timezone"
+  },
+  "settings_timezone_system": "System",
+  "@settings_timezone_system": {
+    "description": "Setting timezone system label"
+  },
+  "settings_timezone_hint": "Search for a timezone",
+  "@settings_timezone_hint": {
+    "description": "Setting timezone hint"
+  },
+  "settings_timezone_no_results": "No timezone has been found",
+  "@settings_timezone_no_results": {
+    "description": "Setting timezone no result"
+  },
+  "settings_default_event_duration": "Default event duration",
+  "@settings_default_event_duration": {
+    "description": "Setting default event duration"
+  },
+  "settings_default_event_durations": "{duration, select, fifteenMinutes {15 minutes} twentyMinutes {20 minutes} thirtyMinutes {30 minutes} fortyFiveMinutes {45 minutes} oneHour {60 minutes} ninetyMinutes {90 minutes} twoHours{120 minutes} other {Unknown duration} }",
+  "@settings_default_event_durations": {
+    "description": "Default event durations by name",
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "settings_reset_button": "Reset settings",
+  "@settings_reset_button": {
+    "description": "Setting reset button"
+  },
+  "settings_reset_button_confirm_content": "Are you sure to reset all settings?",
+  "@settings_reset_button_confirm_content": {
+    "description": "Setting reset confirm content"
+  },
+  "settings_reset_button_confirm_action": "Reset settings",
+  "@settings_reset_button_confirm_action": {
+    "description": "Setting reset confirm action"
+  },
+  "settings_reset_button_confirm_cancel": "Cancel",
+  "@settings_reset_button_confirm_cancel": {
+    "description": "Setting reset confirm cancel"
+  },
+  "zero_day": "Zero Day",
+  "@zero_day": {
+    "description": "Zero day"
   },
   "moon_month_title": "{month, select, 1 {Magnetic Moon} 2 {Lunar Moon} 3 {Electric Moon} 4 {Self-Existing Moon} 5 {Harmonic Moon} 6 {Rhythmic Moon} 7 {Resonant Moon} 8 {Galactic Moon} 9 {Solar Moon} 10 {Planetary Moon} 11 {Spectral Moon} 12 {Crystal Moon} 13 {Cosmic Moon} other {Unidentified Moon}}",
   "@moon_month_title": {

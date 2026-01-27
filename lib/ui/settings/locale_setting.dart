@@ -25,7 +25,7 @@ class LocaleSetting extends StatelessWidget {
       items: [
         DropdownSettingItem(
           label: t.settings_language_system,
-          value: SettingLocale.empty(),
+          value: SettingLocale.empty,
         ),
         ...AppLocalizations.supportedLocales.map(
           (locale) => DropdownSettingItem(

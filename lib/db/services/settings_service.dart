@@ -9,6 +9,9 @@ class SettingsService extends Service<Setting> {
   static String selectedThemeModeId = "selected-theme-mode";
   static String selectedLocaleId = "selected-locale";
   static String selectedCalendarId = "selected-calendar";
+  static String hapticsEnabledId = "haptics-enabled";
+  static String defaultEventDurationId = "default-event-duration";
+  static String selectedTimezoneId = "selected-timezone";
 
   @override
   Repository<Setting> newRepository() {
@@ -43,5 +46,15 @@ class SettingsService extends Service<Setting> {
       where: "name = ?",
       whereArgs: [name],
     )).firstOrNull;
+  }
+
+  void deleteByName(String name) async {
+    final List<Setting> existingSetting = await repository.findBy(
+      where: "name = ?",
+      whereArgs: [name],
+    );
+    if (existingSetting.isEmpty) return;
+
+    await delete(existingSetting.first);
   }
 }

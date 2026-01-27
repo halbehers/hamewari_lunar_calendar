@@ -58,6 +58,10 @@ abstract class Service<T extends Model<T>> {
     return repository.delete(entity);
   }
 
+  Future<bool> deleteById(int id) {
+    return repository.deleteById(id);
+  }
+
   Future<int> setup(T entity) async {
     if (entity.id != null && await exists(entity.id!)) {
       return update(entity);

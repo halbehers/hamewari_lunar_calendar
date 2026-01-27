@@ -1,4 +1,5 @@
 enum IconPath {
+  empty("empty"),
   add("assets/icons/add.svg"),
   arrowLeft("assets/icons/arrow_left.svg"),
   arrowRight("assets/icons/arrow_right.svg"),
@@ -23,7 +24,8 @@ enum IconPath {
   rows("assets/icons/rows.svg"),
   search("assets/icons/search.svg"),
   zoomIn("assets/icons/zoom_in.svg"),
-  zoomOut("assets/icons/zoom_out.svg");
+  zoomOut("assets/icons/zoom_out.svg"),
+  check("assets/icons/check.svg");
 
   const IconPath(this.path);
 

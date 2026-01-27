@@ -98,7 +98,9 @@ class _YearCalendarState extends State<YearCalendar> {
       _pageController.jumpToPage(getPageNumber(date.year));
     }
 
-    if (await Vibration.hasVibrator()) {
+    final settingsProvider = SettingsProvider.of(context, listen: false);
+
+    if (settingsProvider.hapticEnabled && await Vibration.hasVibrator()) {
       await Vibration.vibrate(preset: VibrationPreset.softPulse);
     }
   }

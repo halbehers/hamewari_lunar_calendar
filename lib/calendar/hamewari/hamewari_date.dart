@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 import 'package:hamewari/calendar/date.dart';
-import 'package:hamewari/calendar/year_zero/year_zero_date_formatter.dart';
+import 'package:hamewari/calendar/hamewari/hamewari_date_formatter.dart';
 
-class YearZeroDate extends Date<YearZeroDate> {
-  YearZeroDate(super.year, [super.month, super.day, super.hour, super.minute]) {
+class HamewariDate extends Date<HamewariDate> {
+  HamewariDate(super.year, [super.month, super.day, super.hour, super.minute]) {
     _validate();
   }
 
@@ -24,24 +24,24 @@ class YearZeroDate extends Date<YearZeroDate> {
   }
 
   @override
-  YearZeroDate newInstance(
+  HamewariDate newInstance(
     int year, [
     int month = 1,
     int day = 1,
     int hour = 0,
     int minute = 0,
   ]) {
-    return YearZeroDate(year, month, day, hour, minute);
+    return HamewariDate(year, month, day, hour, minute);
   }
 
-  factory YearZeroDate.now() {
+  factory HamewariDate.now() {
     final now = DateTime.now().toUtc();
     return fromGregorian(now);
   }
 
   @override
-  YearZeroDate get now {
-    return YearZeroDate.now();
+  HamewariDate get now {
+    return HamewariDate.now();
   }
 
   @override
@@ -66,10 +66,10 @@ class YearZeroDate extends Date<YearZeroDate> {
   bool get hasOutOfCalendarDays => true;
 
   @override
-  List<OutOfCalendarDayBounds<YearZeroDate>> get outOfCalendarDaysBounds => [
+  List<OutOfCalendarDayBounds<HamewariDate>> get outOfCalendarDaysBounds => [
     OutOfCalendarDayBounds(
-      YearZeroDate(year, 13, 28),
-      YearZeroDate(year + 1, 1, 1),
+      HamewariDate(year, 13, 28),
+      HamewariDate(year + 1, 1, 1),
     ),
   ];
 
@@ -90,22 +90,22 @@ class YearZeroDate extends Date<YearZeroDate> {
     return year % 4 == 0;
   }
 
-  static YearZeroDate fromGregorian(DateTime dt) {
-    final yearZero = dt.year - 2028;
+  static HamewariDate fromGregorian(DateTime dt) {
+    final yearZero = dt.year - 1;
 
-    // Days since winter solstice (Dec 21)
-    final solstice = DateTime.utc(dt.year - 1, 12, 21);
+    // Days since start of spring (Mar 20)
+    final solstice = DateTime.utc(dt.year - 1, 3, 20);
     final daysSince = dt.difference(solstice).inDays;
 
     final dayIndex = daysSince % 364;
     final month = (dayIndex ~/ 28) + 1;
     final day = (dayIndex % 28) + 1;
 
-    return YearZeroDate(yearZero, month, day, dt.hour, dt.minute);
+    return HamewariDate(yearZero, month, day, dt.hour, dt.minute);
   }
 
   @override
-  YearZeroDateFormatter newFormatter(String pattern, Locale? locale) {
-    return YearZeroDateFormatter(pattern, locale);
+  HamewariDateFormatter newFormatter(String pattern, Locale? locale) {
+    return HamewariDateFormatter(pattern, locale);
   }
 }

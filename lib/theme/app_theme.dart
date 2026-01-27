@@ -30,6 +30,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.implementationWeekColor,
     required this.implementationWeekBackgroundColor,
     required this.pureHighlightColor,
+    required this.dangerColor,
+    required this.dangerBackgroundColor,
   });
 
   final Color backgroundColor;
@@ -59,6 +61,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
   final Color implementationWeekColor;
   final Color implementationWeekBackgroundColor;
   final Color pureHighlightColor;
+  final Color dangerColor;
+  final Color dangerBackgroundColor;
 
   TextStyle get h1 =>
       TextStyle(color: textColor, fontSize: 28, fontWeight: FontWeight.w600);
@@ -92,6 +96,13 @@ class AppTheme extends ThemeExtension<AppTheme> {
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
+  TextStyle get subduedBody => TextStyle(
+    color: subduedTextColor,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
+  TextStyle get dangerBody =>
+      TextStyle(color: dangerColor, fontSize: 16, fontWeight: FontWeight.w400);
   TextStyle get invertedBoldBody => TextStyle(
     color: invertedTextColor,
     fontSize: 16,
@@ -148,6 +159,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
     Color? implementationWeekColor,
     Color? implementationWeekBackgroundColor,
     Color? pureHighlightColor,
+    Color? dangerColor,
+    Color? dangerBackgroundColor,
   }) {
     return AppTheme(
       backgroundColor: background ?? backgroundColor,
@@ -190,6 +203,9 @@ class AppTheme extends ThemeExtension<AppTheme> {
           implementationWeekBackgroundColor ??
           this.implementationWeekBackgroundColor,
       pureHighlightColor: pureHighlightColor ?? this.pureHighlightColor,
+      dangerColor: dangerColor ?? this.dangerColor,
+      dangerBackgroundColor:
+          dangerBackgroundColor ?? this.dangerBackgroundColor,
     );
   }
 
@@ -304,6 +320,11 @@ class AppTheme extends ThemeExtension<AppTheme> {
           Colors.black,
       pureHighlightColor:
           Color.lerp(pureHighlightColor, other.pureHighlightColor, t) ??
+          Colors.black,
+      dangerColor:
+          Color.lerp(dangerColor, other.dangerColor, t) ?? Colors.black,
+      dangerBackgroundColor:
+          Color.lerp(dangerBackgroundColor, other.dangerBackgroundColor, t) ??
           Colors.black,
     );
   }

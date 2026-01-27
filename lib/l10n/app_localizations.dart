@@ -223,8 +223,86 @@ abstract class AppLocalizations {
   /// Calendar types by name
   ///
   /// In en, this message translates to:
-  /// **'{dateType, select, gregorian {Gregorian Calendar} yearZero {Year Zero Calendar} other {Undefined Calendar}}'**
+  /// **'{dateType, select, gregorian {Gregorian Calendar} yearZero {Year Zero Calendar} hamewari {Hamewari Calendar} other {Undefined Calendar}}'**
   String settings_calendar_types(String dateType);
+
+  /// Setting effect caption
+  ///
+  /// In en, this message translates to:
+  /// **'Effects'**
+  String get settings_effects;
+
+  /// Setting enabled haptics
+  ///
+  /// In en, this message translates to:
+  /// **'Haptics enabled'**
+  String get settings_haptics_enabled;
+
+  /// Setting timezone
+  ///
+  /// In en, this message translates to:
+  /// **'Timezone'**
+  String get settings_timezone;
+
+  /// Setting timezone system label
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get settings_timezone_system;
+
+  /// Setting timezone hint
+  ///
+  /// In en, this message translates to:
+  /// **'Search for a timezone'**
+  String get settings_timezone_hint;
+
+  /// Setting timezone no result
+  ///
+  /// In en, this message translates to:
+  /// **'No timezone has been found'**
+  String get settings_timezone_no_results;
+
+  /// Setting default event duration
+  ///
+  /// In en, this message translates to:
+  /// **'Default event duration'**
+  String get settings_default_event_duration;
+
+  /// Default event durations by name
+  ///
+  /// In en, this message translates to:
+  /// **'{duration, select, fifteenMinutes {15 minutes} twentyMinutes {20 minutes} thirtyMinutes {30 minutes} fortyFiveMinutes {45 minutes} oneHour {60 minutes} ninetyMinutes {90 minutes} twoHours{120 minutes} other {Unknown duration} }'**
+  String settings_default_event_durations(String duration);
+
+  /// Setting reset button
+  ///
+  /// In en, this message translates to:
+  /// **'Reset settings'**
+  String get settings_reset_button;
+
+  /// Setting reset confirm content
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure to reset all settings?'**
+  String get settings_reset_button_confirm_content;
+
+  /// Setting reset confirm action
+  ///
+  /// In en, this message translates to:
+  /// **'Reset settings'**
+  String get settings_reset_button_confirm_action;
+
+  /// Setting reset confirm cancel
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get settings_reset_button_confirm_cancel;
+
+  /// Zero day
+  ///
+  /// In en, this message translates to:
+  /// **'Zero Day'**
+  String get zero_day;
 
   /// Moon month titles by number
   ///

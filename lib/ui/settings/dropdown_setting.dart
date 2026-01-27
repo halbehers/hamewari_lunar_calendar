@@ -32,25 +32,40 @@ class DropdownSetting<T> extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
+      spacing: 16.0,
       children: [
-        Text(label, style: appTheme.body),
-        DropdownButton<T>(
-          value: initialValue,
-          icon: const HIcon(iconPath: IconPath.arrowBottom),
-          underline: Container(height: 2, color: appTheme.borderColor),
-          borderRadius: BorderRadius.circular(16.0),
-          dropdownColor: appTheme.highlightedBackgroundColor,
-          items: items
-              .map(
-                (item) => DropdownMenuItem<T>(
-                  value: item.value,
-                  child: Text(item.label, style: appTheme.body),
-                ),
-              )
-              .toList(),
-          onChanged: (value) {
-            if (value != null) onChanged(value);
-          },
+        Flexible(
+          flex: 2,
+          child: Text(label, style: appTheme.body, overflow: TextOverflow.clip),
+        ),
+        Flexible(
+          flex: 3,
+          fit: FlexFit.tight,
+          child: DropdownButton<T>(
+            value: initialValue,
+            isExpanded: true,
+            icon: const Padding(
+              padding: EdgeInsets.only(left: 8.0),
+              child: HIcon(
+                iconPath: IconPath.arrowBottom,
+                size: IconSize.small,
+              ),
+            ),
+            underline: Container(height: 2, color: appTheme.borderColor),
+            borderRadius: BorderRadius.circular(16.0),
+            dropdownColor: appTheme.highlightedBackgroundColor,
+            items: items
+                .map(
+                  (item) => DropdownMenuItem<T>(
+                    value: item.value,
+                    child: Text(item.label, style: appTheme.body),
+                  ),
+                )
+                .toList(),
+            onChanged: (value) {
+              if (value != null) onChanged(value);
+            },
+          ),
         ),
       ],
     );

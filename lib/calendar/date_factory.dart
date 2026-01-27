@@ -1,8 +1,9 @@
 import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/calendar/gregorian/gregorian_date.dart';
+import 'package:hamewari/calendar/hamewari/hamewari_date.dart';
 import 'package:hamewari/calendar/year_zero/year_zero_date.dart';
 
-enum DateType { gregorian, yearZero }
+enum DateType { gregorian, yearZero, hamewari }
 
 class DateFactory {
   static Date<dynamic> build(
@@ -18,6 +19,8 @@ class DateFactory {
         return GregorianDate(year, month, day, hour, minute);
       case DateType.yearZero:
         return YearZeroDate(year, month, day, hour, minute);
+      case DateType.hamewari:
+        return HamewariDate(year, month, day, hour, minute);
     }
   }
 
@@ -27,6 +30,8 @@ class DateFactory {
         return GregorianDate.now();
       case DateType.yearZero:
         return YearZeroDate.now();
+      case DateType.hamewari:
+        return HamewariDate.now();
     }
   }
 }

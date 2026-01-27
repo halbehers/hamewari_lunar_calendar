@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/date_formatter.dart';
 
+class OutOfCalendarDayBounds<T extends Date<T>> {
+  final T start;
+  final T end;
+
+  OutOfCalendarDayBounds(this.start, this.end) {
+    if (start.addDays(1) != end) {
+      throw ArgumentError('Out of calendar day bounds must be 1 day apart');
+    }
+  }
+}
+
 abstract class Date<T extends Date<T>> implements Comparable<T> {
   int year = 1971;
   int month = 1;
@@ -50,6 +61,9 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   int get numberOfMinutesInHour;
 
   bool get hasMoonPhaseBasedWeeks => false;
+  bool get hasOutOfCalendarDays => false;
+
+  List<OutOfCalendarDayBounds<T>> get outOfCalendarDaysBounds => List.empty();
 
   bool isLeapYear(int year);
 

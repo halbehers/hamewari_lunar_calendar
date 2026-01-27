@@ -73,10 +73,66 @@ class AppLocalizationsEs extends AppLocalizations {
     String _temp0 = intl.Intl.selectLogic(dateType, {
       'gregorian': 'Calendario gregoriano',
       'yearZero': 'Calendario Year Zero',
+      'hamewari': 'Calendario Hamewari',
       'other': 'Calendario no identificado',
     });
     return '$_temp0';
   }
+
+  @override
+  String get settings_effects => 'Efectos';
+
+  @override
+  String get settings_haptics_enabled => 'Haptics habilitado';
+
+  @override
+  String get settings_timezone => 'Zona horaria';
+
+  @override
+  String get settings_timezone_system => 'Sistema';
+
+  @override
+  String get settings_timezone_hint => 'Buscar una zona horaria';
+
+  @override
+  String get settings_timezone_no_results =>
+      'No se ha encontrado ninguna zona horaria';
+
+  @override
+  String get settings_default_event_duration =>
+      'Duración predeterminada de eventos';
+
+  @override
+  String settings_default_event_durations(String duration) {
+    String _temp0 = intl.Intl.selectLogic(duration, {
+      'fifteenMinutes': '15 minutos',
+      'twentyMinutes': '20 minutos',
+      'thirtyMinutes': '30 minutos',
+      'fortyFiveMinutes': '45 minutos',
+      'oneHour': '60 minutos',
+      'ninetyMinutes': '90 minutos',
+      'twoHours': '120 minutos',
+      'other': 'Duración no identificada',
+    });
+    return '$_temp0';
+  }
+
+  @override
+  String get settings_reset_button => 'Restablecer configuración';
+
+  @override
+  String get settings_reset_button_confirm_content =>
+      '¿Está seguro de que desea restablecer todos los ajustes?';
+
+  @override
+  String get settings_reset_button_confirm_action =>
+      'Restablecer configuración';
+
+  @override
+  String get settings_reset_button_confirm_cancel => 'Cancelar';
+
+  @override
+  String get zero_day => 'Día cero';
 
   @override
   String moon_month_title(String month) {

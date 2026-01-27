@@ -41,6 +41,8 @@ AppTheme lightAppTheme = AppTheme(
   implementationWeekColor: ThemeColors.yellow[500]!,
   implementationWeekBackgroundColor: ThemeColors.yellow[300]!,
   pureHighlightColor: ThemeColors.pureWhite,
+  dangerColor: ThemeColors.red[600]!,
+  dangerBackgroundColor: ThemeColors.red[200]!,
 );
 
 AppTheme darkAppTheme = AppTheme(
@@ -71,6 +73,8 @@ AppTheme darkAppTheme = AppTheme(
   implementationWeekColor: ThemeColors.yellow[300]!,
   implementationWeekBackgroundColor: ThemeColors.yellow[500]!,
   pureHighlightColor: ThemeColors.pureBlack,
+  dangerColor: ThemeColors.red[300]!,
+  dangerBackgroundColor: ThemeColors.red[600]!,
 );
 
 extension BuildContextExtension on BuildContext {

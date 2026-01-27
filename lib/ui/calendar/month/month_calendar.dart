@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/calendar/date_formatter.dart';
 import 'package:hamewari/main.dart';
+import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/providers/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_motion.dart';
@@ -84,7 +85,9 @@ class _MonthCalendarState extends State<MonthCalendar> {
       _pageController.jumpToPage(date.month - 1);
     }
 
-    if (await Vibration.hasVibrator()) {
+    final settingsProvider = SettingsProvider.of(context, listen: false);
+
+    if (settingsProvider.hapticEnabled && await Vibration.hasVibrator()) {
       await Vibration.vibrate(preset: VibrationPreset.softPulse);
     }
   }
