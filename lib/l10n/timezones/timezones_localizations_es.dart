@@ -12,457 +12,459 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get system => 'Sistema';
 
   @override
-  String get africa_abidjan => 'Africa / Abidjan';
+  String get africa_abidjan => 'África / Abiyán';
 
   @override
-  String get africa_algiers => 'Africa / Algiers';
+  String get africa_algiers => 'África / Argel';
 
   @override
-  String get africa_bissau => 'Africa / Bissau';
+  String get africa_bissau => 'África / Bisáu';
 
   @override
-  String get africa_cairo => 'Africa / Cairo';
+  String get africa_cairo => 'África / El Cairo';
 
   @override
-  String get africa_casablanca => 'Africa / Casablanca';
+  String get africa_casablanca => 'África / Casablanca';
 
   @override
-  String get africa_ceuta => 'Africa / Ceuta';
+  String get africa_ceuta => 'África / Ceuta';
 
   @override
-  String get africa_el_aaiun => 'Africa / El Aaiun';
+  String get africa_el_aaiun => 'África / El Aaiún';
 
   @override
-  String get africa_johannesburg => 'Africa / Johannesburg';
+  String get africa_johannesburg => 'África / Johannesburgo';
 
   @override
-  String get africa_juba => 'Africa / Juba';
+  String get africa_juba => 'África / Yuba';
 
   @override
-  String get africa_khartoum => 'Africa / Khartoum';
+  String get africa_khartoum => 'África / Jartum';
 
   @override
-  String get africa_lagos => 'Africa / Lagos';
+  String get africa_lagos => 'África / Lagos';
 
   @override
-  String get africa_maputo => 'Africa / Maputo';
+  String get africa_maputo => 'África / Maputo';
 
   @override
-  String get africa_monrovia => 'Africa / Monrovia';
+  String get africa_monrovia => 'África / Monrovia';
 
   @override
-  String get africa_nairobi => 'Africa / Nairobi';
+  String get africa_nairobi => 'África / Nairobi';
 
   @override
-  String get africa_ndjamena => 'Africa / Ndjamena';
+  String get africa_ndjamena => 'África / Yamena';
 
   @override
-  String get africa_sao_tome => 'Africa / Sao Tome';
+  String get africa_sao_tome => 'África / Santo Tomé';
 
   @override
-  String get africa_tripoli => 'Africa / Tripoli';
+  String get africa_tripoli => 'África / Trípoli';
 
   @override
-  String get africa_tunis => 'Africa / Tunis';
+  String get africa_tunis => 'África / Túnez';
 
   @override
-  String get africa_windhoek => 'Africa / Windhoek';
+  String get africa_windhoek => 'África / Windhoek';
 
   @override
-  String get america_adak => 'America / Adak';
+  String get america_adak => 'América / Adak';
 
   @override
-  String get america_anchorage => 'America / Anchorage';
+  String get america_anchorage => 'América / Anchorage';
 
   @override
-  String get america_araguaina => 'America / Araguaina';
+  String get america_araguaina => 'América / Araguaína';
 
   @override
   String get america_argentina_buenos_aires =>
-      'America / Argentina / Buenos Aires';
+      'América / Argentina / Buenos Aires';
 
   @override
-  String get america_argentina_catamarca => 'America / Argentina / Catamarca';
+  String get america_argentina_catamarca => 'América / Argentina / Catamarca';
 
   @override
-  String get america_argentina_cordoba => 'America / Argentina / Cordoba';
+  String get america_argentina_cordoba => 'América / Argentina / Córdoba';
 
   @override
-  String get america_argentina_jujuy => 'America / Argentina / Jujuy';
+  String get america_argentina_jujuy => 'América / Argentina / Jujuy';
 
   @override
-  String get america_argentina_la_rioja => 'America / Argentina / La Rioja';
+  String get america_argentina_la_rioja => 'América / Argentina / La Rioja';
 
   @override
-  String get america_argentina_mendoza => 'America / Argentina / Mendoza';
+  String get america_argentina_mendoza => 'América / Argentina / Mendoza';
 
   @override
   String get america_argentina_rio_gallegos =>
-      'America / Argentina / Rio Gallegos';
+      'América / Argentina / Río Gallegos';
 
   @override
-  String get america_argentina_salta => 'America / Argentina / Salta';
+  String get america_argentina_salta => 'América / Argentina / Salta';
 
   @override
-  String get america_argentina_san_juan => 'America / Argentina / San Juan';
+  String get america_argentina_san_juan => 'América / Argentina / San Juan';
 
   @override
-  String get america_argentina_san_luis => 'America / Argentina / San Luis';
+  String get america_argentina_san_luis => 'América / Argentina / San Luis';
 
   @override
-  String get america_argentina_tucuman => 'America / Argentina / Tucuman';
+  String get america_argentina_tucuman => 'América / Argentina / Tucumán';
 
   @override
-  String get america_argentina_ushuaia => 'America / Argentina / Ushuaia';
+  String get america_argentina_ushuaia => 'América / Argentina / Ushuaia';
 
   @override
-  String get america_asuncion => 'America / Asuncion';
+  String get america_asuncion => 'América / Asunción';
 
   @override
-  String get america_bahia => 'America / Bahia';
+  String get america_bahia => 'América / Bahía';
 
   @override
-  String get america_bahia_banderas => 'America / Bahia Banderas';
+  String get america_bahia_banderas => 'América / Bahía Banderas';
 
   @override
-  String get america_barbados => 'America / Barbados';
+  String get america_barbados => 'América / Barbados';
 
   @override
-  String get america_belem => 'America / Belem';
+  String get america_belem => 'América / Belém';
 
   @override
-  String get america_belize => 'America / Belize';
+  String get america_belize => 'América / Belice';
 
   @override
-  String get america_boa_vista => 'America / Boa Vista';
+  String get america_boa_vista => 'América / Boa Vista';
 
   @override
-  String get america_bogota => 'America / Bogota';
+  String get america_bogota => 'América / Bogotá';
 
   @override
-  String get america_boise => 'America / Boise';
+  String get america_boise => 'América / Boise';
 
   @override
-  String get america_cambridge_bay => 'America / Cambridge Bay';
+  String get america_cambridge_bay => 'América / Cambridge Bay';
 
   @override
-  String get america_campo_grande => 'America / Campo Grande';
+  String get america_campo_grande => 'América / Campo Grande';
 
   @override
-  String get america_cancun => 'America / Cancun';
+  String get america_cancun => 'América / Cancún';
 
   @override
-  String get america_caracas => 'America / Caracas';
+  String get america_caracas => 'América / Caracas';
 
   @override
-  String get america_cayenne => 'America / Cayenne';
+  String get america_cayenne => 'América / Cayena';
 
   @override
-  String get america_chicago => 'America / Chicago';
+  String get america_chicago => 'América / Chicago';
 
   @override
-  String get america_chihuahua => 'America / Chihuahua';
+  String get america_chihuahua => 'América / Chihuahua';
 
   @override
-  String get america_ciudad_juarez => 'America / Ciudad Juarez';
+  String get america_ciudad_juarez => 'América / Ciudad Juárez';
 
   @override
-  String get america_costa_rica => 'America / Costa Rica';
+  String get america_costa_rica => 'América / Costa Rica';
 
   @override
-  String get america_coyhaique => 'America / Coyhaique';
+  String get america_coyhaique => 'América / Coyhaique';
 
   @override
-  String get america_cuiaba => 'America / Cuiaba';
+  String get america_cuiaba => 'América / Cuiabá';
 
   @override
-  String get america_danmarkshavn => 'America / Danmarkshavn';
+  String get america_danmarkshavn => 'América / Danmarkshavn';
 
   @override
-  String get america_dawson => 'America / Dawson';
+  String get america_dawson => 'América / Dawson';
 
   @override
-  String get america_dawson_creek => 'America / Dawson Creek';
+  String get america_dawson_creek => 'América / Dawson Creek';
 
   @override
-  String get america_denver => 'America / Denver';
+  String get america_denver => 'América / Denver';
 
   @override
-  String get america_detroit => 'America / Detroit';
+  String get america_detroit => 'América / Detroit';
 
   @override
-  String get america_edmonton => 'America / Edmonton';
+  String get america_edmonton => 'América / Edmonton';
 
   @override
-  String get america_eirunepe => 'America / Eirunepe';
+  String get america_eirunepe => 'América / Eirunepé';
 
   @override
-  String get america_el_salvador => 'America / El Salvador';
+  String get america_el_salvador => 'América / El Salvador';
 
   @override
-  String get america_fort_nelson => 'America / Fort Nelson';
+  String get america_fort_nelson => 'América / Fort Nelson';
 
   @override
-  String get america_fortaleza => 'America / Fortaleza';
+  String get america_fortaleza => 'América / Fortaleza';
 
   @override
-  String get america_glace_bay => 'America / Glace Bay';
+  String get america_glace_bay => 'América / Glace Bay';
 
   @override
-  String get america_goose_bay => 'America / Goose Bay';
+  String get america_goose_bay => 'América / Goose Bay';
 
   @override
-  String get america_grand_turk => 'America / Grand Turk';
+  String get america_grand_turk => 'América / Gran Turca';
 
   @override
-  String get america_guatemala => 'America / Guatemala';
+  String get america_guatemala => 'América / Guatemala';
 
   @override
-  String get america_guayaquil => 'America / Guayaquil';
+  String get america_guayaquil => 'América / Guayaquil';
 
   @override
-  String get america_guyana => 'America / Guyana';
+  String get america_guyana => 'América / Guyana';
 
   @override
-  String get america_halifax => 'America / Halifax';
+  String get america_halifax => 'América / Halifax';
 
   @override
-  String get america_havana => 'America / Havana';
+  String get america_havana => 'América / La Habana';
 
   @override
-  String get america_hermosillo => 'America / Hermosillo';
+  String get america_hermosillo => 'América / Hermosillo';
 
   @override
-  String get america_indiana_indianapolis => 'America / Indiana / Indianapolis';
+  String get america_indiana_indianapolis => 'América / Indiana / Indianápolis';
 
   @override
-  String get america_indiana_knox => 'America / Indiana / Knox';
+  String get america_indiana_knox => 'América / Indiana / Knox';
 
   @override
-  String get america_indiana_marengo => 'America / Indiana / Marengo';
+  String get america_indiana_marengo => 'América / Indiana / Marengo';
 
   @override
-  String get america_indiana_petersburg => 'America / Indiana / Petersburg';
+  String get america_indiana_petersburg => 'América / Indiana / Petersburg';
 
   @override
-  String get america_indiana_tell_city => 'America / Indiana / Tell City';
+  String get america_indiana_tell_city => 'América / Indiana / Tell City';
 
   @override
-  String get america_indiana_vevay => 'America / Indiana / Vevay';
+  String get america_indiana_vevay => 'América / Indiana / Vevay';
 
   @override
-  String get america_indiana_vincennes => 'America / Indiana / Vincennes';
+  String get america_indiana_vincennes => 'América / Indiana / Vincennes';
 
   @override
-  String get america_indiana_winamac => 'America / Indiana / Winamac';
+  String get america_indiana_winamac => 'América / Indiana / Winamac';
 
   @override
-  String get america_inuvik => 'America / Inuvik';
+  String get america_inuvik => 'América / Inuvik';
 
   @override
-  String get america_iqaluit => 'America / Iqaluit';
+  String get america_iqaluit => 'América / Iqaluit';
 
   @override
-  String get america_jamaica => 'America / Jamaica';
+  String get america_jamaica => 'América / Jamaica';
 
   @override
-  String get america_juneau => 'America / Juneau';
+  String get america_juneau => 'América / Juneau';
 
   @override
-  String get america_kentucky_louisville => 'America / Kentucky / Louisville';
+  String get america_kentucky_louisville => 'América / Kentucky / Louisville';
 
   @override
-  String get america_kentucky_monticello => 'America / Kentucky / Monticello';
+  String get america_kentucky_monticello => 'América / Kentucky / Monticello';
 
   @override
-  String get america_la_paz => 'America / La Paz';
+  String get america_la_paz => 'América / La Paz';
 
   @override
-  String get america_lima => 'America / Lima';
+  String get america_lima => 'América / Lima';
 
   @override
-  String get america_los_angeles => 'America / Los Angeles';
+  String get america_los_angeles => 'América / Los Ángeles';
 
   @override
-  String get america_maceio => 'America / Maceio';
+  String get america_maceio => 'América / Maceió';
 
   @override
-  String get america_managua => 'America / Managua';
+  String get america_managua => 'América / Managua';
 
   @override
-  String get america_manaus => 'America / Manaus';
+  String get america_manaus => 'América / Manaos';
 
   @override
-  String get america_martinique => 'America / Martinique';
+  String get america_martinique => 'América / Martinica';
 
   @override
-  String get america_matamoros => 'America / Matamoros';
+  String get america_matamoros => 'América / Matamoros';
 
   @override
-  String get america_mazatlan => 'America / Mazatlan';
+  String get america_mazatlan => 'América / Mazatlán';
 
   @override
-  String get america_menominee => 'America / Menominee';
+  String get america_menominee => 'América / Menominee';
 
   @override
-  String get america_merida => 'America / Merida';
+  String get america_merida => 'América / Mérida';
 
   @override
-  String get america_metlakatla => 'America / Metlakatla';
+  String get america_metlakatla => 'América / Metlakatla';
 
   @override
-  String get america_mexico_city => 'America / Mexico City';
+  String get america_mexico_city => 'América / Ciudad de México';
 
   @override
-  String get america_miquelon => 'America / Miquelon';
+  String get america_miquelon => 'América / Miquelon';
 
   @override
-  String get america_moncton => 'America / Moncton';
+  String get america_moncton => 'América / Moncton';
 
   @override
-  String get america_monterrey => 'America / Monterrey';
+  String get america_monterrey => 'América / Monterrey';
 
   @override
-  String get america_montevideo => 'America / Montevideo';
+  String get america_montevideo => 'América / Montevideo';
 
   @override
-  String get america_new_york => 'America / New York';
+  String get america_new_york => 'América / Nueva York';
 
   @override
-  String get america_nome => 'America / Nome';
+  String get america_nome => 'América / Nome';
 
   @override
-  String get america_noronha => 'America / Noronha';
+  String get america_noronha => 'América / Noronha';
 
   @override
-  String get america_north_dakota_beulah => 'America / North Dakota / Beulah';
+  String get america_north_dakota_beulah =>
+      'América / Dakota del Norte / Beulah';
 
   @override
-  String get america_north_dakota_center => 'America / North Dakota / Center';
+  String get america_north_dakota_center =>
+      'América / Dakota del Norte / Center';
 
   @override
   String get america_north_dakota_new_salem =>
-      'America / North Dakota / New Salem';
+      'América / Dakota del Norte / New Salem';
 
   @override
-  String get america_nuuk => 'America / Nuuk';
+  String get america_nuuk => 'América / Nuuk';
 
   @override
-  String get america_ojinaga => 'America / Ojinaga';
+  String get america_ojinaga => 'América / Ojinaga';
 
   @override
-  String get america_panama => 'America / Panama';
+  String get america_panama => 'América / Panamá';
 
   @override
-  String get america_paramaribo => 'America / Paramaribo';
+  String get america_paramaribo => 'América / Paramaribo';
 
   @override
-  String get america_phoenix => 'America / Phoenix';
+  String get america_phoenix => 'América / Phoenix';
 
   @override
-  String get america_port_au_prince => 'America / Port-au-Prince';
+  String get america_port_au_prince => 'América / Puerto Príncipe';
 
   @override
-  String get america_porto_velho => 'America / Porto Velho';
+  String get america_porto_velho => 'América / Porto Velho';
 
   @override
-  String get america_puerto_rico => 'America / Puerto Rico';
+  String get america_puerto_rico => 'América / Puerto Rico';
 
   @override
-  String get america_punta_arenas => 'America / Punta Arenas';
+  String get america_punta_arenas => 'América / Punta Arenas';
 
   @override
-  String get america_rankin_inlet => 'America / Rankin Inlet';
+  String get america_rankin_inlet => 'América / Rankin Inlet';
 
   @override
-  String get america_recife => 'America / Recife';
+  String get america_recife => 'América / Recife';
 
   @override
-  String get america_regina => 'America / Regina';
+  String get america_regina => 'América / Regina';
 
   @override
-  String get america_resolute => 'America / Resolute';
+  String get america_resolute => 'América / Resolute';
 
   @override
-  String get america_rio_branco => 'America / Rio Branco';
+  String get america_rio_branco => 'América / Río Branco';
 
   @override
-  String get america_santarem => 'America / Santarem';
+  String get america_santarem => 'América / Santarém';
 
   @override
-  String get america_santiago => 'America / Santiago';
+  String get america_santiago => 'América / Santiago';
 
   @override
-  String get america_santo_domingo => 'America / Santo Domingo';
+  String get america_santo_domingo => 'América / Santo Domingo';
 
   @override
-  String get america_sao_paulo => 'America / Sao Paulo';
+  String get america_sao_paulo => 'América / São Paulo';
 
   @override
-  String get america_scoresbysund => 'America / Scoresbysund';
+  String get america_scoresbysund => 'América / Scoresbysund';
 
   @override
-  String get america_sitka => 'America / Sitka';
+  String get america_sitka => 'América / Sitka';
 
   @override
-  String get america_st_johns => 'America / St Johns';
+  String get america_st_johns => 'América / St Johns';
 
   @override
-  String get america_swift_current => 'America / Swift Current';
+  String get america_swift_current => 'América / Swift Current';
 
   @override
-  String get america_tegucigalpa => 'America / Tegucigalpa';
+  String get america_tegucigalpa => 'América / Tegucigalpa';
 
   @override
-  String get america_thule => 'America / Thule';
+  String get america_thule => 'América / Thule';
 
   @override
-  String get america_tijuana => 'America / Tijuana';
+  String get america_tijuana => 'América / Tijuana';
 
   @override
-  String get america_toronto => 'America / Toronto';
+  String get america_toronto => 'América / Toronto';
 
   @override
-  String get america_vancouver => 'America / Vancouver';
+  String get america_vancouver => 'América / Vancouver';
 
   @override
-  String get america_whitehorse => 'America / Whitehorse';
+  String get america_whitehorse => 'América / Whitehorse';
 
   @override
-  String get america_winnipeg => 'America / Winnipeg';
+  String get america_winnipeg => 'América / Winnipeg';
 
   @override
-  String get america_yakutat => 'America / Yakutat';
+  String get america_yakutat => 'América / Yakutat';
 
   @override
-  String get antarctica_casey => 'Antarctica / Casey';
+  String get antarctica_casey => 'Antártida / Casey';
 
   @override
-  String get antarctica_davis => 'Antarctica / Davis';
+  String get antarctica_davis => 'Antártida / Davis';
 
   @override
-  String get antarctica_macquarie => 'Antarctica / Macquarie';
+  String get antarctica_macquarie => 'Antártida / Macquarie';
 
   @override
-  String get antarctica_mawson => 'Antarctica / Mawson';
+  String get antarctica_mawson => 'Antártida / Mawson';
 
   @override
-  String get antarctica_palmer => 'Antarctica / Palmer';
+  String get antarctica_palmer => 'Antártida / Palmer';
 
   @override
-  String get antarctica_rothera => 'Antarctica / Rothera';
+  String get antarctica_rothera => 'Antártida / Rothera';
 
   @override
-  String get antarctica_troll => 'Antarctica / Troll';
+  String get antarctica_troll => 'Antártida / Troll';
 
   @override
-  String get antarctica_vostok => 'Antarctica / Vostok';
+  String get antarctica_vostok => 'Antártida / Vostok';
 
   @override
   String get asia_almaty => 'Asia / Almaty';
 
   @override
-  String get asia_amman => 'Asia / Amman';
+  String get asia_amman => 'Asia / Amán';
 
   @override
   String get asia_anadyr => 'Asia / Anadyr';
@@ -480,10 +482,10 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get asia_atyrau => 'Asia / Atyrau';
 
   @override
-  String get asia_baghdad => 'Asia / Baghdad';
+  String get asia_baghdad => 'Asia / Bagdad';
 
   @override
-  String get asia_baku => 'Asia / Baku';
+  String get asia_baku => 'Asia / Bakú';
 
   @override
   String get asia_bangkok => 'Asia / Bangkok';
@@ -504,19 +506,19 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get asia_colombo => 'Asia / Colombo';
 
   @override
-  String get asia_damascus => 'Asia / Damascus';
+  String get asia_damascus => 'Asia / Damasco';
 
   @override
-  String get asia_dhaka => 'Asia / Dhaka';
+  String get asia_dhaka => 'Asia / Daca';
 
   @override
   String get asia_dili => 'Asia / Dili';
 
   @override
-  String get asia_dubai => 'Asia / Dubai';
+  String get asia_dubai => 'Asia / Dubái';
 
   @override
-  String get asia_dushanbe => 'Asia / Dushanbe';
+  String get asia_dushanbe => 'Asia / Dusambé';
 
   @override
   String get asia_famagusta => 'Asia / Famagusta';
@@ -525,7 +527,7 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get asia_gaza => 'Asia / Gaza';
 
   @override
-  String get asia_hebron => 'Asia / Hebron';
+  String get asia_hebron => 'Asia / Hebrón';
 
   @override
   String get asia_ho_chi_minh => 'Asia / Ho Chi Minh';
@@ -540,13 +542,13 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get asia_irkutsk => 'Asia / Irkutsk';
 
   @override
-  String get asia_jakarta => 'Asia / Jakarta';
+  String get asia_jakarta => 'Asia / Yakarta';
 
   @override
   String get asia_jayapura => 'Asia / Jayapura';
 
   @override
-  String get asia_jerusalem => 'Asia / Jerusalem';
+  String get asia_jerusalem => 'Asia / Jerusalén';
 
   @override
   String get asia_kabul => 'Asia / Kabul';
@@ -558,7 +560,7 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get asia_karachi => 'Asia / Karachi';
 
   @override
-  String get asia_kathmandu => 'Asia / Kathmandu';
+  String get asia_kathmandu => 'Asia / Katmandú';
 
   @override
   String get asia_khandyga => 'Asia / Khandyga';
@@ -573,13 +575,13 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get asia_kuching => 'Asia / Kuching';
 
   @override
-  String get asia_macau => 'Asia / Macau';
+  String get asia_macau => 'Asia / Macao';
 
   @override
-  String get asia_magadan => 'Asia / Magadan';
+  String get asia_magadan => 'Asia / Magadán';
 
   @override
-  String get asia_makassar => 'Asia / Makassar';
+  String get asia_makassar => 'Asia / Makasar';
 
   @override
   String get asia_manila => 'Asia / Manila';
@@ -603,7 +605,7 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get asia_pontianak => 'Asia / Pontianak';
 
   @override
-  String get asia_pyongyang => 'Asia / Pyongyang';
+  String get asia_pyongyang => 'Asia / Pionyang';
 
   @override
   String get asia_qatar => 'Asia / Qatar';
@@ -615,49 +617,49 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get asia_qyzylorda => 'Asia / Qyzylorda';
 
   @override
-  String get asia_riyadh => 'Asia / Riyadh';
+  String get asia_riyadh => 'Asia / Riad';
 
   @override
-  String get asia_sakhalin => 'Asia / Sakhalin';
+  String get asia_sakhalin => 'Asia / Sajalín';
 
   @override
-  String get asia_samarkand => 'Asia / Samarkand';
+  String get asia_samarkand => 'Asia / Samarcanda';
 
   @override
-  String get asia_seoul => 'Asia / Seoul';
+  String get asia_seoul => 'Asia / Seúl';
 
   @override
-  String get asia_shanghai => 'Asia / Shanghai';
+  String get asia_shanghai => 'Asia / Shanghái';
 
   @override
-  String get asia_singapore => 'Asia / Singapore';
+  String get asia_singapore => 'Asia / Singapur';
 
   @override
   String get asia_srednekolymsk => 'Asia / Srednekolymsk';
 
   @override
-  String get asia_taipei => 'Asia / Taipei';
+  String get asia_taipei => 'Asia / Taipéi';
 
   @override
-  String get asia_tashkent => 'Asia / Tashkent';
+  String get asia_tashkent => 'Asia / Taskent';
 
   @override
-  String get asia_tbilisi => 'Asia / Tbilisi';
+  String get asia_tbilisi => 'Asia / Tiflis';
 
   @override
-  String get asia_tehran => 'Asia / Tehran';
+  String get asia_tehran => 'Asia / Teherán';
 
   @override
   String get asia_thimphu => 'Asia / Thimphu';
 
   @override
-  String get asia_tokyo => 'Asia / Tokyo';
+  String get asia_tokyo => 'Asia / Tokio';
 
   @override
   String get asia_tomsk => 'Asia / Tomsk';
 
   @override
-  String get asia_ulaanbaatar => 'Asia / Ulaanbaatar';
+  String get asia_ulaanbaatar => 'Asia / Ulán Bator';
 
   @override
   String get asia_urumqi => 'Asia / Urumqi';
@@ -675,37 +677,37 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get asia_yangon => 'Asia / Yangon';
 
   @override
-  String get asia_yekaterinburg => 'Asia / Yekaterinburg';
+  String get asia_yekaterinburg => 'Asia / Ekaterimburgo';
 
   @override
-  String get asia_yerevan => 'Asia / Yerevan';
+  String get asia_yerevan => 'Asia / Ereván';
 
   @override
-  String get atlantic_azores => 'Atlantic / Azores';
+  String get atlantic_azores => 'Atlántico / Azores';
 
   @override
-  String get atlantic_bermuda => 'Atlantic / Bermuda';
+  String get atlantic_bermuda => 'Atlántico / Bermudas';
 
   @override
-  String get atlantic_canary => 'Atlantic / Canary';
+  String get atlantic_canary => 'Atlántico / Canarias';
 
   @override
-  String get atlantic_cape_verde => 'Atlantic / Cape Verde';
+  String get atlantic_cape_verde => 'Atlántico / Cabo Verde';
 
   @override
-  String get atlantic_faroe => 'Atlantic / Faroe';
+  String get atlantic_faroe => 'Atlántico / Islas Feroe';
 
   @override
-  String get atlantic_madeira => 'Atlantic / Madeira';
+  String get atlantic_madeira => 'Atlántico / Madeira';
 
   @override
-  String get atlantic_south_georgia => 'Atlantic / South Georgia';
+  String get atlantic_south_georgia => 'Atlántico / Georgia del Sur';
 
   @override
-  String get atlantic_stanley => 'Atlantic / Stanley';
+  String get atlantic_stanley => 'Atlántico / Stanley';
 
   @override
-  String get australia_adelaide => 'Australia / Adelaide';
+  String get australia_adelaide => 'Australia / Adelaida';
 
   @override
   String get australia_brisbane => 'Australia / Brisbane';
@@ -735,7 +737,7 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get australia_perth => 'Australia / Perth';
 
   @override
-  String get australia_sydney => 'Australia / Sydney';
+  String get australia_sydney => 'Australia / Sídney';
 
   @override
   String get etc_gmt => 'Etc / GMT';
@@ -822,218 +824,218 @@ class TimezonesLocalizationsEs extends TimezonesLocalizations {
   String get etc_utc => 'Etc / UTC';
 
   @override
-  String get europe_andorra => 'Europe / Andorra';
+  String get europe_andorra => 'Europa / Andorra';
 
   @override
-  String get europe_astrakhan => 'Europe / Astrakhan';
+  String get europe_astrakhan => 'Europa / Astrakhan';
 
   @override
-  String get europe_athens => 'Europe / Athens';
+  String get europe_athens => 'Europa / Atenas';
 
   @override
-  String get europe_belgrade => 'Europe / Belgrade';
+  String get europe_belgrade => 'Europa / Belgrado';
 
   @override
-  String get europe_berlin => 'Europe / Berlin';
+  String get europe_berlin => 'Europa / Berlín';
 
   @override
-  String get europe_brussels => 'Europe / Brussels';
+  String get europe_brussels => 'Europa / Bruselas';
 
   @override
-  String get europe_bucharest => 'Europe / Bucharest';
+  String get europe_bucharest => 'Europa / Bucarest';
 
   @override
-  String get europe_budapest => 'Europe / Budapest';
+  String get europe_budapest => 'Europa / Budapest';
 
   @override
-  String get europe_chisinau => 'Europe / Chisinau';
+  String get europe_chisinau => 'Europa / Chisináu';
 
   @override
-  String get europe_dublin => 'Europe / Dublin';
+  String get europe_dublin => 'Europa / Dublín';
 
   @override
-  String get europe_gibraltar => 'Europe / Gibraltar';
+  String get europe_gibraltar => 'Europa / Gibraltar';
 
   @override
-  String get europe_helsinki => 'Europe / Helsinki';
+  String get europe_helsinki => 'Europa / Helsinki';
 
   @override
-  String get europe_istanbul => 'Europe / Istanbul';
+  String get europe_istanbul => 'Europa / Estambul';
 
   @override
-  String get europe_kaliningrad => 'Europe / Kaliningrad';
+  String get europe_kaliningrad => 'Europa / Kaliningrado';
 
   @override
-  String get europe_kirov => 'Europe / Kirov';
+  String get europe_kirov => 'Europa / Kirov';
 
   @override
-  String get europe_kyiv => 'Europe / Kyiv';
+  String get europe_kyiv => 'Europa / Kiev';
 
   @override
-  String get europe_lisbon => 'Europe / Lisbon';
+  String get europe_lisbon => 'Europa / Lisboa';
 
   @override
-  String get europe_london => 'Europe / London';
+  String get europe_london => 'Europa / Londres';
 
   @override
-  String get europe_madrid => 'Europe / Madrid';
+  String get europe_madrid => 'Europa / Madrid';
 
   @override
-  String get europe_malta => 'Europe / Malta';
+  String get europe_malta => 'Europa / Malta';
 
   @override
-  String get europe_minsk => 'Europe / Minsk';
+  String get europe_minsk => 'Europa / Minsk';
 
   @override
-  String get europe_moscow => 'Europe / Moscow';
+  String get europe_moscow => 'Europa / Moscú';
 
   @override
-  String get europe_paris => 'Europe / Paris';
+  String get europe_paris => 'Europa / París';
 
   @override
-  String get europe_prague => 'Europe / Prague';
+  String get europe_prague => 'Europa / Praga';
 
   @override
-  String get europe_riga => 'Europe / Riga';
+  String get europe_riga => 'Europa / Riga';
 
   @override
-  String get europe_rome => 'Europe / Rome';
+  String get europe_rome => 'Europa / Roma';
 
   @override
-  String get europe_samara => 'Europe / Samara';
+  String get europe_samara => 'Europa / Samara';
 
   @override
-  String get europe_saratov => 'Europe / Saratov';
+  String get europe_saratov => 'Europa / Saratov';
 
   @override
-  String get europe_simferopol => 'Europe / Simferopol';
+  String get europe_simferopol => 'Europa / Simferópol';
 
   @override
-  String get europe_sofia => 'Europe / Sofia';
+  String get europe_sofia => 'Europa / Sofía';
 
   @override
-  String get europe_tallinn => 'Europe / Tallinn';
+  String get europe_tallinn => 'Europa / Tallin';
 
   @override
-  String get europe_tirane => 'Europe / Tirane';
+  String get europe_tirane => 'Europa / Tirana';
 
   @override
-  String get europe_ulyanovsk => 'Europe / Ulyanovsk';
+  String get europe_ulyanovsk => 'Europa / Uliánovsk';
 
   @override
-  String get europe_vienna => 'Europe / Vienna';
+  String get europe_vienna => 'Europa / Viena';
 
   @override
-  String get europe_vilnius => 'Europe / Vilnius';
+  String get europe_vilnius => 'Europa / Vilna';
 
   @override
-  String get europe_volgograd => 'Europe / Volgograd';
+  String get europe_volgograd => 'Europa / Volgogrado';
 
   @override
-  String get europe_warsaw => 'Europe / Warsaw';
+  String get europe_warsaw => 'Europa / Varsovia';
 
   @override
-  String get europe_zurich => 'Europe / Zurich';
+  String get europe_zurich => 'Europa / Zúrich';
 
   @override
-  String get factory => 'Factory';
+  String get factory => 'Fábrica';
 
   @override
-  String get indian_chagos => 'Indian / Chagos';
+  String get indian_chagos => 'Índico / Chagos';
 
   @override
-  String get indian_maldives => 'Indian / Maldives';
+  String get indian_maldives => 'Índico / Maldivas';
 
   @override
-  String get indian_mauritius => 'Indian / Mauritius';
+  String get indian_mauritius => 'Índico / Mauricio';
 
   @override
-  String get pacific_apia => 'Pacific / Apia';
+  String get pacific_apia => 'Pacífico / Apia';
 
   @override
-  String get pacific_auckland => 'Pacific / Auckland';
+  String get pacific_auckland => 'Pacífico / Auckland';
 
   @override
-  String get pacific_bougainville => 'Pacific / Bougainville';
+  String get pacific_bougainville => 'Pacífico / Bougainville';
 
   @override
-  String get pacific_chatham => 'Pacific / Chatham';
+  String get pacific_chatham => 'Pacífico / Chatham';
 
   @override
-  String get pacific_easter => 'Pacific / Easter';
+  String get pacific_easter => 'Pacífico / Pascua';
 
   @override
-  String get pacific_efate => 'Pacific / Efate';
+  String get pacific_efate => 'Pacífico / Éfaté';
 
   @override
-  String get pacific_fakaofo => 'Pacific / Fakaofo';
+  String get pacific_fakaofo => 'Pacífico / Fakaofo';
 
   @override
-  String get pacific_fiji => 'Pacific / Fiji';
+  String get pacific_fiji => 'Pacífico / Fiyi';
 
   @override
-  String get pacific_galapagos => 'Pacific / Galapagos';
+  String get pacific_galapagos => 'Pacífico / Galápagos';
 
   @override
-  String get pacific_gambier => 'Pacific / Gambier';
+  String get pacific_gambier => 'Pacífico / Gambier';
 
   @override
-  String get pacific_guadalcanal => 'Pacific / Guadalcanal';
+  String get pacific_guadalcanal => 'Pacífico / Guadalcanal';
 
   @override
-  String get pacific_guam => 'Pacific / Guam';
+  String get pacific_guam => 'Pacífico / Guam';
 
   @override
-  String get pacific_honolulu => 'Pacific / Honolulu';
+  String get pacific_honolulu => 'Pacífico / Honolulu';
 
   @override
-  String get pacific_kanton => 'Pacific / Kanton';
+  String get pacific_kanton => 'Pacífico / Kanton';
 
   @override
-  String get pacific_kiritimati => 'Pacific / Kiritimati';
+  String get pacific_kiritimati => 'Pacífico / Kiritimati';
 
   @override
-  String get pacific_kosrae => 'Pacific / Kosrae';
+  String get pacific_kosrae => 'Pacífico / Kosrae';
 
   @override
-  String get pacific_kwajalein => 'Pacific / Kwajalein';
+  String get pacific_kwajalein => 'Pacífico / Kwajalein';
 
   @override
-  String get pacific_marquesas => 'Pacific / Marquesas';
+  String get pacific_marquesas => 'Pacífico / Marquesas';
 
   @override
-  String get pacific_nauru => 'Pacific / Nauru';
+  String get pacific_nauru => 'Pacífico / Nauru';
 
   @override
-  String get pacific_niue => 'Pacific / Niue';
+  String get pacific_niue => 'Pacífico / Niue';
 
   @override
-  String get pacific_norfolk => 'Pacific / Norfolk';
+  String get pacific_norfolk => 'Pacífico / Norfolk';
 
   @override
-  String get pacific_noumea => 'Pacific / Noumea';
+  String get pacific_noumea => 'Pacífico / Numea';
 
   @override
-  String get pacific_pago_pago => 'Pacific / Pago Pago';
+  String get pacific_pago_pago => 'Pacífico / Pago Pago';
 
   @override
-  String get pacific_palau => 'Pacific / Palau';
+  String get pacific_palau => 'Pacífico / Palaos';
 
   @override
-  String get pacific_pitcairn => 'Pacific / Pitcairn';
+  String get pacific_pitcairn => 'Pacífico / Pitcairn';
 
   @override
-  String get pacific_port_moresby => 'Pacific / Port Moresby';
+  String get pacific_port_moresby => 'Pacífico / Port Moresby';
 
   @override
-  String get pacific_rarotonga => 'Pacific / Rarotonga';
+  String get pacific_rarotonga => 'Pacífico / Rarotonga';
 
   @override
-  String get pacific_tahiti => 'Pacific / Tahiti';
+  String get pacific_tahiti => 'Pacífico / Tahití';
 
   @override
-  String get pacific_tarawa => 'Pacific / Tarawa';
+  String get pacific_tarawa => 'Pacífico / Tarawa';
 
   @override
-  String get pacific_tongatapu => 'Pacific / Tongatapu';
+  String get pacific_tongatapu => 'Pacífico / Tongatapu';
 }
