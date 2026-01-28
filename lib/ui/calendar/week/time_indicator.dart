@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:hamewari/calendar/date_factory.dart';
 import 'package:hamewari/main.dart';
-import 'package:hamewari/theme/app_theme.dart';
+import 'package:hamewari/providers/settings_provider.dart';
 
 class TimeIndicator extends StatelessWidget {
   const TimeIndicator({super.key});
 
   @override
   Widget build(BuildContext context) {
-    AppTheme appTheme = context.appTheme;
-    final now = DateTime.now();
+    final appTheme = context.appTheme;
+    final settingsProvider = SettingsProvider.of(context);
+
+    final now = DateFactory.buildNow(
+      settingsProvider.calendar,
+      settingsProvider.timezone,
+    );
 
     return Row(
       children: [

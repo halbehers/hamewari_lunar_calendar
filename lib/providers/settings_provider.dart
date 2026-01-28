@@ -7,7 +7,7 @@ import 'package:hamewari/db/models/setting.dart';
 import 'package:hamewari/db/services/settings_service.dart';
 import 'package:hamewari/l10n/general/general_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:timezone/data/latest.dart';
+import 'package:timezone/data/latest_all.dart';
 import 'package:timezone/timezone.dart';
 
 class SettingsProvider extends ChangeNotifier {

@@ -2,9 +2,18 @@ import 'dart:ui';
 
 import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/calendar/year_zero/year_zero_date_formatter.dart';
+import 'package:hamewari/providers/settings_provider.dart';
+import 'package:timezone/timezone.dart';
 
 class YearZeroDate extends Date<YearZeroDate> {
-  YearZeroDate(super.year, [super.month, super.day, super.hour, super.minute]) {
+  YearZeroDate(
+    super.timezone,
+    super.year, [
+    super.month,
+    super.day,
+    super.hour,
+    super.minute,
+  ]) {
     _validate();
   }
 
@@ -25,23 +34,24 @@ class YearZeroDate extends Date<YearZeroDate> {
 
   @override
   YearZeroDate newInstance(
+    SettingTimezone timezone,
     int year, [
     int month = 1,
     int day = 1,
     int hour = 0,
     int minute = 0,
   ]) {
-    return YearZeroDate(year, month, day, hour, minute);
+    return YearZeroDate(timezone, year, month, day, hour, minute);
   }
 
-  factory YearZeroDate.now() {
+  factory YearZeroDate.now(SettingTimezone? timezone) {
     final now = DateTime.now().toUtc();
-    return fromGregorian(now);
+    return fromDateTime(now, timezone);
   }
 
   @override
   YearZeroDate get now {
-    return YearZeroDate.now();
+    return YearZeroDate.now(timezone);
   }
 
   @override
@@ -68,8 +78,8 @@ class YearZeroDate extends Date<YearZeroDate> {
   @override
   List<OutOfCalendarDayBounds<YearZeroDate>> get outOfCalendarDaysBounds => [
     OutOfCalendarDayBounds(
-      YearZeroDate(year, 13, 28),
-      YearZeroDate(year + 1, 1, 1),
+      YearZeroDate(timezone, year, 13, 28),
+      YearZeroDate(timezone, year + 1, 1, 1),
     ),
   ];
 
@@ -90,18 +100,33 @@ class YearZeroDate extends Date<YearZeroDate> {
     return year % 4 == 0;
   }
 
-  static YearZeroDate fromGregorian(DateTime dt) {
-    final yearZero = dt.year - 2028;
+  static YearZeroDate fromDateTime(DateTime dt, SettingTimezone? timezone) {
+    late DateTime computedDateTime;
+
+    if (timezone == null || timezone.isEmpty()) {
+      computedDateTime = dt;
+    } else {
+      computedDateTime = TZDateTime.from(dt, timezone.location!);
+    }
+
+    final yearZero = computedDateTime.year - 2028;
 
     // Days since winter solstice (Dec 21)
-    final solstice = DateTime.utc(dt.year - 1, 12, 21);
+    final solstice = DateTime.utc(computedDateTime.year - 1, 12, 21);
     final daysSince = dt.difference(solstice).inDays;
 
     final dayIndex = daysSince % 364;
     final month = (dayIndex ~/ 28) + 1;
     final day = (dayIndex % 28) + 1;
 
-    return YearZeroDate(yearZero, month, day, dt.hour, dt.minute);
+    return YearZeroDate(
+      timezone ?? SettingTimezone.empty,
+      yearZero,
+      month,
+      day,
+      computedDateTime.hour,
+      computedDateTime.minute,
+    );
   }
 
   @override

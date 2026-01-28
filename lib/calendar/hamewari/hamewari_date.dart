@@ -2,9 +2,18 @@ import 'dart:ui';
 
 import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/calendar/hamewari/hamewari_date_formatter.dart';
+import 'package:hamewari/providers/settings_provider.dart';
+import 'package:timezone/timezone.dart';
 
 class HamewariDate extends Date<HamewariDate> {
-  HamewariDate(super.year, [super.month, super.day, super.hour, super.minute]) {
+  HamewariDate(
+    super.timezone,
+    super.year, [
+    super.month,
+    super.day,
+    super.hour,
+    super.minute,
+  ]) {
     _validate();
   }
 
@@ -25,23 +34,24 @@ class HamewariDate extends Date<HamewariDate> {
 
   @override
   HamewariDate newInstance(
+    SettingTimezone timezone,
     int year, [
     int month = 1,
     int day = 1,
     int hour = 0,
     int minute = 0,
   ]) {
-    return HamewariDate(year, month, day, hour, minute);
+    return HamewariDate(timezone, year, month, day, hour, minute);
   }
 
-  factory HamewariDate.now() {
+  factory HamewariDate.now(SettingTimezone? timezone) {
     final now = DateTime.now().toUtc();
-    return fromGregorian(now);
+    return fromDateTime(now, timezone);
   }
 
   @override
   HamewariDate get now {
-    return HamewariDate.now();
+    return HamewariDate.now(timezone);
   }
 
   @override
@@ -68,8 +78,8 @@ class HamewariDate extends Date<HamewariDate> {
   @override
   List<OutOfCalendarDayBounds<HamewariDate>> get outOfCalendarDaysBounds => [
     OutOfCalendarDayBounds(
-      HamewariDate(year, 13, 28),
-      HamewariDate(year + 1, 1, 1),
+      HamewariDate(timezone, year, 13, 28),
+      HamewariDate(timezone, year + 1, 1, 1),
     ),
   ];
 
@@ -90,18 +100,33 @@ class HamewariDate extends Date<HamewariDate> {
     return year % 4 == 0;
   }
 
-  static HamewariDate fromGregorian(DateTime dt) {
-    final yearZero = dt.year - 1;
+  static HamewariDate fromDateTime(DateTime dt, SettingTimezone? timezone) {
+    late DateTime computedDateTime;
+
+    if (timezone == null || timezone.isEmpty()) {
+      computedDateTime = dt;
+    } else {
+      computedDateTime = TZDateTime.from(dt, timezone.location!);
+    }
+
+    final yearZero = computedDateTime.year - 1;
 
     // Days since start of spring (Mar 20)
-    final solstice = DateTime.utc(dt.year - 1, 3, 20);
-    final daysSince = dt.difference(solstice).inDays;
+    final solstice = DateTime.utc(computedDateTime.year - 1, 3, 20);
+    final daysSince = computedDateTime.difference(solstice).inDays;
 
     final dayIndex = daysSince % 364;
     final month = (dayIndex ~/ 28) + 1;
     final day = (dayIndex % 28) + 1;
 
-    return HamewariDate(yearZero, month, day, dt.hour, dt.minute);
+    return HamewariDate(
+      timezone ?? SettingTimezone.empty,
+      yearZero,
+      month,
+      day,
+      computedDateTime.hour,
+      computedDateTime.minute,
+    );
   }
 
   @override

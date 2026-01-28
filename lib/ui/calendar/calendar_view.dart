@@ -36,7 +36,10 @@ abstract class CalendarView extends StatelessWidget
             child: TodayButton(
               onTap: () => calendarProvider.selectView(
                 viewIndex: CalendarViewFactory.weekViewIndex,
-                date: DateFactory.buildNow(settingsProvider.calendar),
+                date: DateFactory.buildNow(
+                  settingsProvider.calendar,
+                  settingsProvider.timezone,
+                ),
               ),
             ),
           ),

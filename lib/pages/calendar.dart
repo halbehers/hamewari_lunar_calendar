@@ -39,7 +39,10 @@ class _CalendarPageState extends State<CalendarPage> {
 
     _selectedViewIndex = settingsProvider.selectedCalendarViewIndex;
 
-    _selectedDate = DateFactory.buildNow(settingsProvider.calendar);
+    _selectedDate = DateFactory.buildNow(
+      settingsProvider.calendar,
+      settingsProvider.timezone,
+    );
 
     _pageController = PageController(
       initialPage: settingsProvider.selectedCalendarViewIndex,

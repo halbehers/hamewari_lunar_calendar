@@ -49,7 +49,7 @@ class _TimezoneSettingState extends State<TimezoneSetting> {
       initialValue: SearchableListSettingItem(
         label: isLoading
             ? "..."
-            : _tTimezone![settingsProvider.timezone.getNameOrElse("system")],
+            : _tTimezone![settingsProvider.timezone.l10nKey],
         value: settingsProvider.timezone,
       ),
       onChanged: settingsProvider.setTimezone,

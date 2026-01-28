@@ -2,9 +2,12 @@ import 'dart:ui';
 
 import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/calendar/gregorian/gregorian_date_formatter.dart';
+import 'package:hamewari/providers/settings_provider.dart';
+import 'package:timezone/timezone.dart';
 
 class GregorianDate extends Date<GregorianDate> {
   GregorianDate(
+    super.timezone,
     super.year, [
     super.month = 1,
     super.day = 1,
@@ -12,27 +15,43 @@ class GregorianDate extends Date<GregorianDate> {
     super.minute = 0,
   ]);
 
-  factory GregorianDate.fromDateTime(DateTime dt) {
-    return GregorianDate(dt.year, dt.month, dt.day, dt.hour, dt.minute);
+  factory GregorianDate.fromDateTime(DateTime dt, SettingTimezone? timezone) {
+    late DateTime computedDateTime;
+
+    if (timezone == null || timezone.isEmpty()) {
+      computedDateTime = dt;
+    } else {
+      computedDateTime = TZDateTime.from(dt, timezone.location!);
+    }
+
+    return GregorianDate(
+      timezone ?? SettingTimezone.empty,
+      computedDateTime.year,
+      computedDateTime.month,
+      computedDateTime.day,
+      computedDateTime.hour,
+      computedDateTime.minute,
+    );
   }
 
-  factory GregorianDate.now() {
-    return GregorianDate.fromDateTime(DateTime.now());
+  factory GregorianDate.now(SettingTimezone? timezone) {
+    return GregorianDate.fromDateTime(DateTime.now(), timezone);
   }
 
   @override
   GregorianDate newInstance(
+    SettingTimezone timezone,
     int year, [
     int month = 1,
     int day = 1,
     int hour = 0,
     int minute = 0,
   ]) {
-    return GregorianDate(year, month, day, hour, minute);
+    return GregorianDate(timezone, year, month, day, hour, minute);
   }
 
   @override
-  GregorianDate get now => GregorianDate.now();
+  GregorianDate get now => GregorianDate.now(timezone);
 
   @override
   int get weekday {
