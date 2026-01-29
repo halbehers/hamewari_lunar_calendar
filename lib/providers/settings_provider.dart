@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:hamewari/calendar/date_factory.dart';
 import 'package:hamewari/db/models/setting.dart';
 import 'package:hamewari/db/services/settings_service.dart';
+import 'package:hamewari/helpers/logger.dart';
 import 'package:hamewari/l10n/general/general_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:timezone/data/latest_all.dart';
@@ -506,7 +507,14 @@ class Timezones {
     initialized = true;
   }
 
-  String operator [](String key) => _translations[key] ?? key;
+  String operator [](String key) {
+    final translation = _translations[key];
+    if (translation == null) {
+      getLogger().w('Unknown localisation key: $key');
+    }
+
+    return translation ?? key;
+  }
 }
 
 enum DefaultEventDuration {

@@ -69,6 +69,111 @@ class TimezonesLocalizationsEn extends TimezonesLocalizations {
   String get africa_windhoek => 'Africa / Windhoek';
 
   @override
+  String get africa_accra => 'Africa / Accra';
+
+  @override
+  String get africa_addis_ababa => 'Africa / Addis Ababa';
+
+  @override
+  String get africa_asmara => 'Africa / Asmara';
+
+  @override
+  String get africa_asmera => 'Africa / Asmera';
+
+  @override
+  String get africa_bamako => 'Africa / Bamako';
+
+  @override
+  String get africa_bangui => 'Africa / Bangui';
+
+  @override
+  String get africa_banjul => 'Africa / Banjul';
+
+  @override
+  String get africa_blantyre => 'Africa / Blantyre';
+
+  @override
+  String get africa_brazzaville => 'Africa / Brazzaville';
+
+  @override
+  String get africa_bujumbura => 'Africa / Bujumbura';
+
+  @override
+  String get africa_conakry => 'Africa / Conakry';
+
+  @override
+  String get africa_dakar => 'Africa / Dakar';
+
+  @override
+  String get africa_dar_es_salaam => 'Africa / Dar es Salaam';
+
+  @override
+  String get africa_djibouti => 'Africa / Djibouti';
+
+  @override
+  String get africa_douala => 'Africa / Douala';
+
+  @override
+  String get africa_freetown => 'Africa / Freetown';
+
+  @override
+  String get africa_gaborone => 'Africa / Gaborone';
+
+  @override
+  String get africa_harare => 'Africa / Harare';
+
+  @override
+  String get africa_kampala => 'Africa / Kampala';
+
+  @override
+  String get africa_kigali => 'Africa / Kigali';
+
+  @override
+  String get africa_kinshasa => 'Africa / Kinshasa';
+
+  @override
+  String get africa_libreville => 'Africa / Libreville';
+
+  @override
+  String get africa_lome => 'Africa / Lome';
+
+  @override
+  String get africa_luanda => 'Africa / Luanda';
+
+  @override
+  String get africa_lubumbashi => 'Africa / Lubumbashi';
+
+  @override
+  String get africa_lusaka => 'Africa / Lusaka';
+
+  @override
+  String get africa_malabo => 'Africa / Malabo';
+
+  @override
+  String get africa_maseru => 'Africa / Maseru';
+
+  @override
+  String get africa_mbabane => 'Africa / Mbabane';
+
+  @override
+  String get africa_mogadishu => 'Africa / Mogadishu';
+
+  @override
+  String get africa_niamey => 'Africa / Niamey';
+
+  @override
+  String get africa_nouakchott => 'Africa / Nouakchott';
+
+  @override
+  String get africa_ouagadougou => 'Africa / Ouagadougou';
+
+  @override
+  String get africa_porto_novo => 'Africa / Porto-Novo';
+
+  @override
+  String get africa_timbuktu => 'Africa / Timbuktu';
+
+  @override
   String get america_adak => 'America / Adak';
 
   @override
@@ -435,6 +540,151 @@ class TimezonesLocalizationsEn extends TimezonesLocalizations {
   String get america_yakutat => 'America / Yakutat';
 
   @override
+  String get america_anguilla => 'America / Anguilla';
+
+  @override
+  String get america_antigua => 'America / Antigua';
+
+  @override
+  String get america_argentina_comodrivadavia =>
+      'America / Argentina / Comodrivadavia';
+
+  @override
+  String get america_aruba => 'America / Aruba';
+
+  @override
+  String get america_atikokan => 'America / Atikokan';
+
+  @override
+  String get america_atka => 'America / Atka';
+
+  @override
+  String get america_blanc_sablon => 'America / Blanc-Sablon';
+
+  @override
+  String get america_buenos_aires => 'America / Buenos Aires';
+
+  @override
+  String get america_catamarca => 'America / Catamarca';
+
+  @override
+  String get america_cayman => 'America / Cayman';
+
+  @override
+  String get america_coral_harbour => 'America / Coral Harbour';
+
+  @override
+  String get america_cordoba => 'America / Cordoba';
+
+  @override
+  String get america_creston => 'America / Creston';
+
+  @override
+  String get america_curacao => 'America / Curacao';
+
+  @override
+  String get america_dominica => 'America / Dominica';
+
+  @override
+  String get america_ensenada => 'America / Ensenada';
+
+  @override
+  String get america_fort_wayne => 'America / Fort Wayne';
+
+  @override
+  String get america_godthab => 'America / Godthab';
+
+  @override
+  String get america_grenada => 'America / Grenada';
+
+  @override
+  String get america_guadeloupe => 'America / Guadeloupe';
+
+  @override
+  String get america_indianapolis => 'America / Indianapolis';
+
+  @override
+  String get america_jujuy => 'America / Jujuy';
+
+  @override
+  String get america_knox_in => 'America / Knox (IN)';
+
+  @override
+  String get america_kralendijk => 'America / Kralendijk';
+
+  @override
+  String get america_louisville => 'America / Louisville';
+
+  @override
+  String get america_lower_princes => 'America / Lower Princes';
+
+  @override
+  String get america_marigot => 'America / Marigot';
+
+  @override
+  String get america_mendoza => 'America / Mendoza';
+
+  @override
+  String get america_montreal => 'America / Montreal';
+
+  @override
+  String get america_montserrat => 'America / Montserrat';
+
+  @override
+  String get america_nassau => 'America / Nassau';
+
+  @override
+  String get america_nipigon => 'America / Nipigon';
+
+  @override
+  String get america_pangnirtung => 'America / Pangnirtung';
+
+  @override
+  String get america_port_of_spain => 'America / Port of Spain';
+
+  @override
+  String get america_porto_acre => 'America / Porto Acre';
+
+  @override
+  String get america_rainy_river => 'America / Rainy River';
+
+  @override
+  String get america_rosario => 'America / Rosario';
+
+  @override
+  String get america_santa_isabel => 'America / Santa Isabel';
+
+  @override
+  String get america_shiprock => 'America / Shiprock';
+
+  @override
+  String get america_st_barthelemy => 'America / St. Barthelemy';
+
+  @override
+  String get america_st_kitts => 'America / St. Kitts';
+
+  @override
+  String get america_st_lucia => 'America / St. Lucia';
+
+  @override
+  String get america_st_thomas => 'America / St. Thomas';
+
+  @override
+  String get america_st_vincent => 'America / St. Vincent';
+
+  @override
+  String get america_thunder_bay => 'America / Thunder Bay';
+
+  @override
+  String get america_tortola => 'America / Tortola';
+
+  @override
+  String get america_virgin => 'America / Virgin';
+
+  @override
+  String get america_yellowknife => 'America / Yellowknife';
+
+  @override
   String get antarctica_casey => 'Antarctica / Casey';
 
   @override
@@ -457,6 +707,21 @@ class TimezonesLocalizationsEn extends TimezonesLocalizations {
 
   @override
   String get antarctica_vostok => 'Antarctica / Vostok';
+
+  @override
+  String get antarctica_dumontdurville => 'Antarctica / Dumont d’Urville';
+
+  @override
+  String get antarctica_mcmurdo => 'Antarctica / McMurdo';
+
+  @override
+  String get antarctica_south_pole => 'Antarctica / South Pole';
+
+  @override
+  String get antarctica_syowa => 'Antarctica / Syowa';
+
+  @override
+  String get arctic_longyearbyen => 'Arctic / Longyearbyen';
 
   @override
   String get asia_almaty => 'Asia / Almaty';
@@ -681,6 +946,81 @@ class TimezonesLocalizationsEn extends TimezonesLocalizations {
   String get asia_yerevan => 'Asia / Yerevan';
 
   @override
+  String get asia_aden => 'Asia / Aden';
+
+  @override
+  String get asia_ashkhabad => 'Asia / Ashkhabad';
+
+  @override
+  String get asia_bahrain => 'Asia / Bahrain';
+
+  @override
+  String get asia_brunei => 'Asia / Brunei';
+
+  @override
+  String get asia_calcutta => 'Asia / Calcutta';
+
+  @override
+  String get asia_choibalsan => 'Asia / Choibalsan';
+
+  @override
+  String get asia_chongqing => 'Asia / Chongqing';
+
+  @override
+  String get asia_chungking => 'Asia / Chungking';
+
+  @override
+  String get asia_dacca => 'Asia / Dacca';
+
+  @override
+  String get asia_harbin => 'Asia / Harbin';
+
+  @override
+  String get asia_istanbul => 'Asia / Istanbul';
+
+  @override
+  String get asia_kashgar => 'Asia / Kashgar';
+
+  @override
+  String get asia_katmandu => 'Asia / Katmandu';
+
+  @override
+  String get asia_kuala_lumpur => 'Asia / Kuala Lumpur';
+
+  @override
+  String get asia_kuwait => 'Asia / Kuwait';
+
+  @override
+  String get asia_macao => 'Asia / Macao';
+
+  @override
+  String get asia_muscat => 'Asia / Muscat';
+
+  @override
+  String get asia_phnom_penh => 'Asia / Phnom Penh';
+
+  @override
+  String get asia_rangoon => 'Asia / Rangoon';
+
+  @override
+  String get asia_saigon => 'Asia / Saigon';
+
+  @override
+  String get asia_tel_aviv => 'Asia / Tel Aviv';
+
+  @override
+  String get asia_thimbu => 'Asia / Thimbu';
+
+  @override
+  String get asia_ujung_pandang => 'Asia / Ujung Pandang';
+
+  @override
+  String get asia_ulan_bator => 'Asia / Ulan Bator';
+
+  @override
+  String get asia_vientiane => 'Asia / Vientiane';
+
+  @override
   String get atlantic_azores => 'Atlantic / Azores';
 
   @override
@@ -703,6 +1043,18 @@ class TimezonesLocalizationsEn extends TimezonesLocalizations {
 
   @override
   String get atlantic_stanley => 'Atlantic / Stanley';
+
+  @override
+  String get atlantic_faeroe => 'Atlantic / Faeroe';
+
+  @override
+  String get atlantic_jan_mayen => 'Atlantic / Jan Mayen';
+
+  @override
+  String get atlantic_reykjavik => 'Atlantic / Reykjavik';
+
+  @override
+  String get atlantic_st_helena => 'Atlantic / St. Helena';
 
   @override
   String get australia_adelaide => 'Australia / Adelaide';
@@ -736,6 +1088,42 @@ class TimezonesLocalizationsEn extends TimezonesLocalizations {
 
   @override
   String get australia_sydney => 'Australia / Sydney';
+
+  @override
+  String get australia_act => 'Australia / ACT';
+
+  @override
+  String get australia_canberra => 'Australia / Canberra';
+
+  @override
+  String get australia_currie => 'Australia / Currie';
+
+  @override
+  String get australia_lhi => 'Australia / Lord Howe Island';
+
+  @override
+  String get australia_nsw => 'Australia / New South Wales';
+
+  @override
+  String get australia_north => 'Australia / Northern Territory';
+
+  @override
+  String get australia_queensland => 'Australia / Queensland';
+
+  @override
+  String get australia_south => 'Australia / South Australia';
+
+  @override
+  String get australia_tasmania => 'Australia / Tasmania';
+
+  @override
+  String get australia_victoria => 'Australia / Victoria';
+
+  @override
+  String get australia_west => 'Australia / Western Australia';
+
+  @override
+  String get australia_yancowinna => 'Australia / Yancowinna';
 
   @override
   String get etc_gmt => 'Etc / GMT';
@@ -820,6 +1208,27 @@ class TimezonesLocalizationsEn extends TimezonesLocalizations {
 
   @override
   String get etc_utc => 'Etc / UTC';
+
+  @override
+  String get etc_gmt_plus_0 => 'Etc / GMT+0';
+
+  @override
+  String get etc_gmt_minus_0 => 'Etc / GMT-0';
+
+  @override
+  String get etc_gmt0 => 'Etc / GMT0';
+
+  @override
+  String get etc_greenwich => 'Etc / Greenwich';
+
+  @override
+  String get etc_uct => 'Etc / UCT';
+
+  @override
+  String get etc_universal => 'Etc / Universal';
+
+  @override
+  String get etc_zulu => 'Etc / Zulu';
 
   @override
   String get europe_andorra => 'Europe / Andorra';
@@ -936,6 +1345,84 @@ class TimezonesLocalizationsEn extends TimezonesLocalizations {
   String get europe_zurich => 'Europe / Zurich';
 
   @override
+  String get europe_amsterdam => 'Europe / Amsterdam';
+
+  @override
+  String get europe_belfast => 'Europe / Belfast';
+
+  @override
+  String get europe_bratislava => 'Europe / Bratislava';
+
+  @override
+  String get europe_busingen => 'Europe / Büsingen';
+
+  @override
+  String get europe_copenhagen => 'Europe / Copenhagen';
+
+  @override
+  String get europe_guernsey => 'Europe / Guernsey';
+
+  @override
+  String get europe_isle_of_man => 'Europe / Isle of Man';
+
+  @override
+  String get europe_jersey => 'Europe / Jersey';
+
+  @override
+  String get europe_kiev => 'Europe / Kiev';
+
+  @override
+  String get europe_ljubljana => 'Europe / Ljubljana';
+
+  @override
+  String get europe_luxembourg => 'Europe / Luxembourg';
+
+  @override
+  String get europe_mariehamn => 'Europe / Mariehamn';
+
+  @override
+  String get europe_monaco => 'Europe / Monaco';
+
+  @override
+  String get europe_nicosia => 'Europe / Nicosia';
+
+  @override
+  String get europe_oslo => 'Europe / Oslo';
+
+  @override
+  String get europe_podgorica => 'Europe / Podgorica';
+
+  @override
+  String get europe_san_marino => 'Europe / San Marino';
+
+  @override
+  String get europe_sarajevo => 'Europe / Sarajevo';
+
+  @override
+  String get europe_skopje => 'Europe / Skopje';
+
+  @override
+  String get europe_stockholm => 'Europe / Stockholm';
+
+  @override
+  String get europe_tiraspol => 'Europe / Tiraspol';
+
+  @override
+  String get europe_uzhgorod => 'Europe / Uzhgorod';
+
+  @override
+  String get europe_vaduz => 'Europe / Vaduz';
+
+  @override
+  String get europe_vatican => 'Europe / Vatican';
+
+  @override
+  String get europe_zagreb => 'Europe / Zagreb';
+
+  @override
+  String get europe_zaporozhye => 'Europe / Zaporozhye';
+
+  @override
   String get factory => 'Factory';
 
   @override
@@ -1036,4 +1523,289 @@ class TimezonesLocalizationsEn extends TimezonesLocalizations {
 
   @override
   String get pacific_tongatapu => 'Pacific / Tongatapu';
+
+  @override
+  String get pacific_chuuk => 'Pacific / Chuuk';
+
+  @override
+  String get pacific_enderbury => 'Pacific / Enderbury';
+
+  @override
+  String get pacific_funafuti => 'Pacific / Funafuti';
+
+  @override
+  String get pacific_johnston => 'Pacific / Johnston';
+
+  @override
+  String get pacific_majuro => 'Pacific / Majuro';
+
+  @override
+  String get pacific_midway => 'Pacific / Midway';
+
+  @override
+  String get pacific_pohnpei => 'Pacific / Pohnpei';
+
+  @override
+  String get pacific_ponape => 'Pacific / Ponape';
+
+  @override
+  String get pacific_saipan => 'Pacific / Saipan';
+
+  @override
+  String get pacific_samoa => 'Pacific / Samoa';
+
+  @override
+  String get pacific_truk => 'Pacific / Truk';
+
+  @override
+  String get pacific_wake => 'Pacific / Wake';
+
+  @override
+  String get pacific_wallis => 'Pacific / Wallis';
+
+  @override
+  String get pacific_yap => 'Pacific / Yap';
+
+  @override
+  String get brazil_acre => 'Brazil / Acre';
+
+  @override
+  String get brazil_denoronha => 'Brazil / De Noronha';
+
+  @override
+  String get brazil_east => 'Brazil / East';
+
+  @override
+  String get brazil_west => 'Brazil / West';
+
+  @override
+  String get cet => 'Central European Time';
+
+  @override
+  String get cst6cdt => 'Central Standard Time (US)';
+
+  @override
+  String get canada_atlantic => 'Canada / Atlantic';
+
+  @override
+  String get canada_central => 'Canada / Central';
+
+  @override
+  String get canada_eastern => 'Canada / Eastern';
+
+  @override
+  String get canada_mountain => 'Canada / Mountain';
+
+  @override
+  String get canada_newfoundland => 'Canada / Newfoundland';
+
+  @override
+  String get canada_pacific => 'Canada / Pacific';
+
+  @override
+  String get canada_saskatchewan => 'Canada / Saskatchewan';
+
+  @override
+  String get canada_yukon => 'Canada / Yukon';
+
+  @override
+  String get chile_continental => 'Chile / Continental';
+
+  @override
+  String get chile_easterisland => 'Chile / Easter Island';
+
+  @override
+  String get cuba => 'Cuba';
+
+  @override
+  String get eet => 'Eastern European Time';
+
+  @override
+  String get est => 'Eastern Standard Time';
+
+  @override
+  String get est5edt => 'Eastern Standard Time (US)';
+
+  @override
+  String get egypt => 'Egypt';
+
+  @override
+  String get eire => 'Ireland';
+
+  @override
+  String get gb => 'United Kingdom';
+
+  @override
+  String get gb_eire => 'United Kingdom / Ireland';
+
+  @override
+  String get gmt => 'Greenwich Mean Time';
+
+  @override
+  String get gmt_plus_0 => 'GMT+0';
+
+  @override
+  String get gmt_minus_0 => 'GMT-0';
+
+  @override
+  String get gmt0 => 'GMT0';
+
+  @override
+  String get greenwich => 'Greenwich';
+
+  @override
+  String get hst => 'Hawaii Standard Time';
+
+  @override
+  String get hongkong => 'Hong Kong';
+
+  @override
+  String get iceland => 'Iceland';
+
+  @override
+  String get indian_antananarivo => 'Indian Ocean / Antananarivo';
+
+  @override
+  String get indian_christmas => 'Indian Ocean / Christmas Island';
+
+  @override
+  String get indian_cocos => 'Indian Ocean / Cocos Islands';
+
+  @override
+  String get indian_comoro => 'Indian Ocean / Comoros';
+
+  @override
+  String get indian_kerguelen => 'Indian Ocean / Kerguelen';
+
+  @override
+  String get indian_mahe => 'Indian Ocean / Mahé';
+
+  @override
+  String get indian_mayotte => 'Indian Ocean / Mayotte';
+
+  @override
+  String get indian_reunion => 'Indian Ocean / Réunion';
+
+  @override
+  String get iran => 'Iran';
+
+  @override
+  String get israel => 'Israel';
+
+  @override
+  String get jamaica => 'Jamaica';
+
+  @override
+  String get japan => 'Japan';
+
+  @override
+  String get kwajalein => 'Kwajalein';
+
+  @override
+  String get libya => 'Libya';
+
+  @override
+  String get met => 'Middle European Time';
+
+  @override
+  String get mst => 'Mountain Standard Time';
+
+  @override
+  String get mst7mdt => 'Mountain Time (US)';
+
+  @override
+  String get mexico_bajanorte => 'Mexico / Baja Norte';
+
+  @override
+  String get mexico_bajasur => 'Mexico / Baja Sur';
+
+  @override
+  String get mexico_general => 'Mexico / General';
+
+  @override
+  String get nz => 'New Zealand';
+
+  @override
+  String get nz_chat => 'New Zealand / Chatham';
+
+  @override
+  String get navajo => 'Navajo';
+
+  @override
+  String get prc => 'China';
+
+  @override
+  String get pst8pdt => 'Pacific Time (US)';
+
+  @override
+  String get poland => 'Poland';
+
+  @override
+  String get portugal => 'Portugal';
+
+  @override
+  String get roc => 'Republic of China (Taiwan)';
+
+  @override
+  String get rok => 'Republic of Korea';
+
+  @override
+  String get singapore => 'Singapore';
+
+  @override
+  String get turkey => 'Turkey';
+
+  @override
+  String get uct => 'Coordinated Universal Time';
+
+  @override
+  String get us_alaska => 'United States / Alaska';
+
+  @override
+  String get us_aleutian => 'United States / Aleutian';
+
+  @override
+  String get us_arizona => 'United States / Arizona';
+
+  @override
+  String get us_central => 'United States / Central';
+
+  @override
+  String get us_east_indiana => 'United States / East Indiana';
+
+  @override
+  String get us_eastern => 'United States / Eastern';
+
+  @override
+  String get us_hawaii => 'United States / Hawaii';
+
+  @override
+  String get us_indiana_starke => 'United States / Indiana Starke';
+
+  @override
+  String get us_michigan => 'United States / Michigan';
+
+  @override
+  String get us_mountain => 'United States / Mountain';
+
+  @override
+  String get us_pacific => 'United States / Pacific';
+
+  @override
+  String get us_samoa => 'United States / Samoa';
+
+  @override
+  String get utc => 'Coordinated Universal Time';
+
+  @override
+  String get universal => 'Universal Time';
+
+  @override
+  String get w_su => 'Western Soviet Union';
+
+  @override
+  String get wet => 'Western European Time';
+
+  @override
+  String get zulu => 'Zulu Time';
 }

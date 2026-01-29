@@ -223,6 +223,216 @@ abstract class TimezonesLocalizations {
   /// **'Africa / Windhoek'**
   String get africa_windhoek;
 
+  /// Timezone translation for africa_accra
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Accra'**
+  String get africa_accra;
+
+  /// Timezone translation for africa_addis_ababa
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Addis Ababa'**
+  String get africa_addis_ababa;
+
+  /// Timezone translation for africa_asmara
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Asmara'**
+  String get africa_asmara;
+
+  /// Timezone translation for africa_asmera
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Asmera'**
+  String get africa_asmera;
+
+  /// Timezone translation for africa_bamako
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Bamako'**
+  String get africa_bamako;
+
+  /// Timezone translation for africa_bangui
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Bangui'**
+  String get africa_bangui;
+
+  /// Timezone translation for africa_banjul
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Banjul'**
+  String get africa_banjul;
+
+  /// Timezone translation for africa_blantyre
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Blantyre'**
+  String get africa_blantyre;
+
+  /// Timezone translation for africa_brazzaville
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Brazzaville'**
+  String get africa_brazzaville;
+
+  /// Timezone translation for africa_bujumbura
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Bujumbura'**
+  String get africa_bujumbura;
+
+  /// Timezone translation for africa_conakry
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Conakry'**
+  String get africa_conakry;
+
+  /// Timezone translation for africa_dakar
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Dakar'**
+  String get africa_dakar;
+
+  /// Timezone translation for africa_dar_es_salaam
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Dar es Salaam'**
+  String get africa_dar_es_salaam;
+
+  /// Timezone translation for africa_djibouti
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Djibouti'**
+  String get africa_djibouti;
+
+  /// Timezone translation for africa_douala
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Douala'**
+  String get africa_douala;
+
+  /// Timezone translation for africa_freetown
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Freetown'**
+  String get africa_freetown;
+
+  /// Timezone translation for africa_gaborone
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Gaborone'**
+  String get africa_gaborone;
+
+  /// Timezone translation for africa_harare
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Harare'**
+  String get africa_harare;
+
+  /// Timezone translation for africa_kampala
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Kampala'**
+  String get africa_kampala;
+
+  /// Timezone translation for africa_kigali
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Kigali'**
+  String get africa_kigali;
+
+  /// Timezone translation for africa_kinshasa
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Kinshasa'**
+  String get africa_kinshasa;
+
+  /// Timezone translation for africa_libreville
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Libreville'**
+  String get africa_libreville;
+
+  /// Timezone translation for africa_lome
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Lome'**
+  String get africa_lome;
+
+  /// Timezone translation for africa_luanda
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Luanda'**
+  String get africa_luanda;
+
+  /// Timezone translation for africa_lubumbashi
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Lubumbashi'**
+  String get africa_lubumbashi;
+
+  /// Timezone translation for africa_lusaka
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Lusaka'**
+  String get africa_lusaka;
+
+  /// Timezone translation for africa_malabo
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Malabo'**
+  String get africa_malabo;
+
+  /// Timezone translation for africa_maseru
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Maseru'**
+  String get africa_maseru;
+
+  /// Timezone translation for africa_mbabane
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Mbabane'**
+  String get africa_mbabane;
+
+  /// Timezone translation for africa_mogadishu
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Mogadishu'**
+  String get africa_mogadishu;
+
+  /// Timezone translation for africa_niamey
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Niamey'**
+  String get africa_niamey;
+
+  /// Timezone translation for africa_nouakchott
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Nouakchott'**
+  String get africa_nouakchott;
+
+  /// Timezone translation for africa_ouagadougou
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Ouagadougou'**
+  String get africa_ouagadougou;
+
+  /// Timezone translation for africa_porto_novo
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Porto-Novo'**
+  String get africa_porto_novo;
+
+  /// Timezone translation for africa_timbuktu
+  ///
+  /// In en, this message translates to:
+  /// **'Africa / Timbuktu'**
+  String get africa_timbuktu;
+
   /// Timezone translation for america_adak
   ///
   /// In en, this message translates to:
@@ -949,6 +1159,294 @@ abstract class TimezonesLocalizations {
   /// **'America / Yakutat'**
   String get america_yakutat;
 
+  /// Timezone translation for america_anguilla
+  ///
+  /// In en, this message translates to:
+  /// **'America / Anguilla'**
+  String get america_anguilla;
+
+  /// Timezone translation for america_antigua
+  ///
+  /// In en, this message translates to:
+  /// **'America / Antigua'**
+  String get america_antigua;
+
+  /// Timezone translation for america_argentina_comodrivadavia
+  ///
+  /// In en, this message translates to:
+  /// **'America / Argentina / Comodrivadavia'**
+  String get america_argentina_comodrivadavia;
+
+  /// Timezone translation for america_aruba
+  ///
+  /// In en, this message translates to:
+  /// **'America / Aruba'**
+  String get america_aruba;
+
+  /// Timezone translation for america_atikokan
+  ///
+  /// In en, this message translates to:
+  /// **'America / Atikokan'**
+  String get america_atikokan;
+
+  /// Timezone translation for america_atka
+  ///
+  /// In en, this message translates to:
+  /// **'America / Atka'**
+  String get america_atka;
+
+  /// Timezone translation for america_blanc_sablon
+  ///
+  /// In en, this message translates to:
+  /// **'America / Blanc-Sablon'**
+  String get america_blanc_sablon;
+
+  /// Timezone translation for america_buenos_aires
+  ///
+  /// In en, this message translates to:
+  /// **'America / Buenos Aires'**
+  String get america_buenos_aires;
+
+  /// Timezone translation for america_catamarca
+  ///
+  /// In en, this message translates to:
+  /// **'America / Catamarca'**
+  String get america_catamarca;
+
+  /// Timezone translation for america_cayman
+  ///
+  /// In en, this message translates to:
+  /// **'America / Cayman'**
+  String get america_cayman;
+
+  /// Timezone translation for america_coral_harbour
+  ///
+  /// In en, this message translates to:
+  /// **'America / Coral Harbour'**
+  String get america_coral_harbour;
+
+  /// Timezone translation for america_cordoba
+  ///
+  /// In en, this message translates to:
+  /// **'America / Cordoba'**
+  String get america_cordoba;
+
+  /// Timezone translation for america_creston
+  ///
+  /// In en, this message translates to:
+  /// **'America / Creston'**
+  String get america_creston;
+
+  /// Timezone translation for america_curacao
+  ///
+  /// In en, this message translates to:
+  /// **'America / Curacao'**
+  String get america_curacao;
+
+  /// Timezone translation for america_dominica
+  ///
+  /// In en, this message translates to:
+  /// **'America / Dominica'**
+  String get america_dominica;
+
+  /// Timezone translation for america_ensenada
+  ///
+  /// In en, this message translates to:
+  /// **'America / Ensenada'**
+  String get america_ensenada;
+
+  /// Timezone translation for america_fort_wayne
+  ///
+  /// In en, this message translates to:
+  /// **'America / Fort Wayne'**
+  String get america_fort_wayne;
+
+  /// Timezone translation for america_godthab
+  ///
+  /// In en, this message translates to:
+  /// **'America / Godthab'**
+  String get america_godthab;
+
+  /// Timezone translation for america_grenada
+  ///
+  /// In en, this message translates to:
+  /// **'America / Grenada'**
+  String get america_grenada;
+
+  /// Timezone translation for america_guadeloupe
+  ///
+  /// In en, this message translates to:
+  /// **'America / Guadeloupe'**
+  String get america_guadeloupe;
+
+  /// Timezone translation for america_indianapolis
+  ///
+  /// In en, this message translates to:
+  /// **'America / Indianapolis'**
+  String get america_indianapolis;
+
+  /// Timezone translation for america_jujuy
+  ///
+  /// In en, this message translates to:
+  /// **'America / Jujuy'**
+  String get america_jujuy;
+
+  /// Timezone translation for america_knox_in
+  ///
+  /// In en, this message translates to:
+  /// **'America / Knox (IN)'**
+  String get america_knox_in;
+
+  /// Timezone translation for america_kralendijk
+  ///
+  /// In en, this message translates to:
+  /// **'America / Kralendijk'**
+  String get america_kralendijk;
+
+  /// Timezone translation for america_louisville
+  ///
+  /// In en, this message translates to:
+  /// **'America / Louisville'**
+  String get america_louisville;
+
+  /// Timezone translation for america_lower_princes
+  ///
+  /// In en, this message translates to:
+  /// **'America / Lower Princes'**
+  String get america_lower_princes;
+
+  /// Timezone translation for america_marigot
+  ///
+  /// In en, this message translates to:
+  /// **'America / Marigot'**
+  String get america_marigot;
+
+  /// Timezone translation for america_mendoza
+  ///
+  /// In en, this message translates to:
+  /// **'America / Mendoza'**
+  String get america_mendoza;
+
+  /// Timezone translation for america_montreal
+  ///
+  /// In en, this message translates to:
+  /// **'America / Montreal'**
+  String get america_montreal;
+
+  /// Timezone translation for america_montserrat
+  ///
+  /// In en, this message translates to:
+  /// **'America / Montserrat'**
+  String get america_montserrat;
+
+  /// Timezone translation for america_nassau
+  ///
+  /// In en, this message translates to:
+  /// **'America / Nassau'**
+  String get america_nassau;
+
+  /// Timezone translation for america_nipigon
+  ///
+  /// In en, this message translates to:
+  /// **'America / Nipigon'**
+  String get america_nipigon;
+
+  /// Timezone translation for america_pangnirtung
+  ///
+  /// In en, this message translates to:
+  /// **'America / Pangnirtung'**
+  String get america_pangnirtung;
+
+  /// Timezone translation for america_port_of_spain
+  ///
+  /// In en, this message translates to:
+  /// **'America / Port of Spain'**
+  String get america_port_of_spain;
+
+  /// Timezone translation for america_porto_acre
+  ///
+  /// In en, this message translates to:
+  /// **'America / Porto Acre'**
+  String get america_porto_acre;
+
+  /// Timezone translation for america_rainy_river
+  ///
+  /// In en, this message translates to:
+  /// **'America / Rainy River'**
+  String get america_rainy_river;
+
+  /// Timezone translation for america_rosario
+  ///
+  /// In en, this message translates to:
+  /// **'America / Rosario'**
+  String get america_rosario;
+
+  /// Timezone translation for america_santa_isabel
+  ///
+  /// In en, this message translates to:
+  /// **'America / Santa Isabel'**
+  String get america_santa_isabel;
+
+  /// Timezone translation for america_shiprock
+  ///
+  /// In en, this message translates to:
+  /// **'America / Shiprock'**
+  String get america_shiprock;
+
+  /// Timezone translation for america_st_barthelemy
+  ///
+  /// In en, this message translates to:
+  /// **'America / St. Barthelemy'**
+  String get america_st_barthelemy;
+
+  /// Timezone translation for america_st_kitts
+  ///
+  /// In en, this message translates to:
+  /// **'America / St. Kitts'**
+  String get america_st_kitts;
+
+  /// Timezone translation for america_st_lucia
+  ///
+  /// In en, this message translates to:
+  /// **'America / St. Lucia'**
+  String get america_st_lucia;
+
+  /// Timezone translation for america_st_thomas
+  ///
+  /// In en, this message translates to:
+  /// **'America / St. Thomas'**
+  String get america_st_thomas;
+
+  /// Timezone translation for america_st_vincent
+  ///
+  /// In en, this message translates to:
+  /// **'America / St. Vincent'**
+  String get america_st_vincent;
+
+  /// Timezone translation for america_thunder_bay
+  ///
+  /// In en, this message translates to:
+  /// **'America / Thunder Bay'**
+  String get america_thunder_bay;
+
+  /// Timezone translation for america_tortola
+  ///
+  /// In en, this message translates to:
+  /// **'America / Tortola'**
+  String get america_tortola;
+
+  /// Timezone translation for america_virgin
+  ///
+  /// In en, this message translates to:
+  /// **'America / Virgin'**
+  String get america_virgin;
+
+  /// Timezone translation for america_yellowknife
+  ///
+  /// In en, this message translates to:
+  /// **'America / Yellowknife'**
+  String get america_yellowknife;
+
   /// Timezone translation for antarctica_casey
   ///
   /// In en, this message translates to:
@@ -996,6 +1494,36 @@ abstract class TimezonesLocalizations {
   /// In en, this message translates to:
   /// **'Antarctica / Vostok'**
   String get antarctica_vostok;
+
+  /// Timezone translation for antarctica_dumontdurville
+  ///
+  /// In en, this message translates to:
+  /// **'Antarctica / Dumont d’Urville'**
+  String get antarctica_dumontdurville;
+
+  /// Timezone translation for antarctica_mcmurdo
+  ///
+  /// In en, this message translates to:
+  /// **'Antarctica / McMurdo'**
+  String get antarctica_mcmurdo;
+
+  /// Timezone translation for antarctica_south_pole
+  ///
+  /// In en, this message translates to:
+  /// **'Antarctica / South Pole'**
+  String get antarctica_south_pole;
+
+  /// Timezone translation for antarctica_syowa
+  ///
+  /// In en, this message translates to:
+  /// **'Antarctica / Syowa'**
+  String get antarctica_syowa;
+
+  /// Timezone translation for arctic_longyearbyen
+  ///
+  /// In en, this message translates to:
+  /// **'Arctic / Longyearbyen'**
+  String get arctic_longyearbyen;
 
   /// Timezone translation for asia_almaty
   ///
@@ -1441,6 +1969,156 @@ abstract class TimezonesLocalizations {
   /// **'Asia / Yerevan'**
   String get asia_yerevan;
 
+  /// Timezone translation for asia_aden
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Aden'**
+  String get asia_aden;
+
+  /// Timezone translation for asia_ashkhabad
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Ashkhabad'**
+  String get asia_ashkhabad;
+
+  /// Timezone translation for asia_bahrain
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Bahrain'**
+  String get asia_bahrain;
+
+  /// Timezone translation for asia_brunei
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Brunei'**
+  String get asia_brunei;
+
+  /// Timezone translation for asia_calcutta
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Calcutta'**
+  String get asia_calcutta;
+
+  /// Timezone translation for asia_choibalsan
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Choibalsan'**
+  String get asia_choibalsan;
+
+  /// Timezone translation for asia_chongqing
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Chongqing'**
+  String get asia_chongqing;
+
+  /// Timezone translation for asia_chungking
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Chungking'**
+  String get asia_chungking;
+
+  /// Timezone translation for asia_dacca
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Dacca'**
+  String get asia_dacca;
+
+  /// Timezone translation for asia_harbin
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Harbin'**
+  String get asia_harbin;
+
+  /// Timezone translation for asia_istanbul
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Istanbul'**
+  String get asia_istanbul;
+
+  /// Timezone translation for asia_kashgar
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Kashgar'**
+  String get asia_kashgar;
+
+  /// Timezone translation for asia_katmandu
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Katmandu'**
+  String get asia_katmandu;
+
+  /// Timezone translation for asia_kuala_lumpur
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Kuala Lumpur'**
+  String get asia_kuala_lumpur;
+
+  /// Timezone translation for asia_kuwait
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Kuwait'**
+  String get asia_kuwait;
+
+  /// Timezone translation for asia_macao
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Macao'**
+  String get asia_macao;
+
+  /// Timezone translation for asia_muscat
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Muscat'**
+  String get asia_muscat;
+
+  /// Timezone translation for asia_phnom_penh
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Phnom Penh'**
+  String get asia_phnom_penh;
+
+  /// Timezone translation for asia_rangoon
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Rangoon'**
+  String get asia_rangoon;
+
+  /// Timezone translation for asia_saigon
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Saigon'**
+  String get asia_saigon;
+
+  /// Timezone translation for asia_tel_aviv
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Tel Aviv'**
+  String get asia_tel_aviv;
+
+  /// Timezone translation for asia_thimbu
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Thimbu'**
+  String get asia_thimbu;
+
+  /// Timezone translation for asia_ujung_pandang
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Ujung Pandang'**
+  String get asia_ujung_pandang;
+
+  /// Timezone translation for asia_ulan_bator
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Ulan Bator'**
+  String get asia_ulan_bator;
+
+  /// Timezone translation for asia_vientiane
+  ///
+  /// In en, this message translates to:
+  /// **'Asia / Vientiane'**
+  String get asia_vientiane;
+
   /// Timezone translation for atlantic_azores
   ///
   /// In en, this message translates to:
@@ -1488,6 +2166,30 @@ abstract class TimezonesLocalizations {
   /// In en, this message translates to:
   /// **'Atlantic / Stanley'**
   String get atlantic_stanley;
+
+  /// Timezone translation for atlantic_faeroe
+  ///
+  /// In en, this message translates to:
+  /// **'Atlantic / Faeroe'**
+  String get atlantic_faeroe;
+
+  /// Timezone translation for atlantic_jan_mayen
+  ///
+  /// In en, this message translates to:
+  /// **'Atlantic / Jan Mayen'**
+  String get atlantic_jan_mayen;
+
+  /// Timezone translation for atlantic_reykjavik
+  ///
+  /// In en, this message translates to:
+  /// **'Atlantic / Reykjavik'**
+  String get atlantic_reykjavik;
+
+  /// Timezone translation for atlantic_st_helena
+  ///
+  /// In en, this message translates to:
+  /// **'Atlantic / St. Helena'**
+  String get atlantic_st_helena;
 
   /// Timezone translation for australia_adelaide
   ///
@@ -1554,6 +2256,78 @@ abstract class TimezonesLocalizations {
   /// In en, this message translates to:
   /// **'Australia / Sydney'**
   String get australia_sydney;
+
+  /// Timezone translation for australia_act
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / ACT'**
+  String get australia_act;
+
+  /// Timezone translation for australia_canberra
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / Canberra'**
+  String get australia_canberra;
+
+  /// Timezone translation for australia_currie
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / Currie'**
+  String get australia_currie;
+
+  /// Timezone translation for australia_lhi
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / Lord Howe Island'**
+  String get australia_lhi;
+
+  /// Timezone translation for australia_nsw
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / New South Wales'**
+  String get australia_nsw;
+
+  /// Timezone translation for australia_north
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / Northern Territory'**
+  String get australia_north;
+
+  /// Timezone translation for australia_queensland
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / Queensland'**
+  String get australia_queensland;
+
+  /// Timezone translation for australia_south
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / South Australia'**
+  String get australia_south;
+
+  /// Timezone translation for australia_tasmania
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / Tasmania'**
+  String get australia_tasmania;
+
+  /// Timezone translation for australia_victoria
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / Victoria'**
+  String get australia_victoria;
+
+  /// Timezone translation for australia_west
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / Western Australia'**
+  String get australia_west;
+
+  /// Timezone translation for australia_yancowinna
+  ///
+  /// In en, this message translates to:
+  /// **'Australia / Yancowinna'**
+  String get australia_yancowinna;
 
   /// Timezone translation for etc_gmt
   ///
@@ -1722,6 +2496,48 @@ abstract class TimezonesLocalizations {
   /// In en, this message translates to:
   /// **'Etc / UTC'**
   String get etc_utc;
+
+  /// Timezone translation for etc_gmt_plus_0
+  ///
+  /// In en, this message translates to:
+  /// **'Etc / GMT+0'**
+  String get etc_gmt_plus_0;
+
+  /// Timezone translation for etc_gmt_minus_0
+  ///
+  /// In en, this message translates to:
+  /// **'Etc / GMT-0'**
+  String get etc_gmt_minus_0;
+
+  /// Timezone translation for etc_gmt0
+  ///
+  /// In en, this message translates to:
+  /// **'Etc / GMT0'**
+  String get etc_gmt0;
+
+  /// Timezone translation for etc_greenwich
+  ///
+  /// In en, this message translates to:
+  /// **'Etc / Greenwich'**
+  String get etc_greenwich;
+
+  /// Timezone translation for etc_uct
+  ///
+  /// In en, this message translates to:
+  /// **'Etc / UCT'**
+  String get etc_uct;
+
+  /// Timezone translation for etc_universal
+  ///
+  /// In en, this message translates to:
+  /// **'Etc / Universal'**
+  String get etc_universal;
+
+  /// Timezone translation for etc_zulu
+  ///
+  /// In en, this message translates to:
+  /// **'Etc / Zulu'**
+  String get etc_zulu;
 
   /// Timezone translation for europe_andorra
   ///
@@ -1951,6 +2767,162 @@ abstract class TimezonesLocalizations {
   /// **'Europe / Zurich'**
   String get europe_zurich;
 
+  /// Timezone translation for europe_amsterdam
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Amsterdam'**
+  String get europe_amsterdam;
+
+  /// Timezone translation for europe_belfast
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Belfast'**
+  String get europe_belfast;
+
+  /// Timezone translation for europe_bratislava
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Bratislava'**
+  String get europe_bratislava;
+
+  /// Timezone translation for europe_busingen
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Büsingen'**
+  String get europe_busingen;
+
+  /// Timezone translation for europe_copenhagen
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Copenhagen'**
+  String get europe_copenhagen;
+
+  /// Timezone translation for europe_guernsey
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Guernsey'**
+  String get europe_guernsey;
+
+  /// Timezone translation for europe_isle_of_man
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Isle of Man'**
+  String get europe_isle_of_man;
+
+  /// Timezone translation for europe_jersey
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Jersey'**
+  String get europe_jersey;
+
+  /// Timezone translation for europe_kiev
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Kiev'**
+  String get europe_kiev;
+
+  /// Timezone translation for europe_ljubljana
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Ljubljana'**
+  String get europe_ljubljana;
+
+  /// Timezone translation for europe_luxembourg
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Luxembourg'**
+  String get europe_luxembourg;
+
+  /// Timezone translation for europe_mariehamn
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Mariehamn'**
+  String get europe_mariehamn;
+
+  /// Timezone translation for europe_monaco
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Monaco'**
+  String get europe_monaco;
+
+  /// Timezone translation for europe_nicosia
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Nicosia'**
+  String get europe_nicosia;
+
+  /// Timezone translation for europe_oslo
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Oslo'**
+  String get europe_oslo;
+
+  /// Timezone translation for europe_podgorica
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Podgorica'**
+  String get europe_podgorica;
+
+  /// Timezone translation for europe_san_marino
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / San Marino'**
+  String get europe_san_marino;
+
+  /// Timezone translation for europe_sarajevo
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Sarajevo'**
+  String get europe_sarajevo;
+
+  /// Timezone translation for europe_skopje
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Skopje'**
+  String get europe_skopje;
+
+  /// Timezone translation for europe_stockholm
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Stockholm'**
+  String get europe_stockholm;
+
+  /// Timezone translation for europe_tiraspol
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Tiraspol'**
+  String get europe_tiraspol;
+
+  /// Timezone translation for europe_uzhgorod
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Uzhgorod'**
+  String get europe_uzhgorod;
+
+  /// Timezone translation for europe_vaduz
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Vaduz'**
+  String get europe_vaduz;
+
+  /// Timezone translation for europe_vatican
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Vatican'**
+  String get europe_vatican;
+
+  /// Timezone translation for europe_zagreb
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Zagreb'**
+  String get europe_zagreb;
+
+  /// Timezone translation for europe_zaporozhye
+  ///
+  /// In en, this message translates to:
+  /// **'Europe / Zaporozhye'**
+  String get europe_zaporozhye;
+
   /// Timezone translation for factory
   ///
   /// In en, this message translates to:
@@ -2154,6 +3126,576 @@ abstract class TimezonesLocalizations {
   /// In en, this message translates to:
   /// **'Pacific / Tongatapu'**
   String get pacific_tongatapu;
+
+  /// Timezone translation for pacific_chuuk
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Chuuk'**
+  String get pacific_chuuk;
+
+  /// Timezone translation for pacific_enderbury
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Enderbury'**
+  String get pacific_enderbury;
+
+  /// Timezone translation for pacific_funafuti
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Funafuti'**
+  String get pacific_funafuti;
+
+  /// Timezone translation for pacific_johnston
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Johnston'**
+  String get pacific_johnston;
+
+  /// Timezone translation for pacific_majuro
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Majuro'**
+  String get pacific_majuro;
+
+  /// Timezone translation for pacific_midway
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Midway'**
+  String get pacific_midway;
+
+  /// Timezone translation for pacific_pohnpei
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Pohnpei'**
+  String get pacific_pohnpei;
+
+  /// Timezone translation for pacific_ponape
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Ponape'**
+  String get pacific_ponape;
+
+  /// Timezone translation for pacific_saipan
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Saipan'**
+  String get pacific_saipan;
+
+  /// Timezone translation for pacific_samoa
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Samoa'**
+  String get pacific_samoa;
+
+  /// Timezone translation for pacific_truk
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Truk'**
+  String get pacific_truk;
+
+  /// Timezone translation for pacific_wake
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Wake'**
+  String get pacific_wake;
+
+  /// Timezone translation for pacific_wallis
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Wallis'**
+  String get pacific_wallis;
+
+  /// Timezone translation for pacific_yap
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific / Yap'**
+  String get pacific_yap;
+
+  /// Timezone translation for brazil_acre
+  ///
+  /// In en, this message translates to:
+  /// **'Brazil / Acre'**
+  String get brazil_acre;
+
+  /// Timezone translation for brazil_denoronha
+  ///
+  /// In en, this message translates to:
+  /// **'Brazil / De Noronha'**
+  String get brazil_denoronha;
+
+  /// Timezone translation for brazil_east
+  ///
+  /// In en, this message translates to:
+  /// **'Brazil / East'**
+  String get brazil_east;
+
+  /// Timezone translation for brazil_west
+  ///
+  /// In en, this message translates to:
+  /// **'Brazil / West'**
+  String get brazil_west;
+
+  /// Timezone translation for cet
+  ///
+  /// In en, this message translates to:
+  /// **'Central European Time'**
+  String get cet;
+
+  /// Timezone translation for cst6cdt
+  ///
+  /// In en, this message translates to:
+  /// **'Central Standard Time (US)'**
+  String get cst6cdt;
+
+  /// Timezone translation for canada_atlantic
+  ///
+  /// In en, this message translates to:
+  /// **'Canada / Atlantic'**
+  String get canada_atlantic;
+
+  /// Timezone translation for canada_central
+  ///
+  /// In en, this message translates to:
+  /// **'Canada / Central'**
+  String get canada_central;
+
+  /// Timezone translation for canada_eastern
+  ///
+  /// In en, this message translates to:
+  /// **'Canada / Eastern'**
+  String get canada_eastern;
+
+  /// Timezone translation for canada_mountain
+  ///
+  /// In en, this message translates to:
+  /// **'Canada / Mountain'**
+  String get canada_mountain;
+
+  /// Timezone translation for canada_newfoundland
+  ///
+  /// In en, this message translates to:
+  /// **'Canada / Newfoundland'**
+  String get canada_newfoundland;
+
+  /// Timezone translation for canada_pacific
+  ///
+  /// In en, this message translates to:
+  /// **'Canada / Pacific'**
+  String get canada_pacific;
+
+  /// Timezone translation for canada_saskatchewan
+  ///
+  /// In en, this message translates to:
+  /// **'Canada / Saskatchewan'**
+  String get canada_saskatchewan;
+
+  /// Timezone translation for canada_yukon
+  ///
+  /// In en, this message translates to:
+  /// **'Canada / Yukon'**
+  String get canada_yukon;
+
+  /// Timezone translation for chile_continental
+  ///
+  /// In en, this message translates to:
+  /// **'Chile / Continental'**
+  String get chile_continental;
+
+  /// Timezone translation for chile_easterisland
+  ///
+  /// In en, this message translates to:
+  /// **'Chile / Easter Island'**
+  String get chile_easterisland;
+
+  /// Timezone translation for cuba
+  ///
+  /// In en, this message translates to:
+  /// **'Cuba'**
+  String get cuba;
+
+  /// Timezone translation for eet
+  ///
+  /// In en, this message translates to:
+  /// **'Eastern European Time'**
+  String get eet;
+
+  /// Timezone translation for est
+  ///
+  /// In en, this message translates to:
+  /// **'Eastern Standard Time'**
+  String get est;
+
+  /// Timezone translation for est5edt
+  ///
+  /// In en, this message translates to:
+  /// **'Eastern Standard Time (US)'**
+  String get est5edt;
+
+  /// Timezone translation for egypt
+  ///
+  /// In en, this message translates to:
+  /// **'Egypt'**
+  String get egypt;
+
+  /// Timezone translation for eire
+  ///
+  /// In en, this message translates to:
+  /// **'Ireland'**
+  String get eire;
+
+  /// Timezone translation for gb
+  ///
+  /// In en, this message translates to:
+  /// **'United Kingdom'**
+  String get gb;
+
+  /// Timezone translation for gb_eire
+  ///
+  /// In en, this message translates to:
+  /// **'United Kingdom / Ireland'**
+  String get gb_eire;
+
+  /// Timezone translation for gmt
+  ///
+  /// In en, this message translates to:
+  /// **'Greenwich Mean Time'**
+  String get gmt;
+
+  /// Timezone translation for gmt_plus_0
+  ///
+  /// In en, this message translates to:
+  /// **'GMT+0'**
+  String get gmt_plus_0;
+
+  /// Timezone translation for gmt_minus_0
+  ///
+  /// In en, this message translates to:
+  /// **'GMT-0'**
+  String get gmt_minus_0;
+
+  /// Timezone translation for gmt0
+  ///
+  /// In en, this message translates to:
+  /// **'GMT0'**
+  String get gmt0;
+
+  /// Timezone translation for greenwich
+  ///
+  /// In en, this message translates to:
+  /// **'Greenwich'**
+  String get greenwich;
+
+  /// Timezone translation for hst
+  ///
+  /// In en, this message translates to:
+  /// **'Hawaii Standard Time'**
+  String get hst;
+
+  /// Timezone translation for hongkong
+  ///
+  /// In en, this message translates to:
+  /// **'Hong Kong'**
+  String get hongkong;
+
+  /// Timezone translation for iceland
+  ///
+  /// In en, this message translates to:
+  /// **'Iceland'**
+  String get iceland;
+
+  /// Timezone translation for indian_antananarivo
+  ///
+  /// In en, this message translates to:
+  /// **'Indian Ocean / Antananarivo'**
+  String get indian_antananarivo;
+
+  /// Timezone translation for indian_christmas
+  ///
+  /// In en, this message translates to:
+  /// **'Indian Ocean / Christmas Island'**
+  String get indian_christmas;
+
+  /// Timezone translation for indian_cocos
+  ///
+  /// In en, this message translates to:
+  /// **'Indian Ocean / Cocos Islands'**
+  String get indian_cocos;
+
+  /// Timezone translation for indian_comoro
+  ///
+  /// In en, this message translates to:
+  /// **'Indian Ocean / Comoros'**
+  String get indian_comoro;
+
+  /// Timezone translation for indian_kerguelen
+  ///
+  /// In en, this message translates to:
+  /// **'Indian Ocean / Kerguelen'**
+  String get indian_kerguelen;
+
+  /// Timezone translation for indian_mahe
+  ///
+  /// In en, this message translates to:
+  /// **'Indian Ocean / Mahé'**
+  String get indian_mahe;
+
+  /// Timezone translation for indian_mayotte
+  ///
+  /// In en, this message translates to:
+  /// **'Indian Ocean / Mayotte'**
+  String get indian_mayotte;
+
+  /// Timezone translation for indian_reunion
+  ///
+  /// In en, this message translates to:
+  /// **'Indian Ocean / Réunion'**
+  String get indian_reunion;
+
+  /// Timezone translation for iran
+  ///
+  /// In en, this message translates to:
+  /// **'Iran'**
+  String get iran;
+
+  /// Timezone translation for israel
+  ///
+  /// In en, this message translates to:
+  /// **'Israel'**
+  String get israel;
+
+  /// Timezone translation for jamaica
+  ///
+  /// In en, this message translates to:
+  /// **'Jamaica'**
+  String get jamaica;
+
+  /// Timezone translation for japan
+  ///
+  /// In en, this message translates to:
+  /// **'Japan'**
+  String get japan;
+
+  /// Timezone translation for kwajalein
+  ///
+  /// In en, this message translates to:
+  /// **'Kwajalein'**
+  String get kwajalein;
+
+  /// Timezone translation for libya
+  ///
+  /// In en, this message translates to:
+  /// **'Libya'**
+  String get libya;
+
+  /// Timezone translation for met
+  ///
+  /// In en, this message translates to:
+  /// **'Middle European Time'**
+  String get met;
+
+  /// Timezone translation for mst
+  ///
+  /// In en, this message translates to:
+  /// **'Mountain Standard Time'**
+  String get mst;
+
+  /// Timezone translation for mst7mdt
+  ///
+  /// In en, this message translates to:
+  /// **'Mountain Time (US)'**
+  String get mst7mdt;
+
+  /// Timezone translation for mexico_bajanorte
+  ///
+  /// In en, this message translates to:
+  /// **'Mexico / Baja Norte'**
+  String get mexico_bajanorte;
+
+  /// Timezone translation for mexico_bajasur
+  ///
+  /// In en, this message translates to:
+  /// **'Mexico / Baja Sur'**
+  String get mexico_bajasur;
+
+  /// Timezone translation for mexico_general
+  ///
+  /// In en, this message translates to:
+  /// **'Mexico / General'**
+  String get mexico_general;
+
+  /// Timezone translation for nz
+  ///
+  /// In en, this message translates to:
+  /// **'New Zealand'**
+  String get nz;
+
+  /// Timezone translation for nz_chat
+  ///
+  /// In en, this message translates to:
+  /// **'New Zealand / Chatham'**
+  String get nz_chat;
+
+  /// Timezone translation for navajo
+  ///
+  /// In en, this message translates to:
+  /// **'Navajo'**
+  String get navajo;
+
+  /// Timezone translation for prc
+  ///
+  /// In en, this message translates to:
+  /// **'China'**
+  String get prc;
+
+  /// Timezone translation for pst8pdt
+  ///
+  /// In en, this message translates to:
+  /// **'Pacific Time (US)'**
+  String get pst8pdt;
+
+  /// Timezone translation for poland
+  ///
+  /// In en, this message translates to:
+  /// **'Poland'**
+  String get poland;
+
+  /// Timezone translation for portugal
+  ///
+  /// In en, this message translates to:
+  /// **'Portugal'**
+  String get portugal;
+
+  /// Timezone translation for roc
+  ///
+  /// In en, this message translates to:
+  /// **'Republic of China (Taiwan)'**
+  String get roc;
+
+  /// Timezone translation for rok
+  ///
+  /// In en, this message translates to:
+  /// **'Republic of Korea'**
+  String get rok;
+
+  /// Timezone translation for singapore
+  ///
+  /// In en, this message translates to:
+  /// **'Singapore'**
+  String get singapore;
+
+  /// Timezone translation for turkey
+  ///
+  /// In en, this message translates to:
+  /// **'Turkey'**
+  String get turkey;
+
+  /// Timezone translation for uct
+  ///
+  /// In en, this message translates to:
+  /// **'Coordinated Universal Time'**
+  String get uct;
+
+  /// Timezone translation for us_alaska
+  ///
+  /// In en, this message translates to:
+  /// **'United States / Alaska'**
+  String get us_alaska;
+
+  /// Timezone translation for us_aleutian
+  ///
+  /// In en, this message translates to:
+  /// **'United States / Aleutian'**
+  String get us_aleutian;
+
+  /// Timezone translation for us_arizona
+  ///
+  /// In en, this message translates to:
+  /// **'United States / Arizona'**
+  String get us_arizona;
+
+  /// Timezone translation for us_central
+  ///
+  /// In en, this message translates to:
+  /// **'United States / Central'**
+  String get us_central;
+
+  /// Timezone translation for us_east_indiana
+  ///
+  /// In en, this message translates to:
+  /// **'United States / East Indiana'**
+  String get us_east_indiana;
+
+  /// Timezone translation for us_eastern
+  ///
+  /// In en, this message translates to:
+  /// **'United States / Eastern'**
+  String get us_eastern;
+
+  /// Timezone translation for us_hawaii
+  ///
+  /// In en, this message translates to:
+  /// **'United States / Hawaii'**
+  String get us_hawaii;
+
+  /// Timezone translation for us_indiana_starke
+  ///
+  /// In en, this message translates to:
+  /// **'United States / Indiana Starke'**
+  String get us_indiana_starke;
+
+  /// Timezone translation for us_michigan
+  ///
+  /// In en, this message translates to:
+  /// **'United States / Michigan'**
+  String get us_michigan;
+
+  /// Timezone translation for us_mountain
+  ///
+  /// In en, this message translates to:
+  /// **'United States / Mountain'**
+  String get us_mountain;
+
+  /// Timezone translation for us_pacific
+  ///
+  /// In en, this message translates to:
+  /// **'United States / Pacific'**
+  String get us_pacific;
+
+  /// Timezone translation for us_samoa
+  ///
+  /// In en, this message translates to:
+  /// **'United States / Samoa'**
+  String get us_samoa;
+
+  /// Timezone translation for utc
+  ///
+  /// In en, this message translates to:
+  /// **'Coordinated Universal Time'**
+  String get utc;
+
+  /// Timezone translation for universal
+  ///
+  /// In en, this message translates to:
+  /// **'Universal Time'**
+  String get universal;
+
+  /// Timezone translation for w_su
+  ///
+  /// In en, this message translates to:
+  /// **'Western Soviet Union'**
+  String get w_su;
+
+  /// Timezone translation for wet
+  ///
+  /// In en, this message translates to:
+  /// **'Western European Time'**
+  String get wet;
+
+  /// Timezone translation for zulu
+  ///
+  /// In en, this message translates to:
+  /// **'Zulu Time'**
+  String get zulu;
 }
 
 class _TimezonesLocalizationsDelegate

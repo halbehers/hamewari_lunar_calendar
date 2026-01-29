@@ -80,6 +80,146 @@
   "@africa_windhoek": {
     "description": "Timezone translation for africa_windhoek"
   },
+  "africa_accra": "Africa / Accra",
+  "@africa_accra": {
+    "description": "Timezone translation for africa_accra"
+  },
+  "africa_addis_ababa": "Africa / Addis Ababa",
+  "@africa_addis_ababa": {
+    "description": "Timezone translation for africa_addis_ababa"
+  },
+  "africa_asmara": "Africa / Asmara",
+  "@africa_asmara": {
+    "description": "Timezone translation for africa_asmara"
+  },
+  "africa_asmera": "Africa / Asmera",
+  "@africa_asmera": {
+    "description": "Timezone translation for africa_asmera"
+  },
+  "africa_bamako": "Africa / Bamako",
+  "@africa_bamako": {
+    "description": "Timezone translation for africa_bamako"
+  },
+  "africa_bangui": "Africa / Bangui",
+  "@africa_bangui": {
+    "description": "Timezone translation for africa_bangui"
+  },
+  "africa_banjul": "Africa / Banjul",
+  "@africa_banjul": {
+    "description": "Timezone translation for africa_banjul"
+  },
+  "africa_blantyre": "Africa / Blantyre",
+  "@africa_blantyre": {
+    "description": "Timezone translation for africa_blantyre"
+  },
+  "africa_brazzaville": "Africa / Brazzaville",
+  "@africa_brazzaville": {
+    "description": "Timezone translation for africa_brazzaville"
+  },
+  "africa_bujumbura": "Africa / Bujumbura",
+  "@africa_bujumbura": {
+    "description": "Timezone translation for africa_bujumbura"
+  },
+  "africa_conakry": "Africa / Conakry",
+  "@africa_conakry": {
+    "description": "Timezone translation for africa_conakry"
+  },
+  "africa_dakar": "Africa / Dakar",
+  "@africa_dakar": {
+    "description": "Timezone translation for africa_dakar"
+  },
+  "africa_dar_es_salaam": "Africa / Dar es Salaam",
+  "@africa_dar_es_salaam": {
+    "description": "Timezone translation for africa_dar_es_salaam"
+  },
+  "africa_djibouti": "Africa / Djibouti",
+  "@africa_djibouti": {
+    "description": "Timezone translation for africa_djibouti"
+  },
+  "africa_douala": "Africa / Douala",
+  "@africa_douala": {
+    "description": "Timezone translation for africa_douala"
+  },
+  "africa_freetown": "Africa / Freetown",
+  "@africa_freetown": {
+    "description": "Timezone translation for africa_freetown"
+  },
+  "africa_gaborone": "Africa / Gaborone",
+  "@africa_gaborone": {
+    "description": "Timezone translation for africa_gaborone"
+  },
+  "africa_harare": "Africa / Harare",
+  "@africa_harare": {
+    "description": "Timezone translation for africa_harare"
+  },
+  "africa_kampala": "Africa / Kampala",
+  "@africa_kampala": {
+    "description": "Timezone translation for africa_kampala"
+  },
+  "africa_kigali": "Africa / Kigali",
+  "@africa_kigali": {
+    "description": "Timezone translation for africa_kigali"
+  },
+  "africa_kinshasa": "Africa / Kinshasa",
+  "@africa_kinshasa": {
+    "description": "Timezone translation for africa_kinshasa"
+  },
+  "africa_libreville": "Africa / Libreville",
+  "@africa_libreville": {
+    "description": "Timezone translation for africa_libreville"
+  },
+  "africa_lome": "Africa / Lome",
+  "@africa_lome": {
+    "description": "Timezone translation for africa_lome"
+  },
+  "africa_luanda": "Africa / Luanda",
+  "@africa_luanda": {
+    "description": "Timezone translation for africa_luanda"
+  },
+  "africa_lubumbashi": "Africa / Lubumbashi",
+  "@africa_lubumbashi": {
+    "description": "Timezone translation for africa_lubumbashi"
+  },
+  "africa_lusaka": "Africa / Lusaka",
+  "@africa_lusaka": {
+    "description": "Timezone translation for africa_lusaka"
+  },
+  "africa_malabo": "Africa / Malabo",
+  "@africa_malabo": {
+    "description": "Timezone translation for africa_malabo"
+  },
+  "africa_maseru": "Africa / Maseru",
+  "@africa_maseru": {
+    "description": "Timezone translation for africa_maseru"
+  },
+  "africa_mbabane": "Africa / Mbabane",
+  "@africa_mbabane": {
+    "description": "Timezone translation for africa_mbabane"
+  },
+  "africa_mogadishu": "Africa / Mogadishu",
+  "@africa_mogadishu": {
+    "description": "Timezone translation for africa_mogadishu"
+  },
+  "africa_niamey": "Africa / Niamey",
+  "@africa_niamey": {
+    "description": "Timezone translation for africa_niamey"
+  },
+  "africa_nouakchott": "Africa / Nouakchott",
+  "@africa_nouakchott": {
+    "description": "Timezone translation for africa_nouakchott"
+  },
+  "africa_ouagadougou": "Africa / Ouagadougou",
+  "@africa_ouagadougou": {
+    "description": "Timezone translation for africa_ouagadougou"
+  },
+  "africa_porto_novo": "Africa / Porto-Novo",
+  "@africa_porto_novo": {
+    "description": "Timezone translation for africa_porto_novo"
+  },
+  "africa_timbuktu": "Africa / Timbuktu",
+  "@africa_timbuktu": {
+    "description": "Timezone translation for africa_timbuktu"
+  },
   "america_adak": "America / Adak",
   "@america_adak": {
     "description": "Timezone translation for america_adak"
@@ -564,6 +704,198 @@
   "@america_yakutat": {
     "description": "Timezone translation for america_yakutat"
   },
+  "america_anguilla": "America / Anguilla",
+  "@america_anguilla": {
+    "description": "Timezone translation for america_anguilla"
+  },
+  "america_antigua": "America / Antigua",
+  "@america_antigua": {
+    "description": "Timezone translation for america_antigua"
+  },
+  "america_argentina_comodrivadavia": "America / Argentina / Comodrivadavia",
+  "@america_argentina_comodrivadavia": {
+    "description": "Timezone translation for america_argentina_comodrivadavia"
+  },
+  "america_aruba": "America / Aruba",
+  "@america_aruba": {
+    "description": "Timezone translation for america_aruba"
+  },
+  "america_atikokan": "America / Atikokan",
+  "@america_atikokan": {
+    "description": "Timezone translation for america_atikokan"
+  },
+  "america_atka": "America / Atka",
+  "@america_atka": {
+    "description": "Timezone translation for america_atka"
+  },
+  "america_blanc_sablon": "America / Blanc-Sablon",
+  "@america_blanc_sablon": {
+    "description": "Timezone translation for america_blanc_sablon"
+  },
+  "america_buenos_aires": "America / Buenos Aires",
+  "@america_buenos_aires": {
+    "description": "Timezone translation for america_buenos_aires"
+  },
+  "america_catamarca": "America / Catamarca",
+  "@america_catamarca": {
+    "description": "Timezone translation for america_catamarca"
+  },
+  "america_cayman": "America / Cayman",
+  "@america_cayman": {
+    "description": "Timezone translation for america_cayman"
+  },
+  "america_coral_harbour": "America / Coral Harbour",
+  "@america_coral_harbour": {
+    "description": "Timezone translation for america_coral_harbour"
+  },
+  "america_cordoba": "America / Cordoba",
+  "@america_cordoba": {
+    "description": "Timezone translation for america_cordoba"
+  },
+  "america_creston": "America / Creston",
+  "@america_creston": {
+    "description": "Timezone translation for america_creston"
+  },
+  "america_curacao": "America / Curacao",
+  "@america_curacao": {
+    "description": "Timezone translation for america_curacao"
+  },
+  "america_dominica": "America / Dominica",
+  "@america_dominica": {
+    "description": "Timezone translation for america_dominica"
+  },
+  "america_ensenada": "America / Ensenada",
+  "@america_ensenada": {
+    "description": "Timezone translation for america_ensenada"
+  },
+  "america_fort_wayne": "America / Fort Wayne",
+  "@america_fort_wayne": {
+    "description": "Timezone translation for america_fort_wayne"
+  },
+  "america_godthab": "America / Godthab",
+  "@america_godthab": {
+    "description": "Timezone translation for america_godthab"
+  },
+  "america_grenada": "America / Grenada",
+  "@america_grenada": {
+    "description": "Timezone translation for america_grenada"
+  },
+  "america_guadeloupe": "America / Guadeloupe",
+  "@america_guadeloupe": {
+    "description": "Timezone translation for america_guadeloupe"
+  },
+  "america_indianapolis": "America / Indianapolis",
+  "@america_indianapolis": {
+    "description": "Timezone translation for america_indianapolis"
+  },
+  "america_jujuy": "America / Jujuy",
+  "@america_jujuy": {
+    "description": "Timezone translation for america_jujuy"
+  },
+  "america_knox_in": "America / Knox (IN)",
+  "@america_knox_in": {
+    "description": "Timezone translation for america_knox_in"
+  },
+  "america_kralendijk": "America / Kralendijk",
+  "@america_kralendijk": {
+    "description": "Timezone translation for america_kralendijk"
+  },
+  "america_louisville": "America / Louisville",
+  "@america_louisville": {
+    "description": "Timezone translation for america_louisville"
+  },
+  "america_lower_princes": "America / Lower Princes",
+  "@america_lower_princes": {
+    "description": "Timezone translation for america_lower_princes"
+  },
+  "america_marigot": "America / Marigot",
+  "@america_marigot": {
+    "description": "Timezone translation for america_marigot"
+  },
+  "america_mendoza": "America / Mendoza",
+  "@america_mendoza": {
+    "description": "Timezone translation for america_mendoza"
+  },
+  "america_montreal": "America / Montreal",
+  "@america_montreal": {
+    "description": "Timezone translation for america_montreal"
+  },
+  "america_montserrat": "America / Montserrat",
+  "@america_montserrat": {
+    "description": "Timezone translation for america_montserrat"
+  },
+  "america_nassau": "America / Nassau",
+  "@america_nassau": {
+    "description": "Timezone translation for america_nassau"
+  },
+  "america_nipigon": "America / Nipigon",
+  "@america_nipigon": {
+    "description": "Timezone translation for america_nipigon"
+  },
+  "america_pangnirtung": "America / Pangnirtung",
+  "@america_pangnirtung": {
+    "description": "Timezone translation for america_pangnirtung"
+  },
+  "america_port_of_spain": "America / Port of Spain",
+  "@america_port_of_spain": {
+    "description": "Timezone translation for america_port_of_spain"
+  },
+  "america_porto_acre": "America / Porto Acre",
+  "@america_porto_acre": {
+    "description": "Timezone translation for america_porto_acre"
+  },
+  "america_rainy_river": "America / Rainy River",
+  "@america_rainy_river": {
+    "description": "Timezone translation for america_rainy_river"
+  },
+  "america_rosario": "America / Rosario",
+  "@america_rosario": {
+    "description": "Timezone translation for america_rosario"
+  },
+  "america_santa_isabel": "America / Santa Isabel",
+  "@america_santa_isabel": {
+    "description": "Timezone translation for america_santa_isabel"
+  },
+  "america_shiprock": "America / Shiprock",
+  "@america_shiprock": {
+    "description": "Timezone translation for america_shiprock"
+  },
+  "america_st_barthelemy": "America / St. Barthelemy",
+  "@america_st_barthelemy": {
+    "description": "Timezone translation for america_st_barthelemy"
+  },
+  "america_st_kitts": "America / St. Kitts",
+  "@america_st_kitts": {
+    "description": "Timezone translation for america_st_kitts"
+  },
+  "america_st_lucia": "America / St. Lucia",
+  "@america_st_lucia": {
+    "description": "Timezone translation for america_st_lucia"
+  },
+  "america_st_thomas": "America / St. Thomas",
+  "@america_st_thomas": {
+    "description": "Timezone translation for america_st_thomas"
+  },
+  "america_st_vincent": "America / St. Vincent",
+  "@america_st_vincent": {
+    "description": "Timezone translation for america_st_vincent"
+  },
+  "america_thunder_bay": "America / Thunder Bay",
+  "@america_thunder_bay": {
+    "description": "Timezone translation for america_thunder_bay"
+  },
+  "america_tortola": "America / Tortola",
+  "@america_tortola": {
+    "description": "Timezone translation for america_tortola"
+  },
+  "america_virgin": "America / Virgin",
+  "@america_virgin": {
+    "description": "Timezone translation for america_virgin"
+  },
+  "america_yellowknife": "America / Yellowknife",
+  "@america_yellowknife": {
+    "description": "Timezone translation for america_yellowknife"
+  },
   "antarctica_casey": "Antarctica / Casey",
   "@antarctica_casey": {
     "description": "Timezone translation for antarctica_casey"
@@ -595,6 +927,26 @@
   "antarctica_vostok": "Antarctica / Vostok",
   "@antarctica_vostok": {
     "description": "Timezone translation for antarctica_vostok"
+  },
+  "antarctica_dumontdurville": "Antarctica / Dumont d’Urville",
+  "@antarctica_dumontdurville": {
+    "description": "Timezone translation for antarctica_dumontdurville"
+  },
+  "antarctica_mcmurdo": "Antarctica / McMurdo",
+  "@antarctica_mcmurdo": {
+    "description": "Timezone translation for antarctica_mcmurdo"
+  },
+  "antarctica_south_pole": "Antarctica / South Pole",
+  "@antarctica_south_pole": {
+    "description": "Timezone translation for antarctica_south_pole"
+  },
+  "antarctica_syowa": "Antarctica / Syowa",
+  "@antarctica_syowa": {
+    "description": "Timezone translation for antarctica_syowa"
+  },
+  "arctic_longyearbyen": "Arctic / Longyearbyen",
+  "@arctic_longyearbyen": {
+    "description": "Timezone translation for arctic_longyearbyen"
   },
   "asia_almaty": "Asia / Almaty",
   "@asia_almaty": {
@@ -892,6 +1244,106 @@
   "@asia_yerevan": {
     "description": "Timezone translation for asia_yerevan"
   },
+  "asia_aden": "Asia / Aden",
+  "@asia_aden": {
+    "description": "Timezone translation for asia_aden"
+  },
+  "asia_ashkhabad": "Asia / Ashkhabad",
+  "@asia_ashkhabad": {
+    "description": "Timezone translation for asia_ashkhabad"
+  },
+  "asia_bahrain": "Asia / Bahrain",
+  "@asia_bahrain": {
+    "description": "Timezone translation for asia_bahrain"
+  },
+  "asia_brunei": "Asia / Brunei",
+  "@asia_brunei": {
+    "description": "Timezone translation for asia_brunei"
+  },
+  "asia_calcutta": "Asia / Calcutta",
+  "@asia_calcutta": {
+    "description": "Timezone translation for asia_calcutta"
+  },
+  "asia_choibalsan": "Asia / Choibalsan",
+  "@asia_choibalsan": {
+    "description": "Timezone translation for asia_choibalsan"
+  },
+  "asia_chongqing": "Asia / Chongqing",
+  "@asia_chongqing": {
+    "description": "Timezone translation for asia_chongqing"
+  },
+  "asia_chungking": "Asia / Chungking",
+  "@asia_chungking": {
+    "description": "Timezone translation for asia_chungking"
+  },
+  "asia_dacca": "Asia / Dacca",
+  "@asia_dacca": {
+    "description": "Timezone translation for asia_dacca"
+  },
+  "asia_harbin": "Asia / Harbin",
+  "@asia_harbin": {
+    "description": "Timezone translation for asia_harbin"
+  },
+  "asia_istanbul": "Asia / Istanbul",
+  "@asia_istanbul": {
+    "description": "Timezone translation for asia_istanbul"
+  },
+  "asia_kashgar": "Asia / Kashgar",
+  "@asia_kashgar": {
+    "description": "Timezone translation for asia_kashgar"
+  },
+  "asia_katmandu": "Asia / Katmandu",
+  "@asia_katmandu": {
+    "description": "Timezone translation for asia_katmandu"
+  },
+  "asia_kuala_lumpur": "Asia / Kuala Lumpur",
+  "@asia_kuala_lumpur": {
+    "description": "Timezone translation for asia_kuala_lumpur"
+  },
+  "asia_kuwait": "Asia / Kuwait",
+  "@asia_kuwait": {
+    "description": "Timezone translation for asia_kuwait"
+  },
+  "asia_macao": "Asia / Macao",
+  "@asia_macao": {
+    "description": "Timezone translation for asia_macao"
+  },
+  "asia_muscat": "Asia / Muscat",
+  "@asia_muscat": {
+    "description": "Timezone translation for asia_muscat"
+  },
+  "asia_phnom_penh": "Asia / Phnom Penh",
+  "@asia_phnom_penh": {
+    "description": "Timezone translation for asia_phnom_penh"
+  },
+  "asia_rangoon": "Asia / Rangoon",
+  "@asia_rangoon": {
+    "description": "Timezone translation for asia_rangoon"
+  },
+  "asia_saigon": "Asia / Saigon",
+  "@asia_saigon": {
+    "description": "Timezone translation for asia_saigon"
+  },
+  "asia_tel_aviv": "Asia / Tel Aviv",
+  "@asia_tel_aviv": {
+    "description": "Timezone translation for asia_tel_aviv"
+  },
+  "asia_thimbu": "Asia / Thimbu",
+  "@asia_thimbu": {
+    "description": "Timezone translation for asia_thimbu"
+  },
+  "asia_ujung_pandang": "Asia / Ujung Pandang",
+  "@asia_ujung_pandang": {
+    "description": "Timezone translation for asia_ujung_pandang"
+  },
+  "asia_ulan_bator": "Asia / Ulan Bator",
+  "@asia_ulan_bator": {
+    "description": "Timezone translation for asia_ulan_bator"
+  },
+  "asia_vientiane": "Asia / Vientiane",
+  "@asia_vientiane": {
+    "description": "Timezone translation for asia_vientiane"
+  },
   "atlantic_azores": "Atlantic / Azores",
   "@atlantic_azores": {
     "description": "Timezone translation for atlantic_azores"
@@ -923,6 +1375,22 @@
   "atlantic_stanley": "Atlantic / Stanley",
   "@atlantic_stanley": {
     "description": "Timezone translation for atlantic_stanley"
+  },
+  "atlantic_faeroe": "Atlantic / Faeroe",
+  "@atlantic_faeroe": {
+    "description": "Timezone translation for atlantic_faeroe"
+  },
+  "atlantic_jan_mayen": "Atlantic / Jan Mayen",
+  "@atlantic_jan_mayen": {
+    "description": "Timezone translation for atlantic_jan_mayen"
+  },
+  "atlantic_reykjavik": "Atlantic / Reykjavik",
+  "@atlantic_reykjavik": {
+    "description": "Timezone translation for atlantic_reykjavik"
+  },
+  "atlantic_st_helena": "Atlantic / St. Helena",
+  "@atlantic_st_helena": {
+    "description": "Timezone translation for atlantic_st_helena"
   },
   "australia_adelaide": "Australia / Adelaide",
   "@australia_adelaide": {
@@ -967,6 +1435,54 @@
   "australia_sydney": "Australia / Sydney",
   "@australia_sydney": {
     "description": "Timezone translation for australia_sydney"
+  },
+  "australia_act": "Australia / ACT",
+  "@australia_act": {
+    "description": "Timezone translation for australia_act"
+  },
+  "australia_canberra": "Australia / Canberra",
+  "@australia_canberra": {
+    "description": "Timezone translation for australia_canberra"
+  },
+  "australia_currie": "Australia / Currie",
+  "@australia_currie": {
+    "description": "Timezone translation for australia_currie"
+  },
+  "australia_lhi": "Australia / Lord Howe Island",
+  "@australia_lhi": {
+    "description": "Timezone translation for australia_lhi"
+  },
+  "australia_nsw": "Australia / New South Wales",
+  "@australia_nsw": {
+    "description": "Timezone translation for australia_nsw"
+  },
+  "australia_north": "Australia / Northern Territory",
+  "@australia_north": {
+    "description": "Timezone translation for australia_north"
+  },
+  "australia_queensland": "Australia / Queensland",
+  "@australia_queensland": {
+    "description": "Timezone translation for australia_queensland"
+  },
+  "australia_south": "Australia / South Australia",
+  "@australia_south": {
+    "description": "Timezone translation for australia_south"
+  },
+  "australia_tasmania": "Australia / Tasmania",
+  "@australia_tasmania": {
+    "description": "Timezone translation for australia_tasmania"
+  },
+  "australia_victoria": "Australia / Victoria",
+  "@australia_victoria": {
+    "description": "Timezone translation for australia_victoria"
+  },
+  "australia_west": "Australia / Western Australia",
+  "@australia_west": {
+    "description": "Timezone translation for australia_west"
+  },
+  "australia_yancowinna": "Australia / Yancowinna",
+  "@australia_yancowinna": {
+    "description": "Timezone translation for australia_yancowinna"
   },
   "etc_gmt": "Etc / GMT",
   "@etc_gmt": {
@@ -1079,6 +1595,34 @@
   "etc_utc": "Etc / UTC",
   "@etc_utc": {
     "description": "Timezone translation for etc_utc"
+  },
+  "etc_gmt_plus_0": "Etc / GMT+0",
+  "@etc_gmt_plus_0": {
+    "description": "Timezone translation for etc_gmt_plus_0"
+  },
+  "etc_gmt_minus_0": "Etc / GMT-0",
+  "@etc_gmt_minus_0": {
+    "description": "Timezone translation for etc_gmt_minus_0"
+  },
+  "etc_gmt0": "Etc / GMT0",
+  "@etc_gmt0": {
+    "description": "Timezone translation for etc_gmt0"
+  },
+  "etc_greenwich": "Etc / Greenwich",
+  "@etc_greenwich": {
+    "description": "Timezone translation for etc_greenwich"
+  },
+  "etc_uct": "Etc / UCT",
+  "@etc_uct": {
+    "description": "Timezone translation for etc_uct"
+  },
+  "etc_universal": "Etc / Universal",
+  "@etc_universal": {
+    "description": "Timezone translation for etc_universal"
+  },
+  "etc_zulu": "Etc / Zulu",
+  "@etc_zulu": {
+    "description": "Timezone translation for etc_zulu"
   },
   "europe_andorra": "Europe / Andorra",
   "@europe_andorra": {
@@ -1232,6 +1776,110 @@
   "@europe_zurich": {
     "description": "Timezone translation for europe_zurich"
   },
+  "europe_amsterdam": "Europe / Amsterdam",
+  "@europe_amsterdam": {
+    "description": "Timezone translation for europe_amsterdam"
+  },
+  "europe_belfast": "Europe / Belfast",
+  "@europe_belfast": {
+    "description": "Timezone translation for europe_belfast"
+  },
+  "europe_bratislava": "Europe / Bratislava",
+  "@europe_bratislava": {
+    "description": "Timezone translation for europe_bratislava"
+  },
+  "europe_busingen": "Europe / Büsingen",
+  "@europe_busingen": {
+    "description": "Timezone translation for europe_busingen"
+  },
+  "europe_copenhagen": "Europe / Copenhagen",
+  "@europe_copenhagen": {
+    "description": "Timezone translation for europe_copenhagen"
+  },
+  "europe_guernsey": "Europe / Guernsey",
+  "@europe_guernsey": {
+    "description": "Timezone translation for europe_guernsey"
+  },
+  "europe_isle_of_man": "Europe / Isle of Man",
+  "@europe_isle_of_man": {
+    "description": "Timezone translation for europe_isle_of_man"
+  },
+  "europe_jersey": "Europe / Jersey",
+  "@europe_jersey": {
+    "description": "Timezone translation for europe_jersey"
+  },
+  "europe_kiev": "Europe / Kiev",
+  "@europe_kiev": {
+    "description": "Timezone translation for europe_kiev"
+  },
+  "europe_ljubljana": "Europe / Ljubljana",
+  "@europe_ljubljana": {
+    "description": "Timezone translation for europe_ljubljana"
+  },
+  "europe_luxembourg": "Europe / Luxembourg",
+  "@europe_luxembourg": {
+    "description": "Timezone translation for europe_luxembourg"
+  },
+  "europe_mariehamn": "Europe / Mariehamn",
+  "@europe_mariehamn": {
+    "description": "Timezone translation for europe_mariehamn"
+  },
+  "europe_monaco": "Europe / Monaco",
+  "@europe_monaco": {
+    "description": "Timezone translation for europe_monaco"
+  },
+  "europe_nicosia": "Europe / Nicosia",
+  "@europe_nicosia": {
+    "description": "Timezone translation for europe_nicosia"
+  },
+  "europe_oslo": "Europe / Oslo",
+  "@europe_oslo": {
+    "description": "Timezone translation for europe_oslo"
+  },
+  "europe_podgorica": "Europe / Podgorica",
+  "@europe_podgorica": {
+    "description": "Timezone translation for europe_podgorica"
+  },
+  "europe_san_marino": "Europe / San Marino",
+  "@europe_san_marino": {
+    "description": "Timezone translation for europe_san_marino"
+  },
+  "europe_sarajevo": "Europe / Sarajevo",
+  "@europe_sarajevo": {
+    "description": "Timezone translation for europe_sarajevo"
+  },
+  "europe_skopje": "Europe / Skopje",
+  "@europe_skopje": {
+    "description": "Timezone translation for europe_skopje"
+  },
+  "europe_stockholm": "Europe / Stockholm",
+  "@europe_stockholm": {
+    "description": "Timezone translation for europe_stockholm"
+  },
+  "europe_tiraspol": "Europe / Tiraspol",
+  "@europe_tiraspol": {
+    "description": "Timezone translation for europe_tiraspol"
+  },
+  "europe_uzhgorod": "Europe / Uzhgorod",
+  "@europe_uzhgorod": {
+    "description": "Timezone translation for europe_uzhgorod"
+  },
+  "europe_vaduz": "Europe / Vaduz",
+  "@europe_vaduz": {
+    "description": "Timezone translation for europe_vaduz"
+  },
+  "europe_vatican": "Europe / Vatican",
+  "@europe_vatican": {
+    "description": "Timezone translation for europe_vatican"
+  },
+  "europe_zagreb": "Europe / Zagreb",
+  "@europe_zagreb": {
+    "description": "Timezone translation for europe_zagreb"
+  },
+  "europe_zaporozhye": "Europe / Zaporozhye",
+  "@europe_zaporozhye": {
+    "description": "Timezone translation for europe_zaporozhye"
+  },
   "factory": "Factory",
   "@factory": {
     "description": "Timezone translation for factory"
@@ -1367,5 +2015,385 @@
   "pacific_tongatapu": "Pacific / Tongatapu",
   "@pacific_tongatapu": {
     "description": "Timezone translation for pacific_tongatapu"
+  },
+  "pacific_chuuk": "Pacific / Chuuk",
+  "@pacific_chuuk": {
+    "description": "Timezone translation for pacific_chuuk"
+  },
+  "pacific_enderbury": "Pacific / Enderbury",
+  "@pacific_enderbury": {
+    "description": "Timezone translation for pacific_enderbury"
+  },
+  "pacific_funafuti": "Pacific / Funafuti",
+  "@pacific_funafuti": {
+    "description": "Timezone translation for pacific_funafuti"
+  },
+  "pacific_johnston": "Pacific / Johnston",
+  "@pacific_johnston": {
+    "description": "Timezone translation for pacific_johnston"
+  },
+  "pacific_majuro": "Pacific / Majuro",
+  "@pacific_majuro": {
+    "description": "Timezone translation for pacific_majuro"
+  },
+  "pacific_midway": "Pacific / Midway",
+  "@pacific_midway": {
+    "description": "Timezone translation for pacific_midway"
+  },
+  "pacific_pohnpei": "Pacific / Pohnpei",
+  "@pacific_pohnpei": {
+    "description": "Timezone translation for pacific_pohnpei"
+  },
+  "pacific_ponape": "Pacific / Ponape",
+  "@pacific_ponape": {
+    "description": "Timezone translation for pacific_ponape"
+  },
+  "pacific_saipan": "Pacific / Saipan",
+  "@pacific_saipan": {
+    "description": "Timezone translation for pacific_saipan"
+  },
+  "pacific_samoa": "Pacific / Samoa",
+  "@pacific_samoa": {
+    "description": "Timezone translation for pacific_samoa"
+  },
+  "pacific_truk": "Pacific / Truk",
+  "@pacific_truk": {
+    "description": "Timezone translation for pacific_truk"
+  },
+  "pacific_wake": "Pacific / Wake",
+  "@pacific_wake": {
+    "description": "Timezone translation for pacific_wake"
+  },
+  "pacific_wallis": "Pacific / Wallis",
+  "@pacific_wallis": {
+    "description": "Timezone translation for pacific_wallis"
+  },
+  "pacific_yap": "Pacific / Yap",
+  "@pacific_yap": {
+    "description": "Timezone translation for pacific_yap"
+  },
+  "brazil_acre": "Brazil / Acre",
+  "@brazil_acre": {
+    "description": "Timezone translation for brazil_acre"
+  },
+  "brazil_denoronha": "Brazil / De Noronha",
+  "@brazil_denoronha": {
+    "description": "Timezone translation for brazil_denoronha"
+  },
+  "brazil_east": "Brazil / East",
+  "@brazil_east": {
+    "description": "Timezone translation for brazil_east"
+  },
+  "brazil_west": "Brazil / West",
+  "@brazil_west": {
+    "description": "Timezone translation for brazil_west"
+  },
+  "cet": "Central European Time",
+  "@cet": {
+    "description": "Timezone translation for cet"
+  },
+  "cst6cdt": "Central Standard Time (US)",
+  "@cst6cdt": {
+    "description": "Timezone translation for cst6cdt"
+  },
+  "canada_atlantic": "Canada / Atlantic",
+  "@canada_atlantic": {
+    "description": "Timezone translation for canada_atlantic"
+  },
+  "canada_central": "Canada / Central",
+  "@canada_central": {
+    "description": "Timezone translation for canada_central"
+  },
+  "canada_eastern": "Canada / Eastern",
+  "@canada_eastern": {
+    "description": "Timezone translation for canada_eastern"
+  },
+  "canada_mountain": "Canada / Mountain",
+  "@canada_mountain": {
+    "description": "Timezone translation for canada_mountain"
+  },
+  "canada_newfoundland": "Canada / Newfoundland",
+  "@canada_newfoundland": {
+    "description": "Timezone translation for canada_newfoundland"
+  },
+  "canada_pacific": "Canada / Pacific",
+  "@canada_pacific": {
+    "description": "Timezone translation for canada_pacific"
+  },
+  "canada_saskatchewan": "Canada / Saskatchewan",
+  "@canada_saskatchewan": {
+    "description": "Timezone translation for canada_saskatchewan"
+  },
+  "canada_yukon": "Canada / Yukon",
+  "@canada_yukon": {
+    "description": "Timezone translation for canada_yukon"
+  },
+  "chile_continental": "Chile / Continental",
+  "@chile_continental": {
+    "description": "Timezone translation for chile_continental"
+  },
+  "chile_easterisland": "Chile / Easter Island",
+  "@chile_easterisland": {
+    "description": "Timezone translation for chile_easterisland"
+  },
+  "cuba": "Cuba",
+  "@cuba": {
+    "description": "Timezone translation for cuba"
+  },
+  "eet": "Eastern European Time",
+  "@eet": {
+    "description": "Timezone translation for eet"
+  },
+  "est": "Eastern Standard Time",
+  "@est": {
+    "description": "Timezone translation for est"
+  },
+  "est5edt": "Eastern Standard Time (US)",
+  "@est5edt": {
+    "description": "Timezone translation for est5edt"
+  },
+  "egypt": "Egypt",
+  "@egypt": {
+    "description": "Timezone translation for egypt"
+  },
+  "eire": "Ireland",
+  "@eire": {
+    "description": "Timezone translation for eire"
+  },
+  "gb": "United Kingdom",
+  "@gb": {
+    "description": "Timezone translation for gb"
+  },
+  "gb_eire": "United Kingdom / Ireland",
+  "@gb_eire": {
+    "description": "Timezone translation for gb_eire"
+  },
+  "gmt": "Greenwich Mean Time",
+  "@gmt": {
+    "description": "Timezone translation for gmt"
+  },
+  "gmt_plus_0": "GMT+0",
+  "@gmt_plus_0": {
+    "description": "Timezone translation for gmt_plus_0"
+  },
+  "gmt_minus_0": "GMT-0",
+  "@gmt_minus_0": {
+    "description": "Timezone translation for gmt_minus_0"
+  },
+  "gmt0": "GMT0",
+  "@gmt0": {
+    "description": "Timezone translation for gmt0"
+  },
+  "greenwich": "Greenwich",
+  "@greenwich": {
+    "description": "Timezone translation for greenwich"
+  },
+  "hst": "Hawaii Standard Time",
+  "@hst": {
+    "description": "Timezone translation for hst"
+  },
+  "hongkong": "Hong Kong",
+  "@hongkong": {
+    "description": "Timezone translation for hongkong"
+  },
+  "iceland": "Iceland",
+  "@iceland": {
+    "description": "Timezone translation for iceland"
+  },
+  "indian_antananarivo": "Indian Ocean / Antananarivo",
+  "@indian_antananarivo": {
+    "description": "Timezone translation for indian_antananarivo"
+  },
+  "indian_christmas": "Indian Ocean / Christmas Island",
+  "@indian_christmas": {
+    "description": "Timezone translation for indian_christmas"
+  },
+  "indian_cocos": "Indian Ocean / Cocos Islands",
+  "@indian_cocos": {
+    "description": "Timezone translation for indian_cocos"
+  },
+  "indian_comoro": "Indian Ocean / Comoros",
+  "@indian_comoro": {
+    "description": "Timezone translation for indian_comoro"
+  },
+  "indian_kerguelen": "Indian Ocean / Kerguelen",
+  "@indian_kerguelen": {
+    "description": "Timezone translation for indian_kerguelen"
+  },
+  "indian_mahe": "Indian Ocean / Mahé",
+  "@indian_mahe": {
+    "description": "Timezone translation for indian_mahe"
+  },
+  "indian_mayotte": "Indian Ocean / Mayotte",
+  "@indian_mayotte": {
+    "description": "Timezone translation for indian_mayotte"
+  },
+  "indian_reunion": "Indian Ocean / Réunion",
+  "@indian_reunion": {
+    "description": "Timezone translation for indian_reunion"
+  },
+  "iran": "Iran",
+  "@iran": {
+    "description": "Timezone translation for iran"
+  },
+  "israel": "Israel",
+  "@israel": {
+    "description": "Timezone translation for israel"
+  },
+  "jamaica": "Jamaica",
+  "@jamaica": {
+    "description": "Timezone translation for jamaica"
+  },
+  "japan": "Japan",
+  "@japan": {
+    "description": "Timezone translation for japan"
+  },
+  "kwajalein": "Kwajalein",
+  "@kwajalein": {
+    "description": "Timezone translation for kwajalein"
+  },
+  "libya": "Libya",
+  "@libya": {
+    "description": "Timezone translation for libya"
+  },
+  "met": "Middle European Time",
+  "@met": {
+    "description": "Timezone translation for met"
+  },
+  "mst": "Mountain Standard Time",
+  "@mst": {
+    "description": "Timezone translation for mst"
+  },
+  "mst7mdt": "Mountain Time (US)",
+  "@mst7mdt": {
+    "description": "Timezone translation for mst7mdt"
+  },
+  "mexico_bajanorte": "Mexico / Baja Norte",
+  "@mexico_bajanorte": {
+    "description": "Timezone translation for mexico_bajanorte"
+  },
+  "mexico_bajasur": "Mexico / Baja Sur",
+  "@mexico_bajasur": {
+    "description": "Timezone translation for mexico_bajasur"
+  },
+  "mexico_general": "Mexico / General",
+  "@mexico_general": {
+    "description": "Timezone translation for mexico_general"
+  },
+  "nz": "New Zealand",
+  "@nz": {
+    "description": "Timezone translation for nz"
+  },
+  "nz_chat": "New Zealand / Chatham",
+  "@nz_chat": {
+    "description": "Timezone translation for nz_chat"
+  },
+  "navajo": "Navajo",
+  "@navajo": {
+    "description": "Timezone translation for navajo"
+  },
+  "prc": "China",
+  "@prc": {
+    "description": "Timezone translation for prc"
+  },
+  "pst8pdt": "Pacific Time (US)",
+  "@pst8pdt": {
+    "description": "Timezone translation for pst8pdt"
+  },
+  "poland": "Poland",
+  "@poland": {
+    "description": "Timezone translation for poland"
+  },
+  "portugal": "Portugal",
+  "@portugal": {
+    "description": "Timezone translation for portugal"
+  },
+  "roc": "Republic of China (Taiwan)",
+  "@roc": {
+    "description": "Timezone translation for roc"
+  },
+  "rok": "Republic of Korea",
+  "@rok": {
+    "description": "Timezone translation for rok"
+  },
+  "singapore": "Singapore",
+  "@singapore": {
+    "description": "Timezone translation for singapore"
+  },
+  "turkey": "Turkey",
+  "@turkey": {
+    "description": "Timezone translation for turkey"
+  },
+  "uct": "Coordinated Universal Time",
+  "@uct": {
+    "description": "Timezone translation for uct"
+  },
+  "us_alaska": "United States / Alaska",
+  "@us_alaska": {
+    "description": "Timezone translation for us_alaska"
+  },
+  "us_aleutian": "United States / Aleutian",
+  "@us_aleutian": {
+    "description": "Timezone translation for us_aleutian"
+  },
+  "us_arizona": "United States / Arizona",
+  "@us_arizona": {
+    "description": "Timezone translation for us_arizona"
+  },
+  "us_central": "United States / Central",
+  "@us_central": {
+    "description": "Timezone translation for us_central"
+  },
+  "us_east_indiana": "United States / East Indiana",
+  "@us_east_indiana": {
+    "description": "Timezone translation for us_east_indiana"
+  },
+  "us_eastern": "United States / Eastern",
+  "@us_eastern": {
+    "description": "Timezone translation for us_eastern"
+  },
+  "us_hawaii": "United States / Hawaii",
+  "@us_hawaii": {
+    "description": "Timezone translation for us_hawaii"
+  },
+  "us_indiana_starke": "United States / Indiana Starke",
+  "@us_indiana_starke": {
+    "description": "Timezone translation for us_indiana_starke"
+  },
+  "us_michigan": "United States / Michigan",
+  "@us_michigan": {
+    "description": "Timezone translation for us_michigan"
+  },
+  "us_mountain": "United States / Mountain",
+  "@us_mountain": {
+    "description": "Timezone translation for us_mountain"
+  },
+  "us_pacific": "United States / Pacific",
+  "@us_pacific": {
+    "description": "Timezone translation for us_pacific"
+  },
+  "us_samoa": "United States / Samoa",
+  "@us_samoa": {
+    "description": "Timezone translation for us_samoa"
+  },
+  "utc": "Coordinated Universal Time",
+  "@utc": {
+    "description": "Timezone translation for utc"
+  },
+  "universal": "Universal Time",
+  "@universal": {
+    "description": "Timezone translation for universal"
+  },
+  "w_su": "Western Soviet Union",
+  "@w_su": {
+    "description": "Timezone translation for w_su"
+  },
+  "wet": "Western European Time",
+  "@wet": {
+    "description": "Timezone translation for wet"
+  },
+  "zulu": "Zulu Time",
+  "@zulu": {
+    "description": "Timezone translation for zulu"
   }
 }
