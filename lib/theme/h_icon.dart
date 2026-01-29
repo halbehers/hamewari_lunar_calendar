@@ -15,10 +15,15 @@ enum IconSize {
 }
 
 class IconColorMapper extends ColorMapper {
-  const IconColorMapper({required this.appTheme, this.isActive = false});
+  const IconColorMapper({
+    required this.appTheme,
+    this.isActive = false,
+    this.color,
+  });
 
   final AppTheme appTheme;
   final bool isActive;
+  final Color? color;
 
   @override
   Color substitute(
@@ -28,7 +33,8 @@ class IconColorMapper extends ColorMapper {
     Color color,
   ) {
     if (color == const Color(0xFF000000)) {
-      return isActive ? appTheme.iconActiveColor : appTheme.iconColor;
+      return this.color ??
+          (isActive ? appTheme.iconActiveColor : appTheme.iconColor);
     }
     return color;
   }
@@ -40,21 +46,31 @@ class HIcon extends StatelessWidget {
     required this.iconPath,
     this.isActive = false,
     this.size = IconSize.medium,
+    this.color,
   });
 
   final IconPath iconPath;
   final bool isActive;
   final IconSize size;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
 
+    if (iconPath == IconPath.empty) {
+      return SizedBox(width: size.value, height: size.value);
+    }
+
     return SvgPicture.asset(
       iconPath.path,
       width: size.value,
       height: size.value,
-      colorMapper: IconColorMapper(appTheme: appTheme, isActive: isActive),
+      colorMapper: IconColorMapper(
+        appTheme: appTheme,
+        color: color,
+        isActive: isActive,
+      ),
     );
   }
 }

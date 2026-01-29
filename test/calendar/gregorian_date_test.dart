@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hamewari/calendar/gregorian/gregorian_date.dart';
+import 'package:hamewari/providers/settings_provider.dart';
 
 import '../helpers/date_contract_tests.dart';
 
@@ -7,12 +8,12 @@ void main() {
   dateContractTests<GregorianDate>(
     description: 'GregorianDate',
     create: (y, [m = 1, d = 1, h = 0, min = 0]) =>
-        GregorianDate(y, m, d, h, min),
+        GregorianDate(SettingTimezone.empty, y, m, d, h, min),
   );
 
   group('GregorianDate now', () {
     test('Gregorian now is equal to DateTime now', () {
-      final gd = GregorianDate.now(); // Monday
+      final gd = GregorianDate.now(SettingTimezone.empty); // Monday
       final dt = DateTime.now(); // Monday
       expect(gd.year, equals(dt.year));
       expect(gd.month, equals(dt.month));
@@ -22,20 +23,21 @@ void main() {
 
   group('GregorianDate weekday getter', () {
     test('Monday is 1', () {
-      final date = GregorianDate(2026, 1, 19); // Monday
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 19); // Monday
       expect(date.weekday, equals(1));
     });
 
     test('Sunday is 7', () {
-      final date = GregorianDate(2026, 1, 25); // Sunday
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 25); // Sunday
       expect(date.weekday, equals(7));
     });
 
     test('weekday matches known historical dates', () {
       final cases = {
-        GregorianDate(1969, 7, 20): 7, // Moon landing Sunday
-        GregorianDate(2000, 1, 1): 6, // Saturday
-        GregorianDate(2024, 2, 29): 4, // Thursday
+        GregorianDate(SettingTimezone.empty, 1969, 7, 20):
+            7, // Moon landing Sunday
+        GregorianDate(SettingTimezone.empty, 2000, 1, 1): 6, // Saturday
+        GregorianDate(SettingTimezone.empty, 2024, 2, 29): 4, // Thursday
       };
 
       for (final entry in cases.entries) {
@@ -46,38 +48,47 @@ void main() {
 
   group('leap year rules', () {
     test('2024 is leap year', () {
-      expect(GregorianDate(2024).isLeapYear(2024), isTrue);
+      expect(
+        GregorianDate(SettingTimezone.empty, 2024).isLeapYear(2024),
+        isTrue,
+      );
     });
 
     test('1900 is NOT leap year', () {
-      expect(GregorianDate(1900).isLeapYear(1900), isFalse);
+      expect(
+        GregorianDate(SettingTimezone.empty, 1900).isLeapYear(1900),
+        isFalse,
+      );
     });
 
     test('2000 IS leap year', () {
-      expect(GregorianDate(2000).isLeapYear(2000), isTrue);
+      expect(
+        GregorianDate(SettingTimezone.empty, 2000).isLeapYear(2000),
+        isTrue,
+      );
     });
   });
 
   group('numberOfDaysInMonth()', () {
     test('February in leap year', () {
-      final date = GregorianDate(2024, 2, 1);
+      final date = GregorianDate(SettingTimezone.empty, 2024, 2, 1);
       expect(date.numberOfDaysInMonth(2024, 2), equals(29));
     });
 
     test('February in non-leap year', () {
-      final date = GregorianDate(2025, 2, 1);
+      final date = GregorianDate(SettingTimezone.empty, 2025, 2, 1);
       expect(date.numberOfDaysInMonth(2025, 2), equals(28));
     });
 
     test('April has 30 days', () {
-      final date = GregorianDate(2025, 4, 1);
+      final date = GregorianDate(SettingTimezone.empty, 2025, 4, 1);
       expect(date.numberOfDaysInMonth(2025, 4), equals(30));
     });
   });
 
   group('startOfWeek()', () {
     test('past year', () {
-      final date = GregorianDate(2026, 1, 3);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 3);
       final startOfWeek = date.startOfWeek();
 
       expect(startOfWeek.day, equals(29));
@@ -87,7 +98,7 @@ void main() {
     });
 
     test('middle of month', () {
-      final date = GregorianDate(2026, 1, 23);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 23);
       final startOfWeek = date.startOfWeek();
 
       expect(startOfWeek.day, equals(19));
@@ -97,7 +108,7 @@ void main() {
     });
 
     test('contained beginning of month', () {
-      final date = GregorianDate(2026, 1, 3);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 3);
       final startOfWeek = date.startOfWeek(containedInMonth: true);
 
       expect(startOfWeek.day, equals(1));
@@ -107,7 +118,7 @@ void main() {
     });
 
     test('contained middle of month', () {
-      final date = GregorianDate(2026, 1, 23);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 23);
       final startOfWeek = date.startOfWeek(containedInMonth: true);
 
       expect(startOfWeek.day, equals(19));
@@ -119,42 +130,42 @@ void main() {
 
   group('getAllDatesFromWeek()', () {
     test('past year', () {
-      final date = GregorianDate(2026, 1, 3);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 3);
       final datesFromWeek = date.getAllDatesFromWeek();
 
       expect(datesFromWeek.length, 7);
     });
 
     test('middle of month', () {
-      final date = GregorianDate(2026, 1, 23);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 23);
       final datesFromWeek = date.getAllDatesFromWeek();
 
       expect(datesFromWeek.length, 7);
     });
 
     test('end of month', () {
-      final date = GregorianDate(2026, 1, 29);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 29);
       final datesFromWeek = date.getAllDatesFromWeek();
 
       expect(datesFromWeek.length, 7);
     });
 
     test('contained beginning of month', () {
-      final date = GregorianDate(2026, 1, 3);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 3);
       final datesFromWeek = date.getAllDatesFromWeek(containedInMonth: true);
 
       expect(datesFromWeek.length, 4);
     });
 
     test('contained middle of month', () {
-      final date = GregorianDate(2026, 1, 23);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 23);
       final datesFromWeek = date.getAllDatesFromWeek(containedInMonth: true);
 
       expect(datesFromWeek.length, 7);
     });
 
     test('contained end of month', () {
-      final date = GregorianDate(2026, 1, 29);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 29);
       final datesFromWeek = date.getAllDatesFromWeek(containedInMonth: true);
 
       expect(datesFromWeek.length, 6);
@@ -163,58 +174,100 @@ void main() {
 
   group('getAllStartOfWeeksFromMonth()', () {
     test('returns all correct start of weeks for january 2026', () {
-      final date = GregorianDate(2026, 1, 21);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 1, 21);
       final startOfWeeks = date.getAllStartOfWeeksFromMonth();
 
       expect(startOfWeeks.length, 5);
-      expect(startOfWeeks[0], GregorianDate(2026, 1, 1));
-      expect(startOfWeeks[1], GregorianDate(2026, 1, 5));
-      expect(startOfWeeks[2], GregorianDate(2026, 1, 12));
-      expect(startOfWeeks[3], GregorianDate(2026, 1, 19));
-      expect(startOfWeeks[4], GregorianDate(2026, 1, 26));
+      expect(startOfWeeks[0], GregorianDate(SettingTimezone.empty, 2026, 1, 1));
+      expect(startOfWeeks[1], GregorianDate(SettingTimezone.empty, 2026, 1, 5));
+      expect(
+        startOfWeeks[2],
+        GregorianDate(SettingTimezone.empty, 2026, 1, 12),
+      );
+      expect(
+        startOfWeeks[3],
+        GregorianDate(SettingTimezone.empty, 2026, 1, 19),
+      );
+      expect(
+        startOfWeeks[4],
+        GregorianDate(SettingTimezone.empty, 2026, 1, 26),
+      );
     });
 
     test('returns all correct start of weeks for may 2026', () {
-      final date = GregorianDate(2026, 5, 21);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 5, 21);
       final startOfWeeks = date.getAllStartOfWeeksFromMonth();
 
       expect(startOfWeeks.length, 5);
-      expect(startOfWeeks[0], GregorianDate(2026, 5, 1));
-      expect(startOfWeeks[1], GregorianDate(2026, 5, 4));
-      expect(startOfWeeks[2], GregorianDate(2026, 5, 11));
-      expect(startOfWeeks[3], GregorianDate(2026, 5, 18));
-      expect(startOfWeeks[4], GregorianDate(2026, 5, 25));
+      expect(startOfWeeks[0], GregorianDate(SettingTimezone.empty, 2026, 5, 1));
+      expect(startOfWeeks[1], GregorianDate(SettingTimezone.empty, 2026, 5, 4));
+      expect(
+        startOfWeeks[2],
+        GregorianDate(SettingTimezone.empty, 2026, 5, 11),
+      );
+      expect(
+        startOfWeeks[3],
+        GregorianDate(SettingTimezone.empty, 2026, 5, 18),
+      );
+      expect(
+        startOfWeeks[4],
+        GregorianDate(SettingTimezone.empty, 2026, 5, 25),
+      );
     });
 
     test('returns all correct start of weeks for june 2026', () {
-      final date = GregorianDate(2026, 6, 21);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 6, 21);
       final startOfWeeks = date.getAllStartOfWeeksFromMonth();
 
       expect(startOfWeeks.length, 5);
-      expect(startOfWeeks[0], GregorianDate(2026, 6, 1));
-      expect(startOfWeeks[1], GregorianDate(2026, 6, 8));
-      expect(startOfWeeks[2], GregorianDate(2026, 6, 15));
-      expect(startOfWeeks[3], GregorianDate(2026, 6, 22));
-      expect(startOfWeeks[4], GregorianDate(2026, 6, 29));
+      expect(startOfWeeks[0], GregorianDate(SettingTimezone.empty, 2026, 6, 1));
+      expect(startOfWeeks[1], GregorianDate(SettingTimezone.empty, 2026, 6, 8));
+      expect(
+        startOfWeeks[2],
+        GregorianDate(SettingTimezone.empty, 2026, 6, 15),
+      );
+      expect(
+        startOfWeeks[3],
+        GregorianDate(SettingTimezone.empty, 2026, 6, 22),
+      );
+      expect(
+        startOfWeeks[4],
+        GregorianDate(SettingTimezone.empty, 2026, 6, 29),
+      );
     });
 
     test('returns all correct start of weeks for december 2026', () {
-      final date = GregorianDate(2026, 12, 21);
+      final date = GregorianDate(SettingTimezone.empty, 2026, 12, 21);
       final startOfWeeks = date.getAllStartOfWeeksFromMonth();
 
       expect(startOfWeeks.length, 5);
-      expect(startOfWeeks[0], GregorianDate(2026, 12, 1));
-      expect(startOfWeeks[1], GregorianDate(2026, 12, 7));
-      expect(startOfWeeks[2], GregorianDate(2026, 12, 14));
-      expect(startOfWeeks[3], GregorianDate(2026, 12, 21));
-      expect(startOfWeeks[4], GregorianDate(2026, 12, 28));
+      expect(
+        startOfWeeks[0],
+        GregorianDate(SettingTimezone.empty, 2026, 12, 1),
+      );
+      expect(
+        startOfWeeks[1],
+        GregorianDate(SettingTimezone.empty, 2026, 12, 7),
+      );
+      expect(
+        startOfWeeks[2],
+        GregorianDate(SettingTimezone.empty, 2026, 12, 14),
+      );
+      expect(
+        startOfWeeks[3],
+        GregorianDate(SettingTimezone.empty, 2026, 12, 21),
+      );
+      expect(
+        startOfWeeks[4],
+        GregorianDate(SettingTimezone.empty, 2026, 12, 28),
+      );
     });
   });
 
   group('Arithmetic helpers', () {
     group('addDays()', () {
       test('advances the date correctly within a month', () {
-        final base = GregorianDate(2026, 5, 10);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 10);
         final result = base.addDays(5);
         expect(result.day, 15);
         expect(result.month, 5);
@@ -222,7 +275,7 @@ void main() {
       });
 
       test('rolls over to next month', () {
-        final base = GregorianDate(2026, 5, 28);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 28);
         final result = base.addDays(3);
         expect(result.day, 31);
         expect(result.month, 5);
@@ -230,7 +283,7 @@ void main() {
       });
 
       test('rolls over to next year', () {
-        final base = GregorianDate(2026, 12, 31);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 12, 31);
         final result = base.addDays(1);
         expect(result.day, 1);
         expect(result.month, 1);
@@ -240,7 +293,7 @@ void main() {
 
     group('subtractDays()', () {
       test('moves date backward within a month', () {
-        final base = GregorianDate(2026, 5, 10);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 10);
         final result = base.subtractDays(5);
         expect(result.day, 5);
         expect(result.month, 5);
@@ -248,7 +301,7 @@ void main() {
       });
 
       test('rolls back to previous month', () {
-        final base = GregorianDate(2026, 5, 3);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 3);
         final result = base.subtractDays(5);
         expect(result.day, 28);
         expect(result.month, 4);
@@ -256,7 +309,7 @@ void main() {
       });
 
       test('rolls back to previous year', () {
-        final base = GregorianDate(2026, 1, 1);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 1, 1);
         final result = base.subtractDays(1);
         expect(result.day, 31);
         expect(result.month, 12);
@@ -266,7 +319,7 @@ void main() {
 
     group('addWeeks()', () {
       test('advances by multiples of 7 days', () {
-        final base = GregorianDate(2026, 5, 10);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 10);
         final result = base.addWeeks(2);
         expect(result.day, 24);
         expect(result.month, 5);
@@ -276,7 +329,7 @@ void main() {
 
     group('subtractWeeks()', () {
       test('moves backward by multiples of 7 days', () {
-        final base = GregorianDate(2026, 5, 10);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 10);
         final result = base.subtractWeeks(2);
         expect(result.day, 26);
         expect(result.month, 4);
@@ -286,7 +339,7 @@ void main() {
 
     group('addMonths()', () {
       test('rolls over within year', () {
-        final base = GregorianDate(2026, 5, 10);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 10);
         final result = base.addMonths(3);
         expect(result.month, 8);
         expect(result.day, 10);
@@ -294,7 +347,7 @@ void main() {
       });
 
       test('rolls over to next year', () {
-        final base = GregorianDate(2026, 11, 10);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 11, 10);
         final result = base.addMonths(3);
         expect(result.month, 2);
         expect(result.day, 10);
@@ -304,7 +357,7 @@ void main() {
 
     group('subtractMonths()', () {
       test('rolls back within year', () {
-        final base = GregorianDate(2026, 5, 10);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 10);
         final result = base.subtractMonths(3);
         expect(result.month, 2);
         expect(result.day, 10);
@@ -312,7 +365,7 @@ void main() {
       });
 
       test('rolls back to previous year', () {
-        final base = GregorianDate(2026, 2, 10);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 2, 10);
         final result = base.subtractMonths(3);
         expect(result.month, 11);
         expect(result.day, 10);
@@ -322,7 +375,7 @@ void main() {
 
     group('addHours()', () {
       test('increments day when hour exceeds 23', () {
-        final base = GregorianDate(2026, 5, 10, 20);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 10, 20);
         final result = base.addHours(5);
         expect(result.hour, 1);
         expect(result.day, 11);
@@ -332,7 +385,7 @@ void main() {
 
     group('subtractHours()', () {
       test('decrements day when hour goes below 0', () {
-        final base = GregorianDate(2026, 5, 10, 2);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 10, 2);
         final result = base.subtractHours(5);
         expect(result.hour, 21);
         expect(result.day, 9);
@@ -342,7 +395,7 @@ void main() {
 
     group('addMinutes()', () {
       test('increments hour and day when minutes exceed 59', () {
-        final base = GregorianDate(2026, 5, 10, 22, 50);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 10, 22, 50);
         final result = base.addMinutes(15);
         expect(result.hour, 23);
         expect(result.minute, 5);
@@ -352,7 +405,7 @@ void main() {
 
     group('subtractMinutes()', () {
       test('decrements hour and day when minutes go below 0', () {
-        final base = GregorianDate(2026, 5, 10, 0, 10);
+        final base = GregorianDate(SettingTimezone.empty, 2026, 5, 10, 0, 10);
         final result = base.subtractMinutes(20);
         expect(result.hour, 23);
         expect(result.minute, 50);

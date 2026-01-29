@@ -39,7 +39,10 @@ class _CalendarPageState extends State<CalendarPage> {
 
     _selectedViewIndex = settingsProvider.selectedCalendarViewIndex;
 
-    _selectedDate = DateFactory.buildNow(settingsProvider.calendar);
+    _selectedDate = DateFactory.buildNow(
+      settingsProvider.calendar,
+      settingsProvider.timezone,
+    );
 
     _pageController = PageController(
       initialPage: settingsProvider.selectedCalendarViewIndex,
@@ -86,14 +89,11 @@ class _CalendarPageState extends State<CalendarPage> {
       } else {
         _pageController.jumpToPage(newViewIndex);
       }
-      final SettingsProvider settingsProvider = Provider.of<SettingsProvider>(
-        context,
-        listen: false,
-      );
+      final settingsProvider = SettingsProvider.of(context, listen: false);
 
       settingsProvider.setSelectedCalendarViewIndex(newViewIndex);
 
-      if (await Vibration.hasVibrator()) {
+      if (settingsProvider.hapticEnabled && await Vibration.hasVibrator()) {
         await Vibration.vibrate(preset: VibrationPreset.softPulse);
       }
     }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/date_factory.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/l10n/settings/settings_localizations.dart';
 import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/ui/settings/dropdown_setting.dart';
 
@@ -11,17 +11,17 @@ class CalendarTypeSetting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations t = AppLocalizations.of(context)!;
+    final t = SettingsLocalizations.of(context)!;
     final settingsProvider = SettingsProvider.of(context);
 
     return DropdownSetting<DateType>(
-      label: label ?? t.settings_calendar_type,
+      label: label ?? t.calendar_type,
       initialValue: settingsProvider.calendar,
       onChanged: settingsProvider.setCalendar,
       items: DateType.values
           .map(
             (type) => DropdownSettingItem(
-              label: t.settings_calendar_types(type.name),
+              label: t.calendar_types(type.name),
               value: type,
             ),
           )

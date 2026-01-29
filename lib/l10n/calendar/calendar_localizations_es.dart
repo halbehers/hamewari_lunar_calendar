@@ -1,82 +1,18 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-import 'app_localizations.dart';
+import 'calendar_localizations.dart';
 
 // ignore_for_file: type=lint
 
 /// The translations for Spanish Castilian (`es`).
-class AppLocalizationsEs extends AppLocalizations {
-  AppLocalizationsEs([String locale = 'es']) : super(locale);
+class CalendarLocalizationsEs extends CalendarLocalizations {
+  CalendarLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
-  String get app_name => 'Hamewari Calendario';
-
-  @override
-  String get app_loading => 'Cargando la aplicación...';
-
-  @override
-  String get language_en => 'Inglés';
-
-  @override
-  String get language_fr => 'Francés';
-
-  @override
-  String get language_es => 'Español';
-
-  @override
-  String get caption_calendar => 'Calendario';
-
-  @override
-  String get caption_tasks => 'Tareas';
-
-  @override
-  String get caption_settings => 'Configuración';
+  String get menu_caption => 'Calendario';
 
   @override
   String get caption_today => 'Hoy';
-
-  @override
-  String get settings_title => 'Configuración';
-
-  @override
-  String get settings_display => 'Pantalla';
-
-  @override
-  String get settings_display_menu_caption => 'Mostrar las etiquetas del menú';
-
-  @override
-  String get settings_language => 'Idioma';
-
-  @override
-  String get settings_language_system => 'Sistema';
-
-  @override
-  String get settings_theme_mode => 'Tema';
-
-  @override
-  String get theme_mode_dark => 'Oscuro';
-
-  @override
-  String get theme_mode_light => 'Claro';
-
-  @override
-  String get theme_mode_system => 'Sistema';
-
-  @override
-  String get settings_calendar => 'Calendario';
-
-  @override
-  String get settings_calendar_type => 'Tipo';
-
-  @override
-  String settings_calendar_types(String dateType) {
-    String _temp0 = intl.Intl.selectLogic(dateType, {
-      'gregorian': 'Calendario gregoriano',
-      'yearZero': 'Calendario Year Zero',
-      'other': 'Calendario no identificado',
-    });
-    return '$_temp0';
-  }
 
   @override
   String moon_month_title(String month) {
@@ -243,4 +179,7 @@ class AppLocalizationsEs extends AppLocalizations {
     });
     return '$_temp0';
   }
+
+  @override
+  String get zero_day => 'Día cero';
 }

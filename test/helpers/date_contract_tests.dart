@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/providers/settings_provider.dart';
 
 typedef DateFactory<T extends Date<T>> =
     T Function(int year, [int month, int day, int hour, int minute]);
@@ -17,7 +18,14 @@ void dateContractTests<T extends Date<T>>({
 
     group('Construction & identity', () {
       test('newInstance creates equivalent date', () {
-        final copy = base.newInstance(2026, 1, 22, 10, 30);
+        final copy = base.newInstance(
+          SettingTimezone.empty,
+          2026,
+          1,
+          22,
+          10,
+          30,
+        );
         expect(copy, equals(base));
         expect(copy.hashCode, equals(base.hashCode));
       });

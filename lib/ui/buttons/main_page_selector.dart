@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hamewari/l10n/app_localizations.dart';
+import 'package:hamewari/l10n/calendar/calendar_localizations.dart';
+import 'package:hamewari/l10n/settings/settings_localizations.dart';
+import 'package:hamewari/l10n/tasks/tasks_localizations.dart';
 import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/ui/buttons/button_stack.dart';
 import 'package:hamewari/pages/calendar.dart';
@@ -23,7 +25,9 @@ class MainPageSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations t = AppLocalizations.of(context)!;
+    final tCalendar = CalendarLocalizations.of(context)!;
+    final tSettings = SettingsLocalizations.of(context)!;
+    final tTasks = TasksLocalizations.of(context)!;
     final settingsProvider = SettingsProvider.of(context);
 
     void onSelectionChanged(String id) {
@@ -40,17 +44,17 @@ class MainPageSelector extends StatelessWidget {
         ButtonStackItem(
           id: "calendar",
           iconPath: IconPath.calendar,
-          caption: t.caption_calendar,
+          caption: tCalendar.menu_caption,
         ),
         ButtonStackItem(
           id: "tasks",
           iconPath: IconPath.rows,
-          caption: t.caption_tasks,
+          caption: tTasks.menu_caption,
         ),
         ButtonStackItem(
           id: "settings",
           iconPath: IconPath.gear,
-          caption: t.caption_settings,
+          caption: tSettings.menu_caption,
         ),
       ],
     );

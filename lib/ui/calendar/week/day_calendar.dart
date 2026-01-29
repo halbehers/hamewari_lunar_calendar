@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/date.dart';
+import 'package:hamewari/calendar/date_factory.dart';
+import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/ui/calendar/week/hour.dart';
 import 'package:hamewari/ui/calendar/week/time_indicator.dart';
 
@@ -16,7 +18,7 @@ class DayCalendar extends StatefulWidget {
 
 class _DayCalendarState extends State<DayCalendar> {
   late Timer _timer;
-  late final ValueNotifier<DateTime> _now;
+  late final ValueNotifier<Date<dynamic>> _now;
 
   final ScrollController _scrollController = ScrollController();
 
@@ -31,9 +33,20 @@ class _DayCalendarState extends State<DayCalendar> {
   @override
   void initState() {
     super.initState();
-    _now = ValueNotifier(DateTime.now());
+
+    final settingsProvider = SettingsProvider.of(context, listen: false);
+
+    _now = ValueNotifier(
+      DateFactory.buildNow(
+        settingsProvider.calendar,
+        settingsProvider.timezone,
+      ),
+    );
     _timer = Timer.periodic(const Duration(seconds: 15), (_) {
-      _now.value = DateTime.now();
+      _now.value = DateFactory.buildNow(
+        settingsProvider.calendar,
+        settingsProvider.timezone,
+      );
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -67,7 +80,7 @@ class _DayCalendarState extends State<DayCalendar> {
 
     if (widget.date.isToday) {
       final now = _now.value;
-      final seconds = now.hour * 3600 + now.minute * 60 + now.second;
+      final seconds = now.hour * 3600 + now.minute * 60;
       return (seconds / 3600) * hourRowHeight - offset;
     }
 

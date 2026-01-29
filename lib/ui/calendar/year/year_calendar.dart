@@ -98,7 +98,9 @@ class _YearCalendarState extends State<YearCalendar> {
       _pageController.jumpToPage(getPageNumber(date.year));
     }
 
-    if (await Vibration.hasVibrator()) {
+    final settingsProvider = SettingsProvider.of(context, listen: false);
+
+    if (settingsProvider.hapticEnabled && await Vibration.hasVibrator()) {
       await Vibration.vibrate(preset: VibrationPreset.softPulse);
     }
   }
@@ -115,7 +117,11 @@ class _YearCalendarState extends State<YearCalendar> {
       onPageChanged: (pageNumber) {
         if (_isProgrammaticPageChange) return;
         _changeDate(
-          DateFactory.build(settingsProvider.calendar, getYear(pageNumber)),
+          DateFactory.build(
+            settingsProvider.calendar,
+            settingsProvider.timezone,
+            getYear(pageNumber),
+          ),
           animate: false,
         );
       },
@@ -123,7 +129,11 @@ class _YearCalendarState extends State<YearCalendar> {
         final year = getYear(pageNumber);
         Date<dynamic> date = year == _selectedDate.year
             ? _selectedDate
-            : DateFactory.build(settingsProvider.calendar, year);
+            : DateFactory.build(
+                settingsProvider.calendar,
+                settingsProvider.timezone,
+                year,
+              );
         return YearGrid(date: date);
       },
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/date.dart';
 import 'package:hamewari/calendar/date_formatter.dart';
 import 'package:hamewari/main.dart';
+import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/helpers/string_extension.dart';
 import 'package:hamewari/providers/calendar_provider.dart';
@@ -119,7 +120,9 @@ class _WeekCalendarState extends State<WeekCalendar> {
       _pageController.jumpToPage(date.weekday - 1);
     }
 
-    if (await Vibration.hasVibrator()) {
+    final settingsProvider = SettingsProvider.of(context, listen: false);
+
+    if (settingsProvider.hapticEnabled && await Vibration.hasVibrator()) {
       await Vibration.vibrate(preset: VibrationPreset.softPulse);
     }
   }

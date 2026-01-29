@@ -1,17 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/date_formatter.dart';
+import 'package:hamewari/providers/settings_provider.dart';
+
+class OutOfCalendarDayBounds<T extends Date<T>> {
+  final T start;
+  final T end;
+
+  OutOfCalendarDayBounds(this.start, this.end) {
+    if (start.addDays(1) != end) {
+      throw ArgumentError('Out of calendar day bounds must be 1 day apart');
+    }
+  }
+}
 
 abstract class Date<T extends Date<T>> implements Comparable<T> {
+  SettingTimezone timezone;
   int year = 1971;
   int month = 1;
   int day = 1;
   int hour = 0;
   int minute = 0;
 
-  Date(int year, [int month = 1, int day = 1, int hour = 0, int minute = 0])
-    : this._internal(year, month, day, hour, minute);
+  Date(
+    SettingTimezone timezone,
+    int year, [
+    int month = 1,
+    int day = 1,
+    int hour = 0,
+    int minute = 0,
+  ]) : this._internal(timezone, year, month, day, hour, minute);
 
   T newInstance(
+    SettingTimezone timezone,
     int year, [
     int month = 1,
     int day = 1,
@@ -19,7 +39,14 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
     int minute = 0,
   ]);
 
-  Date._internal(this.year, this.month, this.day, this.hour, this.minute);
+  Date._internal(
+    this.timezone,
+    this.year,
+    this.month,
+    this.day,
+    this.hour,
+    this.minute,
+  );
 
   T get now;
 
@@ -50,6 +77,9 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   int get numberOfMinutesInHour;
 
   bool get hasMoonPhaseBasedWeeks => false;
+  bool get hasOutOfCalendarDays => false;
+
+  List<OutOfCalendarDayBounds<T>> get outOfCalendarDaysBounds => List.empty();
 
   bool isLeapYear(int year);
 
@@ -65,11 +95,12 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   }
 
   T startOfYear() {
-    return newInstance(year);
+    return newInstance(timezone, year);
   }
 
   T endOfYear() {
     return newInstance(
+      timezone,
       year,
       numberOfMonths,
       numberOfDaysInMonth(year, numberOfMonths),
@@ -77,11 +108,11 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   }
 
   T startOfMonth() {
-    return newInstance(year, month);
+    return newInstance(timezone, year, month);
   }
 
   T endOfMonth() {
-    return newInstance(year, month, numberOfDaysInMonth(year, month));
+    return newInstance(timezone, year, month, numberOfDaysInMonth(year, month));
   }
 
   T startOfWeek({bool containedInMonth = false}) {
@@ -109,19 +140,19 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   }
 
   T startOfDay() {
-    return newInstance(year, month, day);
+    return newInstance(timezone, year, month, day);
   }
 
   T endOfDay() {
-    return newInstance(year, month, day, numberOfHoursInDay);
+    return newInstance(timezone, year, month, day, numberOfHoursInDay);
   }
 
   T startOfHour() {
-    return newInstance(year, month, day, hour);
+    return newInstance(timezone, year, month, day, hour);
   }
 
   T endOfHour() {
-    return newInstance(year, month, day, hour, numberOfMinutesInHour);
+    return newInstance(timezone, year, month, day, hour, numberOfMinutesInHour);
   }
 
   bool get isCurrentYear => isSameYear(now);
@@ -167,7 +198,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   List<T> getAllStartOfMonthsFromYear() {
     return List.generate(
       numberOfMonths,
-      (int index) => newInstance(year, index + 1),
+      (int index) => newInstance(timezone, year, index + 1),
     );
   }
 
@@ -195,15 +226,15 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
   }
 
   T getDateFromWeekDayIndex(int index) {
-    return newInstance(year, month, index + 1);
+    return newInstance(timezone, year, month, index + 1);
   }
 
   T getStartOfMonthDateFromMonthIndex(int index) {
-    return newInstance(year, index + 1);
+    return newInstance(timezone, year, index + 1);
   }
 
   T withYear(int year) {
-    return newInstance(year, month, day, hour, minute);
+    return newInstance(timezone, year, month, day, hour, minute);
   }
 
   T withMonth(int month) {
@@ -221,7 +252,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
     if (d > numberOfDaysInMonth(y, m)) {
       d = numberOfDaysInMonth(y, m);
     }
-    return newInstance(y, m, d, hour, minute);
+    return newInstance(timezone, y, m, d, hour, minute);
   }
 
   T withDay(int day) {
@@ -230,21 +261,21 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       day = daysInMonth;
     }
     if (day > daysInMonth) day = 1;
-    return newInstance(year, month, day, hour, minute);
+    return newInstance(timezone, year, month, day, hour, minute);
   }
 
   T withHour(int hour) {
     final hoursInDay = numberOfHoursInDay;
     if (hour < 0) hour = hoursInDay;
     if (hour > hoursInDay) hour = 0;
-    return newInstance(year, month, day, hour, minute);
+    return newInstance(timezone, year, month, day, hour, minute);
   }
 
   T withMinute(int minute) {
     final minutesInHour = numberOfMinutesInHour;
     if (minute < 0) minute = minutesInHour;
     if (minute > minutesInHour) minute = 0;
-    return newInstance(year, month, day, hour, minute);
+    return newInstance(timezone, year, month, day, hour, minute);
   }
 
   T addMonths(int delta) {
@@ -262,7 +293,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       d = daysInNewMonth;
     }
 
-    return newInstance(y, m, d, hour, minute);
+    return newInstance(timezone, y, m, d, hour, minute);
   }
 
   T addWeeks(int delta) {
@@ -291,7 +322,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       }
     }
 
-    return newInstance(y, m, d);
+    return newInstance(timezone, y, m, d);
   }
 
   T addHours(int delta) {
@@ -309,7 +340,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       } else {
         h = 0;
         // move to next day
-        final nextDay = newInstance(y, m, d).addDays(1);
+        final nextDay = newInstance(timezone, y, m, d).addDays(1);
         y = nextDay.year;
         m = nextDay.month;
         d = nextDay.day;
@@ -317,7 +348,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       remaining--;
     }
 
-    return newInstance(y, m, d, h, min);
+    return newInstance(timezone, y, m, d, h, min);
   }
 
   T addMinutes(int delta) {
@@ -342,7 +373,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
           h = 0;
 
           // advance day
-          final nextDay = newInstance(y, m, d).addDays(1);
+          final nextDay = newInstance(timezone, y, m, d).addDays(1);
           y = nextDay.year;
           m = nextDay.month;
           d = nextDay.day;
@@ -351,7 +382,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       remaining--;
     }
 
-    return newInstance(y, m, d, h, min);
+    return newInstance(timezone, y, m, d, h, min);
   }
 
   T subtractMonths(int delta) {
@@ -369,7 +400,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       d = daysInNewMonth;
     }
 
-    return newInstance(y, m, d, hour, minute);
+    return newInstance(timezone, y, m, d, hour, minute);
   }
 
   T subtractWeeks(int delta) {
@@ -397,7 +428,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       remaining--;
     }
 
-    return newInstance(y, m, d);
+    return newInstance(timezone, y, m, d);
   }
 
   T subtractHours(int delta) {
@@ -415,7 +446,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       } else {
         h = numberOfHoursInDay - 1;
         // move to previous day
-        final prevDay = newInstance(y, m, d).subtractDays(1);
+        final prevDay = newInstance(timezone, y, m, d).subtractDays(1);
         y = prevDay.year;
         m = prevDay.month;
         d = prevDay.day;
@@ -423,7 +454,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       remaining--;
     }
 
-    return newInstance(y, m, d, h, min);
+    return newInstance(timezone, y, m, d, h, min);
   }
 
   T subtractMinutes(int delta) {
@@ -448,7 +479,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
           h = numberOfHoursInDay - 1;
 
           // rollback day
-          final prevDay = newInstance(y, m, d).subtractDays(1);
+          final prevDay = newInstance(timezone, y, m, d).subtractDays(1);
           y = prevDay.year;
           m = prevDay.month;
           d = prevDay.day;
@@ -457,7 +488,7 @@ abstract class Date<T extends Date<T>> implements Comparable<T> {
       remaining--;
     }
 
-    return newInstance(y, m, d, h, min);
+    return newInstance(timezone, y, m, d, h, min);
   }
 
   int daysUntil(Date other) {

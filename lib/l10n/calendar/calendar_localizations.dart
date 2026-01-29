@@ -5,25 +5,25 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
-import 'app_localizations_en.dart';
-import 'app_localizations_es.dart';
-import 'app_localizations_fr.dart';
+import 'calendar_localizations_en.dart';
+import 'calendar_localizations_es.dart';
+import 'calendar_localizations_fr.dart';
 
 // ignore_for_file: type=lint
 
-/// Callers can lookup localized strings with an instance of AppLocalizations
-/// returned by `AppLocalizations.of(context)`.
+/// Callers can lookup localized strings with an instance of CalendarLocalizations
+/// returned by `CalendarLocalizations.of(context)`.
 ///
-/// Applications need to include `AppLocalizations.delegate()` in their app's
+/// Applications need to include `CalendarLocalizations.delegate()` in their app's
 /// `localizationDelegates` list, and the locales they support in the app's
 /// `supportedLocales` list. For example:
 ///
 /// ```dart
-/// import 'l10n/app_localizations.dart';
+/// import 'calendar/calendar_localizations.dart';
 ///
 /// return MaterialApp(
-///   localizationsDelegates: AppLocalizations.localizationsDelegates,
-///   supportedLocales: AppLocalizations.supportedLocales,
+///   localizationsDelegates: CalendarLocalizations.localizationsDelegates,
+///   supportedLocales: CalendarLocalizations.supportedLocales,
 ///   home: MyApplicationHome(),
 /// );
 /// ```
@@ -60,20 +60,23 @@ import 'app_localizations_fr.dart';
 /// Select and expand the newly-created Localizations item then, for each
 /// locale your application supports, add a new item and select the locale
 /// you wish to add from the pop-up menu in the Value field. This list should
-/// be consistent with the languages listed in the AppLocalizations.supportedLocales
+/// be consistent with the languages listed in the CalendarLocalizations.supportedLocales
 /// property.
-abstract class AppLocalizations {
-  AppLocalizations(String locale)
+abstract class CalendarLocalizations {
+  CalendarLocalizations(String locale)
     : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
-  static AppLocalizations? of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations);
+  static CalendarLocalizations? of(BuildContext context) {
+    return Localizations.of<CalendarLocalizations>(
+      context,
+      CalendarLocalizations,
+    );
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<CalendarLocalizations> delegate =
+      _CalendarLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -100,131 +103,17 @@ abstract class AppLocalizations {
     Locale('fr'),
   ];
 
-  /// Name of the app
-  ///
-  /// In en, this message translates to:
-  /// **'Hamewari Calendar'**
-  String get app_name;
-
-  /// App loading text
-  ///
-  /// In en, this message translates to:
-  /// **'Loading the app...'**
-  String get app_loading;
-
-  /// English language
-  ///
-  /// In en, this message translates to:
-  /// **'English'**
-  String get language_en;
-
-  /// French language
-  ///
-  /// In en, this message translates to:
-  /// **'French'**
-  String get language_fr;
-
-  /// Spanish language
-  ///
-  /// In en, this message translates to:
-  /// **'Spanish'**
-  String get language_es;
-
   /// Calendar menu caption
   ///
   /// In en, this message translates to:
   /// **'Calendar'**
-  String get caption_calendar;
-
-  /// Tasks menu caption
-  ///
-  /// In en, this message translates to:
-  /// **'Tasks'**
-  String get caption_tasks;
-
-  /// Settings menu caption
-  ///
-  /// In en, this message translates to:
-  /// **'Settings'**
-  String get caption_settings;
+  String get menu_caption;
 
   /// Today menu caption
   ///
   /// In en, this message translates to:
   /// **'Today'**
   String get caption_today;
-
-  /// Settings page title
-  ///
-  /// In en, this message translates to:
-  /// **'Settings'**
-  String get settings_title;
-
-  /// Setting display caption
-  ///
-  /// In en, this message translates to:
-  /// **'Display'**
-  String get settings_display;
-
-  /// Setting display menu caption
-  ///
-  /// In en, this message translates to:
-  /// **'Display menu caption'**
-  String get settings_display_menu_caption;
-
-  /// Setting language
-  ///
-  /// In en, this message translates to:
-  /// **'Language'**
-  String get settings_language;
-
-  /// Setting language system label
-  ///
-  /// In en, this message translates to:
-  /// **'System'**
-  String get settings_language_system;
-
-  /// Setting theme mode
-  ///
-  /// In en, this message translates to:
-  /// **'Theme Mode'**
-  String get settings_theme_mode;
-
-  /// Theme mode dark
-  ///
-  /// In en, this message translates to:
-  /// **'Dark'**
-  String get theme_mode_dark;
-
-  /// Theme mode light
-  ///
-  /// In en, this message translates to:
-  /// **'Light'**
-  String get theme_mode_light;
-
-  /// Theme mode system
-  ///
-  /// In en, this message translates to:
-  /// **'System'**
-  String get theme_mode_system;
-
-  /// Setting calendar caption
-  ///
-  /// In en, this message translates to:
-  /// **'Calendar'**
-  String get settings_calendar;
-
-  /// Setting calendar type
-  ///
-  /// In en, this message translates to:
-  /// **'Type'**
-  String get settings_calendar_type;
-
-  /// Calendar types by name
-  ///
-  /// In en, this message translates to:
-  /// **'{dateType, select, gregorian {Gregorian Calendar} yearZero {Year Zero Calendar} other {Undefined Calendar}}'**
-  String settings_calendar_types(String dateType);
 
   /// Moon month titles by number
   ///
@@ -285,15 +174,23 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{day, select, 1 {monday} 2 {tuesday} 3 {wednesday} 4 {thursday} 5 {friday} 6 {saturday} 7 {sunday} other {unidentified}}'**
   String gregorian_day(String day);
+
+  /// Zero day
+  ///
+  /// In en, this message translates to:
+  /// **'Zero Day'**
+  String get zero_day;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
-  const _AppLocalizationsDelegate();
+class _CalendarLocalizationsDelegate
+    extends LocalizationsDelegate<CalendarLocalizations> {
+  const _CalendarLocalizationsDelegate();
 
   @override
-  Future<AppLocalizations> load(Locale locale) {
-    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
+  Future<CalendarLocalizations> load(Locale locale) {
+    return SynchronousFuture<CalendarLocalizations>(
+      lookupCalendarLocalizations(locale),
+    );
   }
 
   @override
@@ -301,22 +198,22 @@ class _AppLocalizationsDelegate
       <String>['en', 'es', 'fr'].contains(locale.languageCode);
 
   @override
-  bool shouldReload(_AppLocalizationsDelegate old) => false;
+  bool shouldReload(_CalendarLocalizationsDelegate old) => false;
 }
 
-AppLocalizations lookupAppLocalizations(Locale locale) {
+CalendarLocalizations lookupCalendarLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'en':
-      return AppLocalizationsEn();
+      return CalendarLocalizationsEn();
     case 'es':
-      return AppLocalizationsEs();
+      return CalendarLocalizationsEs();
     case 'fr':
-      return AppLocalizationsFr();
+      return CalendarLocalizationsFr();
   }
 
   throw FlutterError(
-    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'CalendarLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
     'that was used.',
