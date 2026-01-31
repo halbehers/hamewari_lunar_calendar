@@ -28,7 +28,8 @@ class FormDatePickerField extends StatefulWidget {
   State<FormDatePickerField> createState() => _FormDatePickerFieldState();
 }
 
-class _FormDatePickerFieldState extends State<FormDatePickerField> {
+class _FormDatePickerFieldState extends State<FormDatePickerField>
+    with TickerProviderStateMixin {
   late Date<dynamic> _selectedDate;
   bool _displayDatePicker = false;
   bool _displayTimePicker = false;
@@ -114,26 +115,44 @@ class _FormDatePickerFieldState extends State<FormDatePickerField> {
             ],
           ),
         ),
-        if (_displayDatePicker) ...[
-          const Separator(),
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            child: _Calendar(
-              date: _selectedDate,
-              onDateChanged: _onDateChanged,
-            ),
-          ),
-        ],
-        if (_displayTimePicker) ...[
-          const Separator(),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0),
-            child: TimeWheel(
-              date: _selectedDate,
-              onTimeChanged: _onDateChanged,
-            ),
-          ),
-        ],
+        AnimatedSize(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+          alignment: Alignment.topCenter,
+          child: _displayDatePicker
+              ? Column(
+                  children: [
+                    const Separator(),
+                    Container(
+                      padding: const EdgeInsets.all(16.0),
+                      child: _Calendar(
+                        date: _selectedDate,
+                        onDateChanged: _onDateChanged,
+                      ),
+                    ),
+                  ],
+                )
+              : SizedBox.fromSize(size: const Size.fromHeight(0)),
+        ),
+        AnimatedSize(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+          alignment: Alignment.topCenter,
+          child: _displayTimePicker
+              ? Column(
+                  children: [
+                    const Separator(),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      child: TimeWheel(
+                        date: _selectedDate,
+                        onTimeChanged: _onDateChanged,
+                      ),
+                    ),
+                  ],
+                )
+              : SizedBox.fromSize(size: const Size.fromHeight(0)),
+        ),
       ],
     );
   }
