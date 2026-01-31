@@ -6,6 +6,7 @@ import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/buttons/main_page_selector.dart';
 import 'package:hamewari/providers/calendar_provider.dart';
 import 'package:hamewari/ui/calendar/calendar_view_factory.dart';
+import 'package:hamewari/ui/calendar/events/add_event_form.dart';
 import 'package:hamewari/ui/headers/calendar_header.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/ui/loading_screen.dart';
@@ -55,6 +56,17 @@ class _CalendarPageState extends State<CalendarPage> {
   void dispose() {
     _pageController.dispose();
     super.dispose();
+  }
+
+  void _openEventContainer(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return AddEventForm(onClose: () => Navigator.pop(context));
+      },
+    );
   }
 
   Future<void> _changeView(
@@ -113,42 +125,55 @@ class _CalendarPageState extends State<CalendarPage> {
       return const LoadingScreen();
     }
 
-    return Scaffold(
-      backgroundColor: appTheme.backgroundColor,
-      appBar: CalendarHeader(
-        selectedViewIndex: _selectedViewIndex!,
-        backButton: _backButton,
-        onViewIndexChanged: (index) => _changeView(index, _selectedDate),
-      ),
-      body: PageView(
-        controller: _pageController,
-        physics: Theme.of(context).platform == TargetPlatform.iOS
-            ? const BouncingScrollPhysics()
-            : const ClampingScrollPhysics(),
-        onPageChanged: (index) {
-          if (_isProgrammaticPageChange) return;
+    return Stack(
+      children: [
+        Scaffold(
+          backgroundColor: appTheme.backgroundColor,
+          appBar: CalendarHeader(
+            selectedViewIndex: _selectedViewIndex!,
+            backButton: _backButton,
+            onViewIndexChanged: (index) => _changeView(index, _selectedDate),
+          ),
+          body: PageView(
+            controller: _pageController,
+            physics: Theme.of(context).platform == TargetPlatform.iOS
+                ? const BouncingScrollPhysics()
+                : const ClampingScrollPhysics(),
+            onPageChanged: (index) {
+              if (_isProgrammaticPageChange) return;
 
-          _changeView(index, _selectedDate, animate: false);
-        },
-        children: CalendarViewFactory.all(date: _selectedDate)
-            .map(
-              (view) => CalendarProvider.create(
-                child: view,
-                selectView:
-                    ({
-                      required int viewIndex,
-                      Date<dynamic>? date,
-                      bool? animate,
-                    }) => _changeView(viewIndex, date, animate: animate),
-                selectDate: ({required Date<dynamic> date}) =>
-                    _changeView(_selectedViewIndex ?? 0, date),
-                updateBackButton: setBackButton,
-              ),
-            )
-            .toList(),
-      ),
-      floatingActionButton: const MainPageSelector(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+              _changeView(index, _selectedDate, animate: false);
+            },
+            children: CalendarViewFactory.all(date: _selectedDate)
+                .map(
+                  (view) => CalendarProvider.create(
+                    child: view,
+                    selectView:
+                        ({
+                          required int viewIndex,
+                          Date<dynamic>? date,
+                          bool? animate,
+                        }) => _changeView(viewIndex, date, animate: animate),
+                    selectDate: ({required Date<dynamic> date}) =>
+                        _changeView(_selectedViewIndex ?? 0, date),
+                    updateBackButton: setBackButton,
+                  ),
+                )
+                .toList(),
+          ),
+          floatingActionButton: MainPageSelector(
+            onAddButtonTap: () => _openEventContainer(context),
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+        ),
+        // if (_addEventContainerOpen) Container(color: Colors.black54),
+        // if (_addEventContainerOpen)
+        //   Padding(
+        //     padding: const EdgeInsets.only(top: 72.0),
+        //     child: AddEventContainer(onClose: _closeEventContainer),
+        //   ),
+      ],
     );
   }
 }

@@ -52,7 +52,7 @@ class _ButtonSettingState extends State<ButtonSetting> {
           title: widget.withConfirm!.title != null
               ? Text(widget.withConfirm!.title!)
               : null,
-          content: Text(widget.withConfirm!.content, style: appTheme.h4),
+          content: Text(widget.withConfirm!.content, style: appTheme.subduedH4),
           actions: [
             GestureDetector(
               onTap: () {

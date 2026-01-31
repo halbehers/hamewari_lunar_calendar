@@ -30,6 +30,7 @@ abstract class DateFormatter<T extends Date<T>> {
   static const String yearMonthPattern = 'YMMMM';
   static const String yearMonthDayPattern = 'YMMMMD';
   static const String yearMonthWeekdayDayPattern = 'YMMMMEEED';
+  static const String hourMinutesPattern = 'Hm';
 
   DateFormatter.day(Locale? locale) : this(dayPattern, locale);
   DateFormatter.weekday(Locale? locale) : this(weekdayPattern, locale);
@@ -77,9 +78,10 @@ abstract class DateFormatter<T extends Date<T>> {
     yearNumMonthPattern: "M/Y",
     yearNumMonthDayPattern: "M/D/Y",
     yearNumMonthWeekdayDayPattern: "EEE, M/D/Y",
-    yearMonthPattern: "MMM Y",
-    yearMonthDayPattern: "MMM D, Y",
+    yearMonthPattern: "MMMM Y",
+    yearMonthDayPattern: "MMMM D, Y",
     yearMonthWeekdayDayPattern: "EEE, MMM D, Y",
+    hourMinutesPattern: "H:m",
   };
 
   Map<String, String> formattedPatternsByPatternsEU = {
@@ -98,9 +100,10 @@ abstract class DateFormatter<T extends Date<T>> {
     yearNumMonthPattern: "M/Y",
     yearNumMonthDayPattern: "D/M/Y",
     yearNumMonthWeekdayDayPattern: "EEE, D/M/Y",
-    yearMonthPattern: "MMM Y",
+    yearMonthPattern: "MMMM Y",
     yearMonthDayPattern: "D MMM y",
     yearMonthWeekdayDayPattern: "EEE D MMM Y",
+    hourMinutesPattern: "H:m",
   };
 
   String _getFormattedPatternByLocale(String pattern, Locale locale) {
@@ -165,13 +168,15 @@ abstract class DateFormatter<T extends Date<T>> {
     Locale effectiveLocale = locale ?? _effectiveLocale;
     final replacements = <String, String>{
       'Y': date.year.toString(),
-      'M': (date.month).toString(),
+      'M': (date.month).toString().padLeft(2, "0"),
       'MMM': translateMonth(effectiveLocale, date.month),
       'MMMM': translateMonthTitle(effectiveLocale, date.month),
       'W': date.weekIndexInMonth.toString(),
       'EEE': translateWeekday(effectiveLocale, date.weekday),
       'EEEE': translateWeekdayTitle(effectiveLocale, date.weekday),
-      'D': (date.day).toString(),
+      'D': (date.day).toString().padLeft(2, "0"),
+      'H': (date.hour).toString().padLeft(2, "0"),
+      'm': (date.minute).toString().padLeft(2, "0"),
     };
     String formattedPattern = _getFormattedPatternByLocale(
       formatPattern,

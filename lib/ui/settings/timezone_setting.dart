@@ -47,9 +47,7 @@ class _TimezoneSettingState extends State<TimezoneSetting> {
     return SearchableListSetting<SettingTimezone>(
       label: widget.label ?? tSettings.timezone,
       initialValue: SearchableListSettingItem(
-        label: isLoading
-            ? "..."
-            : _tTimezone![settingsProvider.timezone.l10nKey],
+        label: isLoading ? " " : _tTimezone![settingsProvider.timezone.l10nKey],
         value: settingsProvider.timezone,
       ),
       onChanged: settingsProvider.setTimezone,

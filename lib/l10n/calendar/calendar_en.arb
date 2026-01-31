@@ -101,5 +101,46 @@
   "zero_day": "Zero Day",
   "@zero_day": {
     "description": "Zero day"
+  },
+  "new_event_title": "New event",
+  "@new_event_title": {
+    "description": "New event sheet title"
+  },
+  "new_event_caption_title": "Title",
+  "@new_event_caption_title": {
+    "description": "New event title caption"
+  },
+  "new_event_caption_description": "Description",
+  "@new_event_caption_description": {
+    "description": "New event description caption"
+  },
+  "new_event_caption_all_day": "All-day",
+  "@new_event_caption_all_day": {
+    "description": "New event all-day caption"
+  },
+  "new_event_caption_start": "Starts",
+  "@new_event_caption_start": {
+    "description": "New event start caption"
+  },
+  "new_event_caption_end": "Ends",
+  "@new_event_caption_end": {
+    "description": "New event end caption"
+  },
+  "new_event_caption_alert": "Alert",
+  "@new_event_caption_alert": {
+    "description": "New event alert caption"
+  },
+  "new_event_caption_notes": "Notes",
+  "@new_event_caption_notes": {
+    "description": "New event notes caption"
+  },
+  "alarms": "{alarm, select, none {None} atTime {At time of event} fiveMinutesBefore {5 minutes before} tenMinutesBefore {10 minutes before} fifteenMinutesBefore {15 minutes before} thirtyMinutesBefore {30 minutes before} other {Undefined alarm}}",
+  "@alarms": {
+    "description": "Alarms by name",
+    "placeholders": {
+      "alarm": {
+        "type": "String"
+      }
+    }
   }
 }

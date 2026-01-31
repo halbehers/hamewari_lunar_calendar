@@ -19,9 +19,14 @@ enum Page {
 }
 
 class MainPageSelector extends StatelessWidget {
-  const MainPageSelector({super.key, this.pageId = "calendar"});
+  const MainPageSelector({
+    super.key,
+    this.pageId = "calendar",
+    this.onAddButtonTap,
+  });
 
   final String pageId;
+  final void Function()? onAddButtonTap;
 
   @override
   Widget build(BuildContext context) {
@@ -35,27 +40,49 @@ class MainPageSelector extends StatelessWidget {
       context.go('/${newSelectedPage.name}');
     }
 
-    return ButtonStack(
-      onSelectionChanged: onSelectionChanged,
-      size: ButtonStackSize.medium,
-      displayCaptions: settingsProvider.displayMenuCaptions,
-      selectedId: pageId,
-      items: [
-        ButtonStackItem(
-          id: "calendar",
-          iconPath: IconPath.calendar,
-          caption: tCalendar.menu_caption,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        SizedBox.fromSize(size: const Size.square(32)),
+        ButtonStack(
+          onSelectionChanged: onSelectionChanged,
+          size: ButtonStackSize.medium,
+          displayCaptions: settingsProvider.displayMenuCaptions,
+          selectedId: pageId,
+          items: [
+            ButtonStackItem(
+              id: "calendar",
+              iconPath: IconPath.calendar,
+              caption: tCalendar.menu_caption,
+            ),
+            ButtonStackItem(
+              id: "tasks",
+              iconPath: IconPath.rows,
+              caption: tTasks.menu_caption,
+            ),
+            ButtonStackItem(
+              id: "settings",
+              iconPath: IconPath.gear,
+              caption: tSettings.menu_caption,
+            ),
+          ],
         ),
-        ButtonStackItem(
-          id: "tasks",
-          iconPath: IconPath.rows,
-          caption: tTasks.menu_caption,
-        ),
-        ButtonStackItem(
-          id: "settings",
-          iconPath: IconPath.gear,
-          caption: tSettings.menu_caption,
-        ),
+        if (onAddButtonTap != null)
+          ButtonStack(
+            onSelectionChanged: (String _) => onAddButtonTap?.call(),
+            size: ButtonStackSize.medium,
+            displayCaptions: settingsProvider.displayMenuCaptions,
+            selectedId: pageId,
+            items: [
+              ButtonStackItem(
+                id: "add-event",
+                iconPath: IconPath.add,
+                caption: tCalendar.menu_caption,
+              ),
+            ],
+          ),
+        if (onAddButtonTap == null)
+          SizedBox.fromSize(size: const Size.square(32)),
       ],
     );
   }

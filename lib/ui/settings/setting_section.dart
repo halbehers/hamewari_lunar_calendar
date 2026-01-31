@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/theme/app_theme.dart';
+import 'package:hamewari/ui/separator.dart';
 
 class SettingSection extends StatelessWidget {
   const SettingSection({super.key, this.title, required this.items});
@@ -18,7 +19,7 @@ class SettingSection extends StatelessWidget {
             ? [
                 Padding(
                   padding: const EdgeInsetsGeometry.symmetric(vertical: 16),
-                  child: Text(title!, style: appTheme.h4),
+                  child: Text(title!, style: appTheme.subduedH4),
                 ),
               ]
             : []),
@@ -32,7 +33,7 @@ class SettingSection extends StatelessWidget {
               ...items.indexed.map<Widget>(
                 (item) => Column(
                   children: [
-                    ...(item.$1 > 0 ? [const SettingSectionSeparator()] : []),
+                    ...(item.$1 > 0 ? [const Separator()] : []),
                     Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 8.0,
@@ -47,20 +48,6 @@ class SettingSection extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class SettingSectionSeparator extends StatelessWidget {
-  const SettingSectionSeparator({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    AppTheme appTheme = Theme.of(context).extension<AppTheme>()!;
-
-    return Container(
-      height: 1,
-      decoration: BoxDecoration(color: appTheme.borderColor),
     );
   }
 }

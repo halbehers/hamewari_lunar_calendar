@@ -182,4 +182,42 @@ class CalendarLocalizationsEs extends CalendarLocalizations {
 
   @override
   String get zero_day => 'Día cero';
+
+  @override
+  String get new_event_title => 'Nuevo evento';
+
+  @override
+  String get new_event_caption_title => 'Título';
+
+  @override
+  String get new_event_caption_description => 'Descripción';
+
+  @override
+  String get new_event_caption_all_day => 'Todo el día';
+
+  @override
+  String get new_event_caption_start => 'Empieza';
+
+  @override
+  String get new_event_caption_end => 'Se acaba';
+
+  @override
+  String get new_event_caption_alert => 'Alerta';
+
+  @override
+  String get new_event_caption_notes => 'Notas';
+
+  @override
+  String alarms(String alarm) {
+    String _temp0 = intl.Intl.selectLogic(alarm, {
+      'none': 'Ninguna',
+      'atTime': 'En el momento del evento',
+      'fiveMinutesBefore': '5 minutos antes',
+      'tenMinutesBefore': '10 minutos antes',
+      'fifteenMinutesBefore': '15 minutos antes',
+      'thirtyMinutesBefore': '30 minutos antes',
+      'other': 'alerta no identificada',
+    });
+    return '$_temp0';
+  }
 }

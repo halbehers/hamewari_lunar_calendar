@@ -12,5 +12,14 @@
   "gregorian_month": "{month, select, 1 {janvier} 2 {février} 3 {mars} 4 {avril} 5 {mai} 6 {juin} 7 {juillet} 8 {août} 9 {septembre} 10 {octobre} 11 {novembre} 12 {décembre} other {non identifié}}",
   "gregorian_day_title": "{day, select, 1 {Lundi} 2 {Mardi} 3 {Mercredi} 4 {Jeudi} 5 {Vendredi} 6 {Samedi} 7 {Dimanche} other {Jour non identifié}}",
   "gregorian_day": "{day, select, 1 {lundi} 2 {mardi} 3 {mercredi} 4 {jeudi} 5 {vendredi} 6 {samedi} 7 {dimanche} other {non identifié}}",
-  "zero_day": "Jour zéro"
+  "zero_day": "Jour zéro",
+  "new_event_title": "Nouvel événement",
+  "new_event_caption_title": "Titre",
+  "new_event_caption_description": "Description",
+  "new_event_caption_all_day": "Toute la journée",
+  "new_event_caption_start": "Commence",
+  "new_event_caption_end": "Se termine",
+  "new_event_caption_alert": "Alerte",
+  "new_event_caption_notes": "Notes",
+  "alarms": "{alarm, select, none {Aucune} atTime {Au moment de l'événement} fiveMinutesBefore {5 minutes avant} tenMinutesBefore {10 minutes avant} fifteenMinutesBefore {15 minutes avant} thirtyMinutesBefore {30 minutes avant} other {Alarm non identifiée}}"
 }

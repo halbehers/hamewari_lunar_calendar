@@ -51,10 +51,12 @@ class ButtonStack<ID> extends StatelessWidget {
     return selectedId ?? items.first.id;
   }
 
+  bool _hasCaption(ButtonStackItem<ID> item) =>
+      displayCaptions && item.caption != null;
+
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
-
     return Container(
       decoration: BoxDecoration(
         color: appTheme.highlightedBackgroundColor,
@@ -73,9 +75,9 @@ class ButtonStack<ID> extends StatelessWidget {
       ),
       margin: margin,
       child: Padding(
-        padding: const EdgeInsetsGeometry.symmetric(
+        padding: EdgeInsetsGeometry.symmetric(
           vertical: 12,
-          horizontal: 24,
+          horizontal: items.length == 1 && !_hasCaption(items[0]) ? 12 : 24,
         ),
         child: Wrap(
           spacing: displayCaptions ? 24 : 16,
@@ -91,7 +93,7 @@ class ButtonStack<ID> extends StatelessWidget {
                         isActive: getSelectedId() == item.id,
                         size: getIconSize(),
                       ),
-                      ...(displayCaptions && item.caption != null
+                      ...(_hasCaption(item)
                           ? [
                               Padding(
                                 padding: const EdgeInsetsGeometry.only(top: 4),

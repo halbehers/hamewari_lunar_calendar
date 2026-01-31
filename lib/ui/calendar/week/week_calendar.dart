@@ -170,7 +170,7 @@ class _WeekCalendarState extends State<WeekCalendar> {
                                 )
                                 as String)
                             .capitalize(),
-                        style: appTheme.h4,
+                        style: appTheme.subduedH4,
                         textAlign: TextAlign.center,
                       ),
                     ),

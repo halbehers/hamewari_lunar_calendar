@@ -180,6 +180,60 @@ abstract class CalendarLocalizations {
   /// In en, this message translates to:
   /// **'Zero Day'**
   String get zero_day;
+
+  /// New event sheet title
+  ///
+  /// In en, this message translates to:
+  /// **'New event'**
+  String get new_event_title;
+
+  /// New event title caption
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get new_event_caption_title;
+
+  /// New event description caption
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get new_event_caption_description;
+
+  /// New event all-day caption
+  ///
+  /// In en, this message translates to:
+  /// **'All-day'**
+  String get new_event_caption_all_day;
+
+  /// New event start caption
+  ///
+  /// In en, this message translates to:
+  /// **'Starts'**
+  String get new_event_caption_start;
+
+  /// New event end caption
+  ///
+  /// In en, this message translates to:
+  /// **'Ends'**
+  String get new_event_caption_end;
+
+  /// New event alert caption
+  ///
+  /// In en, this message translates to:
+  /// **'Alert'**
+  String get new_event_caption_alert;
+
+  /// New event notes caption
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get new_event_caption_notes;
+
+  /// Alarms by name
+  ///
+  /// In en, this message translates to:
+  /// **'{alarm, select, none {None} atTime {At time of event} fiveMinutesBefore {5 minutes before} tenMinutesBefore {10 minutes before} fifteenMinutesBefore {15 minutes before} thirtyMinutesBefore {30 minutes before} other {Undefined alarm}}'**
+  String alarms(String alarm);
 }
 
 class _CalendarLocalizationsDelegate

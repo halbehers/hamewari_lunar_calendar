@@ -85,5 +85,11 @@ for dir in "$BASE_DIR"/*/; do
   echo
 
 done
+
+echo "Formatting generated files"
+dart format $BASE_DIR
+echo "✅ All generated files have been formatted successfully !"
+
+echo
   
 exit $EXIT_CODE

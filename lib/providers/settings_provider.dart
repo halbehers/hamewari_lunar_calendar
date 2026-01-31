@@ -518,7 +518,6 @@ class Timezones {
 }
 
 enum DefaultEventDuration {
-  none(0),
   fifteenMinutes(15),
   twentyMinutes(20),
   thirtyMinutes(30),

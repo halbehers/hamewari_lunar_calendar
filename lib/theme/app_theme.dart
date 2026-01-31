@@ -77,13 +77,27 @@ class AppTheme extends ThemeExtension<AppTheme> {
     fontSize: 20,
     fontWeight: FontWeight.w600,
   );
-  TextStyle get h4 => TextStyle(
+  TextStyle get h4 =>
+      TextStyle(color: textColor, fontSize: 18, fontWeight: FontWeight.w500);
+  TextStyle get subduedH4 => TextStyle(
     color: subduedTextColor,
     fontSize: 18,
     fontWeight: FontWeight.w500,
   );
-  TextStyle get h5 => TextStyle(
+  TextStyle get secondaryH4 => TextStyle(
+    color: secondaryColor,
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+  );
+  TextStyle get h5 =>
+      TextStyle(color: textColor, fontSize: 16, fontWeight: FontWeight.w500);
+  TextStyle get subduedH5 => TextStyle(
     color: subduedTextColor,
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
+  TextStyle get secondaryH5 => TextStyle(
+    color: secondaryColor,
     fontSize: 16,
     fontWeight: FontWeight.w500,
   );
@@ -101,6 +115,11 @@ class AppTheme extends ThemeExtension<AppTheme> {
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
+  TextStyle get secondaryBody => TextStyle(
+    color: secondaryColor,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
   TextStyle get dangerBody =>
       TextStyle(color: dangerColor, fontSize: 16, fontWeight: FontWeight.w400);
   TextStyle get invertedBoldBody => TextStyle(
@@ -112,6 +131,13 @@ class AppTheme extends ThemeExtension<AppTheme> {
       TextStyle(color: textColor, fontSize: 12, fontWeight: FontWeight.w400);
   TextStyle get invertedSmallText => TextStyle(
     color: invertedTextColor,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+  );
+  TextStyle get accentSmallText =>
+      TextStyle(color: accentColor, fontSize: 12, fontWeight: FontWeight.w400);
+  TextStyle get secondarySmallText => TextStyle(
+    color: secondaryColor,
     fontSize: 12,
     fontWeight: FontWeight.w400,
   );

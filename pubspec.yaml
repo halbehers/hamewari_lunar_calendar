@@ -44,7 +44,7 @@ dependencies:
   sweph: ^3.2.1+2.10.3
   loading_animation_widget: ^1.3.0
   timezone: ^0.11.0
-  change_case: ^2.2.0
+  wheel_picker: ^0.2.2
   flutter_localizations:
     sdk: flutter
 

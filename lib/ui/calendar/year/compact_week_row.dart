@@ -9,9 +9,20 @@ import 'package:hamewari/ui/calendar/day_number.dart';
 enum SeparatorPosition { start, end }
 
 class CompactWeekRow extends StatelessWidget {
-  const CompactWeekRow({super.key, required this.startOfWeek});
+  const CompactWeekRow({
+    super.key,
+    required this.startOfWeek,
+    this.onDayTap,
+    required this.initialDate,
+    this.highlightToday = true,
+    this.highlightInitialDate = false,
+  });
 
   final Date<dynamic> startOfWeek;
+  final Date<dynamic> initialDate;
+  final void Function(Date<dynamic> selectedDate)? onDayTap;
+  final bool highlightToday;
+  final bool highlightInitialDate;
 
   Widget buildSeparator(Color color, SeparatorPosition position) {
     final double paddingOf = 4.0;
@@ -42,10 +53,19 @@ class CompactWeekRow extends StatelessWidget {
         Colors.transparent;
   }
 
+  Date<dynamic> computeDay(Date<dynamic> day) {
+    return day.withHour(initialDate.hour).withMinute(initialDate.minute);
+  }
+
   @override
   Widget build(BuildContext context) {
     AppTheme appTheme = context.appTheme;
-    final calendarProvider = CalendarProvider.of(context);
+    late final CalendarProvider? calendarProvider;
+    try {
+      calendarProvider = CalendarProvider.of(context);
+    } catch (_) {
+      calendarProvider = null;
+    }
     Color weekBackgroundColor = getMoonPhaseBasedWeekColor(appTheme);
 
     return Column(
@@ -55,19 +75,25 @@ class CompactWeekRow extends StatelessWidget {
           children: [
             if (startOfWeek.hasMoonPhaseBasedWeeks)
               buildSeparator(weekBackgroundColor, SeparatorPosition.start),
-            ...startOfWeek.getAllDatesFromWeek().map(
-              (day) => DayNumber(
+            ...startOfWeek.getAllDatesFromWeek().map((day) {
+              final computedDay = computeDay(day);
+              return DayNumber(
                 day: day.day,
-                isActive: day.isToday,
-                onTap: () => calendarProvider.selectView(
-                  viewIndex: CalendarViewFactory.weekViewIndex,
-                  date: day,
-                ),
-                visibility: day.isSameMonth(startOfWeek)
+                isActive: highlightToday ? day.isToday : false,
+                isSelected: highlightInitialDate
+                    ? computedDay == initialDate
+                    : false,
+                onTap: () => onDayTap != null
+                    ? onDayTap!(computedDay)
+                    : calendarProvider?.selectView(
+                        viewIndex: CalendarViewFactory.weekViewIndex,
+                        date: computedDay,
+                      ),
+                visibility: computedDay.isSameMonth(startOfWeek)
                     ? DayVisibility.visible
                     : DayVisibility.hidden,
-              ),
-            ),
+              );
+            }),
             if (startOfWeek.hasMoonPhaseBasedWeeks)
               buildSeparator(weekBackgroundColor, SeparatorPosition.end),
           ],
