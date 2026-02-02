@@ -10,18 +10,18 @@ class SelectItem<T> {
   final T value;
 }
 
-class FormSelectField<T> extends StatelessWidget {
-  const FormSelectField({
+class SelectField<T> extends StatelessWidget {
+  const SelectField({
     super.key,
     required this.label,
     required this.initialValue,
-    required this.onChanged,
+    required this.onValueChanged,
     required this.items,
   });
 
   final String label;
   final T initialValue;
-  final void Function(T value) onChanged;
+  final void Function(T value) onValueChanged;
   final List<SelectItem<T>> items;
 
   @override
@@ -68,7 +68,7 @@ class FormSelectField<T> extends StatelessWidget {
                   )
                   .toList(),
               onChanged: (value) {
-                if (value != null) onChanged(value);
+                if (value != null) onValueChanged(value);
               },
             ),
           ),

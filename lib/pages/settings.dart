@@ -3,14 +3,14 @@ import 'package:hamewari/l10n/settings/settings_localizations.dart';
 import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/ui/buttons/main_page_selector.dart';
 import 'package:hamewari/main.dart';
-import 'package:hamewari/ui/settings/bool_setting.dart';
-import 'package:hamewari/ui/settings/button_reset_setting.dart';
-import 'package:hamewari/ui/settings/calendar_type_setting.dart';
-import 'package:hamewari/ui/settings/default_event_duration_setting.dart';
-import 'package:hamewari/ui/settings/timezone_setting.dart';
-import 'package:hamewari/ui/settings/locale_setting.dart';
+import 'package:hamewari/ui/form/fields/switch_field.dart';
+import 'package:hamewari/ui/settings/reset_setting_button.dart';
+import 'package:hamewari/ui/form/fields/calendar_type_select_field.dart';
+import 'package:hamewari/ui/form/fields/default_event_duration_select_field.dart';
+import 'package:hamewari/ui/form/fields/timezone_field.dart';
+import 'package:hamewari/ui/form/fields/locale_select_field.dart';
 import 'package:hamewari/ui/settings/setting_section.dart';
-import 'package:hamewari/ui/settings/theme_mode_setting.dart';
+import 'package:hamewari/ui/form/fields/theme_mode_toggle_switch_field.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -42,35 +42,34 @@ class SettingsPage extends StatelessWidget {
             SettingSection(
               title: t.display,
               items: [
-                const ThemeModeSetting(),
-                BoolSetting(
+                const ThemeModeToggleSwitchField(),
+                SwitchField(
                   label: t.display_menu_caption,
                   initialValue: settingsProvider.displayMenuCaptions,
-                  onChanged: settingsProvider.setDisplayMenuCaptions,
+                  onValueChanged: settingsProvider.setDisplayMenuCaptions,
                 ),
-                const LocaleSetting(),
+                const LocaleSelectField(),
               ],
             ),
             SettingSection(
               title: t.calendar,
               items: [
-                const CalendarTypeSetting(),
-                const TimezoneSetting(),
-                const DefaultEventDurationSetting(),
+                const CalendarTypeSelectField(),
+                const TimezoneField(),
+                const DefaultEventDurationSelectField(),
               ],
             ),
             SettingSection(
               title: t.effects,
               items: [
-                BoolSetting(
+                SwitchField(
                   label: t.haptics_enabled,
                   initialValue: settingsProvider.hapticEnabled,
-                  onChanged: settingsProvider.setHapticEnabled,
+                  onValueChanged: settingsProvider.setHapticEnabled,
                 ),
               ],
             ),
-            const ButtonResetSetting(),
-            // TODO: Add timezone (system | select)
+            const ResetSettingButton(),
             // TODO: About
           ],
         ),

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/calendar/date_factory.dart';
 import 'package:hamewari/l10n/settings/settings_localizations.dart';
 import 'package:hamewari/providers/settings_provider.dart';
-import 'package:hamewari/ui/settings/dropdown_setting.dart';
+import 'package:hamewari/ui/form/fields/select_field.dart';
 
-class CalendarTypeSetting extends StatelessWidget {
-  const CalendarTypeSetting({super.key, this.label});
+class CalendarTypeSelectField extends StatelessWidget {
+  const CalendarTypeSelectField({super.key, this.label});
 
   final String? label;
 
@@ -14,16 +14,14 @@ class CalendarTypeSetting extends StatelessWidget {
     final t = SettingsLocalizations.of(context)!;
     final settingsProvider = SettingsProvider.of(context);
 
-    return DropdownSetting<DateType>(
+    return SelectField<DateType>(
       label: label ?? t.calendar_type,
       initialValue: settingsProvider.calendar,
-      onChanged: settingsProvider.setCalendar,
+      onValueChanged: settingsProvider.setCalendar,
       items: DateType.values
           .map(
-            (type) => DropdownSettingItem(
-              label: t.calendar_types(type.name),
-              value: type,
-            ),
+            (type) =>
+                SelectItem(label: t.calendar_types(type.name), value: type),
           )
           .toList(),
     );

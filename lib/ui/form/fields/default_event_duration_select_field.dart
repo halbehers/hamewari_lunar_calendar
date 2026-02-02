@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/l10n/settings/settings_localizations.dart';
 import 'package:hamewari/providers/settings_provider.dart';
-import 'package:hamewari/ui/settings/dropdown_setting.dart';
+import 'package:hamewari/ui/form/fields/select_field.dart';
 
-class DefaultEventDurationSetting extends StatelessWidget {
-  const DefaultEventDurationSetting({super.key, this.label});
+class DefaultEventDurationSelectField extends StatelessWidget {
+  const DefaultEventDurationSelectField({super.key, this.label});
 
   final String? label;
 
@@ -13,13 +13,13 @@ class DefaultEventDurationSetting extends StatelessWidget {
     final t = SettingsLocalizations.of(context)!;
     final settingsProvider = SettingsProvider.of(context);
 
-    return DropdownSetting<DefaultEventDuration>(
+    return SelectField<DefaultEventDuration>(
       label: label ?? t.default_event_duration,
       initialValue: settingsProvider.defaultEventDuration,
-      onChanged: settingsProvider.setDefaultEventDuration,
+      onValueChanged: settingsProvider.setDefaultEventDuration,
       items: DefaultEventDuration.values
           .map(
-            (type) => DropdownSettingItem(
+            (type) => SelectItem(
               label: t.default_event_durations(type.name),
               value: type,
             ),

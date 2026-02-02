@@ -27,6 +27,7 @@ class SettingSection extends StatelessWidget {
           decoration: BoxDecoration(
             color: appTheme.highlightedBackgroundColor,
             borderRadius: BorderRadius.circular(16.0),
+            border: BoxBorder.all(color: appTheme.borderColor),
           ),
           child: Column(
             children: [
@@ -34,13 +35,7 @@ class SettingSection extends StatelessWidget {
                 (item) => Column(
                   children: [
                     ...(item.$1 > 0 ? [const Separator()] : []),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 8.0,
-                        horizontal: 24.0,
-                      ),
-                      child: item.$2,
-                    ),
+                    item.$2,
                   ],
                 ),
               ),

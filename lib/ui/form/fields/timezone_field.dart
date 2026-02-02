@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/l10n/settings/settings_localizations.dart';
 import 'package:hamewari/providers/settings_provider.dart';
-import 'package:hamewari/ui/settings/searchable_list_setting.dart';
+import 'package:hamewari/ui/form/fields/searchable_list_field.dart';
 
-class TimezoneSetting extends StatefulWidget {
-  const TimezoneSetting({super.key, this.label});
+class TimezoneField extends StatefulWidget {
+  const TimezoneField({super.key, this.label});
 
   final String? label;
 
   @override
-  State<TimezoneSetting> createState() => _TimezoneSettingState();
+  State<TimezoneField> createState() => _TimezoneFieldState();
 }
 
-class _TimezoneSettingState extends State<TimezoneSetting> {
+class _TimezoneFieldState extends State<TimezoneField> {
   bool _loading = true;
   Timezones? _tTimezone;
   Locale? _currentLocale;
@@ -44,20 +44,20 @@ class _TimezoneSettingState extends State<TimezoneSetting> {
     final settingsProvider = SettingsProvider.of(context);
     final isLoading = _loading || _tTimezone == null;
 
-    return SearchableListSetting<SettingTimezone>(
+    return SearchableListField<SettingTimezone>(
       label: widget.label ?? tSettings.timezone,
-      initialValue: SearchableListSettingItem(
+      initialValue: SearchableListItem(
         label: isLoading ? " " : _tTimezone![settingsProvider.timezone.l10nKey],
         value: settingsProvider.timezone,
       ),
-      onChanged: settingsProvider.setTimezone,
+      onValueChanged: settingsProvider.setTimezone,
       items: [
-        SearchableListSettingItem(
+        SearchableListItem(
           label: tSettings.timezone_system,
           value: SettingTimezone.empty,
         ),
         ...SettingTimezone.all.map(
-          (timezone) => SearchableListSettingItem(
+          (timezone) => SearchableListItem(
             label: isLoading ? "..." : _tTimezone![timezone.l10nKey],
             value: timezone,
           ),

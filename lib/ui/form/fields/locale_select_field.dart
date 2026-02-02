@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hamewari/l10n/general/general_localizations.dart';
 import 'package:hamewari/l10n/settings/settings_localizations.dart';
 import 'package:hamewari/providers/settings_provider.dart';
-import 'package:hamewari/ui/settings/dropdown_setting.dart';
+import 'package:hamewari/ui/form/fields/select_field.dart';
 
-class LocaleSetting extends StatelessWidget {
-  const LocaleSetting({super.key, this.label});
+class LocaleSelectField extends StatelessWidget {
+  const LocaleSelectField({super.key, this.label});
 
   final String? label;
 
@@ -20,17 +20,14 @@ class LocaleSetting extends StatelessWidget {
       const Locale("es"): gt.language_es,
     };
 
-    return DropdownSetting<SettingLocale>(
+    return SelectField<SettingLocale>(
       label: label ?? t.language,
       initialValue: settingsProvider.settingLocale,
-      onChanged: settingsProvider.setSettingLocale,
+      onValueChanged: settingsProvider.setSettingLocale,
       items: [
-        DropdownSettingItem(
-          label: t.language_system,
-          value: SettingLocale.empty,
-        ),
+        SelectItem(label: t.language_system, value: SettingLocale.empty),
         ...GeneralLocalizations.supportedLocales.map(
-          (locale) => DropdownSettingItem(
+          (locale) => SelectItem(
             label: languageByLocale[locale]!,
             value: SettingLocale.of(locale),
           ),

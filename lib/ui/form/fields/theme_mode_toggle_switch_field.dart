@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/l10n/settings/settings_localizations.dart';
 import 'package:hamewari/providers/settings_provider.dart';
-import 'package:hamewari/ui/settings/toggle_switch_setting.dart';
+import 'package:hamewari/ui/form/fields/toggle_switch_setting.dart';
 
-class ThemeModeSetting extends StatelessWidget {
-  const ThemeModeSetting({super.key, this.label});
+class ThemeModeToggleSwitchField extends StatelessWidget {
+  const ThemeModeToggleSwitchField({super.key, this.label});
 
   final String? label;
 
@@ -19,16 +19,14 @@ class ThemeModeSetting extends StatelessWidget {
       ThemeMode.system: t.theme_mode_system,
     };
 
-    return ToggleSwitchSetting(
+    return ToggleSwitchField(
       label: label ?? t.theme_mode,
       initialValue: settingsProvider.themeMode,
-      onChanged: settingsProvider.setThemeMode,
+      onValueChanged: settingsProvider.setThemeMode,
       items: ThemeMode.values
           .map(
-            (mode) => ToggleSwitchSettingItem(
-              label: labelByThemeModes[mode]!,
-              value: mode,
-            ),
+            (mode) =>
+                ToggleSwitchItem(label: labelByThemeModes[mode]!, value: mode),
           )
           .toList(),
     );

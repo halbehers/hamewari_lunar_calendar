@@ -5,8 +5,8 @@ import 'package:hamewari/providers/settings_provider.dart';
 import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/ui/settings/button_setting.dart';
 
-class ButtonResetSetting extends StatelessWidget {
-  const ButtonResetSetting({super.key, this.label});
+class ResetSettingButton extends StatelessWidget {
+  const ResetSettingButton({super.key, this.label});
 
   final String? label;
 

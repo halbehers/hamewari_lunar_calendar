@@ -12,23 +12,25 @@ import 'package:hamewari/ui/separator.dart';
 
 import '../../../calendar/date_formatter.dart';
 
-class FormDatePickerField extends StatefulWidget {
-  const FormDatePickerField({
+class DatePickerField extends StatefulWidget {
+  const DatePickerField({
     super.key,
     required this.label,
     this.initialValue,
     this.isEndDate = false,
+    this.onValueChanged,
   });
 
   final String label;
   final Date<dynamic>? initialValue;
+  final void Function(Date<dynamic> date)? onValueChanged;
   final bool isEndDate;
 
   @override
-  State<FormDatePickerField> createState() => _FormDatePickerFieldState();
+  State<DatePickerField> createState() => _DatePickerFieldState();
 }
 
-class _FormDatePickerFieldState extends State<FormDatePickerField>
+class _DatePickerFieldState extends State<DatePickerField>
     with TickerProviderStateMixin {
   late Date<dynamic> _selectedDate;
   bool _displayDatePicker = false;
@@ -82,6 +84,7 @@ class _FormDatePickerFieldState extends State<FormDatePickerField>
     setState(() {
       _selectedDate = date;
     });
+    widget.onValueChanged?.call(date);
   }
 
   @override

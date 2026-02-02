@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/main.dart';
 
-class FormSwitchField extends StatefulWidget {
-  const FormSwitchField({
+class SwitchField extends StatefulWidget {
+  const SwitchField({
     super.key,
     required this.label,
     this.initialValue = false,
+    this.onValueChanged,
   });
 
   final String label;
   final bool initialValue;
+  final void Function(bool value)? onValueChanged;
 
   @override
-  State<FormSwitchField> createState() => _FormSwitchFieldState();
+  State<SwitchField> createState() => _SwitchFieldState();
 }
 
-class _FormSwitchFieldState extends State<FormSwitchField> {
+class _SwitchFieldState extends State<SwitchField> {
   late bool value;
 
   @override
@@ -23,6 +25,13 @@ class _FormSwitchFieldState extends State<FormSwitchField> {
     super.initState();
 
     value = widget.initialValue;
+  }
+
+  void _onValueChanged(bool value) {
+    setState(() {
+      this.value = value;
+    });
+    widget.onValueChanged?.call(value);
   }
 
   @override
@@ -40,11 +49,7 @@ class _FormSwitchFieldState extends State<FormSwitchField> {
           Switch(
             value: value,
             activeThumbColor: appTheme.secondaryColor,
-            onChanged: (bool newValue) {
-              setState(() {
-                value = newValue;
-              });
-            },
+            onChanged: _onValueChanged,
           ),
         ],
       ),

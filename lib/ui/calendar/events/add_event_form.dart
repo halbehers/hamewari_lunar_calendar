@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide TextField;
 import 'package:hamewari/l10n/calendar/calendar_localizations.dart';
 import 'package:hamewari/main.dart';
 import 'package:hamewari/ui/custom_bottom_sheet.dart';
-import 'package:hamewari/ui/form/fields/alert_select.dart';
-import 'package:hamewari/ui/form/fields/date_picker.dart';
-import 'package:hamewari/ui/form/fields/switch.dart';
-import 'package:hamewari/ui/form/fields/text.dart';
+import 'package:hamewari/ui/form/fields/alert_select_field.dart';
+import 'package:hamewari/ui/form/fields/date_picker_field.dart';
+import 'package:hamewari/ui/form/fields/switch_field.dart';
+import 'package:hamewari/ui/form/fields/text_field.dart';
 import 'package:hamewari/ui/separator.dart';
 
 final _formKey = GlobalKey<FormState>();
@@ -46,7 +46,7 @@ class AddEventForm extends StatelessWidget {
               child: Column(
                 children: [
                   // title
-                  FormTextField(
+                  TextField(
                     hint: t.new_event_caption_title,
                     maxLength: 128,
                     autofocus: true,
@@ -54,7 +54,7 @@ class AddEventForm extends StatelessWidget {
                   ),
                   const Separator(),
                   // description
-                  FormTextField(
+                  TextField(
                     hint: t.new_event_caption_description,
                     maxLength: 512,
                     minLines: 2,
@@ -72,11 +72,11 @@ class AddEventForm extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  FormSwitchField(label: t.new_event_caption_all_day),
+                  SwitchField(label: t.new_event_caption_all_day),
                   const Separator(),
-                  FormDatePickerField(label: t.new_event_caption_start),
+                  DatePickerField(label: t.new_event_caption_start),
                   const Separator(),
-                  FormDatePickerField(
+                  DatePickerField(
                     label: t.new_event_caption_end,
                     isEndDate: true,
                   ),
@@ -89,7 +89,7 @@ class AddEventForm extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16.0),
                 border: BoxBorder.all(color: appTheme.borderColor),
               ),
-              child: const FormAlertSelectField(),
+              child: const AlertSelectField(),
             ),
             Container(
               decoration: BoxDecoration(
@@ -97,7 +97,7 @@ class AddEventForm extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16.0),
                 border: BoxBorder.all(color: appTheme.borderColor),
               ),
-              child: FormTextField(
+              child: TextField(
                 hint: t.new_event_caption_notes,
                 maxLength: 1028,
                 minLines: 5,

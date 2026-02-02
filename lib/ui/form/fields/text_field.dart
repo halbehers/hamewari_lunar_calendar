@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hamewari/main.dart';
 
-class FormTextField extends StatelessWidget {
-  const FormTextField({
+class TextField extends StatelessWidget {
+  const TextField({
     super.key,
     this.hint,
     this.helper,
@@ -13,6 +13,7 @@ class FormTextField extends StatelessWidget {
     this.autofocus = false,
     this.displayCounter = false,
     this.style,
+    this.onValueChanged,
   });
 
   final String? hint;
@@ -24,6 +25,8 @@ class FormTextField extends StatelessWidget {
   final bool autofocus;
   final bool displayCounter;
   final TextStyle? style;
+
+  final void Function(String value)? onValueChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +56,7 @@ class FormTextField extends StatelessWidget {
         maxLength: maxLength,
         validator: validator,
         style: style ?? appTheme.body,
+        onChanged: onValueChanged,
       ),
     );
   }

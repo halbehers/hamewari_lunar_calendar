@@ -5,26 +5,26 @@ import 'package:hamewari/theme/app_theme.dart';
 import 'package:hamewari/theme/h_icon.dart';
 import 'package:hamewari/theme/icon_path.dart';
 
-class SearchableListSettingItem<T> {
-  const SearchableListSettingItem({required this.label, required this.value});
+class SearchableListItem<T> {
+  const SearchableListItem({required this.label, required this.value});
 
   final String label;
   final T value;
 }
 
-class SearchableListSetting<T> extends StatelessWidget {
-  const SearchableListSetting({
+class SearchableListField<T> extends StatelessWidget {
+  const SearchableListField({
     super.key,
     required this.label,
     required this.initialValue,
-    required this.onChanged,
+    required this.onValueChanged,
     required this.items,
   });
 
   final String label;
-  final SearchableListSettingItem<T> initialValue;
-  final void Function(T value) onChanged;
-  final List<SearchableListSettingItem<T>> items;
+  final SearchableListItem<T> initialValue;
+  final void Function(T value)? onValueChanged;
+  final List<SearchableListItem<T>> items;
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +36,13 @@ class SearchableListSetting<T> extends StatelessWidget {
           builder: (context) => _SearchableListPage(
             label: label,
             initialValue: initialValue,
-            onChanged: onChanged,
+            onChanged: (value) => onValueChanged?.call(value),
             items: items,
           ),
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,9 +89,9 @@ class _SearchableListPage<T> extends StatefulWidget {
   });
 
   final String label;
-  final SearchableListSettingItem<T> initialValue;
+  final SearchableListItem<T> initialValue;
   final void Function(T value) onChanged;
-  final List<SearchableListSettingItem<T>> items;
+  final List<SearchableListItem<T>> items;
 
   @override
   State<_SearchableListPage<T>> createState() => _SearchableListPageState<T>();
@@ -99,7 +99,7 @@ class _SearchableListPage<T> extends StatefulWidget {
 
 class _SearchableListPageState<T> extends State<_SearchableListPage<T>> {
   late T _selectedValue;
-  late List<SearchableListSettingItem<T>> _results;
+  late List<SearchableListItem<T>> _results;
 
   @override
   void initState() {
@@ -235,7 +235,7 @@ class _SearchableListSettingItemRow<T> extends StatelessWidget {
   });
 
   final bool isSelected;
-  final SearchableListSettingItem<T> item;
+  final SearchableListItem<T> item;
   final void Function(T value) onChanged;
   final bool isFirst;
 
